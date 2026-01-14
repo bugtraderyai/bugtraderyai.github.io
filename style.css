@@ -94,3 +94,83 @@ footer {
   color: #6b7280;
   border-top: 1px solid #e5e7eb;
 }
+/* ===== Reading Experience Upgrade ===== */
+
+/* จำกัดความกว้างให้ดูแพงขึ้น */
+body > * {
+  max-width: 760px;
+}
+
+/* Hero Title (h1 หน้าแรก) */
+h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  margin-top: 3.5rem;
+  margin-bottom: 1.8rem;
+}
+
+/* Subtitle ใต้ h1 */
+h1 + p {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #374151;
+}
+
+/* Paragraph หลัก */
+p {
+  font-size: 1.05rem;
+  color: #1f2937;
+}
+
+/* Section Headings */
+h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  border-left: none;
+  padding-left: 0;
+  position: relative;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 0.4em;
+  width: 6px;
+  height: 1.4em;
+  background-color: #111827;
+}
+
+/* Lists ดูเป็นบทวิเคราะห์ */
+ul {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+li {
+  margin-bottom: 0.6rem;
+}
+
+/* Link section ท้ายบท */
+ul li a {
+  text-decoration: none;
+  border-bottom: 1px solid #9ca3af;
+}
+
+ul li a:hover {
+  border-bottom-color: #111827;
+}
+
+/* Divider ให้ดูนิ่ง */
+hr {
+  margin: 3rem 0;
+}
+
+/* Mobile ปรับเล็กน้อย */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem;
+  }
+}

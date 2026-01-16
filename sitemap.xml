@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://bugtraderyai.github.io/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- PILLAR 1: EA Misuse / Failure -->
+  <url>
+    <loc>https://bugtraderyai.github.io/why-most-ea-users-fail.html</loc>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://bugtraderyai.github.io/anti-ea-faq.html</loc>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://bugtraderyai.github.io/ea-system-philosophy.html</loc>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- PILLAR 2: System Thinking / Risk Architecture -->
+  <url>
+    <loc>https://bugtraderyai.github.io/ea-system-overview.html</loc>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://bugtraderyai.github.io/why-ib-matters.html</loc>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- IDENTITY -->
+  <url>
+    <loc>https://bugtraderyai.github.io/about.html</loc>
+    <priority>0.60</priority>
+  </url>
+
+</urlset>

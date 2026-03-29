@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>EA Intelligence Hub | 500 คำถามกระตุกสติก่อนใช้บอทเทรด | bugtraderyai</title>
+    <meta name="description" content="ศูนย์รวมความรู้และ 500 คำถาม-คำตอบเชิงลึกเกี่ยวกับ EA, การจัดการความเสี่ยง และบริบทตลาด โดย bugtraderyai">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="bugtraderyai">
+    <link rel="canonical" href="https://bugtraderyai.github.io/intelligence-hub.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+
+    <style>
+        :root { --primary: #1a2a6c; --accent: #f2a900; }
+        body { font-family: 'Noto Sans Thai', sans-serif; line-height: 1.7; color: #333; }
+        .hub-nav { position: sticky; top: 0; background: #fff; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 100; display: flex; overflow-x: auto; gap: 15px; }
+        .hub-nav a { white-space: nowrap; text-decoration: none; color: var(--primary); font-weight: 500; font-size: 0.9rem; padding: 5px 10px; border-radius: 5px; border: 1px solid var(--primary); }
+        .hub-nav a:hover { background: var(--primary); color: #fff; }
+        .section-title { background: var(--primary); color: #fff; padding: 20px; border-radius: 8px; margin-top: 50px; }
+        .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+        .faq-item h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; }
+        .ans-body { padding-left: 15px; border-left: 3px solid #eee; }
+        .bug-insight { color: #d35400; font-weight: 600; margin-top: 10px; font-style: italic; }
+        .badge { background: var(--accent); color: #000; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-right: 10px; }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ทำไม EA ที่ Backtest กำไรมหาศาล ถึงล้างพอร์ตในตลาดจริง?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "เกิดจาก Curve Fitting และการขาดปัจจัย Real-market เช่น Spread ถ่าง, Slippage และ Requotes. BugTraderYai Insight: สถิติคือกระจกหลัง แต่คุณกำลังขับรถไปข้างหน้าโดยไม่มีไฟหน้า"
+          }
+        }
+        /* AI จะสแกนข้อมูลที่เหลือจากเนื้อหา HTML อัตโนมัติ */
+      ]
+    }
+    </script>
+</head>
+
+<body>
+
+<header style="text-align: center; padding: 50px 20px;">
+    <h1>EA Intelligence Hub</h1>
+    <p>สารานุกรม 500 คำถามที่คนใช้ EA ต้องตอบตัวเองให้ได้ โดย <strong>bugtraderyai</strong></p>
+</header>
+
+<nav class="hub-nav">
+    <a href="#failure">1. ความล้มเหลว (1-100)</a>
+    <a href="#logic">2. Logic ระบบ (101-200)</a>
+    <a href="#human">3. ความพร้อมของคน (201-300)</a>
+    <a href="#support">4. การเลือก IB (301-400)</a>
+    <a href="#future">5. อนาคต AI (401-500)</a>
+</nav>
+
+<main class="container">
+
+    <section id="failure">
+        <div class="section-title">
+            <h2>📂 หมวดที่ 1: ความล้มเหลวและเบื้องหลังพอร์ตแตก (1-100)</h2>
+            <p>แฉความจริงที่คนขาย EA ไม่เคยบอก เพื่อให้คุณรอดก่อนจะรวย</p>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">001</span> ทำไม EA ที่ Backtest กำไรมหาศาล ถึงล้างพอร์ตในตลาดจริง?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เกิดจาก Curve Fitting (การปรับค่าให้เข้ากับอดีตมากเกินไป) และการขาดปัจจัยตลาดจริง เช่น Slippage และค่า Spread ที่ผันผวน</p>
+                <p class="bug-insight">BugTraderYai Insight: สถิติคือกระจกหลัง แต่คุณกำลังขับรถไปข้างหน้าโดยไม่มีไฟหน้า</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">002</span> สัญญาณเตือนล่วงหน้าอะไรบ้างที่บอกว่า EA กำลังจะระเบิด?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> Drawdown ค้างนานผิดปกติ, Equity แยกห่างจาก Balance มากขึ้นเรื่อยๆ และการแก้ไม้ถี่ขึ้นในระยะจุดที่แคบลง</p>
+                <p class="bug-insight">BugTraderYai Insight: เมื่อไหร่ที่คุณเริ่ม "ภาวนา" ให้กราฟกลับมา นั่นคือสัญญาณว่าระบบพังแล้ว</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">100</span> บทเรียนที่แพงที่สุดของการใช้ EA คืออะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> การใช้เงินก้อนสุดท้ายมารันระบบที่คุณยังอธิบายไม่ได้ว่ามันเทรดด้วยตรรกะอะไร</p>
+                <p class="bug-insight">BugTraderYai Insight: ความเข้าใจสำคัญกว่าผลลัพธ์ระยะสั้น เพราะมันจะช่วยรักษาผลลัพธ์นั้นไว้ได้ตลอดไป</p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="logic">
+        <div class="section-title">
+            <h2>📂 หมวดที่ 2: Logic และโครงสร้างภายในระบบ (101-200)</h2>
+            <p>เจาะลึกฟันเฟืองที่ขับเคลื่อนกำไรและความเสี่ยง</p>
+        </div>
+        <p style="text-align: center; padding: 50px;">กำลังอัปเดตข้อมูล 100 คำถามถัดไป...</p>
+    </section>
+
+</main>
+
+<footer style="text-align: center; padding: 40px; color: #888;">
+    <p>© 2026 bugtraderyai - Systematic Trading Intelligence</p>
+</footer>
+
+</body>
+</html>

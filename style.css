@@ -1,92 +1,143 @@
-/* ===== Google Developers–like Documentation Style ===== */
+/* ===== Google Developers Style + BugTraderYai Identity ===== */
+
+:root {
+    --primary-color: #0d1b4a; /* น้ำเงินเข้ม Authority */
+    --accent-color: #fbc02d;  /* เหลืองทองสว่าง */
+    --google-blue: #1a73e8;   /* ฟ้า Google เดิม */
+    --text-dark: #202124;
+    --text-secondary: #3c4043;
+    --text-insight: #d35400;  /* สีส้มสำหรับ Insight */
+    --white: #ffffff;
+}
 
 html {
- font-family: 'Noto Sans Thai', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
-  color: #202124;
-  background-color: #ffffff;
+    font-family: 'Noto Sans Thai', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    color: var(--text-dark);
+    background-color: var(--white);
+    scroll-behavior: smooth; /* เลื่อนนุ่มๆ เวลาคลิก Nav */
 }
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
-/* Main content container */
-body > * {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem;
+/* คอนเทนเนอร์หลัก */
+.hub-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
 }
 
-/* Hero title */
+/* ส่วนหัวข้อหลัก */
 h1 {
-  font-size: 2.75rem;
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: 1.2rem;
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 1.2rem;
+    color: var(--primary-color);
 }
 
-/* Intro text under h1 */
-h1 + p {
-  font-size: 1.05rem;
-  color: #3c4043;
-  max-width: 720px;
-}
-
-/* Paragraphs */
+/* Paragraph ทั่วไป */
 p {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #3c4043;
-  max-width: 720px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
 }
 
-/* Section block */
-h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-top: 4rem;
-  margin-bottom: 0.8rem;
-  padding-left: 0.75rem;
-  border-left: 4px solid #1a73e8;
+/* --- แก้ไขส่วน "สีจม" (Section Title Block) --- */
+.section-title {
+    background-color: var(--primary-color); /* พื้นหลังน้ำเงินเข้ม */
+    color: var(--white) !important;        /* ตัวหนังสือต้องขาวเท่านั้น */
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    border-left: 8px solid var(--accent-color); /* เส้นตัดสีเหลืองทอง */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
-/* Lists */
-ul {
-  max-width: 720px;
-  padding-left: 1.2rem;
+.section-title h2 {
+    color: var(--white) !important; /* บังคับหัวข้อเป็นสีขาว */
+    margin: 0;
+    font-size: 1.8rem;
+    border-left: none; /* เอาเส้นขอบเดิมของสไตล์ Google ออกในส่วนนี้ */
+    padding-left: 0;
 }
 
-li {
-  margin-bottom: 0.6rem;
-  font-size: 0.95rem;
+.section-title p {
+    color: rgba(255, 255, 255, 0.85) !important; /* คำอธิบายขาวนวล */
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 1.1rem;
 }
 
-/* Links */
-a {
-  color: #1a73e8;
-  text-decoration: none;
+/* --- ส่วนคำถาม FAQ (100 ข้อ) --- */
+.faq-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e8eaed;
 }
 
-a:hover {
-  text-decoration: underline;
+.faq-item h3 {
+    font-size: 1.15rem;
+    color: var(--google-blue); /* ใช้สีฟ้า Google สำหรับคำถามเพื่อให้ดูเป็นมิตร */
+    margin-bottom: 0.5rem;
 }
 
-/* Divider */
-hr {
-  border: none;
-  border-top: 1px solid #e8eaed;
-  margin: 3rem 0;
+.badge {
+    background: var(--accent-color);
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.bug-insight {
+    color: var(--text-insight);
+    font-weight: 600;
+    margin-top: 0.8rem;
+    padding: 10px 15px;
+    background: #fff8f0; /* พื้นหลังส้มอ่อนๆ ให้เด่นขึ้นมา */
+    border-radius: 6px;
+    font-style: italic;
+}
+
+/* Nav Bar แบบ Sticky */
+.hub-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(5px);
+    padding: 1rem 0;
+    border-bottom: 1px solid #e8eaed;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.hub-nav a {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border: 1px solid var(--google-blue);
+    border-radius: 20px;
+    color: var(--google-blue);
+}
+
+.hub-nav a:hover {
+    background: var(--google-blue);
+    color: #white;
+    text-decoration: none;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-  body > * {
-    padding: 2rem 1.2rem;
-  }
-
-  h1 {
-    font-size: 2.2rem;
-  }
+    h1 { font-size: 2.2rem; }
+    .section-title { padding: 1.5rem; }
 }

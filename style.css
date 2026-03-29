@@ -1,62 +1,116 @@
-/* ===== BugTraderYai Final Clean Style ===== */
+/* ===== BugTraderYai Unified Style V4 (Anti-Box Fix) ===== */
 
 :root {
     --primary-color: #0d1b4a;
     --accent-color: #fbc02d;
     --google-blue: #1a73e8;
+    --text-dark: #202124;
+    --text-secondary: #3c4043;
+    --text-insight: #d35400;
+    --white: #ffffff;
 }
 
-html { font-family: 'Noto Sans Thai', sans-serif; font-size: 16px; scroll-behavior: smooth; }
-body { margin: 0; padding: 0; }
+html, body {
+    font-family: 'Noto Sans Thai', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--white);
+    color: var(--text-dark);
+}
 
-/* 1. คุมระยะขอบทุกหน้า (ห้ามชิดขอบ) */
-body > * {
+/* --- จุดที่ทำให้เกิดกล่อง: แก้ไขโดยระบุเฉพาะ Tag ที่ต้องการคุมระยะขอบ --- */
+/* แทนที่จะใช้ body > * เราจะระบุเฉพาะ Tag เนื้อหาหลักเท่านั้น */
+body > h1, 
+body > h2, 
+body > p, 
+body > ul, 
+body > ol, 
+body > main, 
+body > header, 
+body > section,
+.container {
     max-width: 960px;
     margin: 0 auto;
-    padding: 2.5rem 2rem;
+    padding: 1.5rem 2rem;
     box-sizing: border-box;
+    display: block;
 }
 
-/* 2. แก้ Nav ให้เป็นระเบียบ (ไม่เป็นภาระ) */
+/* --- ยกเว้น HR ไม่ให้เป็นกล่อง --- */
+hr {
+    border: none;
+    border-top: 1px solid #e8eaed;
+    margin: 3rem auto;
+    max-width: 960px;
+    padding: 0 !important; /* ลบ padding ทิ้งขัดคำสั่งบน */
+    height: 0;
+}
+
+/* --- Navigation Fix: Desktop & Mobile --- */
 .hub-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    border-bottom: 1px solid #e8eaed;
     display: flex;
-    flex-wrap: wrap; /* ถ้ายาวเกินให้ขึ้นบรรทัดใหม่ */
-    gap: 8px;
-    margin-top: 20px;
-    padding: 0 !important; /* ลบ padding ที่ body > * บังคับมา */
+    justify-content: center;
+    flex-wrap: nowrap; /* Desktop แถวเดียว */
+    gap: 12px;
+    padding: 1rem !important;
+    max-width: 100% !important; 
 }
 
 .hub-nav a {
-    text-decoration: none;
-    color: var(--google-blue);
-    border: 1px solid var(--google-blue);
-    padding: 8px 12px;
-    border-radius: 20px;
     font-size: 14px;
-    background: #fff;
-    transition: 0.2s;
+    padding: 8px 18px;
+    border: 1px solid var(--google-blue);
+    border-radius: 25px;
+    color: var(--google-blue);
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: 500;
 }
 
-.hub-nav a:hover { background: var(--google-blue); color: #fff !important; }
+/* Mobile Fix สำหรับ Nav */
+@media (max-width: 768px) {
+    .hub-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        flex-wrap: wrap;
+        max-width: 100% !important;
+    }
+    .hub-nav a {
+        font-size: 13px;
+        padding: 10px 5px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .hub-nav a:last-child { grid-column: span 2; }
+    
+    /* ปรับระยะขอบเนื้อหาบนมือถือ */
+    body > h1, body > h2, body > p, body > ul, body > main, body > section {
+        padding: 1rem 1.2rem;
+    }
+}
 
-/* 3. ส่วนสีเข้ม (แก้สีจม) */
+/* --- Typography --- */
+h1 { font-size: 2.75rem; font-weight: 700; line-height: 1.25; margin-bottom: 1.2rem; }
+h2 { font-size: 1.4rem; font-weight: 600; margin-top: 3rem; border-left: 4px solid var(--google-blue); padding-left: 0.75rem; }
+
+/* --- Section Title & FAQ (Hub Page) --- */
 .section-title {
     background: var(--primary-color) !important;
     color: #fff !important;
-    padding: 2rem !important;
+    padding: 2.5rem !important;
     border-radius: 12px;
     border-left: 8px solid var(--accent-color) !important;
+    margin: 2rem auto !important;
 }
-.section-title h2 { color: #fff !important; border: none !important; margin: 0 !important; padding: 0 !important; }
+.section-title h2 { color: #fff !important; border: none !important; padding: 0 !important; margin: 0 !important; }
+.section-title p { color: rgba(255,255,255,0.85) !important; margin: 10px 0 0 0 !important; }
 
-/* 4. Insight & FAQ */
-.bug-insight { color: #d35400; background: #fff8f0; padding: 15px; border-radius: 8px; font-style: italic; margin-top: 10px; }
-.faq-item { border-bottom: 1px solid #eee; padding: 1.5rem 0; }
-.badge { background: var(--accent-color); padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-right: 10px; }
-
-/* Mobile ปรับขนาด */
-@media (max-width: 600px) {
-    body > * { padding: 1.5rem 1rem; }
-    h1 { font-size: 2rem; }
-    .hub-nav { justify-content: center; }
-}
+.faq-item { border-bottom: 1px solid #e8eaed; padding: 1.5rem 0; }
+.bug-insight { color: var(--text-insight); background: #fff8f0; padding: 15px; border-radius: 6px; font-style: italic; margin-top: 10px; }
+.badge { background: var(--accent-color); padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-right: 10px; color: #000; }

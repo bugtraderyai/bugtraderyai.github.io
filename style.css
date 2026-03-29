@@ -1,29 +1,15 @@
-/* ===== BugTraderYai Unified Style (V2: Mobile Optimized) ===== */
+/* ===== BugTraderYai Final Clean Style ===== */
 
 :root {
-    --primary-color: #0d1b4a; 
-    --accent-color: #fbc02d;  
-    --google-blue: #1a73e8;   
-    --text-dark: #202124;
-    --text-secondary: #3c4043;
-    --text-insight: #d35400;  
-    --white: #ffffff;
+    --primary-color: #0d1b4a;
+    --accent-color: #fbc02d;
+    --google-blue: #1a73e8;
 }
 
-html {
-    font-family: 'Noto Sans Thai', system-ui, -apple-system, sans-serif;
-    font-size: 16px;
-    color: var(--text-dark);
-    background-color: var(--white);
-    scroll-behavior: smooth;
-}
+html { font-family: 'Noto Sans Thai', sans-serif; font-size: 16px; scroll-behavior: smooth; }
+body { margin: 0; padding: 0; }
 
-body {
-    margin: 0;
-    padding: 0;
-}
-
-/* --- จุดแก้สำคัญ: คุมระยะขอบให้ทุกหน้า --- */
+/* 1. คุมระยะขอบทุกหน้า (ห้ามชิดขอบ) */
 body > * {
     max-width: 960px;
     margin: 0 auto;
@@ -31,148 +17,46 @@ body > * {
     box-sizing: border-box;
 }
 
-/* --- แก้ไข Navigation: ลบภาระการเลื่อนข้างบนมือถือ --- */
+/* 2. แก้ Nav ให้เป็นระเบียบ (ไม่เป็นภาระ) */
 .hub-nav {
-    position: sticky;
-    top: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(8px);
-    z-index: 1000;
-    border-bottom: 1px solid #e8eaed;
-    
-    /* ระบบ Grid สำหรับมือถือ */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* แบ่ง 2 คอลัมน์ */
+    display: flex;
+    flex-wrap: wrap; /* ถ้ายาวเกินให้ขึ้นบรรทัดใหม่ */
     gap: 8px;
-    padding: 1rem !important; /* บังคับ Padding ไม่ให้ชิดขอบ */
-    max-width: 100% !important; /* ให้ Nav กว้างเต็มจอแต่เนื้อหาข้างในคุมด้วย Grid */
+    margin-top: 20px;
+    padding: 0 !important; /* ลบ padding ที่ body > * บังคับมา */
 }
 
 .hub-nav a {
-    font-size: 0.8rem;
-    padding: 12px 5px;
-    border: 1px solid var(--google-blue);
-    border-radius: 8px;
-    color: var(--google-blue);
-    text-align: center;
     text-decoration: none;
-    font-weight: 500;
+    color: var(--google-blue);
+    border: 1px solid var(--google-blue);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
     background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: 0.2s;
 }
 
-.hub-nav a:hover {
-    background: var(--google-blue);
-    color: #fff !important;
-}
+.hub-nav a:hover { background: var(--google-blue); color: #fff !important; }
 
-/* ปรับ Nav เมื่อเป็นหน้าจอคอม */
-@media (min-width: 768px) {
-    .hub-nav {
-        display: flex;
-        justify-content: center;
-        grid-template-columns: none;
-        max-width: 960px !important; /* บนคอมให้กว้างเท่าเนื้อหาหลัก */
-    }
-    .hub-nav a {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-        border-radius: 20px;
-    }
-}
-
-/* สำหรับมือถือจอเล็กมาก ให้เรียง 1 คอลัมน์ */
-@media (max-width: 380px) {
-    .hub-nav {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* --- ส่วนอื่นๆ ของหน้าเว็บ --- */
-h1 {
-    font-size: 2.75rem;
-    font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 1.2rem;
-}
-
-p {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    max-width: 720px;
-}
-
-h2 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-top: 4rem;
-    margin-bottom: 0.8rem;
-    padding-left: 0.75rem;
-    border-left: 4px solid var(--google-blue);
-}
-
+/* 3. ส่วนสีเข้ม (แก้สีจม) */
 .section-title {
-    background-color: var(--primary-color) !important;
-    color: var(--white) !important;
-    padding: 2.5rem !important;
+    background: var(--primary-color) !important;
+    color: #fff !important;
+    padding: 2rem !important;
     border-radius: 12px;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
     border-left: 8px solid var(--accent-color) !important;
-    max-width: 100%;
 }
+.section-title h2 { color: #fff !important; border: none !important; margin: 0 !important; padding: 0 !important; }
 
-.section-title h2 {
-    color: var(--white) !important;
-    border-left: none !important;
-    padding-left: 0 !important;
-    margin-top: 0 !important;
-}
+/* 4. Insight & FAQ */
+.bug-insight { color: #d35400; background: #fff8f0; padding: 15px; border-radius: 8px; font-style: italic; margin-top: 10px; }
+.faq-item { border-bottom: 1px solid #eee; padding: 1.5rem 0; }
+.badge { background: var(--accent-color); padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-right: 10px; }
 
-.section-title p {
-    color: rgba(255, 255, 255, 0.85) !important;
-    max-width: 100%;
-}
-
-.faq-item {
-    border-bottom: 1px solid #e8eaed;
-    padding: 1.5rem 0;
-}
-
-.bug-insight {
-    color: var(--text-insight);
-    font-weight: 600;
-    padding: 15px;
-    background: #fff8f0;
-    border-radius: 6px;
-    font-style: italic;
-    margin-top: 10px;
-}
-
-.badge {
-    background: var(--accent-color);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: bold;
-    margin-right: 10px;
-    color: #000;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid #e8eaed;
-    margin: 3rem 0;
-    max-width: 960px;
-}
-
-@media (max-width: 768px) {
-    body > * {
-        padding: 2rem 1.2rem;
-    }
-    h1 {
-        font-size: 2.2rem;
-    }
+/* Mobile ปรับขนาด */
+@media (max-width: 600px) {
+    body > * { padding: 1.5rem 1rem; }
+    h1 { font-size: 2rem; }
+    .hub-nav { justify-content: center; }
 }

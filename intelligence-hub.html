@@ -47,6 +47,788 @@
         </div>
 
         <div class="faq-item">
+            <h3><span class="badge">002</span> สัญญาณเตือนล่วงหน้าอะไรบ้างที่บอกว่า EA กำลังจะระเบิด?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> Drawdown ค้างนานผิดปกติ, Equity แยกห่างจาก Balance มากขึ้นเรื่อยๆ และการแก้ไม้ถี่ขึ้นในระยะจุดที่แคบลง</p>
+                <p class="bug-insight">BugTraderYai Insight: เมื่อไหร่ที่คุณเริ่ม "ภาวนา" ให้กราฟกลับมา นั่นคือสัญญาณว่าระบบพังแล้ว</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">003</span> EA Martingale อันตรายแค่ไหนเมื่อเจอเทรนด์ยาวๆ?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> อันตรายระดับล้างพอร์ต 100% เพราะระบบนี้ต้องการจุดย่อตัว แต่เทรนด์สามารถวิ่งได้ไกลกว่าเงินในพอร์ตเสมอ</p>
+                <p class="bug-insight">BugTraderYai Insight: อย่าใช้ปืนพก (เงินทุนจำกัด) ไปสู้กับนิวเคลียร์ (เทรนด์ตลาดโลก)</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">004</span> ทำไม Drawdown ถึงค้างนานผิดปกติ ทั้งที่กราฟราคาดูวิ่งไม่แรง?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เกิดจากสภาวะ Low Liquidity หรือตลาดไซด์เวย์ในโซนที่ไม่มีออเดอร์ฝั่งตรงข้ามมา Match ทำให้ปิดรอบไม่ได้ และโดนค่า Swap กัดกิน</p>
+                <p class="bug-insight">BugTraderYai Insight: DD ที่นิ่งนานคือยาพิษที่ค่อยๆ ออกฤทธิ์ อย่ามองแค่ตัวเลข ให้มองที่ "เวลา"</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">005</span> โบรกเกอร์โกง EA เราได้วิธีไหนบ้าง?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> การขยาย Spread ช่วงข่าว, การทำ Stop Hunting (ลากไส้เทียนไปกิน SL) และการหน่วงคำสั่ง (Latency)</p>
+                <p class="bug-insight">BugTraderYai Insight: ถ้าโบรกเกอร์คือเจ้ามือคาสิโน คุณต้องเลือกคาสิโนที่มีใบอนุญาตระดับโลกเท่านั้น</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">006</span> EA ฟรีแฝงไวรัสหรือระบบดึงเงินคืนไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มีโอกาสสูง มักแฝง Script ดึงข้อมูลพอร์ต หรือตั้งเวลาหยุดทำงาน (Time Bomb) เพื่อบังคับให้คุณจ่ายเงินภายหลัง</p>
+                <p class="bug-insight">BugTraderYai Insight: ของฟรีที่ไม่มีการอธิบาย Logic คือ "กับดัก" ที่แพงที่สุด</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">007</span> กำไรโดนลบ (Profit Cancellation) หลังปิดระบบ เกิดจากอะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> โบรกเกอร์อ้างว่าคุณเทรดผิดกฎ (Arbitrage/Scalping เร็วเกินไป) ซึ่งมักเกิดกับโบรกเกอร์สาย B-Book</p>
+                <p class="bug-insight">BugTraderYai Insight: การเลือกโบรกเกอร์คือ 50% ของความสำเร็จในสาย EA</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">008</span> Slippage ฆ่า EA ได้อย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ทำให้จุดเข้าและจุดออกห่างจาก Logic ที่ตั้งไว้เพียงไม่กี่จุด แต่ในสาย Scalping 1-2 จุดคือส่วนต่างระหว่างกำไรกับขาดทุน</p>
+                <p class="bug-insight">BugTraderYai Insight: ความไวคือปีศาจ ถ้า Server คุณช้า คุณก็คือเหยื่อ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">009</span> พอร์ตแตกเพราะ "ข่าว" หรือเพราะ "Logic ระบบ"?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ข่าวคือตัวเร่ง แต่ Logic ที่ไม่มีการจำกัดความเสี่ยงคือสาเหตุที่แท้จริง</p>
+                <p class="bug-insight">BugTraderYai Insight: พายุไม่ได้ทำลายบ้านที่โครงสร้างแข็งแรง ข่าวก็เช่นกัน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">010</span> ถ้า VPS ดับ หรือเน็ตหลุด จะทำให้ EA เปิดออเดอร์มั่วไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ส่วนใหญ่จะไม่เปิดมั่ว แต่จะ "ค้าง" ทำให้ออเดอร์ที่ควรปิดกลับถูกลากยาวจนล้างพอร์ต</p>
+                <p class="bug-insight">BugTraderYai Insight: VPS คือลมหายใจของบอท อย่าขี้เกียจเช็คสถานะมันทุกวัน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">011</span> การตั้งค่า Lot Size ผิดสัมพันธ์กับ Leverage ส่งผลอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ทำให้ Margin Level ต่ำเกินไป ระบบจะบังคับปิดออเดอร์ (Stop Out) ทั้งที่กราฟยังไปไม่ถึงจุดคัดลอส</p>
+                <p class="bug-insight">BugTraderYai Insight: Leverage คืออำนาจที่มาพร้อมความรับผิดชอบ อย่าใช้เกินกำลังทุน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">012</span> ใช้ EA หลายตัวในพอร์ตเดียวอันตรายอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เกิดความเสี่ยงซ้อนทับ (Correlation) เมื่อคู่เงินวิ่งไปทางเดียวกัน พอร์ตจะรับภาระหนักกว่าที่คำนวณไว้หลายเท่า</p>
+                <p class="bug-insight">BugTraderYai Insight: การกระจายความเสี่ยงที่ผิดวิธี คือการรวมความเสี่ยงมาไว้ที่เดียว</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">013</span> Spread ถ่างช่วงเปลี่ยนวัน (Rollover) ส่งผลอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ทำให้ EA สาย Scalping เข้าเทรดในจุดที่ขาดทุนทันทีตั้งแต่เริ่มออกไม้ หรือโดนลาก SL ทั้งที่ราคาจริงยังไม่ถึง</p>
+                <p class="bug-insight">BugTraderYai Insight: ช่วงตี 4-5 คือเวลา "กินตับ" ของโบรกเกอร์ ถ้าบอทคุณไม่หลบ คุณคือเหยื่อ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">014</span> ทำไม EA ไม่ยอมออกออเดอร์ ทั้งที่กราฟวิ่งแรง?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มักเกิดจากชื่อคู่เงินไม่ตรง (เช่น มี .pro ต่อท้าย) หรือค่า Spread ปัจจุบันสูงกว่าค่า Max Spread ที่ตั้งไว้ในบอท</p>
+                <p class="bug-insight">BugTraderYai Insight: บอทที่ "ไม่เทรด" ในสภาวะที่เสียเปรียบ คือบอทที่ฉลาดที่สุด</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">015</span> ค่า Swap ลบ กินทุนได้มากแค่ไหน?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ในสาย Grid ที่ถือแช่นานๆ ค่า Swap อาจมีมูลค่าสูงกว่ากำไรที่ระบบตั้งปิดไว้เสียอีก ทำให้ปิดรอบแล้วยอดเงินลดลง</p>
+                <p class="bug-insight">BugTraderYai Insight: อย่าปล่อยให้ "ค่าเช่าออเดอร์" แพงกว่า "กำไร" ที่คุณรอคอย</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">016</span> Equity ต่ำกว่า Balance นานๆ บอกอะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> บอกว่าคุณกำลัง "หลอกตัวเอง" ด้วยกำไรปลอมๆ แต่ถือขาดทุนจริง (Floating Loss) ไว้เต็มมือ</p>
+                <p class="bug-insight">BugTraderYai Insight: Balance คืออดีต Equity คือความจริง อย่าดูแค่ตัวเลขที่ปิดไปแล้ว</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">017</span> ทำไม EA ทำงานไม่เหมือนในรีวิวที่คนขายโชว์?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะคนขายมักเลือกโชว์เฉพาะช่วงเวลาที่กราฟเข้าทางระบบ (Cherry Picking) และใช้ Settings ที่เสี่ยงสูงเกินจริง</p>
+                <p class="bug-insight">BugTraderYai Insight: รีวิวคือการตลาด ความจริงคือสถิติที่ยาวนานพอ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">018</span> วันหยุดธนาคาร (Bank Holiday) ส่งผลอย่างไรต่อ EA?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> สภาพคล่องต่ำทำให้กราฟนิ่งสลับกระชากแรง (Gap) จนระบบที่ไม่มี Stop Loss รับมือไม่ทัน</p>
+                <p class="bug-insight">BugTraderYai Insight: เมื่อรายใหญ่หยุดเล่น ตลาดจะกลายเป็นที่วิ่งเล่นของเจ้ามือรายย่อยที่ขี้แกล้ง</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">019</span> การโดน Stop Out โดยที่ Margin ยังไม่เป็น 0 เกิดจากอะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> โบรกเกอร์มีระดับ Stop Out ที่กำหนดไว้ (เช่น 30% หรือ 50%) เมื่อ Margin Level ถึงจุดนี้ ระบบจะปิดออเดอร์ทันทีเพื่อป้องกันโบรกขาดทุน</p>
+                <p class="bug-insight">BugTraderYai Insight: Stop Out คือระบบเซฟตี้ของโบรกเกอร์ ไม่ใช่ของคุณ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">020</span> EA เปิดออเดอร์ซ้ำ (Double Order) แก้ไขอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มักเกิดจาก Magic Number ทับกัน หรือเผลอรันบอทตัวเดียวกันในหลายหน้าจอพร้อมกัน</p>
+                <p class="bug-insight">BugTraderYai Insight: ความเป็นระเบียบของระบบ คือรากฐานของความมั่นคงในพอร์ต</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">021</span> ทำไม EA ที่กำไรใน Demo ถึงขาดทุนในพอร์ต Real?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> พอร์ต Demo ไม่มี Slippage และคำสั่งซื้อขายถูกจับคู่ทันที (Instant Execution) ซึ่งต่างจากตลาดจริงที่มีการแย่งชิงราคา (Requotes)</p>
+                <p class="bug-insight">BugTraderYai Insight: Demo คือสนามซ้อมในร่ม แต่ Real คือสนามรบกลางพายุ อย่าประมาทความต่างเพียง 1-2 จุด</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">022</span> การรัน EA บนคอมพิวเตอร์ที่บ้าน (PC/Laptop) อันตรายแค่ไหน?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> อันตรายมากจากไฟดับ เน็ตหลุด หรือ Windows Update อัตโนมัติ ซึ่งจะทำให้บอทค้างในขณะที่มีออเดอร์ค้างพอร์ต</p>
+                <p class="bug-insight">BugTraderYai Insight: การประหยัดค่า VPS หลักร้อย อาจทำให้คุณเสียหลักหมื่นในคืนเดียว</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">023</span> EA "คืนกำไร" (Drawdown กลับมาที่เดิม) เกิดจากอะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เกิดจาก Logic ที่เน้นเก็บกำไรสั้น แต่ปล่อยขาดทุนลากยาว (High Win Rate, Poor R:R) จนสุดท้ายกำไรสะสมโดนกินหมดในไม้เดียว</p>
+                <p class="bug-insight">BugTraderYai Insight: กำไรที่ได้มาสิบครั้ง อาจหายไปในการตัดสินใจผิดครั้งเดียวของระบบที่ไม่มีจุดคัดลอส</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">024</span> ทำไม EA ไม่ยอมคัดลอส (Stop Loss) ตามที่ตั้งไว้?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มักเกิดในช่วงตลาดผันผวนรุนแรงจนเกิด "Gap" ราคาข้ามจุด SL ของเราไป ทำให้บอทปิดไม่ได้ หรือปิดได้ที่ราคาที่แย่กว่าเดิม</p>
+                <p class="bug-insight">BugTraderYai Insight: ในโลกการเทรด เส้น SL ไม่ใช่กำแพงคอนกรีต แต่มันคือป้ายบอกทางที่ราคาอาจจะเหยียบเบรกไม่ทัน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">025</span> การใช้ EA รันทองคำ (XAUUSD) ทำไมถึงพอร์ตแตกบ่อยที่สุด?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะทองคำมีความผันผวนสูง (ATR สูง) และมักจะวิ่งเป็น Trend ยาวโดยไม่ย่อตัว ซึ่งขัดกับ Logic ของ EA สาย Grid/Martingale ส่วนใหญ่</p>
+                <p class="bug-insight">BugTraderYai Insight: ทองคำคือม้าพยศ ถ้าบอทคุณไม่มีบังเหียน (Risk Control) ที่ดีพอ มันจะสะบัดคุณตกหลังม้าทันที</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">026</span> "Over-Optimization" คือกับดักแบบไหน?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือการปรับค่า Settings ให้ดีที่สุดในอดีต (Backtest สวยหรู) จนบอทสูญเสียความยืดหยุ่นในการรับมือกับอนาคต</p>
+                <p class="bug-insight">BugTraderYai Insight: บอทที่เก่งอดีตที่สุด มักจะเป็นบอทที่ตายไวที่สุดในปัจจุบัน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">027</span> ทำไม EA บางตัวถึงต้องบังคับใช้ Leverage 1:500 ขึ้นไป?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะระบบต้องการ Margin ในการแก้ไม้จำนวนมาก (Martingale) หาก Leverage ต่ำเกินไป Margin จะเต็มและเปิดไม้แก้ไม่ได้</p>
+                <p class="bug-insight">BugTraderYai Insight: Leverage สูงคือดาบที่คมขึ้น มันช่วยให้คุณสู้ได้นานขึ้น แต่ก็ฟันแขนคุณขาดได้ง่ายขึ้นเช่นกัน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">028</span> การปล่อย EA รันข้ามวันหยุดเสาร์-อาทิตย์ เสี่ยงแค่ไหน?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เสี่ยงต่อการเกิด "Gap" ราคาในเช้าวันจันทร์ที่อาจกระโดดข้ามจุดล้างพอร์ตของคุณไปไกล</p>
+                <p class="bug-insight">BugTraderYai Insight: นักเทรดสายอาชีพส่วนใหญ่จะเคลียร์ออเดอร์ให้ว่างก่อนวันศุกร์ปิด เพื่อให้นอนหลับฝันดีในวันหยุด</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">029</span> EA ที่โชว์พอร์ตฟ้าทั้งหน้าจอ (ไม่มีไม้แดง) เชื่อถือได้ไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เชื่อถือไม่ได้ 100% เพราะนั่นคือการซ่อนไม้ที่ขาดทุนไว้ใน Floating Loss (DD) และโชว์เฉพาะไม้ที่กำไร</p>
+                <p class="bug-insight">BugTraderYai Insight: พอร์ตที่ดูดีเกินจริง มักจะมีความจริงที่เจ็บปวดซ่อนอยู่ในหน้า Equity</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">030</span> ทำไมค่าปิง (Ping) ของ VPS ถึงสำคัญต่อ EA?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ค่าปิงสูงหมายถึงความล่าช้าในการส่งคำสั่ง ยิ่งต่ำ (Low Latency) ยิ่งได้ราคาที่ใกล้เคียงกับความตั้งใจของบอทที่สุด</p>
+                <p class="bug-insight">BugTraderYai Insight: ในวินาทีที่ตลาดแย่งชิงราคา ใครที่เข้าถึง Server โบรกเกอร์ได้เร็วกว่า คือผู้ชนะ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">031</span> "Broker Conflict" คืออะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือสถานการณ์ที่โบรกเกอร์ไม่ต้องการให้คุณกำไร (สาย B-Book) จนเริ่มใช้เทคนิคหน่วงคำสั่งหรือถ่างสเปรดเพื่อสู้กับบอทของคุณ</p>
+                <p class="bug-insight">BugTraderYai Insight: ถ้าคุณเริ่มกำไรสม่ำเสมอ โบรกเกอร์เกรดต่ำจะเริ่มทำตัวเป็นศัตรู ไม่ใช่พาร์ทเนอร์</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">032</span> การรัน EA บนบัญชี Cent ปลอดภัยกว่าบัญชี Standard จริงไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ปลอดภัยในแง่ของ "การบริหารหน้าตัก" เพราะช่วยให้เรามี Margin ในการแก้ไม้ได้มากกว่าบัญชีปกติ 100 เท่าในเงินทุนที่เท่ากัน</p>
+                <p class="bug-insight">BugTraderYai Insight: บัญชี Cent คือโรงเรียนฝึกหัดที่ดีที่สุดสำหรับสาย Grid/Martingale ก่อนจะไปลงสนามใหญ่</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">033</span> ทำไม EA ถึงเทรดแพ้บ่อยในช่วงที่ตลาดนิ่งเกินไป (Low Volatility)?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะอินดิเคเตอร์บางตัวจะให้สัญญาณหลอก (Whipsaw) ในช่วงที่ราคาไม่มีทิศทางชัดเจน ทำให้บอทเปิดปิดออเดอร์วนไปมาจนเสียค่าคอมมิชชั่นฟรี</p>
+                <p class="bug-insight">BugTraderYai Insight: ตลาดที่ไม่มีคลื่น คือนรกของบอทสาย Trend และเป็นสวรรค์ของบอทสาย Grid ที่ไม่มีวินัย</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">034</span> การอัปเดตเวอร์ชัน MT4/MT5 ส่งผลต่อ EA อย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> บางครั้งคำสั่ง (Function) เก่าๆ อาจใช้งานไม่ได้ หรือทำให้ EA ค้างได้ทันทีหลังจากแพลตฟอร์มอัปเดต</p>
+                <p class="bug-insight">BugTraderYai Insight: อย่าปล่อยให้บอททำงานโดยไม่เหลียวแล การเช็ค Log ทุกเช้าคือหน้าที่ของผู้รันระบบ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">035</span> ทำไม EA ถึงเปิด Lot ใหญ่ขึ้นเรื่อยๆ จนเต็มหน้าจอ?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> นี่คือกลไกของ Martingale ที่พยายามสู้กับราคาที่ผิดทาง หากกราฟไม่ย่อตัว มันจะเปิดจนกว่าเงินประกัน (Margin) ของคุณจะหมด</p>
+                <p class="bug-insight">BugTraderYai Insight: เมื่อบอทเริ่มระดมยิงออเดอร์ นั่นไม่ใช่ความเก่ง แต่มันคือการ "วัดดวงครั้งสุดท้าย"</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">036</span> EA สาย News Trading ทำไมถึงเสี่ยงสูงมาก?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะในช่วงข่าวออก ราคาจะกระโดด (Gap) สเปรดจะกว้าง และระบบมักจะ Requotes จนบอทเปิดหรือปิดออเดอร์ไม่ได้ที่ราคาเป้าหมาย</p>
+                <p class="bug-insight">BugTraderYai Insight: การเทรดข่าวด้วยบอทคือการพนันกับความเร็วของอินเทอร์เน็ตและระบบของโบรกเกอร์</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">037</span> "Ghost Order" คืออะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ออเดอร์ที่ถูกบันทึกไว้ในความจำของ EA แต่ไม่มีอยู่จริงใน Server ของโบรกเกอร์ มักเกิดจากเน็ตหลุดในช่วงส่งคำสั่งพอดี</p>
+                <p class="bug-insight">BugTraderYai Insight: การ Restart EA และ MT4 เป็นระยะ จะช่วยเคลียร์ขยะข้อมูลเหล่านี้ได้</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">038</span> ทำไมการรัน EA หลายคู่เงินที่มีความสัมพันธ์กัน (เช่น EURUSD และ GBPUSD) ถึงอันตราย?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะเมื่อ USD แข็งหรืออ่อนค่า ทั้งสองคู่จะวิ่งไปทางเดียวกัน หากผิดทาง พอร์ตจะติดลบสองเท่าทันที</p>
+                <p class="bug-insight">BugTraderYai Insight: การกระจายความเสี่ยงต้องเลือกคู่เงินที่วิ่งไม่พร้อมกัน (Non-Correlated)</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">039</span> EA ที่ทำงานร่วมกับ Indicator หลายตัว ดีกว่าตัวเดียวจริงไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ไม่เสมอไป ยิ่งใส่อินดิเคเตอร์เยอะ สัญญาณจะยิ่งช้าและซ้อนทับกันเองจนบอทไม่ยอมเข้าเทรด หรือเข้าช้าเกินไป</p>
+                <p class="bug-insight">BugTraderYai Insight: ความเรียบง่าย (Simplicity) คือที่สุดของความซับซ้อนในโลกการเทรดระบบ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">040</span> การเปลี่ยนค่า Settings ระหว่างรัน EA ส่งผลอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> อาจทำให้ Logic การคำนวณรวน บอทอาจจะลืมออเดอร์เก่า หรือคำนวณ Lot ผิดพลาดได้ทันที</p>
+                <p class="bug-insight">BugTraderYai Insight: ถ้าจะแก้ Settings ให้ปิดออเดอร์เก่าให้หมด หรือรอจนจบรอบก่อนเสมอ</p>
+            </div>
+        </div>
+          <div class="faq-item">
+            <h3><span class="badge">041</span> ทำไม EA ถึงเทรดแพ้ในช่วงตลาด "ฟันปลา" (Whipsaw)?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะสัญญาณซื้อขายถูกสั่งการจาก Indicator ที่ตามราคาไม่ทัน (Lagging) เมื่อราคาดีดกลับกะทันหัน บอทจะเปิดออเดอร์ในจุดที่เสียเปรียบที่สุด</p>
+                <p class="bug-insight">BugTraderYai Insight: ตลาดไซด์เวย์แคบๆ คือที่ฝังศพบอทสาย Trend Follower</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">042</span> การรัน EA บนบัญชี ECN ดีกว่า Standard จริงไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ดีกว่ามากสำหรับสาย Scalping เพราะสเปรดต่ำเกือบ 0 แต่ต้องคำนวณค่าคอมมิชชั่นเพิ่มเข้าไปใน Logic การปิดกำไรด้วย</p>
+                <p class="bug-insight">BugTraderYai Insight: อย่าลืมบวกค่าคอมฯ เข้าไปในเป้าหมาย ไม่งั้นปิดบวกแต่ยอดเงินลด</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">043</span> ทำไม EA บางตัวถึงใช้งานไม่ได้หลังจากเปลี่ยนโบรกเกอร์?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะชื่อสัญลักษณ์ (Symbol) ต่างกัน หรือโบรกเกอร์ใหม่มีการจำกัดจำนวนออเดอร์ (Max Orders) ที่บอทส่งเข้าไป</p>
+                <p class="bug-insight">BugTraderYai Insight: ตรวจสอบ Specification ของบัญชีใหม่ก่อนย้ายบอทเสมอ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">044</span> "Flash Crash" คือฝันร้ายของ EA อย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ราคาวิ่งรุนแรงในเวลาสั้นๆ (หลักนาที) จนระบบ Risk Management ทำงานไม่ทัน หรือโบรกเกอร์ปิดรับคำสั่งชั่วคราว</p>
+                <p class="bug-insight">BugTraderYai Insight: ในนาทีวิกฤต บอทส่วนใหญ่จะกลายเป็นง่อย การคุม Lot ตั้งแต่แรกคือทางรอดเดียว</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">045</span> ทำไมการตั้ง Take Profit (TP) สั้นเกินไปถึงอันตราย?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะกำไรที่ได้อาจไม่คุ้มกับค่าสเปรดและ Slippage ที่เสียไป ยิ่งเทรดบ่อย ต้นทุนแฝงจะยิ่งกินทุนของคุณ</p>
+                <p class="bug-insight">BugTraderYai Insight: เก็บเหรียญตัดหน้าสิบล้อ สักวันคุณจะหลบไม่พ้น</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">046</span> EA "ปิดออเดอร์เอง" โดยไม่มีสัญญาณส่งมาจากระบบ เกิดจากอะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มักเกิดจากฟังก์ชัน Stop Out ของโบรกเกอร์ หรือมีการใช้โปรแกรมคุมพอร์ตตัวอื่น (Account Protector) ซ้อนทับกัน</p>
+                <p class="bug-insight">BugTraderYai Insight: อย่าปล่อยให้บอทสองตัวคุมพอร์ตเดียวกันโดยไม่คุยกัน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">047</span> การใช้ EA รันสกุลเงิน "Exotic" (เช่น USDTRY) เสี่ยงอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> สเปรดกว้างมหาศาล สภาพคล่องต่ำ และค่า Swap ที่อาจติดลบหนักมากจนพอร์ตทนไม่ไหว</p>
+                <p class="bug-insight">BugTraderYai Insight: เล่นกับไฟในป่าทึบ ระวังหาทางออกไม่เจอ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">048</span> ทำไม Backtest 99.9% (Tick Data) ถึงยังไม่พอ?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะมันจำลองได้แค่ราคา แต่จำลอง "จิตวิทยาการส่งคำสั่ง" และ "สภาพคล่องจริง" ของโบรกเกอร์ไม่ได้</p>
+                <p class="bug-insight">BugTraderYai Insight: สถิติคือความน่าจะเป็น ความจริงคือความแน่นอนที่เกิดขึ้นแล้ว</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">049</span> EA ที่โฆษณาว่า "No Loss" มีจริงไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ไม่มีจริงในโลกการลงทุน คำว่า No Loss มักหมายถึงการไม่ยอมปิดขาดทุน (Hold DD) จนกว่าพอร์ตจะแตกไปข้างหนึ่ง</p>
+                <p class="bug-insight">BugTraderYai Insight: ระบบที่ไม่มี Stop Loss คือระเบิดเวลาที่ถอดสลักแล้ว</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">050</span> "Latency Arbitrage" คือเทคนิคแบบไหน และทำไมถึงโดนแบน?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> การใช้ความเร็วเปรียบเทียบราคาที่ช้ากว่าของโบรกเกอร์เพื่อทำกำไร ซึ่งถือเป็นการเอาเปรียบระบบและมักโดนริบกำไร</p>
+                <p class="bug-insight">BugTraderYai Insight: อย่าพยายามโกงคาสิโน ถ้าคุณอยากเล่นในคาสิโนนั้นนานๆ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">051</span> ทำไม EA สาย Hedging ถึงมักจะติดออเดอร์สองฝั่ง (Lock พอร์ต)?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะราคาแกว่งตัวไปมาจนบอทเปิดทั้ง Buy และ Sell ในระยะใกล้กัน ทำให้ Margin ถูกล็อคและเสียค่า Swap สองเด้ง</p>
+                <p class="bug-insight">BugTraderYai Insight: การล็อคพอร์ตคือการแช่แข็งปัญหา ไม่ใช่การแก้ปัญหา</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">052</span> การใส่ News Filter ใน EA มีข้อเสียไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มี หากข่าวไม่ออกตามคาด หรือกราฟวิ่งแรงหลังจากข่าวจบไปแล้ว บอทอาจพลาดโอกาสสำคัญหรือเข้าเทรดในจุดที่อันตรายกว่าเดิม</p>
+                <p class="bug-insight">BugTraderYai Insight: ตัวกรองข่าวช่วยลดความเสี่ยง แต่ไม่เคยลบความเสี่ยงออกไปได้หมด</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">053</span> ทำไม EA ถึงทำงานช้าลงเมื่อรันไปนานๆ?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มักเกิดจาก Log Files และ History ที่สะสมจนเต็มหน่วยความจำ หรือ VPS เริ่มมีการใช้งาน CPU สูงเกินไป</p>
+                <p class="bug-insight">BugTraderYai Insight: ล้างไฟล์ขยะและ Restart แพลตฟอร์มอาทิตย์ละครั้ง เพื่อสุขภาพของพอร์ต</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">054</span> EA "ลืมออเดอร์" (Order Orphan) เกิดจากอะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เกิดจากเน็ตหลุดขณะส่งคำสั่ง หรือมีการเปลี่ยน Settings กลางคันจนค่า Magic Number ไม่ตรงกับออเดอร์เดิมที่เปิดอยู่</p>
+                <p class="bug-insight">BugTraderYai Insight: ออเดอร์กำพร้าคือภัยเงียบที่ไม่มีใครคุม อย่าปล่อยทิ้งไว้ในพอร์ต</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">055</span> ทำไม EA สาย Breakout ถึงพอร์ตแตกในตลาดไซด์เวย์?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะราคาพยายามทะลุ (Break) แต่กลับตัว (False Break) ซ้ำๆ ทำให้บอทเปิดออเดอร์ตามและโดนตัดขาดทุน (SL) ต่อเนื่อง</p>
+                <p class="bug-insight">BugTraderYai Insight: ตลาดไซด์เวย์คือเครื่องบดเนื้อสำหรับสาย Breakout</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">056</span> การใช้ EA รันพอร์ต "กองทุน" (Prop Firm) ต่างจากพอร์ตส่วนตัวอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> กองทุนมีกฎเข้มงวดเรื่อง Daily Drawdown หากบอทลากไม้เกินจุดที่กำหนด แม้เพียงเสี้ยววินาที พอร์ตจะถูกตัดสิทธิ์ทันที</p>
+                <p class="bug-insight">BugTraderYai Insight: เทรดกองทุนต้องใช้บอทสาย Hard SL เท่านั้น สายลากไม่มีที่ยืน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">057</span> "Spread Padding" ของโบรกเกอร์คืออะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> การที่โบรกเกอร์บวกส่วนต่างราคาเข้าไปเล็กน้อย ซึ่งทำให้ EA ที่เป้า TP สั้นๆ ทำงานได้ยากขึ้นและกำไรน้อยลง</p>
+                <p class="bug-insight">BugTraderYai Insight: ส่วนต่างเพียง 0.1 จุด ก็เปลี่ยนผลลัพธ์ในระยะยาวได้มหาศาล</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">058</span> ทำไม EA เปิด Lot ไม่เท่ากันในแต่ละไม้ ทั้งที่ตั้งค่าคงที่?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> อาจเกิดจากฟังก์ชัน Auto Lot ที่คำนวณตาม Balance/Equity หรือบอทมีการใช้ระบบสุ่ม (Randomization) เพื่อเลี่ยงการตรวจจับของโบรกเกอร์</p>
+                <p class="bug-insight">BugTraderYai Insight: ตรวจเช็ค Logic การคำนวณ Lot ให้ดีก่อนรันจริง</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">059</span> การรัน EA บนมือถือ (ผ่าน MT4/MT5 App) ทำได้จริงไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ทำไม่ได้ แอปบนมือถือใช้ได้แค่ "ดู" และ "สั่งการมือ" แต่ตัว EA ต้องรันบนคอมพิวเตอร์หรือ VPS ตลอดเวลา</p>
+                <p class="bug-insight">BugTraderYai Insight: มือถือคือรีโมทคอมพิวเตอร์คือตัวเครื่อง อย่าสับสนหน้าที่กัน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">060</span> "Trailing Step" ต่างจาก "Trailing Stop" อย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> Stop คือระยะที่ตั้งค้างไว้ ส่วน Step คือระยะที่ต้องรอให้กำไรเพิ่มขึ้น "กี่จุด" ถึงจะขยับเส้น SL ตามไปหนึ่งครั้ง</p>
+                <p class="bug-insight">BugTraderYai Insight: Trailing Step ช่วยลดการส่งคำสั่งถี่ยิบเกินไป ป้องกันการโดนหน่วงคำสั่ง</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3><span class="badge">061</span> การรัน EA บนบัญชี Swap-Free (Islamic) มีผลเสียไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มีผลเสียหากโบรกเกอร์แอบไปบวกค่า Spread เพิ่มขึ้นแทน หรือจำกัดระยะเวลาการถือครองออเดอร์ (Admin Fee)</p>
+                <p class="bug-insight">BugTraderYai Insight: ของฟรีไม่มีในโลก ถ้าไม่จ่ายทาง Swap คุณก็ต้องจ่ายทางอื่น</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">062</span> ทำไม EA ถึงไม่ยอมเปิดออเดอร์ในช่วงเช้าวันจันทร์?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะค่า Spread ในช่วงตลาดเปิดจะสูงมาก (Wide Spread) จนเกินค่าความปลอดภัยที่บอทตั้งไว้</p>
+                <p class="bug-insight">BugTraderYai Insight: ตลาดเช้าวันจันทร์คือหลุมศพของมือใหม่ บอทที่ฉลาดจะรอให้ตลาดนิ่งก่อน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">063</span> "Order Filling Policy" ของโบรกเกอร์ส่งผลต่อ EA อย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือวิธีกำหนดว่าถ้าไม่ได้ราคาที่ต้องการจะทำอย่างไร (เช่น ปฏิเสธ หรือให้ราคาถัดไป) หากตั้งไม่ตรงกับบอท บอทจะเปิดออเดอร์ไม่ได้</p>
+                <p class="bug-insight">BugTraderYai Insight: การตั้งค่าเล็กน้อยใน MT5 อาจตัดสินกำไรหรือขาดทุนของระบบได้</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">064</span> การใช้ EA "Copy Trade" เสี่ยงกว่ารันเองไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เสี่ยงกว่าในแง่ของ "Latency" และการตั้งค่า Lot ที่อาจไม่สัมพันธ์กับทุนของคุณเหมือนตัวต้นฉบับ</p>
+                <p class="bug-insight">BugTraderYai Insight: การก๊อปปี้กำไรคือทางลัด แต่การก๊อปปี้ความเสี่ยงโดยไม่รู้ตัวคือทางหายนะ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">065</span> ทำไม EA ถึงลบออเดอร์ Pending ทิ้งเองบ่อยๆ?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มักเกิดจากฟังก์ชัน "Expiration" ที่บอทตั้งไว้ว่าถ้าไม่โดนเกี่ยวภายในกี่ชั่วโมงให้ยกเลิก เพื่อลดความเสี่ยงไม้ค้าง</p>
+                <p class="bug-insight">BugTraderYai Insight: คำสั่งที่ไม่ได้ใช้คือภาระ บอทที่ดีต้องรู้จักเคลียร์ขยะหน้าพอร์ต</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">066</span> "Requotes" คืออะไร และแก้ได้อย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือโบรกเกอร์บอกว่าราคาเปลี่ยนไปแล้ว ไม่ให้เข้าจุดเดิม แก้ได้ด้วยการเพิ่มค่า "Max Deviation" (ยอมรับราคาที่เคลื่อนไปได้กี่จุด)</p>
+                <p class="bug-insight">BugTraderYai Insight: การยอมถอยหนึ่งก้าว (ยอม Slippage) อาจทำให้บอทไม่พลาดโอกาสสำคัญ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">067</span> การใช้ EA รันบัญชีที่มีโบนัสเงินฝาก (Bonus) อันตรายอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> บางโบรกเกอร์ไม่อนุญาตให้ใช้โบนัสมาทน Drawdown หากทุนจริงหมด พอร์ตจะแตกทันทีแม้จะมีโบนัสเหลืออยู่</p>
+                <p class="bug-insight">BugTraderYai Insight: อ่านเงื่อนไขตัวเล็กๆ ให้ดี โบนัสมักจะเป็นแค่ "ตัวเลขสวยๆ" แต่ช่วยอะไรไม่ได้ตอนวิกฤต</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">068</span> ทำไม EA ถึงเข้าเทรดไม่พร้อมกัน ทั้งที่รันบอทตัวเดียวกัน?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะราคาในแต่ละโบรกเกอร์ต่างกันเล็กน้อย (Price Feed) และความเร็วของ VPS ที่ส่งคำสั่งไปถึงโบรกเกอร์ไม่เท่ากัน</p>
+                <p class="bug-insight">BugTraderYai Insight: แม้แต่เสี้ยววินาทีก็สร้างความแตกต่างในโลกของระบบอัตโนมัติ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">069</span> การ "กดมือแทรกแซง" EA (Manual Intervention) ทำไมถึงทำให้ระบบเจ๊ง?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะจะทำให้ค่าสถิติ R:R และ Logic การแก้ไม้เพี้ยนไปจากที่คำนวณไว้ใน Backtest</p>
+                <p class="bug-insight">BugTraderYai Insight: ถ้าคุณไม่เชื่อในบอท ก็อย่ารันบอทตั้งแต่แรก</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">070</span> "Trade Context Busy" คือ Error แบบไหน?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือคอมพิวเตอร์พยายามส่งคำสั่งซ้อนกันมากเกินไปจนระบบค้าง มักเกิดกับบอทที่เทรดถี่ยิบ</p>
+                <p class="bug-insight">BugTraderYai Insight: ส่งคำสั่งมากไปก็โดนแบน ส่งน้อยไปก็ไม่ได้กำไร เดินสายกลางคือทางรอด</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">071</span> ทำไมกำไรใน Backtest ถึงหายไปเมื่อใช้ Fixed Lot ขนาดเล็ก?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะกำไรถูกหักล้างด้วยค่าสเปรดและค่าคอมมิชชั่นจนหมดเกลี้ยง (Breakeven Point ของไม้เล็กจะอยู่ไกลกว่า)</p>
+                <p class="bug-insight">BugTraderYai Insight: ไม้เล็กเกินไปอาจทำให้คุณจ่ายเงินให้โบรกเกอร์มากกว่าเข้ากระเป๋าตัวเอง</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">072</span> การรัน EA บนบัญชีที่โดนจำกัด Leverage ส่งผลอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ทำให้ระบบไม่สามารถเปิดไม้แก้ (Martingale) ได้ตาม Logic จนเกิด Error "Not Enough Money"</p>
+                <p class="bug-insight">BugTraderYai Insight: ก่อนรันบอทสายแก้ไม้ เช็ค Leverage ให้ชัวร์ว่าโบรกจะไม่ลดระดับกะทันหัน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">073</span> ทำไม EA ถึงไม่ปิดออเดอร์ ทั้งที่ราคาถึงเส้น Take Profit แล้ว?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มักเกิดจากสเปรดที่ถ่างกว้างจนราคา Bid หรือ Ask ยังไม่สัมผัสเส้นเป้าหมายจริงๆ</p>
+                <p class="bug-insight">BugTraderYai Insight: กราฟที่พี่เห็นในจอคือราคาเฉลี่ย แต่ราคาปิดจริงคือราคาตลาด ณ วินาทีนั้น</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">074</span> การใช้ EA รันคู่เงินที่มี Correlation สูง (เช่น AUDUSD และ NZDUSD) เสี่ยงอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือการเพิ่มความเสี่ยงเป็นสองเท่าในทิศทางเดียวกันโดยไม่รู้ตัว หากผิดทางพอร์ตจะยุบเร็วมาก</p>
+                <p class="bug-insight">BugTraderYai Insight: ความหลากหลายของคู่เงิน ต้องมาพร้อมกับความต่างของพฤติกรรมราคา</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">075</span> EA ที่ตั้งค่า "Close on Friday" ดีอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ช่วยเลี่ยงความเสี่ยงจากการกระโดดของราคา (Gap) ในเช้าวันจันทร์ และช่วยให้นักเทรดพักผ่อนได้เต็มที่</p>
+                <p class="bug-insight">BugTraderYai Insight: การพักหน้าจอก็คือส่วนหนึ่งของแผนการเทรดที่ยั่งยืน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">076</span> "Hidden Drawdown" คืออะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือการที่ EA ปิดไม้ขาดทุนออกไปแล้วทำให้ Balance ลดลง แต่คนรันยังดูแค่กราฟ Equity ที่สวยงาม</p>
+                <p class="bug-insight">BugTraderYai Insight: อย่ามองแค่ยอดเงินปัจจุบัน ให้ดูความลาดเอียงของเงินในพอร์ตด้วย</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">077</span> ทำไม EA ถึงเทรดได้ดีเฉพาะบัญชี Raw Spread?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะ Logic ถูกออกแบบมาเพื่อเก็บกำไรสั้นมากๆ (1-5 จุด) ซึ่งบัญชี Standard ที่สเปรดกว้างกว่าจะทำไม่ได้</p>
+                <p class="bug-insight">BugTraderYai Insight: เลือกประเภทบัญชีให้ตรงกับกลยุทธ์บอท คือกุญแจสำคัญ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">078</span> การใช้ EA "Grid" รันในช่วงตลาดมี Trend ชัดเจน อันตรายแค่ไหน?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือการฆ่าตัวตายทางการเงิน เพราะบอทจะระดมเปิดออเดอร์สวนเทรนด์ไปเรื่อยๆ จนกว่าจะล้างพอร์ต</p>
+                <p class="bug-insight">BugTraderYai Insight: Grid คือดาบวงเดือนในลานประลองไซด์เวย์ แต่อย่าพกไปสู้กับธนูในที่โล่ง</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">079</span> ทำไม EA ถึงทำงานผิดเพี้ยนเมื่อเราเปิดโปรแกรมสแกนไวรัส?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> โปรแกรมสแกนไวรัสอาจบล็อกการทำงานของ DLL หรือการเชื่อมต่ออินเทอร์เน็ตของ MT4/MT5</p>
+                <p class="bug-insight">BugTraderYai Insight: เครื่องที่รันบอทควรเป็นเครื่องที่สะอาดและเน้นรันบอทเพียงอย่างเดียว</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">080</span> "Martingale Step" คืออะไร และสำคัญอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือระยะห่างระหว่างการเพิ่มออเดอร์ หากแคบไปพอร์ตจะแตกเร็ว หากกว้างไปจะปิดรอบช้า</p>
+                <p class="bug-insight">BugTraderYai Insight: ระยะห่างคือลมหายใจ ยิ่งห่างยิ่งหายใจสะดวก</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">081</span> การรัน EA บนระบบปฏิบัติการ Linux เสถียรกว่า Windows จริงไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เสถียรกว่าในแง่ของทรัพยากร แต่ตั้งค่าใช้งานยากกว่ามาก (ผ่าน Wine) มักพบปัญหากับฟอนต์และอินดิเคเตอร์บางตัว</p>
+                <p class="bug-insight">BugTraderYai Insight: เอาที่พี่ถนัดและแก้ง่ายที่สุดเวลาเกิดปัญหาหน้างาน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">082</span> ทำไมกำไรที่ได้จาก EA ถึงโดนโบรกเกอร์เรียกคืน (Recall)?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> โบรกเกอร์อ้างว่าคุณใช้ช่องโหว่ของระบบ (Exploit) เช่น เทรดช่วงกราฟค้าง หรือ Arbitrage</p>
+                <p class="bug-insight">BugTraderYai Insight: กำไรที่ได้จากความผิดพลาดของระบบ มักจะอยู่กับเราได้ไม่นาน</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">083</span> "Equity Protection" ต่างจาก Stop Loss อย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> SL คุมเป็นรายไม้ ส่วน Equity Protection คุมภาพรวมทั้งพอร์ต (เช่น ตัดขาดทุนทุกไม้เมื่อเงินลดลง 20%)</p>
+                <p class="bug-insight">BugTraderYai Insight: SL คือเกราะป้องกันตัวคนเดียว Equity Protection คือปุ่มสละเรือ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">084</span> การรัน EA "ถ่วงน้ำหนัก" (Weighting) คืออะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือการปรับให้บอทบางตัวที่แม่นยำกว่าใช้ Lot ใหญ่กว่า และตัวที่เสี่ยงสูงใช้ Lot เล็กกว่า</p>
+                <p class="bug-insight">BugTraderYai Insight: อย่ารักลูกไม่เท่ากัน แต่ต้องแบ่งทรัพยากรให้ตามความเหมาะสม</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">085</span> ทำไม EA ถึงไม่ยอมปิดกำไร ทั้งที่เห็นยอดบวกเขียวๆ แล้ว?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะมันถูกตั้งค่าให้รอถึงจุดเป้าหมาย (TP) หรือรอสัญญาณปิดจาก Indicator ซึ่งราคากลับตัวเสียก่อน</p>
+                <p class="bug-insight">BugTraderYai Insight: ความโลภของคนมักสะท้อนออกมาในการตั้งค่า TP ที่ไกลเกินจริง</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">086</span> "MT4 Data Center" มีผลต่อ EA อย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ถ้าคุณเลือก Data Center ที่อยู่คนละทวีปกับ Server โบรกเกอร์ บอทของคุณจะส่งคำสั่งช้าลงมหาศาล</p>
+                <p class="bug-insight">BugTraderYai Insight: อยู่ให้ใกล้ใจ (Server) ของโบรกเกอร์ที่สุด แล้วชีวิตจะง่ายขึ้น</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">087</span> ทำไม EA ถึงเปิดออเดอร์ช้าไป 1-2 วิ หลังจากสัญญาณมา?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> มักเกิดจากเครื่องคอมพิวเตอร์ประมวลผลอินดิเคเตอร์หนักเกินไป หรืออินเทอร์เน็ตมีความหน่วงสูง (High Jitter)</p>
+                <p class="bug-insight">BugTraderYai Insight: คอมแรงเน็ตไว คืออาวุธลับของสายบอท</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">088</span> การใช้ EA รันช่วง "ตลาดเปิด" (Market Open) เสี่ยงอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ราคาจะกระชากแรงมาก และสเปรดอาจกว้างกว่าปกติหลายเท่าตัว ทำให้บอทเปิดออเดอร์ในจุดที่ขาดทุนทันที</p>
+                <p class="bug-insight">BugTraderYai Insight: 15 นาทีแรกของตลาดเปิด คือนาทีทองของโบรกเกอร์ ไม่ใช่ของเรา</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">089</span> "Over-trading" ในบอท เกิดขึ้นได้อย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เกิดจาก Settings ที่ไวเกินไป หรือใช้ Indicator ที่ขัดแย้งกันเอง จนบอทเปิดปิดออเดอร์รัวๆ ในจุดเดิม</p>
+                <p class="bug-insight">BugTraderYai Insight: เทรดเยอะไม่ได้แปลว่ารวย เทรดให้ตรง Logic ต่างหากถึงจะรอด</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">090</span> ทำไม EA ถึงล้างพอร์ต ทั้งที่เพิ่งรันมาได้แค่ 2 วัน?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะคุณใช้การตั้งค่าที่เสี่ยงสูงเกินไป (Aggressive) ในช่วงที่ตลาดเปลี่ยนสภาวะพอดี</p>
+                <p class="bug-insight">BugTraderYai Insight: ระยะเวลาการรันไม่ได้บอกความเสี่ยง แต่ขนาด Lot ต่างหากที่บอก</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">091</span> การใช้ EA รันในช่วง "วันหยุดธนาคาร" (Public Holiday) เสี่ยงไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เสี่ยงมาก เพราะสภาพคล่องต่ำ (Low Liquidity) ทำให้ราคาถูกลากไปมาได้ง่ายด้วยวอลุ่มเพียงเล็กน้อย</p>
+                <p class="bug-insight">BugTraderYai Insight: เมื่อเจ้ามือใหญ่ไม่อยู่ ตลาดจะเป็นที่วิ่งเล่นของปลาเล็กที่ขี้แกล้ง</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">092</span> "Magic Number Collision" แก้ไขอย่างไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ตั้งรหัสตัวเลขให้ต่างกันในแต่ละตัว และจดบันทึกไว้เสมอว่าตัวเลขไหนใช้กับบอทตัวไหน คู่เงินไหน</p>
+                <p class="bug-insight">BugTraderYai Insight: ความมีระเบียบคือวินัยพื้นฐานของ Algo Trader</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">093</span> ทำไม EA ถึงไม่หยุดทำงาน ทั้งที่เรากด "Auto Trading" ออกแล้ว?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ปุ่ม Auto Trading แค่ห้าม "เปิด" ออเดอร์ใหม่ แต่ออเดอร์เดิมที่ค้างอยู่ บอทยังอาจจะสั่งปิดหรือขยับเส้นตาม Logic ได้ (ขึ้นอยู่กับการเขียนโค้ด)</p>
+                <p class="bug-insight">BugTraderYai Insight: ปิดหน้าจอไม่ได้แปลว่าปิดความเสี่ยง</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">094</span> การใช้ EA รันในบัญชีที่มีการ "ถอนเงิน" ระหว่างรอบ เสี่ยงไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เสี่ยง หากระบบคำนวณ Lot ตาม Equity เพราะเมื่อถอนเงินออก มาร์จิ้นจะลดลงทันที แต่ออเดอร์เก่ายังมีขนาดเท่าเดิม</p>
+                <p class="bug-insight">BugTraderYai Insight: จะถอนเงินตอนไหน ต้องดูขนาดออเดอร์ที่ค้างอยู่ด้วยเสมอ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">095</span> "Stop Limit" ต่างจาก "Stop Order" อย่างไรใน EA?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> Stop Order คือเปิดทันทีเมื่อถึงจุด ส่วน Stop Limit คือตั้งรอดักที่ราคาที่ดีกว่า มักใช้ในบอทสายรอจังหวะ</p>
+                <p class="bug-insight">BugTraderYai Insight: ความละเอียดของคำสั่ง คือความละเอียดของกำไร</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">096</span> ทำไม EA ถึงทำงานเพี้ยนเวลาเปลี่ยนภาษาในเครื่องคอมพิวเตอร์?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> การใช้เครื่องหมายทศนิยม (จุด หรือ จุลภาค) ในบางภาษาอาจทำให้ค่า Settings ที่เป็นตัวเลขเสียหาย</p>
+                <p class="bug-insight">BugTraderYai Insight: ใช้ภาษาอังกฤษเป็นสากลไว้ ชีวิตจะปลอดภัยที่สุด</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">097</span> การรัน EA บนระบบคลาวด์ (Google Cloud / AWS) ดีไหม?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> ดีมากในเรื่องความเสถียรของไฟฟ้า แต่อาจมีค่าใช้จ่ายสูงและตั้งค่ายากกว่า VPS สำเร็จรูปสำหรับเทรด</p>
+                <p class="bug-insight">BugTraderYai Insight: เลือกเครื่องมือที่คุ้มค่ากับขนาดพอร์ตของคุณ</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">098</span> ทำไม EA ถึงเข้าเทรดถี่มากในช่วงที่มีข่าวเศรษฐกิจ?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> เพราะอินดิเคเตอร์สาย Volatility สั่งงานตามความผันผวนที่พุ่งสูงขึ้น จนเกิดสัญญาณซ้ำซ้อน</p>
+                <p class="bug-insight">BugTraderYai Insight: ความผันผวนคือพลังงาน ถ้าบอทคุณคุมพลังไม่อยู่ มันจะระเบิดตัวเอง</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3><span class="badge">099</span> "Heartbeat Function" ใน EA คืออะไร?</h3>
+            <div class="ans-body">
+                <p><strong>คำตอบ:</strong> คือระบบตรวจสอบว่าบอทยังเชื่อมต่อกับ Server อยู่ไหม ถ้าขาดการเชื่อมต่อจะมีการแจ้งเตือนทันที</p>
+                <p class="bug-insight">BugTraderYai Insight: บอทที่เงียบเกินไปอาจจะตายไปแล้ว เช็คชีพจรพอร์ตบ่อยๆ นะครับ</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
             <h3><span class="badge">100</span> บทเรียนที่แพงที่สุดของการใช้ EA คืออะไร?</h3>
             <div class="ans-body">
                 <p><strong>คำตอบ:</strong> การใช้เงินก้อนสุดท้ายมารันระบบที่คุณยังอธิบายไม่ได้ว่ามันเทรดด้วยตรรกะอะไร</p>

@@ -2,18 +2,17 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>EA Intelligence Hub | 500 คำถามกระตุกสติ | bugtraderyai</title>
-    <meta name="description" content="ศูนย์รวมความรู้และ 500 คำถาม-คำตอบเชิงลึกเกี่ยวกับ EA โดย bugtraderyai">
+    <title>EA Intelligence Hub | 500 คำถามกระตุกสติก่อนใช้บอทเทรด | bugtraderyai</title>
+    <meta name="description" content="ศูนย์รวมความรู้และ 500 คำถาม-คำตอบเชิงลึกเกี่ยวกับ EA, การจัดการความเสี่ยง และบริบทตลาด โดย bugtraderyai">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="bugtraderyai">
     <link rel="canonical" href="https://bugtraderyai.github.io/intelligence-hub.html">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-
     <style>
         /* บังคับสไตล์เฉพาะหน้า Hub เพื่อให้รองรับ 500 ข้อ */
         :root {
@@ -126,90 +125,18 @@
 
 <body>
 
-<div class="dimension-bg"></div>
-
-<nav class="hub-nav">
-    <a href="/">หน้าแรก</a>
-    <a href="/intelligence-hub.html" style="color: var(--accent); font-weight: 900;">🔥 HUB</a>
-    <a href="/ea-system-philosophy.html">ปรัชญา</a>
-    <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
-    <a href="/about.html">รู้จักเรา</a>
-</nav>
-
-<main>
-    <header style="padding: 100px 20px 40px;">
-        <h1 data-text="EA INTELLIGENCE HUB">EA INTELLIGENCE HUB</h1>
-        <p style="color: var(--accent-bright); font-weight: 700; letter-spacing: 2px; margin-top: 15px;">
-            สารานุกรม 500 คำถามกระตุกสติโดย BUGTRADERYAI
-        </p>
-    </header>
-
-    <div class="search-dashboard">
-        <input type="text" id="nodeFilter" class="filter-input" placeholder="🔍 ค้นหา LOGIC / KEYWORD (เช่น ล้างพอร์ต, กำไร, Risk)..." onkeyup="filterNodes()">
-        <div id="statusDisp" style="margin-top: 12px; font-size: 0.8rem; color: var(--accent);">STATUS: 500 NODES ACTIVE</div>
-    </div>
-
-    <div class="qa-grid" id="qaGrid">
-        
-        <div id="failure" class="category-anchor">1. ความล้มเหลว (1-100)</div>
-        <h3>ทำไม EA ที่ Backtest กำไรมหาศาล ถึงล้างพอร์ตจริง?</h3>
-        <h3>Martingale คือการบริหารเงินหรือการพนัน?</h3>
-        <h3>ความเสี่ยงที่มองไม่เห็นในระบบ Grid คืออะไร?</h3>
-        
-        <div id="logic" class="category-anchor">2. Logic ระบบ (101-200)</div>
-        <h3>EA รู้ได้อย่างไรว่าตลาดกำลังเปลี่ยนทิศทาง?</h3>
-        <h3>ทำไมระบบ Scalping ถึงแพ้ค่า Spread?</h3>
-        
-        <div id="human" class="category-anchor">3. ความพร้อมของคน (201-300)</div>
-        <h3>คุณกล้าปิดระบบที่กำลัง Drawdown หรือไม่?</h3>
-        
-        <div id="support" class="category-anchor">4. การเลือก IB (301-400)</div>
-        <div id="future" class="category-anchor">5. อนาคต AI (401-500)</div>
-        </div>
-
-    <div id="noMatch" class="no-match">-- NO DATA MATCHING THIS LOGIC --</div>
-
-    <footer>
-        <p>© 2026 BUGTRADERYAI - QUANTUM INTELLIGENCE HUB</p>
-        <div class="shimmer" style="display: inline-block; padding: 4px 20px; border: 1px solid var(--accent); color: var(--accent);">
-            DISTORTION 200% ACTIVE
-        </div>
-    </footer>
-</main>
-
-<script>
-    function filterNodes() {
-        const input = document.getElementById('nodeFilter').value.toLowerCase();
-        const grid = document.getElementById('qaGrid');
-        const h3s = grid.getElementsByTagName('h3');
-        const anchors = document.getElementsByClassName('category-anchor');
-        const noMatch = document.getElementById('noMatch');
-        const status = document.getElementById('statusDisp');
-        let count = 0;
-
-        for (let i = 0; i < h3s.length; i++) {
-            const text = h3s[i].textContent.toLowerCase();
-            if (text.includes(input)) {
-                h3s[i].style.display = "flex";
-                count++;
-            } else {
-                h3s[i].style.display = "none";
-            }
-        }
-
-        // ซ่อนหัวหมวดถ้าไม่มีลูกข้อไหนโชว์เลย
-        for (let j = 0; j < anchors.length; j++) {
-            anchors[j].style.display = count > 0 ? "inline-block" : "none";
-        }
-
-        noMatch.style.display = (count === 0 && input !== "") ? "block" : "none";
-        status.innerText = `STATUS: ${count} NODES MATCHED`;
-        status.style.color = count === 0 ? "var(--glitch-red)" : "var(--accent)";
-    }
-</script>
-
-</body>
-</html>
+<header style="text-align: center;">
+    <h1>EA Intelligence Hub</h1>
+    <p>สารานุกรม 500 คำถามที่คนใช้ EA ต้องตอบตัวเองให้ได้ โดย <strong>bugtraderyai</strong></p>
+    
+    <nav class="hub-nav">
+        <a href="#failure">1. ความล้มเหลว (1-100)</a>
+        <a href="#logic">2. Logic ระบบ (101-200)</a>
+        <a href="#human">3. ความพร้อมของคน (201-300)</a>
+        <a href="#support">4. การเลือก IB (301-400)</a>
+        <a href="#future">5. อนาคต AI (401-500)</a>
+    </nav>
+</header>
 
 <main>
 

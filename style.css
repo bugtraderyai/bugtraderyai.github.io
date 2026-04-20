@@ -1,94 +1,97 @@
-/* ===== Futuristic UI Elements V1 ===== */
+<style>
+  :root {
+    --bg: #ffffff;
+    --glass: rgba(255, 255, 255, 0.4); /* บางลงเพื่อให้เห็นพื้นหลังมิติที่ 4 */
+    --accent: #0ea5e9;
+    --text-main: #0f172a;
+    --text-sub: #475569;
+    --border: rgba(255, 255, 255, 0.5);
+  }
 
-/* 1. Shimmer Effect (Skeleton Loading) */
-.skeleton {
-    background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-    border-radius: 12px;
-}
-@keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
-/* 2. Accordion (สไตล์ Glassmorphism) */
-.accordion {
-    max-width: 100%;
-    margin: 10px 0;
-}
-.accordion-item {
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(14, 165, 233, 0.1);
-    border-radius: 15px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    transition: 0.3s;
-}
-.accordion-header {
-    padding: 15px 20px;
-    cursor: pointer;
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.3s;
-}
-.accordion-header:hover { background: rgba(14, 165, 233, 0.05); }
-.accordion-content {
-    max-height: 0;
-    padding: 0 20px;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s;
-    color: var(--text-sub);
-    font-size: 0.95rem;
-}
-
-/* 3. Tooltip (แสงนีออนจางๆ) */
-.tooltip-container {
-    position: relative;
-    display: inline-block;
-    cursor: help;
-    border-bottom: 1px dashed var(--accent-blue);
-}
-.tooltip-text {
-    visibility: hidden;
-    width: 200px;
-    background: #0f172a;
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-    padding: 8px;
-    position: absolute;
-    z-index: 10;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: 0.3s;
-    font-size: 0.8rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-.tooltip-container:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-}
-
-/* 4. Mini Carousel (แบบ Simple CSS) */
-.carousel-wrapper {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 15px;
-    padding: 20px 0;
-    scrollbar-width: none; /* ซ่อน scrollbar */
-}
-.carousel-item {
-    flex: 0 0 80%;
-    scroll-snap-align: center;
+  /* --- พื้นหลังมิติที่ 4 (Animated 4D Mesh Gradient) --- */
+  body {
+    margin: 0;
+    font-family: 'Noto Sans Thai', sans-serif;
+    color: var(--text-main);
+    line-height: 1.8;
     background: #fff;
-    padding: 25px;
-    border-radius: 20px;
-    border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-soft);
-}
+    overflow-x: hidden;
+  }
+
+  .dimension-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background: 
+      radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+    animation: spatial-shift 20s ease-infinite alternate;
+  }
+
+  /* เอฟเฟกต์การบิดเบี้ยวของมิติเวลา */
+  @keyframes spatial-shift {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.2) rotate(2deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+
+  /* Grid แบบ 3D Perspective */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+      linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    perspective: 1000px;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: top;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), transparent);
+    z-index: -1;
+  }
+
+  /* --- Glassmorphism UI (ปรับให้ดูเบาบางเหมือนอากาศ) --- */
+  .hub-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(25px) saturate(150%);
+    -webkit-backdrop-filter: blur(25px) saturate(150%);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  section {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
+    margin: 40px auto;
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  section:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 40px 80px rgba(14, 165, 233, 0.1);
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
+  }
+</style>

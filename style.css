@@ -1,176 +1,94 @@
-/* ===== BugTraderYai V6: Ultra Futuristic White (Light Glow Edition) ===== */
+/* ===== Futuristic UI Elements V1 ===== */
 
-:root {
-    --bg-primary: #ffffff;
-    --accent-blue: #0ea5e9;
-    --accent-glow: rgba(14, 165, 233, 0.15);
-    --text-main: #0f172a;
-    --text-sub: #64748b;
-    --glass: rgba(255, 255, 255, 0.7);
-    --border-color: rgba(226, 232, 240, 0.8);
+/* 1. Shimmer Effect (Skeleton Loading) */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 12px;
+}
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
-html, body {
-    font-family: 'Noto Sans Thai', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-primary);
-    /* เพิ่มการไล่เฉดสีหลายชั้นให้ดูมีมิติเหมือนในรูปตึก */
-    background-image: 
-        radial-gradient(circle at 20% 20%, #f0f9ff 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, #f8fafc 0%, transparent 40%),
-        linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
-    background-attachment: fixed;
-    color: var(--text-main);
+/* 2. Accordion (สไตล์ Glassmorphism) */
+.accordion {
+    max-width: 100%;
+    margin: 10px 0;
 }
-
-/* เพิ่ม Grid จางๆ แบบล้ำๆ */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: linear-gradient(var(--border-color) 1px, transparent 1px), 
-                      linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
-    background-size: 50px 50px;
-    mask-image: radial-gradient(circle, rgba(0,0,0,0.05) 0%, transparent 80%);
-    pointer-events: none;
-    z-index: 0;
+.accordion-item {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(14, 165, 233, 0.1);
+    border-radius: 15px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: 0.3s;
 }
-
-/* --- Container Control --- */
-body > h1, body > h2, body > p, body > main, body > section, .container {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-/* --- Nav: เพิ่มความโปร่งและเงา --- */
-.hub-nav {
-    position: sticky;
-    top: 0;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 9999;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+.accordion-header {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: 600;
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 0.8rem !important;
-    max-width: 100% !important;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
 }
-
-.hub-nav a {
-    font-size: 13px;
-    padding: 6px 14px;
-    border-radius: 50px;
+.accordion-header:hover { background: rgba(14, 165, 233, 0.05); }
+.accordion-content {
+    max-height: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s;
     color: var(--text-sub);
-    text-decoration: none;
-    transition: 0.3s;
-    border: 1px solid transparent;
+    font-size: 0.95rem;
 }
 
-.hub-nav a:hover {
-    color: var(--accent-blue);
-    background: #fff;
-    border-color: var(--accent-blue);
-    box-shadow: 0 0 15px var(--accent-glow);
+/* 3. Tooltip (แสงนีออนจางๆ) */
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    border-bottom: 1px dashed var(--accent-blue);
 }
-
-/* --- Header: เน้นความอลังการ --- */
-header {
-    text-align: center;
-    padding: 100px 20px 60px !important;
-}
-
-.logo-img {
-    border-radius: 30px;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
-    border: 4px solid #fff;
-    margin-bottom: 30px;
-}
-
-h1 {
-    font-size: clamp(2rem, 6vw, 3.2rem);
-    font-weight: 800;
-    letter-spacing: -2px;
-    line-height: 1.1;
-    background: linear-gradient(to bottom, #0f172a 30%, #94a3b8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* --- Section: ปรับให้เหมือนแผ่นกระจกลอยได้ --- */
-section {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 40px;
-    margin: 40px auto !important;
-    padding: 50px !important;
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.02),
-        inset 0 0 20px rgba(255, 255, 255, 0.5);
-    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-section:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: var(--accent-blue);
-    box-shadow: 0 30px 60px rgba(14, 165, 233, 0.1);
-}
-
-/* --- Highlight Hub --- */
-.hub-highlight {
-    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(224,242,254,0.4) 100%) !important;
-    border: 1px solid var(--accent-blue) !important;
-}
-
-.cta-button {
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
     background: #0f172a;
-    padding: 16px 40px;
-    border-radius: 100px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.2);
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 8px;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
     transition: 0.3s;
+    font-size: 0.8rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }
 
-.cta-button:hover {
-    background: var(--accent-blue);
-    box-shadow: 0 15px 40px rgba(14, 165, 233, 0.4);
-    transform: translateY(-2px);
+/* 4. Mini Carousel (แบบ Simple CSS) */
+.carousel-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 20px 0;
+    scrollbar-width: none; /* ซ่อน scrollbar */
 }
-
-/* --- FAQ & Lists --- */
-.nav-list li {
-    border: none;
-    background: rgba(241, 245, 249, 0.5);
-    padding: 20px;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    transition: 0.3s;
-}
-
-.nav-list li:hover {
+.carousel-item {
+    flex: 0 0 80%;
+    scroll-snap-align: center;
     background: #fff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-}
-
-/* --- Footer --- */
-footer {
-    opacity: 0.6;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-@media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    section { padding: 30px 20px !important; margin: 20px auto !important; }
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-soft);
 }

@@ -1,116 +1,183 @@
-/* ===== BugTraderYai Unified Style V4 (Anti-Box Fix) ===== */
+/* ===== BugTraderYai Unified Style V5 (Futuristic White Edition) ===== */
 
 :root {
-    --primary-color: #0d1b4a;
-    --accent-color: #fbc02d;
-    --google-blue: #1a73e8;
-    --text-dark: #202124;
-    --text-secondary: #3c4043;
-    --text-insight: #d35400;
-    --white: #ffffff;
+    --bg-primary: #ffffff;
+    --bg-gradient: radial-gradient(circle at 50% 0%, #f0f9ff 0%, #ffffff 70%);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --accent-blue: #0ea5e9; /* สีฟ้าใสแบบ AI */
+    --text-main: #0f172a;   /* สีเข้มพอที่จะผ่านเกณฑ์ Contrast */
+    --text-sub: #475569;
+    --border-light: #f1f5f9;
+    --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.02);
+    --shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.06);
 }
 
 html, body {
     font-family: 'Noto Sans Thai', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--white);
-    color: var(--text-dark);
+    background-color: var(--bg-primary);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-main);
+    scroll-behavior: smooth;
 }
 
-/* --- จุดที่ทำให้เกิดกล่อง: แก้ไขโดยระบุเฉพาะ Tag ที่ต้องการคุมระยะขอบ --- */
-/* แทนที่จะใช้ body > * เราจะระบุเฉพาะ Tag เนื้อหาหลักเท่านั้น */
+/* --- Container Control --- */
+/* คุมระยะเนื้อหาให้สมดุลและโปร่ง */
 body > h1, 
 body > h2, 
 body > p, 
 body > ul, 
-body > ol, 
 body > main, 
 body > header, 
 body > section,
 .container {
-    max-width: 960px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 1.5rem 2rem;
+    padding: 2rem 1.5rem;
     box-sizing: border-box;
     display: block;
 }
 
-/* --- ยกเว้น HR ไม่ให้เป็นกล่อง --- */
-hr {
-    border: none;
-    border-top: 1px solid #e8eaed;
-    margin: 3rem auto;
-    max-width: 960px;
-    padding: 0 !important; /* ลบ padding ทิ้งขัดคำสั่งบน */
-    height: 0;
-}
-
-/* --- Navigation Fix: Desktop & Mobile --- */
+/* --- Navigation: Glassmorphism Style --- */
 .hub-nav {
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     z-index: 9999;
-    border-bottom: 1px solid #e8eaed;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap; /* Desktop แถวเดียว */
     gap: 12px;
     padding: 1rem !important;
     max-width: 100% !important; 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
 }
 
 .hub-nav a {
     font-size: 14px;
-    padding: 8px 18px;
-    border: 1px solid var(--google-blue);
-    border-radius: 25px;
-    color: var(--google-blue);
+    padding: 6px 16px;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    color: var(--text-sub);
     text-decoration: none;
     white-space: nowrap;
     font-weight: 500;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Mobile Fix สำหรับ Nav */
+.hub-nav a:hover {
+    color: var(--accent-blue);
+    background: rgba(14, 165, 233, 0.08);
+}
+
+/* --- Typography --- */
+h1 { 
+    font-size: clamp(2rem, 5vw, 2.75rem); 
+    font-weight: 700; 
+    line-height: 1.2; 
+    margin-bottom: 1.2rem;
+    background: linear-gradient(180deg, #0f172a 0%, #64748b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 { 
+    font-size: 1.5rem; 
+    font-weight: 600; 
+    margin-top: 2rem; 
+    color: var(--text-main);
+}
+
+/* --- Section & Cards: Modern Look --- */
+section {
+    background: var(--glass-bg);
+    padding: 40px !important;
+    border-radius: 30px;
+    margin: 25px auto !important;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-soft);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+section:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-blue);
+}
+
+/* --- Highlight Section (Intelligence Hub) --- */
+.section-title {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
+    text-align: center;
+    border-left: 6px solid var(--accent-blue) !important;
+}
+
+.section-title h2 { 
+    color: var(--accent-blue) !important; 
+    border: none !important; 
+    padding: 0 !important; 
+    margin: 0 !important; 
+}
+
+/* --- FAQ & Insights --- */
+.faq-item { border-bottom: 1px solid #f1f5f9; padding: 1.5rem 0; }
+
+.bug-insight { 
+    color: var(--text-main); 
+    background: #f8fafc; 
+    padding: 20px; 
+    border-radius: 16px; 
+    font-style: normal; 
+    border-left: 4px solid var(--accent-blue);
+    margin-top: 15px;
+}
+
+.badge { 
+    background: var(--accent-blue); 
+    padding: 3px 10px; 
+    border-radius: 6px; 
+    font-weight: bold; 
+    margin-right: 10px; 
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+/* --- Mobile Fixes --- */
 @media (max-width: 768px) {
     .hub-nav {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        flex-wrap: wrap;
         max-width: 100% !important;
     }
     .hub-nav a {
         font-size: 13px;
         padding: 10px 5px;
-        border-radius: 10px;
         text-align: center;
     }
     .hub-nav a:last-child { grid-column: span 2; }
     
-    /* ปรับระยะขอบเนื้อหาบนมือถือ */
+    section { padding: 25px !important; }
+    
     body > h1, body > h2, body > p, body > ul, body > main, body > section {
         padding: 1rem 1.2rem;
     }
 }
 
-/* --- Typography --- */
-h1 { font-size: 2.75rem; font-weight: 700; line-height: 1.25; margin-bottom: 1.2rem; }
-h2 { font-size: 1.4rem; font-weight: 600; margin-top: 3rem; border-left: 4px solid var(--google-blue); padding-left: 0.75rem; }
-
-/* --- Section Title & FAQ (Hub Page) --- */
-.section-title {
-    background: var(--primary-color) !important;
-    color: #fff !important;
-    padding: 2.5rem !important;
-    border-radius: 12px;
-    border-left: 8px solid var(--accent-color) !important;
-    margin: 2rem auto !important;
+/* --- Utilities --- */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+    margin: 3rem auto;
+    max-width: 900px;
 }
-.section-title h2 { color: #fff !important; border: none !important; padding: 0 !important; margin: 0 !important; }
-.section-title p { color: rgba(255,255,255,0.85) !important; margin: 10px 0 0 0 !important; }
 
-.faq-item { border-bottom: 1px solid #e8eaed; padding: 1.5rem 0; }
-.bug-insight { color: var(--text-insight); background: #fff8f0; padding: 15px; border-radius: 6px; font-style: italic; margin-top: 10px; }
-.badge { background: var(--accent-color); padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-right: 10px; color: #000; }
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+}

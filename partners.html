@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Partners & EA Developers | bugtraderyai</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --partner-glow: rgba(56, 189, 248, 0.4);
+        }
+
+        body {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        main { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* การจัดวาง Partner Grid */
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            padding-bottom: 100px;
+        }
+
+        /* กล่องพาร์ทเนอร์ บิดเบี้ยว 200% */
+        .partner-card {
+            background: rgba(5, 10, 20, 0.95);
+            border: 1px solid var(--accent);
+            padding: 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: glitchBox 7s infinite;
+        }
+
+        .partner-card:hover {
+            transform: scale(1.05) rotateZ(1deg);
+            box-shadow: 0 0 40px var(--partner-glow);
+            border-color: #fff;
+        }
+
+        /* ตราสัญลักษณ์เลข Node */
+        .node-id {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.7rem;
+            color: var(--accent);
+            font-family: monospace;
+            opacity: 0.6;
+        }
+
+        .partner-name {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .partner-desc {
+          color: #94a3b8;
+          font-size: 0.95rem;
+          line-height: 1.6;
+        }
+
+        .visit-link {
+          margin-top: 20px;
+          display: inline-block;
+          font-size: 0.8rem;
+          font-weight: 900;
+          color: #fff;
+          border-bottom: 1px solid var(--accent);
+          padding-bottom: 2px;
+        }
+
+        /* ตกแต่ง Category */
+        .ecosystem-label {
+          background: var(--accent);
+          color: #000;
+          padding: 5px 20px;
+          font-weight: 900;
+          display: inline-block;
+          clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+          margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dimension-bg"></div>
+
+<nav class="hub-nav">
+    <a href="/">HOME</a>
+    <a href="/intelligence-hub.html">HUB</a>
+    <a href="/partners.html" style="color: var(--accent); font-weight: 900;">PARTNERS</a>
+    <a href="/about.html">ABOUT</a>
+</nav>
+
+<main>
+    <header style="padding: 100px 20px 40px;">
+        <h1 data-text="PARTNER NODES">PARTNER NODES</h1>
+        <h2 data-text="EA ECOSYSTEM & DEVELOPERS" style="display: block; font-size: 1.2rem; color: var(--accent-bright);">EA ECOSYSTEM & DEVELOPERS</h2>
+        <p style="margin-top: 20px; color: #94a3b8; max-width: 600px; margin-left: auto; margin-right: auto;">
+            รายชื่อผู้พัฒนาระบบและเว็บไซต์พาร์ทเนอร์ที่เราไว้วางใจใน Logic และการบริหารความเสี่ยงเชิงระบบ
+        </p>
+    </header>
+
+    <div class="ecosystem-label">VERIFIED SYSTEM DEVELOPERS</div>
+
+    <div class="partner-grid">
+        
+        <a href="https://ชื่อเว็บเจ้าของEA.com" class="partner-card" target="_blank">
+            <span class="node-id">SECURED_NODE_01</span>
+            <span class="partner-name">EA DEVELOPER NAME</span>
+            <p class="partner-desc">
+                ผู้เชี่ยวชาญด้านระบบ Martingale ชั้นสูงที่มีการคุมความเสี่ยงผ่านสถิติจริง และมี Logic การแก้ไม้ที่ซับซ้อน
+            </p>
+            <span class="visit-link">VISIT NODE ➜</span>
+        </a>
+
+        <a href="https://ชื่อเว็บเจ้าของEA-2.com" class="partner-card" target="_blank">
+            <span class="node-id">SECURED_NODE_02</span>
+            <span class="partner-name">QUANT TRADING LAB</span>
+            <p class="partner-desc">
+                เน้นการพัฒนาอัลกอริทึมประเภท Mean Reversion และ Trend Following ที่ผ่านการทำ Stress Test มาอย่างหนักหน่วง
+            </p>
+            <span class="visit-link">VISIT NODE ➜</span>
+        </a>
+
+        </div>
+
+    <footer>
+        <p>© 2026 BUGTRADERYAI - EXTERNAL NODE CONNECTIVITY</p>
+        <div class="shimmer" style="display: inline-block; padding: 6px 20px; border: 1px solid var(--accent); color: var(--accent); font-weight: 900;">
+            4D CONNECTION ACTIVE
+        </div>
+    </footer>
+</main>
+
+</body>
+</html>

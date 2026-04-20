@@ -19,113 +19,136 @@
   <style>
     :root {
       --bg: #ffffff;
-      --glass: rgba(255, 255, 255, 0.7);
+      --glass: rgba(255, 255, 255, 0.4);
       --accent: #0ea5e9;
       --text-main: #0f172a;
       --text-sub: #475569;
-      --border: rgba(226, 232, 240, 0.5);
+      --border: rgba(14, 165, 233, 0.1);
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: 'Noto Sans Thai', sans-serif;
       margin: 0;
+      font-family: 'Noto Sans Thai', sans-serif;
+      color: var(--text-main);
       line-height: 1.8;
-      background-image: 
-        radial-gradient(circle at 20% 20%, #f0f9ff 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, #f8fafc 0%, transparent 40%),
-        linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
-      background-attachment: fixed;
+      background: #fff;
+      overflow-x: hidden;
     }
 
-    /* Grid Overlay แบบล้ำๆ */
-    body::before {
+    /* --- พื้นหลังมิติที่ 4 (Animated 4D Mesh Gradient) --- */
+    .dimension-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(168, 85, 247, 0.12) 0px, transparent 50%);
+      animation: spatial-shift 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes spatial-shift {
+      0% { transform: scale(1) translate(0, 0); }
+      50% { transform: scale(1.1) translate(2%, 2%); }
+      100% { transform: scale(1) translate(0, 0); }
+    }
+
+    /* 3D Perspective Grid */
+    body::after {
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: linear-gradient(var(--border) 1px, transparent 1px), 
-                        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 40px 40px;
-      mask-image: radial-gradient(circle, rgba(0,0,0,0.08) 0%, transparent 80%);
+      background-image: 
+        linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      perspective: 1000px;
+      transform: perspective(600px) rotateX(45deg);
+      transform-origin: top;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent);
+      z-index: -1;
       pointer-events: none;
-      z-index: 0;
     }
 
     /* 1. Shimmer Animation */
     .shimmer {
-      background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+      background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.4) 50%, transparent 75%);
       background-size: 200% 100%;
-      animation: shimmer-ani 2s infinite;
+      animation: shimmer-ani 3s infinite;
     }
     @keyframes shimmer-ani {
       0% { background-position: 200% 0; }
       100% { background-position: -200% 0; }
     }
 
-    /* 2. Nav Glassmorphism */
+    /* 2. Nav Glassmorphism (Ultra Blur) */
     .hub-nav {
       display: flex;
       justify-content: center;
       gap: 10px;
       padding: 12px;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(25px) saturate(150%);
+      -webkit-backdrop-filter: blur(25px) saturate(150%);
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
     .hub-nav a {
       color: var(--text-sub);
       text-decoration: none;
       font-size: 0.85rem;
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 50px;
       transition: 0.3s;
     }
-    .hub-nav a:hover { color: var(--accent); background: #fff; }
+    .hub-nav a:hover { color: var(--accent); background: #fff; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.1); }
 
     /* 3. Header & Logo */
     header {
       position: relative;
-      padding: 80px 20px 40px;
+      padding: 100px 20px 60px;
       text-align: center;
       z-index: 1;
     }
     .logo-img {
-      border-radius: 24px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-      border: 4px solid #fff;
-      margin-bottom: 20px;
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+      border: 5px solid #fff;
+      margin-bottom: 25px;
+      transition: 0.5s;
     }
+    .logo-img:hover { transform: rotate(5deg) scale(1.05); }
 
     h1 {
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      background: linear-gradient(to bottom, #0f172a, #64748b);
+      font-size: clamp(2.2rem, 8vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #94a3b8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
     }
 
-    /* 4. Section Cards */
+    /* 4. Section Cards (4D Glass Style) */
     main { max-width: 850px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
     section {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      padding: 40px;
-      border-radius: 35px;
-      margin: 30px 0;
-      border: 1px solid rgba(255,255,255,0.8);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
-      transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(20px);
+      padding: 50px;
+      border-radius: 40px;
+      margin: 40px 0;
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
+      transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     section:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px) scale(1.02);
+      background: rgba(255, 255, 255, 0.6);
       border-color: var(--accent);
-      box-shadow: 0 25px 50px rgba(14, 165, 233, 0.1);
+      box-shadow: 0 40px 80px rgba(14, 165, 233, 0.1);
     }
 
     /* 5. Tooltip */
@@ -138,73 +161,75 @@
     }
     .tooltip .tooltiptext {
       visibility: hidden;
-      width: 180px;
+      width: 200px;
       background-color: #0f172a;
       color: #fff;
       text-align: center;
-      border-radius: 8px;
-      padding: 8px;
+      border-radius: 12px;
+      padding: 12px;
       position: absolute;
-      z-index: 1;
-      bottom: 125%;
+      z-index: 10;
+      bottom: 130%;
       left: 50%;
       transform: translateX(-50%);
       opacity: 0;
-      transition: opacity 0.3s;
-      font-size: 0.8rem;
-      font-weight: 400;
+      transition: 0.3s;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
     .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
 
-    /* 6. Accordion (FAQ) */
+    /* 6. Accordion (High-Tech Style) */
     .accordion-item {
-      background: rgba(241, 245, 249, 0.5);
-      border-radius: 20px;
-      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 24px;
+      margin-bottom: 15px;
       overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.5);
     }
     .accordion-header {
-      padding: 15px 25px;
+      padding: 20px 30px;
       cursor: pointer;
       font-weight: 600;
       display: flex;
       justify-content: space-between;
       transition: 0.3s;
     }
-    .accordion-header:hover { background: #fff; }
+    .accordion-header:hover { background: #fff; color: var(--accent); }
     .accordion-content {
       max-height: 0;
-      padding: 0 25px;
+      padding: 0 30px;
       overflow: hidden;
-      transition: 0.3s ease-out;
+      transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       color: var(--text-sub);
     }
 
-    /* 7. Button */
+    /* 7. Button (Futuristic Pulse) */
     .cta-button {
       display: inline-block;
-      margin-top: 20px;
-      padding: 14px 40px;
+      margin-top: 25px;
+      padding: 16px 45px;
       background: #0f172a;
       color: #fff !important;
       border-radius: 100px;
       text-decoration: none;
       font-weight: 700;
-      letter-spacing: 0.5px;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
-      transition: 0.3s;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.2);
+      transition: 0.4s;
     }
     .cta-button:hover {
       background: var(--accent);
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(14, 165, 233, 0.3);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(14, 165, 233, 0.4);
     }
 
-    footer { text-align: center; padding: 60px 0; color: #94a3b8; font-size: 0.8rem; letter-spacing: 1px; }
+    footer { text-align: center; padding: 80px 0; color: #94a3b8; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
 
     @media (max-width: 600px) {
-      header { padding: 50px 20px; }
-      section { padding: 30px 20px; }
+      header { padding: 60px 20px; }
+      section { padding: 40px 20px; }
       .hub-nav { display: grid; grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -212,11 +237,13 @@
 
 <body>
 
+<div class="dimension-bg"></div>
+
 <nav class="hub-nav">
     <a href="/">หน้าแรก</a>
     <a href="/intelligence-hub.html" style="color: var(--accent); font-weight: 700;">🔥 500 คำถาม</a>
     <a href="/ea-system-philosophy.html">ปรัชญา</a>
-    <a href="/why-most-ea-users-fail.html">ทำไมคนส่วนใหญ่เจ๊ง</a>
+    <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
     <a href="/anti-ea-faq.html">FAQ ก่อนเริ่ม</a>
     <a href="/about.html">รู้จักเรา</a>
 </nav>
@@ -224,19 +251,21 @@
 <main>
   <header>
     <div class="logo-container">
-        <img src="/apple-touch-icon.png" width="100" height="100" class="logo-img" alt="bugtraderyai">
+        <img src="/apple-touch-icon.png" width="110" height="110" class="logo-img" alt="bugtraderyai">
     </div>
     <h1>
       EA ไม่ได้อันตราย<br>
       คนที่ใช้ EA โดยไม่เข้าใจต่างหากที่อันตราย
     </h1>
-    <p style="color: var(--text-sub);">Insight โดย <strong>bugtraderyai</strong></p>
+    <p style="color: var(--text-sub); font-size: 1.1rem; margin-top: 15px;">
+      Insight เชิงระบบโดย <strong>bugtraderyai</strong>
+    </p>
   </header>
 
-  <section style="text-align: center; border: 1px solid var(--accent);">
-    <h2 style="justify-content: center; color: var(--accent);">📂 EA Intelligence Hub</h2>
-    <p>วิเคราะห์ระบบเทรดผ่าน <span class="tooltip">Logic AI<span class="tooltiptext">อัลกอริทึมที่คำนวณจากสถิติย้อนหลังและบริบทตลาดจริง</span></span> และคำถามกว่า 500 ข้อ</p>
-    <a href="/intelligence-hub.html" class="cta-button">เข้าสู่คลังความรู้</a>
+  <section style="text-align: center; border: 1px solid rgba(14, 165, 233, 0.3);">
+    <h2 style="justify-content: center; color: var(--accent); font-size: 1.8rem;">📂 EA Intelligence Hub</h2>
+    <p>วิเคราะห์ระบบเทรดผ่าน <span class="tooltip">Logic AI<span class="tooltiptext">อัลกอริทึมที่คำนวณจากสถิติย้อนหลังและบริบทตลาดจริง ไม่ใช่การเดาสุ่ม</span></span> และคำถามเจาะลึกกว่า 500 ข้อ</p>
+    <a href="/intelligence-hub.html" class="cta-button">สำรวจคลังความรู้</a>
   </section>
 
   <section>
@@ -246,31 +275,33 @@
         ทำไมเราไม่โชว์ผลกำไร? <span>+</span>
       </div>
       <div class="accordion-content">
-        <p>เพราะกำไรในอดีตไม่ใช่เครื่องยืนยันอนาคต เราโฟกัสที่ "ความเข้าใจความเสี่ยง" เพื่อให้คุณอยู่รอดในระยะยาว</p>
+        <p>เพราะการเทรดคือความน่าจะเป็น กำไรในอดีตไม่ใช่เครื่องยืนยันอนาคต เราจึงโฟกัสที่การทำความเข้าใจ "ความเสี่ยง" และ "Logic" เพื่อให้คุณตัดสินใจได้ด้วยตัวเองอย่างยั่งยืน</p>
       </div>
     </div>
     
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
-        การเทรดเชิงระบบคืออะไร? <span>+</span>
+        การเทรดเชิงระบบ (Systematic) คืออะไร? <span>+</span>
       </div>
       <div class="accordion-content">
-        <p>คือการมีเงื่อนไขการเข้า-ออกที่ชัดเจน 100% ตัดอารมณ์ออก และบริหารพอร์ตด้วยสถิติ</p>
+        <p>คือการเปลี่ยนแผนการเทรดให้เป็นชุดคำสั่งที่ชัดเจน 100% ตัดการใช้อารมณ์หน้างานออกไป และปล่อยให้สถิติทำงานตามเป้าหมายที่วางไว้</p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>🔗 ลิงก์ที่สำคัญ</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-      <a href="/why-most-ea-users-fail.html" style="text-decoration:none; padding: 15px; background: #f8fafc; border-radius: 15px; color: var(--text-main);">➜ ทำไมคนส่วนใหญ่เจ๊ง</a>
-      <a href="/ea-system-overview.html" style="text-decoration:none; padding: 15px; background: #f8fafc; border-radius: 15px; color: var(--text-main);">➜ ภาพรวมระบบ</a>
+    <h2>🔗 ข้อมูลด่วน</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+      <a href="/why-most-ea-users-fail.html" style="text-decoration:none; padding: 25px; background: rgba(255,255,255,0.6); border-radius: 20px; color: var(--text-main); font-weight: 600; transition: 0.3s; border: 1px solid rgba(0,0,0,0.05); text-align: center;">➜ ทำไมคนส่วนใหญ่เจ๊ง</a>
+      <a href="/ea-system-overview.html" style="text-decoration:none; padding: 25px; background: rgba(255,255,255,0.6); border-radius: 20px; color: var(--text-main); font-weight: 600; transition: 0.3s; border: 1px solid rgba(0,0,0,0.05); text-align: center;">➜ ภาพรวมระบบ</a>
     </div>
   </section>
 
   <footer>
     <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING</p>
-    <p class="shimmer" style="display: inline-block; padding: 2px 10px; border-radius: 4px; color: #64748b;">AI DRIVEN INSIGHTS</p>
+    <div class="shimmer" style="display: inline-block; padding: 4px 15px; border-radius: 100px; color: #64748b; font-weight: 700; border: 1px solid rgba(0,0,0,0.05);">
+      HYPER-SPACE INSIGHTS
+    </div>
   </footer>
 </main>
 
@@ -279,17 +310,22 @@
     const content = element.nextElementSibling;
     const isExpanded = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
     
-    // Close all other accordions (Optional)
+    // ปิดอันอื่นก่อนเพื่อให้ดู Pro
     document.querySelectorAll('.accordion-content').forEach(c => {
-      c.style.maxHeight = '0px';
-      c.style.padding = '0 25px';
+      if (c !== content) {
+        c.style.maxHeight = '0px';
+        c.style.padding = '0 30px';
+        c.previousElementSibling.querySelector('span').innerText = '+';
+      }
     });
 
     if (!isExpanded) {
-      content.style.maxHeight = '200px';
-      content.style.padding = '15px 25px';
+      content.style.maxHeight = content.scrollHeight + 30 + "px"; // คำนวณความสูงจริง
+      content.style.padding = '20px 30px';
       element.querySelector('span').innerText = '-';
     } else {
+      content.style.maxHeight = '0px';
+      content.style.padding = '0 30px';
       element.querySelector('span').innerText = '+';
     }
   }

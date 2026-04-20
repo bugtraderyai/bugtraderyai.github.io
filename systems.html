@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>EA Systems & Manuals | bugtraderyai</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --manual-gold: #fde047;
+            --system-blue: #38bdf8;
+        }
+
+        body { color: #fff; text-align: center; }
+        main { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- 1. EA Showcase Card --- */
+        .system-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .ea-card {
+            background: rgba(1, 2, 4, 0.95);
+            border: 2px solid var(--system-blue);
+            padding: 30px;
+            text-align: left;
+            position: relative;
+            animation: glitchBox 7s infinite;
+        }
+
+        .ea-status {
+            position: absolute;
+            top: 15px; right: 15px;
+            font-size: 0.7rem;
+            color: #4ade80;
+            border: 1px solid #4ade80;
+            padding: 2px 8px;
+            text-transform: uppercase;
+        }
+
+        .spec-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .spec-list li {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 8px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .spec-val { color: var(--system-blue); font-weight: 900; }
+
+        /* --- 2. Step-by-Step Manual --- */
+        .manual-section {
+            background: rgba(15, 23, 42, 0.9);
+            border-left: 4px solid var(--manual-gold);
+            padding: 40px;
+            margin: 60px 0;
+            text-align: left;
+        }
+
+        .step-block {
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .step-num {
+            position: absolute;
+            left: 0; top: 0;
+            width: 35px; height: 35px;
+            background: var(--manual-gold);
+            color: #000;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+        }
+
+        .code-snippet {
+            background: #000;
+            padding: 15px;
+            border: 1px solid #334155;
+            color: #4ade80;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .warning-tip {
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            padding: 15px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dimension-bg"></div>
+
+<nav class="hub-nav">
+    <a href="/">HOME</a>
+    <a href="/intelligence-hub.html">HUB</a>
+    <a href="/systems.html" style="color: var(--accent); font-weight: 900;">SYSTEMS</a>
+    <a href="/partners.html">PARTNERS</a>
+</nav>
+
+<main>
+    <header style="padding: 80px 20px 40px;">
+        <h1 data-text="SYSTEMS & MANUALS">SYSTEMS & MANUALS</h1>
+        <h2 data-text="คลังระบบและการติดตั้ง" style="display: block; font-size: 1.2rem; color: var(--accent-bright);">คลังระบบและการติดตั้ง</h2>
+    </header>
+
+    <div class="ecosystem-label">OPERATIONAL EA MODELS</div>
+    <div class="system-display">
+        
+        <div class="ea-card">
+            <span class="ea-status">Active</span>
+            <h3 style="color: var(--system-blue); margin: 0 0 10px;">BUG_WARRIOR_V1</h3>
+            <p style="font-size: 0.85rem; color: #cbd5e1;">กลยุทธ์ Martingale Hybrid เน้นเก็บ Cash Flow ในสภาวะตลาด Sideway</p>
+            <ul class="spec-list">
+                <li>Pair: <span class="spec-val">XAUUSD, EURUSD</span></li>
+                <li>Timeframe: <span class="spec-val">M5 / M15</span></li>
+                <li>Min. Capital: <span class="spec-val">$1,000 (Cent)</span></li>
+                <li>Risk Level: <span class="spec-val">High Impact</span></li>
+            </ul>
+            <a href="#setup" class="visit-link">ดูคู่มือติดตั้ง ➜</a>
+        </div>
+
+        <div class="ea-card">
+            <span class="ea-status">Beta Testing</span>
+            <h3 style="color: var(--system-blue); margin: 0 0 10px;">QUANT_FLOW_PRO</h3>
+            <p style="font-size: 0.85rem; color: #cbd5e1;">Trend Following Logic ใช้ AI กรองสัญญาณความผันผวนของราคา</p>
+            <ul class="spec-list">
+                <li>Pair: <span class="spec-val">Major Pairs</span></li>
+                <li>Timeframe: <span class="spec-val">H1</span></li>
+                <li>Min. Capital: <span class="spec-val">$500 (Standard)</span></li>
+                <li>Risk Level: <span class="spec-val">Medium</span></li>
+            </ul>
+            <a href="#setup" class="visit-link">ดูคู่มือติดตั้ง ➜</a>
+        </div>
+
+    </div>
+
+    <div id="setup" class="ecosystem-label" style="background: var(--manual-gold);">DEPLOYMENT PROTOCOL (วิธีติดตั้ง)</div>
+    
+    <div class="manual-section">
+        <div class="step-block">
+            <div class="step-num">01</div>
+            <h3>เตรียมบัญชีเทรดและ VPS</h3>
+            <p class="answer-text">แนะนำให้ใช้บัญชี Cent สำหรับ EA สายแก้ไม้ และควรเปิดบน VPS (Virtual Private Server) ที่มีความเสถียรสูง 24 ชม.</p>
+        </div>
+
+        <div class="step-block">
+            <div class="step-num">02</div>
+            <h3>การคัดลอกไฟล์ระบบ</h3>
+            <p class="answer-text">เปิดโปรแกรม MT4/MT5 ไปที่เมนู File > Open Data Folder แล้วนำไฟล์ .ex4/.ex5 ไปวางในโฟลเดอร์ MQL > Experts</p>
+            <code class="code-snippet">Path: MQL4 / Experts / [วางไฟล์ที่นี่]</code>
+        </div>
+
+        <div class="step-block">
+            <div class="step-num">03</div>
+            <h3>การตั้งค่า Common Tab</h3>
+            <p class="answer-text">ในหน้าต่าง Navigator ให้ลาก EA ลงในกราฟ แล้วติ๊กถูกที่ช่อง <strong>"Allow Live Trading"</strong> และ <strong>"Allow DLL imports"</strong> เสมอ</p>
+            <div class="warning-tip">⚠️ ห้ามลืมกดปุ่ม "Auto Trading" ด้านบนโปรแกรมให้เป็นสีเขียว</div>
+        </div>
+
+        <div class="step-block">
+            <div class="step-num">04</div>
+            <h3>ตรวจสอบสถานะหน้ายิ้ม</h3>
+            <p class="answer-text">สังเกตมุมขวาบนของกราฟ หากเป็น "หน้ายิ้ม" แสดงว่าระบบพร้อมทำงาน หากเป็น "หน้าบึ้ง" ให้ตรวจสอบปุ่ม Auto Trading อีกครั้ง</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 BUGTRADERYAI - SYSTEM DEPLOYMENT CENTER</p>
+        <div class="shimmer" style="display: inline-block; padding: 6px 20px; border: 1px solid var(--system-blue); color: var(--system-blue); font-weight: 900;">
+            SYSTEMS READY
+        </div>
+    </footer>
+</main>
+
+<script>
+    // เพิ่มเอฟเฟกต์ Glitch เมื่อเลื่อนหน้าจอ
+    window.addEventListener('scroll', () => {
+        const cards = document.querySelectorAll('.ea-card');
+        cards.forEach(card => {
+            let rect = card.getBoundingClientRect();
+            if(rect.top < window.innerHeight && rect.bottom > 0) {
+                card.style.transform = `skewX(${(Math.random() - 0.5) * 2}deg)`;
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

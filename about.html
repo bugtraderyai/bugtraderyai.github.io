@@ -14,49 +14,117 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "About bugtraderyai",
-    "description": "About page describing bugtraderyai, a system-aware Introducing Broker focused on Expert Advisors, risk, and market context.",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "bugtraderyai",
-      "url": "https://bugtraderyai.github.io/about.html"
-    }
-  }
-  </script>
-
   <style>
-    /* สไตล์เพิ่มเติมสำหรับหน้า About */
-    .profile-card {
+    /* บังคับทุกอย่างให้จัดกลางและตัวหนังสือสว่าง */
+    :root {
+      --accent-bright: #7dd3fc; /* ฟ้าสว่างมาก */
+      --text-bright: #ffffff;    /* ขาวบริสุทธิ์ */
+      --text-dim: #e2e8f0;       /* ขาวเทาจางๆ */
+    }
+
+    body {
+      color: var(--text-bright);
+      text-align: center; /* จัดตัวหนังสือกลางทุกจุด */
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9); /* เงาหนาให้ตัวหนังสือลอย */
+    }
+
+    main {
+      max-width: 850px;
+      margin: 0 auto; /* จัดกึ่งกลางหน้าจอ */
+      padding: 0 20px;
+    }
+
+    section {
+      background: rgba(5, 10, 20, 0.9) !important; /* ปรับกล่องให้ดำขึ้นเพื่อกันสีจม */
+      border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      margin: 30px auto !important; /* จัดกลาง */
+      padding: 40px !important;
+      border-radius: 20px;
       text-align: center;
-      margin-bottom: 40px;
     }
+
+    h1, h2, h3 {
+      color: var(--text-bright) !important;
+      margin-bottom: 20px;
+      display: inline-block; /* เพื่อให้จัดกลางได้เป๊ะ */
+    }
+
+    p {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      margin: 0 auto 15px;
+      max-width: 700px;
+    }
+
+    /* จัดระเบียบรายการ (List) ให้ดูเป็นระเบียบแต่ยังอยู่กลาง */
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      display: inline-block;
+      text-align: left; /* ให้หัวข้อใน List ชิดซ้ายแต่ตัวกลุ่ม List อยู่กลาง */
+    }
+
+    .nav-list li {
+      color: var(--text-bright);
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+
     .profile-img {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 20px var(--accent-glow);
-      margin-bottom: 15px;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 30px var(--accent-glow);
+      margin-bottom: 20px;
+      background: #fff;
     }
+
+    /* ปรับ Grid ให้จัดกลาง */
     .grid-about {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
+      margin-bottom: 30px;
     }
+
     @media (max-width: 768px) {
       .grid-about { grid-template-columns: 1fr; }
     }
-    .not-do-list {
-      border-left: 4px solid #ff4d4d !important;
-      background: rgba(255, 77, 77, 0.05) !important;
+
+    .not-do-list { border-left: none !important; border-top: 4px solid #ff4d4d !important; }
+    .target-list { border-left: none !important; border-top: 4px solid #4ade80 !important; }
+
+    .bug-insight {
+      background: rgba(56, 189, 248, 0.15) !important;
+      color: var(--accent-bright) !important;
+      border: 1px solid var(--accent);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
     }
-    .target-list {
-      border-left: 4px solid #4ade80 !important;
-      background: rgba(74, 222, 128, 0.05) !important;
+
+    /* ลิงก์ตอนท้าย */
+    .link-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .link-grid a {
+      text-decoration: none;
+      padding: 15px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      color: var(--accent-bright);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      transition: 0.3s;
+    }
+
+    .link-grid a:hover {
+      background: var(--accent);
+      color: #000;
     }
   </style>
 </head>
@@ -74,16 +142,16 @@
 </nav>
 
 <main>
-  <header class="profile-card">
+  <header style="padding: 80px 20px 40px;">
     <img src="/apple-touch-icon.png" class="profile-img" alt="bugtraderyai logo">
     <h1>bugtraderyai คือใคร</h1>
-    <p style="color: var(--accent); font-weight: 700; letter-spacing: 1px;">SYSTEM-AWARE IB & RISK ARCHITECT</p>
+    <p style="color: var(--accent-bright); font-weight: 800; letter-spacing: 2px;">SYSTEM-AWARE IB & RISK ARCHITECT</p>
   </header>
 
   <section>
     <p>
-      <strong>bugtraderyai</strong> คือ Introducing Broker (IB) ที่ทำงานกับระบบ EA (Expert Advisor) 
-      โดยโฟกัส <strong>“ความเข้าใจเชิงระบบ”</strong> มากกว่าการขายผลลัพธ์สวยหรู
+      <strong>bugtraderyai</strong> คือ Introducing Broker (IB) ที่ทำงานกับระบบ EA (Expert Advisor)  
+      โดยโฟกัส <span style="color: var(--accent-bright);">“ความเข้าใจเชิงระบบ”</span> มากกว่าการขายผลลัพธ์สวยหรู
     </p>
     <p>
       เว็บไซต์นี้ไม่ได้ถูกสร้างขึ้นเพื่อชวนให้ทุกคนใช้ EA แต่เพื่ออธิบายว่า EA ควรถูกใช้งานอย่างไร และที่สำคัญกว่าคือ <strong>“เมื่อใดที่ไม่ควรถูกใช้งาน”</strong>
@@ -92,8 +160,8 @@
 
   <div class="grid-about">
     <section>
-      <h2 style="color: var(--accent);">⚙️ แนวคิดหลัก</h2>
-      <ul class="nav-list" style="margin: 0; padding: 0;">
+      <h2 style="color: var(--accent-bright);">⚙️ แนวคิดหลัก</h2><br>
+      <ul class="nav-list">
         <li>➜ EA ไม่ใช่เครื่องพิมพ์เงิน</li>
         <li>➜ EA คือระบบที่มีข้อจำกัดชัดเจน</li>
         <li>➜ ความเสี่ยงไม่หายไปเพราะระบบอัตโนมัติ</li>
@@ -102,8 +170,8 @@
     </section>
 
     <section class="not-do-list">
-      <h2 style="color: #ff4d4d;">❌ สิ่งที่เราไม่ทำ</h2>
-      <ul class="nav-list" style="margin: 0; padding: 0;">
+      <h2 style="color: #ff6b6b;">❌ สิ่งที่เราไม่ทำ</h2><br>
+      <ul class="nav-list">
         <li>➜ ไม่การันตีกำไรใดๆ</li>
         <li>➜ ไม่โฆษณาผลตอบแทนเกินจริง</li>
         <li>➜ ไม่ชักชวนคนที่ไม่พร้อมรับความเสี่ยง</li>
@@ -114,33 +182,33 @@
 
   <section>
     <h2>🛡️ บทบาทของ IB ในมุมมองเรา</h2>
-    <p>IB ไม่ควรเป็นเพียงตัวเชื่อมบัญชีเพื่อกินค่าคอมมิชชั่น แต่ควรเป็น <strong>“ชั้นความปลอดภัยทางความคิด” (Mental Safety Layer)</strong></p>
+    <p>IB ไม่ควรเป็นเพียงตัวเชื่อมบัญชีเพื่อกินค่าคอมมิชชั่น แต่ควรเป็น <strong>“ชั้นความปลอดภัยทางความคิด”</strong></p>
     <div class="bug-insight">
       หน้าที่สำคัญของ IB คือ ช่วยสะท้อนความเสี่ยง, เตือนเมื่อระบบถูกใช้งานผิดบริบท และช่วยให้ผู้ใช้ไม่หลงไปกับตัวเลขกำไรชั่วคราว
     </div>
   </section>
 
   <section class="target-list">
-    <h2 style="color: #4ade80;">🎯 เว็บไซต์นี้เหมาะกับใคร</h2>
-    <ul class="nav-list" style="margin: 0; padding: 0;">
+    <h2 style="color: #6ee7b7;">🎯 เว็บไซต์นี้เหมาะกับใคร</h2><br>
+    <ul class="nav-list">
       <li>✓ คนที่ต้องการเข้าใจกลไก EA ก่อนลงเงินจริง</li>
       <li>✓ คนที่ยอมรับ Drawdown ได้อย่างมีเหตุผล</li>
-      <li>✓ คนที่ไม่มอง EA เป็นทางลัดสู่ความรวยแบบง่ายๆ</li>
+      <li>✓ คนที่ไม่มอง EA เป็นทางลัดสู่ความรวย</li>
       <li>✓ คนที่ต้องการ "ระบบ" มากกว่า "ความหวัง"</li>
     </ul>
   </section>
 
   <section>
-    <h2>🔗 สำรวจเนื้อหาเพิ่มเติม</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-      <a href="/ea-system-overview.html" style="text-decoration:none; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 12px; color: var(--accent); text-align: center; border: 1px solid rgba(255,255,255,0.05);">ภาพรวมระบบ</a>
-      <a href="/why-most-ea-users-fail.html" style="text-decoration:none; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 12px; color: var(--accent); text-align: center; border: 1px solid rgba(255,255,255,0.05);">ทำไมคนส่วนใหญ่เจ๊ง</a>
+    <h2 style="color: var(--accent-bright); margin-bottom: 25px;">🔗 สำรวจเนื้อหาเพิ่มเติม</h2>
+    <div class="link-grid">
+      <a href="/ea-system-overview.html">ภาพรวมระบบ</a>
+      <a href="/why-most-ea-users-fail.html">ทำไมคนส่วนใหญ่เจ๊ง</a>
     </div>
   </section>
 
   <footer>
     <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING INTELLIGENCE</p>
-    <div class="shimmer" style="display: inline-block; padding: 4px 20px; border-radius: 4px; color: var(--accent); font-weight: 700; border: 1px solid var(--border);">
+    <div class="shimmer" style="display: inline-block; padding: 4px 20px; border-radius: 4px; color: var(--accent-bright); font-weight: 700; border: 1px solid rgba(56,189,248,0.2);">
       4D TRANSPARENCY PROTOCOL
     </div>
   </footer>

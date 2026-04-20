@@ -2,174 +2,200 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-
   <title>ทำไมคนส่วนใหญ่ใช้ EA แล้วล้มเหลว | bugtraderyai</title>
-
   <meta name="description" content="วิเคราะห์เหตุผลเชิงระบบและจิตวิทยาว่าทำไมคนส่วนใหญ่ล้มเหลวจากการใช้ EA โดย bugtraderyai">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ADD: author + canonical -->
   <meta name="author" content="bugtraderyai">
   <link rel="canonical" href="https://bugtraderyai.github.io/why-most-ea-users-fail.html">
 
-  <!-- Google Font -->
+  <link rel="stylesheet" href="style.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/style.css">
+  <style>
+    :root {
+      --accent-bright: #7dd3fc; 
+      --text-white: #ffffff;
+      --text-silver: #e2e8f0;
+      --danger-glitch: #ff00c1;
+    }
 
-  <!-- Structured Data: Person -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "bugtraderyai",
-    "description": "Introducing Broker (IB) ผู้เชี่ยวชาญการใช้งาน EA เชิงระบบ ความเสี่ยง และบริบทตลาด",
-    "knowsAbout": [
-      "Expert Advisor (EA)",
-      "Algorithmic Trading",
-      "Forex Risk Management",
-      "Trading Psychology",
-      "Drawdown Management",
-      "Automation Misuse"
-    ],
-    "url": "https://bugtraderyai.github.io"
-  }
-  </script>
+    body {
+      color: var(--text-white);
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,1);
+    }
 
-  <!-- Structured Data: Article (Causal Analysis) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "ทำไมคนส่วนใหญ่ใช้ EA แล้วล้มเหลว",
-    "description": "บทวิเคราะห์เชิงเหตุและผลว่าทำไมผู้ใช้ส่วนใหญ่ล้มเหลวจากการใช้ Expert Advisor (EA) โดยเกิดจากความคาดหวังผิด การไม่เข้าใจระบบ และการมอบอำนาจการตัดสินใจให้ระบบอัตโนมัติโดยไม่มีกรอบกำกับ",
-    "author": {
-      "@type": "Person",
-      "name": "bugtraderyai"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "bugtraderyai"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://bugtraderyai.github.io/why-most-ea-users-fail.html"
-    },
-    "about": [
-      "Expert Advisor Failure",
-      "Human Misuse of Automation",
-      "Trading Expectation Bias",
-      "Drawdown Misinterpretation",
-      "System-Level Trading Risk"
-    ],
-    "inLanguage": "th-TH"
-  }
-  </script>
+    main {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
+    /* กล่อง Section พิเศษสำหรับหน้า 'เจ๊ง' จะบิดเบี้ยวแรงกว่าปกติ */
+    section {
+      background: rgba(1, 2, 4, 0.95) !important;
+      border: 1px solid var(--border);
+      margin: 40px auto !important;
+      padding: 45px !important;
+      border-radius: 4px;
+      text-align: left;
+      animation: glitchBox 5s infinite; /* เร่งความเร็วการสั่น */
+    }
+
+    h1, h2 {
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    .fail-number {
+      color: var(--danger-glitch);
+      font-weight: 900;
+      font-size: 2rem;
+      margin-right: 15px;
+      font-family: monospace;
+    }
+
+    .fail-header {
+      color: var(--accent-bright);
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+
+    .fail-p {
+      color: var(--text-silver);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-top: 15px;
+    }
+
+    /* ปรับแต่งจุดเน้นแรงๆ */
+    .danger-highlight {
+      color: var(--danger-glitch);
+      font-weight: bold;
+      text-shadow: 0 0 10px var(--danger-glitch);
+    }
+
+    .comparison-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed rgba(56, 189, 248, 0.3);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .link-list {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    .link-list li { margin-bottom: 15px; }
+
+    .link-list a {
+      color: var(--accent-bright);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+
+    .link-list a:hover {
+      text-shadow: 0 0 15px var(--accent);
+      letter-spacing: 1px;
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>ทำไมคนส่วนใหญ่ใช้ EA แล้วล้มเหลว</h1>
+<div class="dimension-bg"></div>
 
-<p>
-คนส่วนใหญ่ไม่ได้ล้มเหลวเพราะ EA ไม่ดี  
-แต่ล้มเหลวเพราะ <strong>ใช้ EA โดยไม่เข้าใจว่ากำลังมอบอำนาจการตัดสินใจให้ระบบ</strong>
-</p>
+<nav class="hub-nav">
+    <a href="/">หน้าแรก</a>
+    <a href="/intelligence-hub.html">🔥 500 คำถาม</a>
+    <a href="/ea-system-philosophy.html">ปรัชญา</a>
+    <a href="/why-most-ea-users-fail.html" style="color: var(--danger-glitch); font-weight: 900;">ทำไมถึงเจ๊ง</a>
+    <a href="/about.html">รู้จักเรา</a>
+</nav>
 
-<p>
-เพื่อให้เห็นภาพชัดขึ้น EA สามารถเปรียบได้กับโทรศัพท์มือถือหนึ่งเครื่อง  
-ตัวระบบอัตโนมัติเป็นเพียงโครงสร้างพื้นฐาน  
-แต่การใช้งานจริงขึ้นอยู่กับว่าผู้ใช้เข้าใจแอปภายใน  
-วิธีการทำงาน และข้อจำกัดของระบบมากแค่ไหน  
-การไม่ศึกษาโทรศัพท์เครื่องใหม่ย่อมนำไปสู่การใช้งานผิดพลาด  
-EA ก็ไม่แตกต่างกัน
-</p>
+<main>
+  <header style="padding: 100px 20px 50px;">
+    <h1 data-text="WHY USERS FAIL">WHY USERS FAIL</h1><br>
+    <h2 data-text="ทำไมคนส่วนใหญ่ใช้ EA แล้วล้มเหลว" style="font-size: 1.5rem; margin-top: 10px; color: var(--danger-glitch);">
+      ทำไมคนส่วนใหญ่ใช้ EA แล้วล้มเหลว
+    </h2>
+    <p style="margin-top: 30px; color: var(--text-silver); font-size: 1.2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+      คนส่วนใหญ่ไม่ได้ล้มเหลวเพราะ EA ไม่ดี แต่ล้มเหลวเพราะ <br>
+      <span class="danger-highlight">"ใช้ EA โดยไม่เข้าใจว่ากำลังมอบอำนาจการตัดสินใจให้ระบบ"</span>
+    </p>
+  </header>
 
-<hr>
+  <section>
+    <div class="comparison-box">
+      <p style="margin: 0;">
+        <strong>System Comparison:</strong> EA เปรียบได้กับโทรศัพท์มือถือหนึ่งเครื่อง ตัวระบบอัตโนมัติเป็นเพียงโครงสร้างพื้นฐาน แต่การใช้งานจริงขึ้นอยู่กับว่าผู้ใช้เข้าใจแอปภายใน และข้อจำกัดของระบบมากแค่ไหน การไม่ศึกษาเครื่องมือก่อนใช้ย่อมนำไปสู่ความหายนะ
+      </p>
+    </div>
+  </section>
 
-<h2>1. คนส่วนใหญ่ไม่ยอมรับว่ากำลัง “มอบอำนาจ” ให้ EA</h2>
+  <section>
+    <span class="fail-number">01</span><span class="fail-header">ไม่ยอมรับว่ากำลัง “มอบอำนาจ”</span>
+    <p class="fail-p">
+      การเปิด EA ไม่ใช่แค่การใช้เครื่องมือ แต่มันคือการยอมรับผลลัพธ์จาก Logic ที่คุณอาจไม่เข้าใจจริง เมื่อระบบทำงานผิดจากความคาดหวัง คนมักโทษ EA แทนที่จะถามตัวเอง
+    </p>
+  </section>
 
-<p>
-การเปิด EA ไม่ใช่แค่การใช้เครื่องมือ  
-แต่มันคือการยอมรับผลลัพธ์จาก Logic  
-ที่ผู้ใช้อาจไม่เข้าใจจริง
-</p>
+  <section style="border-right: 4px solid var(--danger-glitch);">
+    <span class="fail-number">02</span><span class="fail-header">ความคาดหวังฆ่าความเข้าใจ</span>
+    <p class="fail-p">
+      คำถามที่ทำลายผู้ใช้ EA มากที่สุดคือ <span class="danger-highlight">“มันกำไรเดือนละกี่เปอร์เซ็นต์”</span> คำถามนี้ทำให้ EA ถูกมองเป็นเครื่องผลิตผลลัพธ์ ไม่ใช่ระบบที่มีข้อจำกัดและสภาวะที่มันสู้ไม่ได้
+    </p>
+  </section>
 
-<p>
-เมื่อระบบทำงานผิดจากความคาดหวัง  
-คนมักโทษ EA แทนที่จะถามตัวเอง
-</p>
+  <section>
+    <span class="fail-number">03</span><span class="fail-header">ไม่เข้าใจ Drawdown แต่แค่ “ทน”</span>
+    <p class="fail-p">
+      Drawdown ไม่ใช่สิ่งที่ต้องอดทน แต่มันคือ <strong style="color: var(--accent-bright);">"ข้อมูล"</strong> การทน Drawdown โดยไม่เข้าใจไม่ใช่ทางรอด แต่มันคือความเสี่ยงที่มองไม่เห็นซึ่งจะระเบิดพอร์ตคุณในที่สุด
+    </p>
+  </section>
 
-<hr>
+  <section style="border-left: 4px solid var(--danger-glitch);">
+    <span class="fail-number">04</span><span class="fail-header">EA ทำให้คนคิดน้อยลงโดยไม่รู้ตัว</span>
+    <p class="fail-p">
+      ระบบอัตโนมัติที่ไม่มีกรอบการคิด จะค่อย ๆ ดึงความรับผิดชอบออกจากมนุษย์ เมื่อเกิดปัญหา คนจะถามว่า EA พังหรือไม่ แทนที่จะถามว่า <span class="danger-highlight">"ตัวเองเข้าใจเงื่อนไขตลาดตอนนี้แค่ไหน"</span>
+    </p>
+  </section>
 
-<h2>2. ความคาดหวังฆ่าความเข้าใจ</h2>
+  <section>
+    <span class="fail-number">05</span><span class="fail-header">ใช้ EA โดยไม่มีใครสะท้อนความเสี่ยง</span>
+    <p class="fail-p">
+      การใช้ EA คนเดียว คือการใช้ระบบที่มีมุมมองเดียว ตลาดไม่เคยมีมุมเดียว แต่คนล้มเหลวเพราะคิดว่า Logic ของตัวเองครอบคลุมโลกทั้งใบแล้ว
+    </p>
+    <div class="bug-insight" style="margin-top: 25px; border-color: var(--danger-glitch); color: var(--danger-glitch) !important;">
+      BugTraderYai Insight: ตลาดไม่มีวันพัง มีแต่คนที่พังเพราะไม่ยอมรับความจริงของตลาด
+    </div>
+  </section>
 
-<p>
-คำถามที่ทำลายผู้ใช้ EA มากที่สุดคือ  
-“มันกำไรเดือนละกี่เปอร์เซ็นต์”
-</p>
+  <section style="text-align: center;">
+    <h2 data-text="อ่านต่อเพื่อความอยู่รอด">อ่านต่อเพื่อความอยู่รอด</h2>
+    <ul class="link-list" style="margin-top: 30px;">
+      <li><a href="/index.html">➜ แนวคิดหลัก: EA ไม่ได้อันตราย คนไม่เข้าใจต่างหากที่อันตราย</a></li>
+      <li><a href="/why-ib-matters.html">➜ ทำไมต้องมี IB ที่เข้าใจระบบคอยดูแล</a></li>
+      <li><a href="/anti-ea-faq.html">➜ 6 คำถามคัดกรองความพร้อมก่อนเริ่มรัน</a></li>
+    </ul>
+  </section>
 
-<p>
-คำถามนี้ทำให้ EA ถูกมองเป็นเครื่องผลิตผลลัพธ์  
-ไม่ใช่ระบบที่มีข้อจำกัด
-</p>
-
-<hr>
-
-<h2>3. คนส่วนใหญ่ไม่เข้าใจ Drawdown แต่แค่ “ทน” มัน</h2>
-
-<p>
-Drawdown ไม่ใช่สิ่งที่ต้องอดทน  
-แต่มันคือข้อมูล
-</p>
-
-<p>
-การทน Drawdown โดยไม่เข้าใจ  
-ไม่ใช่วินัย  
-แต่มันคือความเสี่ยงที่มองไม่เห็น
-</p>
-
-<hr>
-
-<h2>4. EA ทำให้คนคิดน้อยลงโดยไม่รู้ตัว</h2>
-
-<p>
-ระบบอัตโนมัติที่ไม่มีกรอบการคิด  
-จะค่อย ๆ ดึงความรับผิดชอบออกจากมนุษย์
-</p>
-
-<p>
-เมื่อเกิดปัญหา  
-คนจะถามว่า EA พังหรือไม่  
-แทนที่จะถามว่าตัวเองเข้าใจมันแค่ไหน
-</p>
-
-<hr>
-
-<h2>5. คนส่วนใหญ่ใช้ EA โดยไม่มีใครสะท้อนความเสี่ยง</h2>
-
-<p>
-การใช้ EA คนเดียว  
-คือการใช้ระบบที่มีมุมมองเดียว
-</p>
-
-<p>
-ตลาดไม่เคยมีมุมเดียว  
-แต่คนล้มเหลวเพราะคิดว่ามี
-</p>
-
-<hr>
-
-<h2>อ่านต่อ</h2>
-<ul>
-  <li><a href="/index.html">แนวคิดหลัก: EA ไม่ได้อันตราย คนที่ใช้ EA โดยไม่เข้าใจต่างหากที่อันตราย</a></li>
-  <li><a href="/why-ib-matters.html">ทำไม EA ไม่ควรถูกใช้งานโดยไม่มี IB ที่เข้าใจระบบ</a></li>
-  <li><a href="/anti-ea-faq.html">คำถามที่คุณควรถามตัวเองก่อนใช้ EA</a></li>
-</ul>
+  <footer>
+    <p>© 2026 BUGTRADERYAI - RISK ANALYSIS CORE</p>
+    <div class="shimmer" style="display: inline-block; padding: 8px 25px; border: 1px solid var(--accent); color: var(--accent); font-weight: 900; letter-spacing: 2px; margin-top: 20px;">
+      4D WARP SPEED ACTIVE
+    </div>
+  </footer>
+</main>
 
 </body>
 </html>

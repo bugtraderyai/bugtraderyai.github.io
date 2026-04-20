@@ -2,164 +2,227 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <title>EA Is Not Dangerous — Misuse Is | bugtraderyai</title>
-
   <meta name="description" content="A system-level perspective on Expert Advisors (EA), risk, and human misuse of automation by bugtraderyai, a system-aware Introducing Broker (IB).">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ADD: author + canonical -->
   <meta name="author" content="bugtraderyai">
   <link rel="canonical" href="https://bugtraderyai.github.io/ea-is-not-dangerous.html">
 
-  <!-- Google Font -->
+  <link rel="stylesheet" href="style.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/style.css">
+  <style>
+    :root {
+      --accent-bright: #7dd3fc; 
+      --text-white: #ffffff;
+      --text-silver: #e2e8f0;
+    }
 
-  <!-- Structured Data: Person -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "bugtraderyai",
-    "description": "System-aware Introducing Broker (IB) focused on Expert Advisors (EA), risk management, and human interaction with automated systems.",
-    "knowsAbout": [
-      "Expert Advisor (EA)",
-      "Algorithmic Trading",
-      "Automation Risk",
-      "Human-System Interaction",
-      "Trading Psychology",
-      "Market Regime"
-    ],
-    "url": "https://bugtraderyai.github.io"
-  }
-  </script>
+    body {
+      color: var(--text-white);
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,1);
+    }
 
-  <!-- Structured Data: Article (Global Thesis / Conceptual Anchor) -->
+    main {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: rgba(1, 2, 4, 0.95) !important;
+      border: 1px solid var(--accent);
+      margin: 40px auto !important;
+      padding: 50px !important;
+      border-radius: 4px;
+      text-align: left; /* เน้นอ่านบทความแบบมืออาชีพ */
+      animation: glitchBox 9s infinite;
+    }
+
+    h1, h2 {
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    .thesis-header {
+      color: var(--accent-bright);
+      font-weight: 900;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      display: block;
+      border-left: 5px solid var(--accent);
+      padding-left: 20px;
+      letter-spacing: 1px;
+    }
+
+    .thesis-p {
+      color: var(--text-silver);
+      font-size: 1.2rem;
+      line-height: 1.9;
+      margin-bottom: 25px;
+    }
+
+    .thesis-list {
+      list-style: none;
+      padding: 0;
+      margin: 25px 0;
+    }
+
+    .thesis-list li {
+      margin-bottom: 15px;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1.15rem;
+      color: var(--text-silver);
+    }
+
+    .thesis-list li::before {
+      content: ">>";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .warning-box {
+      background: rgba(255, 0, 193, 0.05) !important;
+      border: 1px solid #ff00c1 !important;
+      padding: 25px;
+      margin-top: 30px;
+      border-radius: 4px;
+    }
+
+    .warning-box p {
+      color: #ff00c1;
+      font-weight: 700;
+      margin: 0;
+      text-align: center;
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .nav-grid a {
+      text-decoration: none;
+      padding: 18px;
+      background: rgba(56, 189, 248, 0.05);
+      color: var(--accent-bright);
+      border: 1px solid var(--accent);
+      font-weight: 900;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .nav-grid a:hover {
+      background: var(--accent);
+      color: #000;
+      transform: translateY(-2px) skewX(-2deg);
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "EA Is Not Dangerous — Misuse Is",
-    "description": "A system-level thesis explaining why Expert Advisors (EA) are not inherently dangerous, and how most failures emerge from human misuse, misplaced expectations, and lack of contextual oversight.",
-    "author": {
-      "@type": "Person",
-      "name": "bugtraderyai"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "bugtraderyai"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://bugtraderyai.github.io/ea-is-not-dangerous.html"
-    },
-    "about": [
-      "Expert Advisor Risk",
-      "Human Misuse of Automation",
-      "System-Level Trading Failure",
-      "Automation and Responsibility",
-      "Algorithmic Trading Oversight"
-    ],
-    "inLanguage": "en-US"
+    "author": { "@type": "Person", "name": "bugtraderyai" }
   }
   </script>
-
 </head>
 
 <body>
 
-<h1>EA Is Not Dangerous — Misuse Is</h1>
+<div class="dimension-bg"></div>
 
-<p>
-Expert Advisors (EA) are often misunderstood.
-They are neither inherently profitable nor inherently dangerous.
-</p>
+<nav class="hub-nav">
+    <a href="/">HOME</a>
+    <a href="/intelligence-hub.html">🔥 500 QUESTIONS</a>
+    <a href="/ea-system-philosophy.html">PHILOSOPHY</a>
+    <a href="/why-most-ea-users-fail.html">WHY FAIL</a>
+    <a href="/about.html">ABOUT</a>
+</nav>
 
-<p>
-EA are decision-making systems.
-When deployed, they replace human discretion with predefined logic.
-The real risk emerges not from the system itself,
-but from how humans delegate responsibility to it.
-</p>
+<main>
+  <header style="padding: 100px 20px 60px;">
+    <h1 data-text="EA IS NOT DANGEROUS">EA IS NOT DANGEROUS</h1><br>
+    <h2 data-text="MISUSE IS" style="color: #ff00c1; font-size: 2.5rem;">MISUSE IS</h2>
+    <p style="margin-top: 30px; color: var(--accent-bright); font-weight: 900; letter-spacing: 2px;">
+      SYSTEM-LEVEL THESIS BY BUGTRADERYAI
+    </p>
+  </header>
 
-<hr>
+  <section>
+    <span class="thesis-header">THE FUNDAMENTAL MISCONCEPTION</span>
+    <p class="thesis-p">
+      Expert Advisors (EA) are often misunderstood. They are neither inherently profitable nor inherently dangerous. 
+      EA are decision-making systems. When deployed, they replace human discretion with predefined logic.
+    </p>
+    <div class="bug-insight">
+      "The real risk emerges not from the system itself, but from how humans delegate responsibility to it."
+    </div>
+  </section>
 
-<h2>Automation Does Not Remove Risk — It Reshapes It</h2>
+  <section style="border-top: 5px solid #00fff0;">
+    <span class="thesis-header" style="color: #00fff0; border-left-color: #00fff0;">RISK RESHAPING</span>
+    <p class="thesis-p">
+      Automation does not remove risk — it reshapes it. It transforms visible, emotional risk into delayed, structural risk.
+      Without contextual awareness, consistency becomes fragility.
+    </p>
+  </section>
 
-<p>
-Automation does not eliminate uncertainty.
-It transforms visible, emotional risk into delayed, structural risk.
-</p>
+  <section style="border-top: 5px solid #ff00c1;">
+    <span class="thesis-header" style="color: #ff00c1; border-left-color: #ff00c1;">HUMAN-CENTRIC FAILURES</span>
+    <ul class="thesis-list">
+      <li>Unrealistic expectations of consistency in dynamic markets</li>
+      <li>Misunderstanding drawdown as tolerance instead of vital information</li>
+      <li>Delegating responsibility without understanding system constraints</li>
+      <li>Absence of continuous system-level oversight</li>
+    </ul>
+    <div class="warning-box">
+      <p>EA DO NOT FAIL SUDDENLY. THEY FAIL WHEN THEIR OPERATING ASSUMPTIONS SILENTLY EXPIRE.</p>
+    </div>
+  </section>
 
-<p>
-When market conditions change,
-EA continue to operate according to the same logic.
-Without contextual awareness,
-this consistency becomes fragility.
-</p>
+  <section>
+    <span class="thesis-header">THE SYSTEM-AWARE IB</span>
+    <p class="thesis-p">
+      A system-aware Introducing Broker (IB) does not promise returns. The role is not performance enhancement, but <strong>risk contextualization</strong>.
+    </p>
+    <p class="thesis-p">
+      <strong>bugtraderyai</strong> focuses on how EA interact with market regimes, human psychology, and risk exposure over time.
+    </p>
+  </section>
 
-<hr>
+  <section style="text-align: center;">
+    <h2 data-text="CLARITY OVER CONVICTION">CLARITY OVER CONVICTION</h2>
+    <p class="thesis-p" style="margin-top: 20px;">
+      This website is not a sales platform. It exists to clarify, not to convince. 
+      Those who seek certainty may find discomfort; those who seek understanding may find alignment.
+    </p>
+    
+    <div class="nav-grid">
+      <a href="/ea-system-overview.html">SYSTEM OVERVIEW</a>
+      <a href="/why-most-ea-users-fail.html">WHY USERS FAIL</a>
+      <a href="/anti-ea-faq.html">ANTI-EA FAQ</a>
+      <a href="/about.html">ABOUT US</a>
+    </div>
+  </section>
 
-<h2>Why Most EA Failures Are Human Failures</h2>
-
-<ul>
-  <li>Unrealistic expectations of consistency</li>
-  <li>Misunderstanding drawdown as tolerance instead of information</li>
-  <li>Delegating responsibility without understanding constraints</li>
-  <li>Absence of system-level oversight</li>
-</ul>
-
-<p>
-EA do not fail suddenly.
-They fail when their operating assumptions silently expire.
-</p>
-
-<hr>
-
-<h2>The Role of a System-Aware IB</h2>
-
-<p>
-A system-aware Introducing Broker (IB) does not promise returns.
-The role is not performance enhancement,
-but risk contextualization.
-</p>
-
-<p>
-<strong>bugtraderyai</strong> operates as a system-aware IB,
-focusing on how EA interact with market regimes,
-human psychology,
-and risk exposure over time.
-</p>
-
-<hr>
-
-<h2>This Website Is Not a Sales Platform</h2>
-
-<p>
-This site exists to document a system-level understanding of EA.
-It is not designed to convince,
-but to clarify.
-</p>
-
-<p>
-Those who seek certainty may find discomfort here.
-Those who seek understanding may find alignment.
-</p>
-
-<hr>
-
-<h2>Related Pages</h2>
-<ul>
-  <li><a href="/ea-system-overview.html">EA System Overview</a></li>
-  <li><a href="/why-most-ea-users-fail.html">Why Most EA Users Fail</a></li>
-  <li><a href="/anti-ea-faq.html">Questions Before Using EA</a></li>
-  <li><a href="/about.html">About bugtraderyai</a></li>
-</ul>
+  <footer>
+    <p>© 2026 BUGTRADERYAI - SYSTEMATIC CORE</p>
+    <div class="shimmer" style="display: inline-block; padding: 8px 25px; border: 1px solid var(--accent); color: var(--accent-bright); font-weight: 900; margin-top: 20px; letter-spacing: 2px;">
+      4D WARP SPEED ACTIVE
+    </div>
+  </footer>
+</main>
 
 </body>
 </html>

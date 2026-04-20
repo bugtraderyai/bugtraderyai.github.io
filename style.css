@@ -1,15 +1,13 @@
-/* ===== BugTraderYai Unified Style V5 (Futuristic White Edition) ===== */
+/* ===== BugTraderYai V6: Ultra Futuristic White (Light Glow Edition) ===== */
 
 :root {
     --bg-primary: #ffffff;
-    --bg-gradient: radial-gradient(circle at 50% 0%, #f0f9ff 0%, #ffffff 70%);
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    --accent-blue: #0ea5e9; /* สีฟ้าใสแบบ AI */
-    --text-main: #0f172a;   /* สีเข้มพอที่จะผ่านเกณฑ์ Contrast */
-    --text-sub: #475569;
-    --border-light: #f1f5f9;
-    --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.02);
-    --shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.06);
+    --accent-blue: #0ea5e9;
+    --accent-glow: rgba(14, 165, 233, 0.15);
+    --text-main: #0f172a;
+    --text-sub: #64748b;
+    --glass: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(226, 232, 240, 0.8);
 }
 
 html, body {
@@ -17,167 +15,162 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-primary);
-    background-image: var(--bg-gradient);
+    /* เพิ่มการไล่เฉดสีหลายชั้นให้ดูมีมิติเหมือนในรูปตึก */
+    background-image: 
+        radial-gradient(circle at 20% 20%, #f0f9ff 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, #f8fafc 0%, transparent 40%),
+        linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
     background-attachment: fixed;
     color: var(--text-main);
-    scroll-behavior: smooth;
+}
+
+/* เพิ่ม Grid จางๆ แบบล้ำๆ */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(var(--border-color) 1px, transparent 1px), 
+                      linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(circle, rgba(0,0,0,0.05) 0%, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* --- Container Control --- */
-/* คุมระยะเนื้อหาให้สมดุลและโปร่ง */
-body > h1, 
-body > h2, 
-body > p, 
-body > ul, 
-body > main, 
-body > header, 
-body > section,
-.container {
-    max-width: 900px;
+body > h1, body > h2, body > p, body > main, body > section, .container {
+    max-width: 850px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
-    box-sizing: border-box;
-    display: block;
+    position: relative;
+    z-index: 1;
 }
 
-/* --- Navigation: Glassmorphism Style --- */
+/* --- Nav: เพิ่มความโปร่งและเงา --- */
 .hub-nav {
     position: sticky;
     top: 0;
-    background: var(--glass-bg);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 9999;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     display: flex;
     justify-content: center;
-    gap: 12px;
-    padding: 1rem !important;
-    max-width: 100% !important; 
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+    gap: 8px;
+    padding: 0.8rem !important;
+    max-width: 100% !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
 }
 
 .hub-nav a {
-    font-size: 14px;
-    padding: 6px 16px;
-    border: 1px solid transparent;
+    font-size: 13px;
+    padding: 6px 14px;
     border-radius: 50px;
     color: var(--text-sub);
     text-decoration: none;
-    white-space: nowrap;
-    font-weight: 500;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.3s;
+    border: 1px solid transparent;
 }
 
 .hub-nav a:hover {
     color: var(--accent-blue);
-    background: rgba(14, 165, 233, 0.08);
+    background: #fff;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px var(--accent-glow);
 }
 
-/* --- Typography --- */
-h1 { 
-    font-size: clamp(2rem, 5vw, 2.75rem); 
-    font-weight: 700; 
-    line-height: 1.2; 
-    margin-bottom: 1.2rem;
-    background: linear-gradient(180deg, #0f172a 0%, #64748b 100%);
+/* --- Header: เน้นความอลังการ --- */
+header {
+    text-align: center;
+    padding: 100px 20px 60px !important;
+}
+
+.logo-img {
+    border-radius: 30px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
+    border: 4px solid #fff;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    background: linear-gradient(to bottom, #0f172a 30%, #94a3b8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-h2 { 
-    font-size: 1.5rem; 
-    font-weight: 600; 
-    margin-top: 2rem; 
-    color: var(--text-main);
-}
-
-/* --- Section & Cards: Modern Look --- */
+/* --- Section: ปรับให้เหมือนแผ่นกระจกลอยได้ --- */
 section {
-    background: var(--glass-bg);
-    padding: 40px !important;
-    border-radius: 30px;
-    margin: 25px auto !important;
-    border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-soft);
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 40px;
+    margin: 40px auto !important;
+    padding: 50px !important;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.02),
+        inset 0 0 20px rgba(255, 255, 255, 0.5);
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 section:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-10px) scale(1.02);
     border-color: var(--accent-blue);
+    box-shadow: 0 30px 60px rgba(14, 165, 233, 0.1);
 }
 
-/* --- Highlight Section (Intelligence Hub) --- */
-.section-title {
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
-    text-align: center;
-    border-left: 6px solid var(--accent-blue) !important;
+/* --- Highlight Hub --- */
+.hub-highlight {
+    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(224,242,254,0.4) 100%) !important;
+    border: 1px solid var(--accent-blue) !important;
 }
 
-.section-title h2 { 
-    color: var(--accent-blue) !important; 
-    border: none !important; 
-    padding: 0 !important; 
-    margin: 0 !important; 
+.cta-button {
+    background: #0f172a;
+    padding: 16px 40px;
+    border-radius: 100px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.2);
+    transition: 0.3s;
 }
 
-/* --- FAQ & Insights --- */
-.faq-item { border-bottom: 1px solid #f1f5f9; padding: 1.5rem 0; }
-
-.bug-insight { 
-    color: var(--text-main); 
-    background: #f8fafc; 
-    padding: 20px; 
-    border-radius: 16px; 
-    font-style: normal; 
-    border-left: 4px solid var(--accent-blue);
-    margin-top: 15px;
+.cta-button:hover {
+    background: var(--accent-blue);
+    box-shadow: 0 15px 40px rgba(14, 165, 233, 0.4);
+    transform: translateY(-2px);
 }
 
-.badge { 
-    background: var(--accent-blue); 
-    padding: 3px 10px; 
-    border-radius: 6px; 
-    font-weight: bold; 
-    margin-right: 10px; 
-    color: #fff;
-    font-size: 0.8rem;
-}
-
-/* --- Mobile Fixes --- */
-@media (max-width: 768px) {
-    .hub-nav {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 100% !important;
-    }
-    .hub-nav a {
-        font-size: 13px;
-        padding: 10px 5px;
-        text-align: center;
-    }
-    .hub-nav a:last-child { grid-column: span 2; }
-    
-    section { padding: 25px !important; }
-    
-    body > h1, body > h2, body > p, body > ul, body > main, body > section {
-        padding: 1rem 1.2rem;
-    }
-}
-
-/* --- Utilities --- */
-hr {
+/* --- FAQ & Lists --- */
+.nav-list li {
     border: none;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #e2e8f0, transparent);
-    margin: 3rem auto;
-    max-width: 900px;
+    background: rgba(241, 245, 249, 0.5);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    transition: 0.3s;
 }
 
-a {
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-weight: 600;
+.nav-list li:hover {
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+/* --- Footer --- */
+footer {
+    opacity: 0.6;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    section { padding: 30px 20px !important; margin: 20px auto !important; }
 }

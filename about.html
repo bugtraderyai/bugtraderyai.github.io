@@ -5,9 +5,6 @@
   <title>bugtraderyai คือใคร | System-Aware IB & EA Risk Perspective</title>
   <meta name="description" content="ตัวตนของ bugtraderyai Introducing Broker (IB) ผู้โฟกัสการใช้งาน EA ในเชิงระบบ ความเสี่ยง และความเข้าใจ ไม่ใช่การขายผลลัพธ์">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="bugtraderyai">
-  <link rel="canonical" href="https://bugtraderyai.github.io/about.html">
-
   <link rel="stylesheet" href="style.css">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +22,6 @@
     body {
       color: var(--text-white);
       text-align: center;
-      /* เพิ่มเงาหนาพิเศษให้ตัวหนังสืออ่านง่ายแม้มิติจะบิดเบี้ยว */
       text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,1);
     }
 
@@ -35,14 +31,13 @@
       padding: 0 20px;
     }
 
-    /* กล่อง Section ฉบับดุดันบิดเบี้ยว */
     section {
-      background: rgba(1, 2, 4, 0.95) !important; /* ดำเกือบสนิทเพื่อตัดสีจม */
+      background: rgba(1, 2, 4, 0.95) !important;
       border: 1px solid var(--accent);
       margin: 40px auto !important;
       padding: 40px !important;
-      border-radius: 4px; /* เหลี่ยมตัดให้ดูเป็นเครื่องจักร */
-      text-align: center;
+      border-radius: 4px;
+      text-align: center; /* บังคับเนื้อหาใน section จัดกลาง */
     }
 
     h1, h2 {
@@ -50,34 +45,33 @@
       display: inline-block;
     }
 
-    p {
-      color: var(--text-silver);
-      font-size: 1.15rem;
-      max-width: 750px;
-      margin-left: auto;
-      margin-right: auto;
+    /* แก้ไขส่วนรายการ (List) ให้จัดกลางแบบดูเป็นระเบียบ */
+    .center-list-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
 
-    /* จัดระเบียบรายการให้ตรงกลาง */
     .nav-list {
       list-style: none;
       padding: 0;
-      margin: 20px auto;
+      margin: 20px 0;
+      text-align: left; /* ให้เครื่องหมายติ๊กอยู่ข้างหน้าตรงกัน */
       display: inline-block;
-      text-align: left;
     }
 
     .nav-list li {
       margin-bottom: 15px;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       border-bottom: 1px solid rgba(56, 189, 248, 0.1);
       padding-bottom: 8px;
+      color: var(--text-silver);
     }
 
     .profile-img {
       width: 140px;
       height: 140px;
-      border-radius: 20px; /* ทรงเหลี่ยมมนนิดๆ ดูดุดันกว่าวงกลม */
+      border-radius: 20px;
       border: 3px solid var(--accent);
       box-shadow: 0 0 30px var(--accent-glow);
       margin-bottom: 25px;
@@ -95,9 +89,10 @@
       .grid-about { grid-template-columns: 1fr; }
     }
 
-    /* สีพิเศษสำหรับหมวดที่ไม่ทำและกลุ่มเป้าหมาย */
-    .not-do-list { border-top: 5px solid #ff00c1 !important; box-shadow: 0 0 20px rgba(255, 0, 193, 0.2); }
-    .target-list { border-top: 5px solid #00fff0 !important; box-shadow: 0 0 20px rgba(0, 255, 240, 0.2); }
+    .target-list { 
+      border-top: 5px solid #00fff0 !important; 
+      box-shadow: 0 0 20px rgba(0, 255, 240, 0.2); 
+    }
 
     .bug-insight {
       background: rgba(56, 189, 248, 0.1) !important;
@@ -121,14 +116,12 @@
       color: var(--accent-bright);
       border: 1px solid var(--accent);
       font-weight: 900;
-      text-transform: uppercase;
       transition: 0.3s;
     }
 
     .link-grid a:hover {
       background: var(--accent);
       color: #000;
-      transform: scale(1.02);
     }
   </style>
 </head>
@@ -164,46 +157,52 @@
 
   <div class="grid-about">
     <section>
-      <h2 data-text="⚙️ แนวคิดหลัก" style="color: var(--accent-bright);">⚙️ แนวคิดหลัก</h2>
-      <ul class="nav-list">
-        <li>➜ EA ไม่ใช่เครื่องพิมพ์เงิน</li>
-        <li>➜ EA คือระบบที่มีข้อจำกัดชัดเจน</li>
-        <li>➜ ความเสี่ยงไม่หายไปเพราะระบบอัตโนมัติ</li>
-        <li>➜ ความเข้าใจสำคัญกว่าผลลัพธ์ระยะสั้น</li>
-      </ul>
+      <h2 data-text="⚙️ แนวคิดหลัก">⚙️ แนวคิดหลัก</h2>
+      <div class="center-list-container">
+        <ul class="nav-list">
+          <li>➜ EA ไม่ใช่เครื่องพิมพ์เงิน</li>
+          <li>➜ EA คือระบบที่มีข้อจำกัดชัดเจน</li>
+          <li>➜ ความเสี่ยงไม่หายไปเพราะระบบ</li>
+          <li>➜ ความเข้าใจสำคัญกว่าผลลัพธ์</li>
+        </ul>
+      </div>
     </section>
 
-    <section class="not-do-list">
-      <h2 data-text="❌ สิ่งที่เราไม่ทำ" style="color: #ff00c1;">❌ สิ่งที่เราไม่ทำ</h2>
-      <ul class="nav-list">
-        <li>➜ ไม่การันตีกำไรใดๆ</li>
-        <li>➜ ไม่โฆษณาผลตอบแทนเกินจริง</li>
-        <li>➜ ไม่ชักชวนคนที่ไม่พร้อมรับความเสี่ยง</li>
-        <li>➜ ไม่สนับสนุนการใช้ EA โดยไม่เข้าใจ Logic</li>
-      </ul>
+    <section style="border-top: 5px solid #ff00c1;">
+      <h2 data-text="❌ สิ่งที่ bugtraderyai ไม่ทำ">❌ สิ่งที่ bugtraderyai ไม่ทำ</h2>
+      <div class="center-list-container">
+        <ul class="nav-list">
+          <li>➜ ไม่การันตีกำไรใดๆ</li>
+          <li>➜ ไม่โฆษณาผลตอบแทนเกินจริง</li>
+          <li>➜ ไม่ชักชวนคนที่ไม่พร้อม</li>
+          <li>➜ ไม่สนับสนุนการใช้โดยไม่เข้าใจ</li>
+        </ul>
+      </div>
     </section>
   </div>
 
   <section>
     <h2 data-text="🛡️ บทบาทของ IB">🛡️ บทบาทของ IB</h2>
-    <p style="margin-top: 15px;">IB ไม่ควรเป็นเพียงตัวเชื่อมบัญชีเพื่อกินค่าคอมมิชชั่น แต่ควรเป็น <strong>“ชั้นความปลอดภัยทางความคิด”</strong></p>
+    <p style="margin-top: 15px;">IB ไม่ควรเป็นเพียงตัวเชื่อมบัญชี แต่ควรเป็น <strong>“ชั้นความปลอดภัยทางความคิด”</strong></p>
     <div class="bug-insight">
       หน้าที่สำคัญของ IB คือ ช่วยสะท้อนความเสี่ยง, เตือนเมื่อระบบถูกใช้งานผิดบริบท และช่วยให้ผู้ใช้ไม่หลงไปกับตัวเลขกำไรชั่วคราว
     </div>
   </section>
 
   <section class="target-list">
-    <h2 data-text="🎯 เว็บไซต์นี้เหมาะกับใคร" style="color: #00fff0;">🎯 เว็บไซต์นี้เหมาะกับใคร</h2>
-    <ul class="nav-list">
-      <li>✓ คนที่ต้องการเข้าใจกลไก EA ก่อนลงเงินจริง</li>
-      <li>✓ คนที่ยอมรับ Drawdown ได้อย่างมีเหตุผล</li>
-      <li>✓ คนที่ไม่มอง EA เป็นทางลัดสู่ความรวย</li>
-      <li>✓ คนที่ต้องการ "ระบบ" มากกว่า "ความหวัง"</li>
-    </ul>
+    <h2 data-text="🎯 เว็บไซต์นี้เหมาะกับใคร">🎯 เว็บไซต์นี้เหมาะกับใคร</h2>
+    <div class="center-list-container">
+      <ul class="nav-list">
+        <li>✓ คนที่ต้องการเข้าใจกลไก EA ก่อนลงเงินจริง</li>
+        <li>✓ คนที่ยอมรับ Drawdown ได้อย่างมีเหตุผล</li>
+        <li>✓ คนที่ไม่มอง EA เป็นทางลัดสู่ความรวย</li>
+        <li>✓ คนที่ต้องการ "ระบบ" มากกว่า "ความหวัง"</li>
+      </ul>
+    </div>
   </section>
 
   <section>
-    <h2 data-text="🔗 สำรวจเนื้อหาเพิ่มเติม" style="color: var(--accent-bright); margin-bottom: 30px;">🔗 สำรวจเนื้อหาเพิ่มเติม</h2>
+    <h2 data-text="🔗 สำรวจเนื้อหาเพิ่มเติม">🔗 สำรวจเนื้อหาเพิ่มเติม</h2>
     <div class="link-grid">
       <a href="/ea-system-overview.html">ภาพรวมระบบ</a>
       <a href="/why-most-ea-users-fail.html">ทำไมคนส่วนใหญ่เจ๊ง</a>

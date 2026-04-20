@@ -14,49 +14,73 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "About bugtraderyai",
-    "description": "About page describing bugtraderyai, a system-aware Introducing Broker focused on Expert Advisors, risk, and market context.",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "bugtraderyai",
-      "url": "https://bugtraderyai.github.io/about.html"
-    }
-  }
-  </script>
-
   <style>
-    /* สไตล์เพิ่มเติมสำหรับหน้า About */
-    .profile-card {
-      text-align: center;
-      margin-bottom: 40px;
+    /* --- แก้ไขปัญหาพื้นฐานเพื่อไม่ให้สีจม --- */
+    :root {
+      --accent-bright: #7dd3fc; /* ฟ้าที่สว่างขึ้นเพื่อให้ตัดกับพื้นมืด */
+      --text-white: #ffffff;
+      --text-silver: #e2e8f0;
     }
+
+    body {
+      color: var(--text-silver);
+      /* ใส่เงาจางๆ ให้ตัวหนังสือทุกตัวในหน้าเพื่อให้ลอยเด่นจากพื้นหลังมิติที่ 4 */
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    h1, h2 {
+      color: var(--text-white) !important;
+      text-shadow: 0 0 15px rgba(56, 189, 248, 0.3), 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    /* ปรับแต่งกล่องข้อความให้ทึบขึ้นเพื่อแยกเนื้อหาออกจากพื้นหลัง */
+    section {
+      background: rgba(10, 15, 25, 0.92) !important; /* ทึบเกือบ 100% เพื่อไม่ให้พื้นหลังกวนสายตา */
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .profile-card { text-align: center; margin-bottom: 40px; }
+    
     .profile-img {
-      width: 120px;
-      height: 120px;
+      width: 120px; height: 120px;
       border-radius: 50%;
       border: 3px solid var(--accent);
-      box-shadow: 0 0 20px var(--accent-glow);
+      box-shadow: 0 0 30px var(--accent-glow);
       margin-bottom: 15px;
+      background: #fff; /* ป้องกันโลโก้โปร่งแสงจนมองไม่เห็น */
     }
+
     .grid-about {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
-    @media (max-width: 768px) {
-      .grid-about { grid-template-columns: 1fr; }
-    }
+
+    /* ปรับสี Highlight ของรายการต่างๆ ให้สว่างขึ้น */
+    .nav-list li { color: #f8fafc !important; }
+    
     .not-do-list {
       border-left: 4px solid #ff4d4d !important;
-      background: rgba(255, 77, 77, 0.05) !important;
+      background: rgba(20, 10, 10, 0.95) !important;
     }
+    .not-do-list h2 { color: #ff6b6b !important; }
+
     .target-list {
       border-left: 4px solid #4ade80 !important;
-      background: rgba(74, 222, 128, 0.05) !important;
+      background: rgba(10, 20, 15, 0.95) !important;
+    }
+    .target-list h2 { color: #6ee7b7 !important; }
+
+    .bug-insight {
+      background: rgba(56, 189, 248, 0.1) !important;
+      color: var(--accent-bright) !important;
+      border-left: 4px solid var(--accent);
+      padding: 20px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .grid-about { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -70,19 +94,19 @@
     <a href="/intelligence-hub.html">🔥 500 คำถาม</a>
     <a href="/ea-system-philosophy.html">ปรัชญา</a>
     <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
-    <a href="/about.html" style="color: var(--accent); font-weight: 700;">รู้จักเรา</a>
+    <a href="/about.html" style="color: var(--accent); font-weight: 700; text-shadow: 0 0 10px var(--accent);">รู้จักเรา</a>
 </nav>
 
 <main>
   <header class="profile-card">
     <img src="/apple-touch-icon.png" class="profile-img" alt="bugtraderyai logo">
     <h1>bugtraderyai คือใคร</h1>
-    <p style="color: var(--accent); font-weight: 700; letter-spacing: 1px;">SYSTEM-AWARE IB & RISK ARCHITECT</p>
+    <p style="color: var(--accent-bright); font-weight: 700; letter-spacing: 1px; text-shadow: 0 0 10px rgba(56,189,248,0.5);">SYSTEM-AWARE IB & RISK ARCHITECT</p>
   </header>
 
   <section>
     <p>
-      <strong>bugtraderyai</strong> คือ Introducing Broker (IB) ที่ทำงานกับระบบ EA (Expert Advisor) 
+      <strong style="color: var(--accent-bright);">bugtraderyai</strong> คือ Introducing Broker (IB) ที่ทำงานกับระบบ EA (Expert Advisor) 
       โดยโฟกัส <strong>“ความเข้าใจเชิงระบบ”</strong> มากกว่าการขายผลลัพธ์สวยหรู
     </p>
     <p>
@@ -92,22 +116,22 @@
 
   <div class="grid-about">
     <section>
-      <h2 style="color: var(--accent);">⚙️ แนวคิดหลัก</h2>
-      <ul class="nav-list" style="margin: 0; padding: 0;">
-        <li>➜ EA ไม่ใช่เครื่องพิมพ์เงิน</li>
-        <li>➜ EA คือระบบที่มีข้อจำกัดชัดเจน</li>
-        <li>➜ ความเสี่ยงไม่หายไปเพราะระบบอัตโนมัติ</li>
-        <li>➜ ความเข้าใจสำคัญกว่าผลลัพธ์ระยะสั้น</li>
+      <h2 style="color: var(--accent-bright);">⚙️ แนวคิดหลัก</h2>
+      <ul class="nav-list" style="margin: 0; padding: 0; list-style: none;">
+        <li style="margin-bottom: 10px;">➜ EA ไม่ใช่เครื่องพิมพ์เงิน</li>
+        <li style="margin-bottom: 10px;">➜ EA คือระบบที่มีข้อจำกัดชัดเจน</li>
+        <li style="margin-bottom: 10px;">➜ ความเสี่ยงไม่หายไปเพราะระบบอัตโนมัติ</li>
+        <li style="margin-bottom: 10px;">➜ ความเข้าใจสำคัญกว่าผลลัพธ์ระยะสั้น</li>
       </ul>
     </section>
 
     <section class="not-do-list">
-      <h2 style="color: #ff4d4d;">❌ สิ่งที่เราไม่ทำ</h2>
-      <ul class="nav-list" style="margin: 0; padding: 0;">
-        <li>➜ ไม่การันตีกำไรใดๆ</li>
-        <li>➜ ไม่โฆษณาผลตอบแทนเกินจริง</li>
-        <li>➜ ไม่ชักชวนคนที่ไม่พร้อมรับความเสี่ยง</li>
-        <li>➜ ไม่สนับสนุนการใช้ EA โดยไม่เข้าใจ Logic</li>
+      <h2>❌ สิ่งที่เราไม่ทำ</h2>
+      <ul class="nav-list" style="margin: 0; padding: 0; list-style: none;">
+        <li style="margin-bottom: 10px;">➜ ไม่การันตีกำไรใดๆ</li>
+        <li style="margin-bottom: 10px;">➜ ไม่โฆษณาผลตอบแทนเกินจริง</li>
+        <li style="margin-bottom: 10px;">➜ ไม่ชักชวนคนที่ไม่พร้อมรับความเสี่ยง</li>
+        <li style="margin-bottom: 10px;">➜ ไม่สนับสนุนการใช้ EA โดยไม่เข้าใจ Logic</li>
       </ul>
     </section>
   </div>
@@ -121,26 +145,26 @@
   </section>
 
   <section class="target-list">
-    <h2 style="color: #4ade80;">🎯 เว็บไซต์นี้เหมาะกับใคร</h2>
-    <ul class="nav-list" style="margin: 0; padding: 0;">
-      <li>✓ คนที่ต้องการเข้าใจกลไก EA ก่อนลงเงินจริง</li>
-      <li>✓ คนที่ยอมรับ Drawdown ได้อย่างมีเหตุผล</li>
-      <li>✓ คนที่ไม่มอง EA เป็นทางลัดสู่ความรวยแบบง่ายๆ</li>
-      <li>✓ คนที่ต้องการ "ระบบ" มากกว่า "ความหวัง"</li>
+    <h2>🎯 เว็บไซต์นี้เหมาะกับใคร</h2>
+    <ul class="nav-list" style="margin: 0; padding: 0; list-style: none;">
+      <li style="margin-bottom: 10px;">✓ คนที่ต้องการเข้าใจกลไก EA ก่อนลงเงินจริง</li>
+      <li style="margin-bottom: 10px;">✓ คนที่ยอมรับ Drawdown ได้อย่างมีเหตุผล</li>
+      <li style="margin-bottom: 10px;">✓ คนที่ไม่มอง EA เป็นทางลัดสู่ความรวยแบบง่ายๆ</li>
+      <li style="margin-bottom: 10px;">✓ คนที่ต้องการ "ระบบ" มากกว่า "ความหวัง"</li>
     </ul>
   </section>
 
   <section>
-    <h2>🔗 สำรวจเนื้อหาเพิ่มเติม</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-      <a href="/ea-system-overview.html" style="text-decoration:none; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 12px; color: var(--accent); text-align: center; border: 1px solid rgba(255,255,255,0.05);">ภาพรวมระบบ</a>
-      <a href="/why-most-ea-users-fail.html" style="text-decoration:none; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 12px; color: var(--accent); text-align: center; border: 1px solid rgba(255,255,255,0.05);">ทำไมคนส่วนใหญ่เจ๊ง</a>
+    <h2 style="color: var(--accent-bright);">🔗 สำรวจเนื้อหาเพิ่มเติม</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+      <a href="/ea-system-overview.html" style="text-decoration:none; padding: 18px; background: rgba(56,189,248,0.1); border-radius: 12px; color: #fff; text-align: center; border: 1px solid var(--accent); font-weight: bold;">ภาพรวมระบบ</a>
+      <a href="/why-most-ea-users-fail.html" style="text-decoration:none; padding: 18px; background: rgba(56,189,248,0.1); border-radius: 12px; color: #fff; text-align: center; border: 1px solid var(--accent); font-weight: bold;">ทำไมคนส่วนใหญ่เจ๊ง</a>
     </div>
   </section>
 
   <footer>
     <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING INTELLIGENCE</p>
-    <div class="shimmer" style="display: inline-block; padding: 4px 20px; border-radius: 4px; color: var(--accent); font-weight: 700; border: 1px solid var(--border);">
+    <div class="shimmer" style="display: inline-block; padding: 4px 20px; border-radius: 4px; color: var(--accent-bright); font-weight: 700; border: 1px solid rgba(56,189,248,0.2);">
       4D TRANSPARENCY PROTOCOL
     </div>
   </footer>

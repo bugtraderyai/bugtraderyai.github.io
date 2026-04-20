@@ -1,97 +1,122 @@
-<style>
-  :root {
-    --bg: #ffffff;
-    --glass: rgba(255, 255, 255, 0.4); /* บางลงเพื่อให้เห็นพื้นหลังมิติที่ 4 */
-    --accent: #0ea5e9;
-    --text-main: #0f172a;
-    --text-sub: #475569;
-    --border: rgba(255, 255, 255, 0.5);
-  }
+/* ===== BugTraderYai V7: Dark 4th Dimension (Dudun Edition) ===== */
+:root {
+    --bg-dark: #05070a;
+    --card-bg: rgba(15, 23, 42, 0.8);
+    --accent-blue: #38bdf8; /* ฟ้าสว่างตัดกับดำ */
+    --accent-glow: rgba(56, 189, 248, 0.2);
+    --text-white: #f8fa-fc;
+    --text-dim: #94a3b8;
+    --border-glow: rgba(56, 189, 248, 0.3);
+}
 
-  /* --- พื้นหลังมิติที่ 4 (Animated 4D Mesh Gradient) --- */
-  body {
+body {
     margin: 0;
     font-family: 'Noto Sans Thai', sans-serif;
-    color: var(--text-main);
+    color: var(--text-white);
     line-height: 1.8;
-    background: #fff;
+    background-color: var(--bg-dark);
     overflow-x: hidden;
-  }
+}
 
-  .dimension-bg {
+/* พื้นหลังมิติที่ 4 แบบดุดัน (Warp Drive Effect) */
+.dimension-bg {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -1;
     background: 
-      radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.1) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.1) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
-    animation: spatial-shift 20s ease-infinite alternate;
-  }
+      radial-gradient(at 10% 10%, #0c1421 0px, transparent 50%),
+      radial-gradient(at 90% 90%, #082f49 0px, transparent 50%),
+      black;
+    animation: spatial-warp 15s linear infinite alternate;
+}
 
-  /* เอฟเฟกต์การบิดเบี้ยวของมิติเวลา */
-  @keyframes spatial-shift {
-    0% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.2) rotate(2deg); }
-    100% { transform: scale(1) rotate(0deg); }
-  }
+@keyframes spatial-warp {
+    0% { filter: hue-rotate(0deg) brightness(1); }
+    100% { filter: hue-rotate(20deg) brightness(1.2); }
+}
 
-  /* Grid แบบ 3D Perspective */
-  body::after {
+/* 3D Grid แบบดุดัน (Deep Perspective) */
+body::after {
     content: "";
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background-image: 
-      linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-    background-size: 60px 60px;
-    perspective: 1000px;
-    transform: perspective(500px) rotateX(60deg);
+      linear-gradient(var(--border-glow) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-glow) 1px, transparent 1px);
+    background-size: 80px 80px;
+    perspective: 800px;
+    transform: perspective(400px) rotateX(55deg) translateY(-100px);
     transform-origin: top;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), transparent);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
     z-index: -1;
-  }
+    pointer-events: none;
+}
 
-  /* --- Glassmorphism UI (ปรับให้ดูเบาบางเหมือนอากาศ) --- */
-  .hub-nav {
+/* Nav แบบ Dark Glass */
+.hub-nav {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(25px) saturate(150%);
-    -webkit-backdrop-filter: blur(25px) saturate(150%);
+    gap: 10px;
+    padding: 12px;
+    background: rgba(5, 7, 10, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
+    border-bottom: 1px solid var(--border-glow);
+}
 
-  section {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 40px;
-    margin: 40px auto;
-    padding: 50px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
-    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
+.hub-nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
 
-  section:hover {
-    transform: translateY(-10px) scale(1.02);
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 40px 80px rgba(14, 165, 233, 0.1);
-  }
+.hub-nav a:hover {
+    color: var(--accent-blue);
+    text-shadow: 0 0 10px var(--accent-blue);
+}
 
-  h1 {
+/* Section Card แบบเข้มลึก */
+section {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    padding: 45px !important;
+    border-radius: 20px; /* ลดความมนลงให้ดูแข็งแกร่งขึ้น */
+    margin: 40px auto !important;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    transition: 0.4s;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 30px var(--accent-glow);
+}
+
+/* หัวข้อสีเงินเมทัลลิค */
+h1 {
     font-size: clamp(2.2rem, 8vw, 3.5rem);
     font-weight: 900;
     letter-spacing: -2px;
-    background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #94a3b8 100%);
+    background: linear-gradient(to bottom, #ffffff 40%, #475569 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
-  }
-</style>
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+}
+
+p { color: var(--text-dim); }
+
+.cta-button {
+    background: var(--accent-blue);
+    color: #000 !important;
+    padding: 16px 45px;
+    border-radius: 8px; /* เปลี่ยนเป็นเหลี่ยมตัดมุมให้ดูดุดัน */
+    font-weight: 800;
+    box-shadow: 0 0 20px var(--accent-glow);
+}

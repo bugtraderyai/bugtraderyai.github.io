@@ -3,33 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="_ZVkMH7efLNyDOvZowNRBDQ_XYNkdWktE_PxKr0DVPs" />
-
   <title>EA ไม่ได้อันตราย | bugtraderyai</title>
-
-  <meta name="description" content="มุมมองเชิงระบบเกี่ยวกับ EA ความเสี่ยง และการใช้งานอย่างรับผิดชอบ โดย bugtraderyai IB ผู้โฟกัสความเข้าใจ ไม่ใช่คำสัญญา" />
+  <meta name="description" content="มุมมองเชิงระบบเกี่ยวกับ EA ความเสี่ยง และการใช้งานอย่างรับผิดชอบ โดย bugtraderyai" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="bugtraderyai">
-  <link rel="canonical" href="https://bugtraderyai.com/">
-
+  
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="shortcut icon" href="/favicon.ico">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ธีม White Futuristic AI */
     :root {
       --bg: #ffffff;
-      --glass: rgba(255, 255, 255, 0.85);
-      --accent: #0ea5e9; /* สีฟ้าใสแบบ AI */
+      --glass: rgba(255, 255, 255, 0.7);
+      --accent: #0ea5e9;
       --text-main: #0f172a;
       --text-sub: #475569;
-      --border: #f1f5f9;
+      --border: rgba(226, 232, 240, 0.5);
     }
 
     body {
@@ -38,181 +32,182 @@
       font-family: 'Noto Sans Thai', sans-serif;
       margin: 0;
       line-height: 1.8;
-      background-image: radial-gradient(circle at 50% 0%, #f0f9ff 0%, #ffffff 70%);
+      background-image: 
+        radial-gradient(circle at 20% 20%, #f0f9ff 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, #f8fafc 0%, transparent 40%),
+        linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
       background-attachment: fixed;
     }
 
-    /* Navigation แบบกระจกฝ้าล้ำๆ */
+    /* Grid Overlay แบบล้ำๆ */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), 
+                        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(circle, rgba(0,0,0,0.08) 0%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* 1. Shimmer Animation */
+    .shimmer {
+      background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer-ani 2s infinite;
+    }
+    @keyframes shimmer-ani {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* 2. Nav Glassmorphism */
     .hub-nav {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 15px;
-      background: var(--glass);
+      gap: 10px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       z-index: 1000;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+      border-bottom: 1px solid var(--border);
     }
-
     .hub-nav a {
       color: var(--text-sub);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      padding: 6px 14px;
-      transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.85rem;
+      padding: 6px 12px;
       border-radius: 50px;
+      transition: 0.3s;
     }
+    .hub-nav a:hover { color: var(--accent); background: #fff; }
 
-    .hub-nav a:hover {
-      color: var(--accent);
-      background: rgba(14, 165, 233, 0.08);
-    }
-
-    /* Header */
+    /* 3. Header & Logo */
     header {
+      position: relative;
       padding: 80px 20px 40px;
       text-align: center;
+      z-index: 1;
     }
-
     .logo-img {
-      border-radius: 28px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-      margin-bottom: 25px;
-      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      border: 4px solid #fff;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      line-height: 1.2;
-      margin: 0 auto 15px;
-      max-width: 800px;
-      background: linear-gradient(180deg, #0f172a 0%, #64748b 100%);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      background: linear-gradient(to bottom, #0f172a, #64748b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .author-tag {
-      color: var(--text-sub);
-      font-size: 1.1rem;
-      font-weight: 400;
-    }
-
-    /* Layout & Cards */
-    main {
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
+    /* 4. Section Cards */
+    main { max-width: 850px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
     section {
       background: var(--glass);
+      backdrop-filter: blur(10px);
       padding: 40px;
-      border-radius: 30px;
+      border-radius: 35px;
       margin: 30px 0;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255,255,255,0.8);
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
       transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-
     section:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
+      transform: translateY(-8px);
       border-color: var(--accent);
+      box-shadow: 0 25px 50px rgba(14, 165, 233, 0.1);
     }
 
-    h2 {
-      font-size: 1.5rem;
-      color: var(--text-main);
-      margin-top: 0;
+    /* 5. Tooltip */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      color: var(--accent);
+      border-bottom: 1px dashed var(--accent);
+      cursor: help;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 180px;
+      background-color: #0f172a;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 8px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.8rem;
+      font-weight: 400;
+    }
+    .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+
+    /* 6. Accordion (FAQ) */
+    .accordion-item {
+      background: rgba(241, 245, 249, 0.5);
+      border-radius: 20px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .accordion-header {
+      padding: 15px 25px;
+      cursor: pointer;
+      font-weight: 600;
       display: flex;
-      align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      transition: 0.3s;
     }
-
-    p {
+    .accordion-header:hover { background: #fff; }
+    .accordion-content {
+      max-height: 0;
+      padding: 0 25px;
+      overflow: hidden;
+      transition: 0.3s ease-out;
       color: var(--text-sub);
     }
 
-    /* Intelligence Hub Highlight */
-    .hub-highlight {
-      text-align: center;
-      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-      border: 1px solid #bae6fd;
-    }
-
+    /* 7. Button */
     .cta-button {
       display: inline-block;
       margin-top: 20px;
-      padding: 14px 35px;
+      padding: 14px 40px;
       background: #0f172a;
       color: #fff !important;
-      border-radius: 50px;
+      border-radius: 100px;
       text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+      transition: 0.3s;
     }
-
     .cta-button:hover {
       background: var(--accent);
       transform: scale(1.05);
       box-shadow: 0 15px 30px rgba(14, 165, 233, 0.3);
     }
 
-    /* List Links */
-    .nav-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .nav-list li {
-      margin-bottom: 15px;
-      padding-left: 10px;
-      border-left: 2px solid #e2e8f0;
-      transition: 0.3s;
-    }
-
-    .nav-list li:hover {
-      border-left-color: var(--accent);
-      padding-left: 18px;
-    }
-
-    .nav-list a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 80px 0 40px;
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
+    footer { text-align: center; padding: 60px 0; color: #94a3b8; font-size: 0.8rem; letter-spacing: 1px; }
 
     @media (max-width: 600px) {
-      header { padding: 50px 20px 20px; }
+      header { padding: 50px 20px; }
       section { padding: 30px 20px; }
-      .hub-nav { gap: 5px; }
+      .hub-nav { display: grid; grid-template-columns: 1fr 1fr; }
     }
   </style>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GD0H18D9JE');
-  </script>
 </head>
 
 <body>
@@ -222,60 +217,83 @@
     <a href="/intelligence-hub.html" style="color: var(--accent); font-weight: 700;">🔥 500 คำถาม</a>
     <a href="/ea-system-philosophy.html">ปรัชญา</a>
     <a href="/why-most-ea-users-fail.html">ทำไมคนส่วนใหญ่เจ๊ง</a>
-    <a href="/anti-ea-faq.html">คำถามก่อนเริ่ม</a>
+    <a href="/anti-ea-faq.html">FAQ ก่อนเริ่ม</a>
     <a href="/about.html">รู้จักเรา</a>
 </nav>
 
 <main>
   <header>
     <div class="logo-container">
-        <img src="/apple-touch-icon.png" width="100" height="100" class="logo-img" alt="bugtraderyai logo">
+        <img src="/apple-touch-icon.png" width="100" height="100" class="logo-img" alt="bugtraderyai">
     </div>
     <h1>
       EA ไม่ได้อันตราย<br>
       คนที่ใช้ EA โดยไม่เข้าใจต่างหากที่อันตราย
     </h1>
-    <p class="author-tag">Insight โดย <strong>bugtraderyai</strong></p>
+    <p style="color: var(--text-sub);">Insight โดย <strong>bugtraderyai</strong></p>
   </header>
 
-  <section class="hub-highlight">
-    <h2>📂 EA Intelligence Hub</h2>
-    <p>รวบรวม <strong>500 คำถาม-คำตอบ</strong> เชิงลึกเกี่ยวกับความล้มเหลว, Logic ระบบ และบริบทตลาดที่คุณต้องอ่านก่อนเริ่มรันบอท</p>
-    <a href="/intelligence-hub.html" class="cta-button">เข้าสู่คลังความรู้ 500 ข้อ</a>
+  <section style="text-align: center; border: 1px solid var(--accent);">
+    <h2 style="justify-content: center; color: var(--accent);">📂 EA Intelligence Hub</h2>
+    <p>วิเคราะห์ระบบเทรดผ่าน <span class="tooltip">Logic AI<span class="tooltiptext">อัลกอริทึมที่คำนวณจากสถิติย้อนหลังและบริบทตลาดจริง</span></span> และคำถามกว่า 500 ข้อ</p>
+    <a href="/intelligence-hub.html" class="cta-button">เข้าสู่คลังความรู้</a>
   </section>
 
   <section>
-    <h2>⚠️ ความผิดพลาดที่พบบ่อย</h2>
-    <p>EA ส่วนใหญ่ไม่ได้ล้มเหลวเพราะกราฟ แต่ล้มเหลวเพราะวิธีที่มนุษย์นำมันไปใช้โดยปราศจากกลยุทธ์</p>
-    <ul class="nav-list">
-      <li><a href="/why-most-ea-users-fail.html">ทำไมคนส่วนใหญ่ใช้ EA แล้วล้มเหลว</a></li>
-      <li><a href="/anti-ea-faq.html">คำถามที่คุณควรถามตัวเองก่อนใช้ EA</a></li>
-    </ul>
+    <h2>⚙️ หัวใจของระบบ</h2>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        ทำไมเราไม่โชว์ผลกำไร? <span>+</span>
+      </div>
+      <div class="accordion-content">
+        <p>เพราะกำไรในอดีตไม่ใช่เครื่องยืนยันอนาคต เราโฟกัสที่ "ความเข้าใจความเสี่ยง" เพื่อให้คุณอยู่รอดในระยะยาว</p>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        การเทรดเชิงระบบคืออะไร? <span>+</span>
+      </div>
+      <div class="accordion-content">
+        <p>คือการมีเงื่อนไขการเข้า-ออกที่ชัดเจน 100% ตัดอารมณ์ออก และบริหารพอร์ตด้วยสถิติ</p>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h2>⚙️ ระบบและความเสี่ยง</h2>
-    <p>ความเสี่ยงที่แท้จริงถูกออกแบบตั้งแต่โครงสร้างระบบ ไม่ใช่แค่การตั้งค่า Lot</p>
-    <ul class="nav-list">
-      <li><a href="/ea-system-overview.html">ภาพรวมการใช้ EA อย่างมีระบบ</a></li>
-      <li><a href="/ea-system-philosophy.html">ปรัชญาการเทรดเชิงระบบ</a></li>
-      <li><a href="/why-ib-matters.html">ความสำคัญของ IB ที่เข้าใจระบบ</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>👤 เกี่ยวกับเรา</h2>
-    <p>เราคือ IB ที่โฟกัสการให้ข้อมูลความเสี่ยงที่เป็นจริง เพื่อการอยู่รอดในระยะยาวของพอร์ตการลงทุน</p>
-    <ul class="nav-list">
-      <li><a href="/about.html">รู้จัก bugtraderyai ให้มากขึ้น</a></li>
-    </ul>
+    <h2>🔗 ลิงก์ที่สำคัญ</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      <a href="/why-most-ea-users-fail.html" style="text-decoration:none; padding: 15px; background: #f8fafc; border-radius: 15px; color: var(--text-main);">➜ ทำไมคนส่วนใหญ่เจ๊ง</a>
+      <a href="/ea-system-overview.html" style="text-decoration:none; padding: 15px; background: #f8fafc; border-radius: 15px; color: var(--text-main);">➜ ภาพรวมระบบ</a>
+    </div>
   </section>
 
   <footer>
-    <p>© 2026 bugtraderyai - Systematic Trading Intelligence</p>
-    <p>Focus on Understanding, Not Promises.</p>
+    <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING</p>
+    <p class="shimmer" style="display: inline-block; padding: 2px 10px; border-radius: 4px; color: #64748b;">AI DRIVEN INSIGHTS</p>
   </footer>
 </main>
+
+<script>
+  function toggleAccordion(element) {
+    const content = element.nextElementSibling;
+    const isExpanded = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+    
+    // Close all other accordions (Optional)
+    document.querySelectorAll('.accordion-content').forEach(c => {
+      c.style.maxHeight = '0px';
+      c.style.padding = '0 25px';
+    });
+
+    if (!isExpanded) {
+      content.style.maxHeight = '200px';
+      content.style.padding = '15px 25px';
+      element.querySelector('span').innerText = '-';
+    } else {
+      element.querySelector('span').innerText = '+';
+    }
+  }
+</script>
 
 </body>
 </html>

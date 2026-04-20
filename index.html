@@ -17,13 +17,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ===== BugTraderYai V7: Deep Dark 4D Edition (ดุดัน) ===== */
     :root {
-      --bg: #ffffff;
-      --glass: rgba(255, 255, 255, 0.4);
-      --accent: #0ea5e9;
-      --text-main: #0f172a;
-      --text-sub: #475569;
-      --border: rgba(14, 165, 233, 0.1);
+      --bg-dark: #05070a;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --accent: #38bdf8; /* ฟ้าไฟฟ้า */
+      --accent-glow: rgba(56, 189, 248, 0.2);
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --border: rgba(56, 189, 248, 0.3);
     }
 
     body {
@@ -31,49 +33,47 @@
       font-family: 'Noto Sans Thai', sans-serif;
       color: var(--text-main);
       line-height: 1.8;
-      background: #fff;
+      background-color: var(--bg-dark);
       overflow-x: hidden;
     }
 
-    /* --- พื้นหลังมิติที่ 4 (Animated 4D Mesh Gradient) --- */
+    /* พื้นหลังมิติที่ 4 แบบดุดัน (Spatial Warp Drive) */
     .dimension-bg {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       z-index: -1;
       background: 
-        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.12) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(168, 85, 247, 0.12) 0px, transparent 50%);
-      animation: spatial-shift 20s ease-in-out infinite alternate;
+        radial-gradient(at 10% 10%, #0c1421 0px, transparent 50%),
+        radial-gradient(at 90% 90%, #082f49 0px, transparent 50%),
+        #05070a;
+      animation: spatial-warp 15s linear infinite alternate;
     }
 
-    @keyframes spatial-shift {
-      0% { transform: scale(1) translate(0, 0); }
-      50% { transform: scale(1.1) translate(2%, 2%); }
-      100% { transform: scale(1) translate(0, 0); }
+    @keyframes spatial-warp {
+      0% { filter: hue-rotate(0deg) brightness(1); }
+      100% { filter: hue-rotate(15deg) brightness(1.2); }
     }
 
-    /* 3D Perspective Grid */
+    /* 3D Perspective Grid แบบเข้มขลัง */
     body::after {
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background-image: 
-        linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-      background-size: 50px 50px;
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 80px 80px;
       perspective: 1000px;
-      transform: perspective(600px) rotateX(45deg);
+      transform: perspective(500px) rotateX(60deg) translateY(-10%);
       transform-origin: top;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
       z-index: -1;
       pointer-events: none;
     }
 
-    /* 1. Shimmer Animation */
+    /* 1. Shimmer Animation (Dark Mode) */
     .shimmer {
-      background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.4) 50%, transparent 75%);
+      background: linear-gradient(90deg, transparent 25%, rgba(56, 189, 248, 0.1) 50%, transparent 75%);
       background-size: 200% 100%;
       animation: shimmer-ani 3s infinite;
     }
@@ -82,29 +82,29 @@
       100% { background-position: -200% 0; }
     }
 
-    /* 2. Nav Glassmorphism (Ultra Blur) */
+    /* 2. Nav Dark Glass */
     .hub-nav {
       display: flex;
       justify-content: center;
       gap: 10px;
       padding: 12px;
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(25px) saturate(150%);
-      -webkit-backdrop-filter: blur(25px) saturate(150%);
+      background: rgba(5, 7, 10, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid var(--border);
     }
     .hub-nav a {
       color: var(--text-sub);
       text-decoration: none;
       font-size: 0.85rem;
-      padding: 6px 14px;
+      padding: 6px 16px;
       border-radius: 50px;
       transition: 0.3s;
     }
-    .hub-nav a:hover { color: var(--accent); background: #fff; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.1); }
+    .hub-nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
 
     /* 3. Header & Logo */
     header {
@@ -114,44 +114,53 @@
       z-index: 1;
     }
     .logo-img {
-      border-radius: 30px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-      border: 5px solid #fff;
+      border-radius: 20px; /* เหลี่ยมขึ้นให้ดูดุดัน */
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+      border: 3px solid var(--accent);
       margin-bottom: 25px;
-      transition: 0.5s;
+      filter: brightness(1.1);
     }
-    .logo-img:hover { transform: rotate(5deg) scale(1.05); }
 
     h1 {
       font-size: clamp(2.2rem, 8vw, 3.5rem);
       font-weight: 900;
       letter-spacing: -2px;
-      background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #94a3b8 100%);
+      background: linear-gradient(to bottom, #ffffff 40%, #94a3b8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
+      filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
     }
 
-    /* 4. Section Cards (4D Glass Style) */
+    /* 4. Section Cards (Deep Dark Style) */
     main { max-width: 850px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
     section {
-      background: rgba(255, 255, 255, 0.45);
-      backdrop-filter: blur(20px);
+      background: var(--card-bg);
+      backdrop-filter: blur(15px);
       padding: 50px;
-      border-radius: 40px;
+      border-radius: 20px; /* ลดความมนเพื่อให้ดูจริงจัง */
       margin: 40px 0;
-      border: 1px solid rgba(255,255,255,0.6);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
-      transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     section:hover {
-      transform: translateY(-10px) scale(1.02);
-      background: rgba(255, 255, 255, 0.6);
+      transform: translateY(-8px);
       border-color: var(--accent);
-      box-shadow: 0 40px 80px rgba(14, 165, 233, 0.1);
+      box-shadow: 0 0 40px var(--accent-glow);
     }
 
-    /* 5. Tooltip */
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    p { color: var(--text-sub); }
+
+    /* 5. Tooltip (Neon Style) */
     .tooltip {
       position: relative;
       display: inline-block;
@@ -165,7 +174,7 @@
       background-color: #0f172a;
       color: #fff;
       text-align: center;
-      border-radius: 12px;
+      border-radius: 8px;
       padding: 12px;
       position: absolute;
       z-index: 10;
@@ -175,17 +184,18 @@
       opacity: 0;
       transition: 0.3s;
       font-size: 0.85rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid var(--accent);
     }
     .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
 
-    /* 6. Accordion (High-Tech Style) */
+    /* 6. Accordion (Command Center Style) */
     .accordion-item {
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
       margin-bottom: 15px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.05);
     }
     .accordion-header {
       padding: 20px 30px;
@@ -195,7 +205,7 @@
       justify-content: space-between;
       transition: 0.3s;
     }
-    .accordion-header:hover { background: #fff; color: var(--accent); }
+    .accordion-header:hover { background: rgba(56, 189, 248, 0.1); color: var(--accent); }
     .accordion-content {
       max-height: 0;
       padding: 0 30px;
@@ -204,32 +214,31 @@
       color: var(--text-sub);
     }
 
-    /* 7. Button (Futuristic Pulse) */
+    /* 7. Button (Solid & Sharp) */
     .cta-button {
       display: inline-block;
       margin-top: 25px;
-      padding: 16px 45px;
-      background: #0f172a;
-      color: #fff !important;
-      border-radius: 100px;
+      padding: 18px 50px;
+      background: var(--accent);
+      color: #05070a !important;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 1px;
       text-transform: uppercase;
-      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.2);
-      transition: 0.4s;
+      box-shadow: 0 0 20px var(--accent-glow);
+      transition: 0.3s;
     }
     .cta-button:hover {
-      background: var(--accent);
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 20px 40px rgba(14, 165, 233, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 0 35px var(--accent);
     }
 
-    footer { text-align: center; padding: 80px 0; color: #94a3b8; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
+    footer { text-align: center; padding: 80px 0; color: #475569; font-size: 0.85rem; letter-spacing: 2px; }
 
     @media (max-width: 600px) {
       header { padding: 60px 20px; }
-      section { padding: 40px 20px; }
+      section { padding: 35px 20px; }
       .hub-nav { display: grid; grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -244,7 +253,7 @@
     <a href="/intelligence-hub.html" style="color: var(--accent); font-weight: 700;">🔥 500 คำถาม</a>
     <a href="/ea-system-philosophy.html">ปรัชญา</a>
     <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
-    <a href="/anti-ea-faq.html">FAQ ก่อนเริ่ม</a>
+    <a href="/anti-ea-faq.html">FAQ</a>
     <a href="/about.html">รู้จักเรา</a>
 </nav>
 
@@ -257,14 +266,14 @@
       EA ไม่ได้อันตราย<br>
       คนที่ใช้ EA โดยไม่เข้าใจต่างหากที่อันตราย
     </h1>
-    <p style="color: var(--text-sub); font-size: 1.1rem; margin-top: 15px;">
-      Insight เชิงระบบโดย <strong>bugtraderyai</strong>
+    <p style="color: var(--accent); font-weight: 700; letter-spacing: 1px; margin-top: 15px;">
+      SYSTEMATIC TRADING INTELLIGENCE
     </p>
   </header>
 
-  <section style="text-align: center; border: 1px solid rgba(14, 165, 233, 0.3);">
-    <h2 style="justify-content: center; color: var(--accent); font-size: 1.8rem;">📂 EA Intelligence Hub</h2>
-    <p>วิเคราะห์ระบบเทรดผ่าน <span class="tooltip">Logic AI<span class="tooltiptext">อัลกอริทึมที่คำนวณจากสถิติย้อนหลังและบริบทตลาดจริง ไม่ใช่การเดาสุ่ม</span></span> และคำถามเจาะลึกกว่า 500 ข้อ</p>
+  <section style="text-align: center; border: 1px solid var(--accent);">
+    <h2 style="justify-content: center; color: var(--accent);">📂 EA Intelligence Hub</h2>
+    <p>วิเคราะห์ระบบเทรดผ่าน <span class="tooltip">Logic AI<span class="tooltiptext">อัลกอริทึมที่คำนวณจากสถิติและบริบทตลาดจริง ไม่มีการใช้สัญชาตญาณส่วนตัว</span></span> และคำถามเจาะลึกกว่า 500 ข้อ</p>
     <a href="/intelligence-hub.html" class="cta-button">สำรวจคลังความรู้</a>
   </section>
 
@@ -275,32 +284,32 @@
         ทำไมเราไม่โชว์ผลกำไร? <span>+</span>
       </div>
       <div class="accordion-content">
-        <p>เพราะการเทรดคือความน่าจะเป็น กำไรในอดีตไม่ใช่เครื่องยืนยันอนาคต เราจึงโฟกัสที่การทำความเข้าใจ "ความเสี่ยง" และ "Logic" เพื่อให้คุณตัดสินใจได้ด้วยตัวเองอย่างยั่งยืน</p>
+        <p>เพราะกำไรในอดีตไม่ใช่เครื่องยืนยันอนาคต เราให้ความสำคัญกับการทำความเข้าใจ "ความเสี่ยง" (Risk) และ "ตรรกะ" (Logic) เพื่อให้คุณควบคุมพอร์ตได้จริงในทุกสภาวะตลาด</p>
       </div>
     </div>
     
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAccordion(this)">
-        การเทรดเชิงระบบ (Systematic) คืออะไร? <span>+</span>
+        Systematic Trading คืออะไร? <span>+</span>
       </div>
       <div class="accordion-content">
-        <p>คือการเปลี่ยนแผนการเทรดให้เป็นชุดคำสั่งที่ชัดเจน 100% ตัดการใช้อารมณ์หน้างานออกไป และปล่อยให้สถิติทำงานตามเป้าหมายที่วางไว้</p>
+        <p>คือการเปลี่ยนแผนการเทรดให้เป็นชุดคำสั่งที่ชัดเจน ตัดอารมณ์ความกลัวและความโลภออกไป แล้วปล่อยให้ระบบทำงานตามสถิติที่ถูกพิสูจน์มาแล้ว</p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>🔗 ข้อมูลด่วน</h2>
+    <h2>🔗 ข้อมูลสำคัญ</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-      <a href="/why-most-ea-users-fail.html" style="text-decoration:none; padding: 25px; background: rgba(255,255,255,0.6); border-radius: 20px; color: var(--text-main); font-weight: 600; transition: 0.3s; border: 1px solid rgba(0,0,0,0.05); text-align: center;">➜ ทำไมคนส่วนใหญ่เจ๊ง</a>
-      <a href="/ea-system-overview.html" style="text-decoration:none; padding: 25px; background: rgba(255,255,255,0.6); border-radius: 20px; color: var(--text-main); font-weight: 600; transition: 0.3s; border: 1px solid rgba(0,0,0,0.05); text-align: center;">➜ ภาพรวมระบบ</a>
+      <a href="/why-most-ea-users-fail.html" style="text-decoration:none; padding: 25px; background: rgba(255,255,255,0.03); border-radius: 12px; color: var(--accent); font-weight: 700; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); text-align: center;">➜ ทำไมคนส่วนใหญ่เจ๊ง</a>
+      <a href="/ea-system-overview.html" style="text-decoration:none; padding: 25px; background: rgba(255,255,255,0.03); border-radius: 12px; color: var(--accent); font-weight: 700; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); text-align: center;">➜ ภาพรวมระบบ</a>
     </div>
   </section>
 
   <footer>
     <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING</p>
-    <div class="shimmer" style="display: inline-block; padding: 4px 15px; border-radius: 100px; color: #64748b; font-weight: 700; border: 1px solid rgba(0,0,0,0.05);">
-      HYPER-SPACE INSIGHTS
+    <div class="shimmer" style="display: inline-block; padding: 4px 20px; border-radius: 4px; color: var(--accent); font-weight: 700; border: 1px solid var(--border);">
+      4D DARK MATTER INSIGHTS
     </div>
   </footer>
 </main>
@@ -310,7 +319,6 @@
     const content = element.nextElementSibling;
     const isExpanded = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
     
-    // ปิดอันอื่นก่อนเพื่อให้ดู Pro
     document.querySelectorAll('.accordion-content').forEach(c => {
       if (c !== content) {
         c.style.maxHeight = '0px';
@@ -320,7 +328,7 @@
     });
 
     if (!isExpanded) {
-      content.style.maxHeight = content.scrollHeight + 30 + "px"; // คำนวณความสูงจริง
+      content.style.maxHeight = content.scrollHeight + 30 + "px";
       content.style.padding = '20px 30px';
       element.querySelector('span').innerText = '-';
     } else {

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MULTI-LIVE MONITORING | bugtraderyai</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
+
+    <style>
+        :root {
+            --matrix-green: #00ff41;
+            --dark-bg: #050505;
+            --panel-border: #222;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--dark-bg);
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+
+        /* เอฟเฟกต์ลายเส้นหน้าจอ (Scanline) */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+
+        header {
+            background: #000;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid var(--matrix-green);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+        }
+
+        .header-title {
+            font-size: 1.8rem;
+            letter-spacing: 5px;
+            color: var(--matrix-green);
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--matrix-green);
+        }
+
+        /* Multi-Live Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+            padding: 30px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .monitor-panel {
+            background: #111;
+            border: 1px solid var(--panel-border);
+            padding: 15px;
+            position: relative;
+            box-shadow: inset 0 0 20px #000;
+        }
+
+        .monitor-panel::before {
+            content: "CHANNEL ACTIVE";
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: var(--dark-bg);
+            padding: 0 10px;
+            font-size: 0.7rem;
+            color: var(--matrix-green);
+        }
+
+        .video-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border: 1px solid #333;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* System Logs Area */
+        .system-logs {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #000;
+            border: 1px solid #333;
+            padding: 15px;
+            font-size: 0.8rem;
+            height: 100px;
+            overflow-y: hidden;
+            color: #666;
+        }
+
+        /* Call to Action Section */
+        .protocol-section {
+            background: #0a0a0a;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--matrix-green);
+            border: 2px solid var(--matrix-green);
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn:hover {
+            background: var(--matrix-green);
+            color: #000;
+            box-shadow: 0 0 30px var(--matrix-green);
+        }
+
+        .blinker {
+            animation: blink 1s infinite;
+            color: red;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .dashboard-grid { grid-template-columns: 1fr; padding: 15px; }
+            .header-title { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <p style="font-size: 0.7rem; color: #888; margin: 0;">SECURITY PROTOCOL: ENCRYPTED WEB STREAM</p>
+    <h1 class="header-title">AUDITOR LIVE MONITOR</h1>
+</header>
+
+<div class="dashboard-grid">
+    <div class="monitor-panel">
+        <div style="margin-bottom: 8px; display: flex; justify-content: space-between;">
+            <span style="font-size: 0.8rem;">[01] YOUTUBE_STREAM</span>
+            <span class="blinker">● LIVE</span>
+        </div>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/live_stream?channel=ID_ช่องพี่"></iframe>
+        </div>
+    </div>
+
+    <div class="monitor-panel">
+        <div style="margin-bottom: 8px; display: flex; justify-content: space-between;">
+            <span style="font-size: 0.8rem;">[02] FB_DATA_FEED</span>
+            <span class="blinker">● LIVE</span>
+        </div>
+        <div class="video-wrapper">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=URL_หน้าเพจพี่/live/&show_text=false"></iframe>
+        </div>
+    </div>
+
+    <div class="monitor-panel" style="grid-column: span 1;">
+        <div style="margin-bottom: 8px;">[03] TIKTOK_MOBILE_LINK</div>
+        <div class="video-wrapper" style="display: flex; flex-direction: column; justify-content: center; align-items: center; background: #000;">
+            <p style="font-size: 0.9rem; color: #ff0050;">TIKTOK LIVE DETECTED</p>
+            <a href="https://www.tiktok.com/@USER_NAME_พี่/live" target="_blank" style="color: #fff; border: 1px solid #ff0050; padding: 10px 20px; text-decoration: none; font-size: 0.8rem;">OPEN TIKTOK LIVE</a>
+        </div>
+    </div>
+</div>
+
+<div class="system-logs">
+    <div style="color: var(--matrix-green);">[LOG] Initializing secure connection... OK</div>
+    <div>[LOG] Fetching data from multi-channel stream... OK</div>
+    <div>[LOG] Logic integrity verified. System stable. Waiting for Auditor decision...</div>
+</div>
+
+<div class="protocol-section">
+    <h2 style="letter-spacing: 3px; font-size: 1.5rem;">[ ACCESS PROTOCOL REQUIRED ]</h2>
+    <p style="color: #666; max-width: 600px; margin: 20px auto;">หากต้องการเข้าถึงระบบ Logic และระบบบริหารจัดการ EA ที่แสดงใน Live กรุณาเข้าสู่กระบวนการคัดกรองตามมาตรฐาน Auditor</p>
+    <br>
+    <a href="https://tally.so/r/n0xxxx" class="cta-btn">BEGIN AUDIT PROCESS</a>
+</div>
+
+<footer style="padding: 40px; text-align: center; color: #333; font-size: 0.7rem; border-top: 1px solid #111;">
+    &copy; 2026 BUGTRADERYAI | ALL LOGIC PROTECTED
+</footer>
+
+</body>
+</html>

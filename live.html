@@ -157,15 +157,53 @@
 
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* 📱 RESPONSIVE: สำหรับมือถือและจอเล็ก */
+        /* 📱 RESPONSIVE OPTIMIZATION (FOR IPHONE SE & ALL MOBILE) */
         @media (max-width: 1100px) {
             .dashboard-grid {
-                grid-template-columns: 1fr; /* กลายเป็นแถวเดียวแนวตั้ง */
-                padding: 15px;
+                grid-template-columns: 1fr; 
+                padding: 10px; /* ลดระยะขอบลงเพื่อให้มีพื้นที่เหลือ */
+                gap: 15px;
             }
-            .header-title { font-size: 1.5rem; }
-            .cta-btn { font-size: 1.2rem; padding: 20px 40px; width: 90%; }
-            .protocol-section p { font-size: 1.1rem; }
+
+            /* หัวข้อ: ใช้ clamp ให้เล็กลงอัตโนมัติบนจอเล็ก */
+            .header-title { 
+                font-size: clamp(1.2rem, 5vw, 1.6rem); 
+                letter-spacing: 2px;
+                padding: 0 10px;
+            }
+
+            /* ส่วนเนื้อหา: ป้องกันการดันขอบจอ */
+            .protocol-section {
+                padding: 40px 10px; 
+            }
+
+            .protocol-section h2 {
+                font-size: clamp(1.3rem, 6vw, 1.8rem);
+                letter-spacing: 1px;
+                word-wrap: break-word; /* ป้องกันคำยาวทำจอแหก */
+            }
+
+            .protocol-section p {
+                font-size: 1rem;
+                padding: 0 5px;
+                margin: 15px auto;
+            }
+
+            /* ปุ่ม: คุมให้อยู่ในกรอบ 375px แน่นอน */
+            .cta-btn {
+                font-size: 1.1rem;
+                padding: 18px 10px;
+                width: 100%;
+                max-width: 320px; /* ล็อคความกว้างไม่ให้เกินขนาดหน้าจอ iPhone SE */
+                box-sizing: border-box; /* บังคับให้ padding ไม่ดันปุ่มออกนอกจอ */
+                letter-spacing: 1px;
+            }
+
+            .system-logs {
+                font-size: 0.9rem;
+                width: calc(100% - 20px);
+                margin: 10px auto;
+            }
         }
     </style>
 </head>

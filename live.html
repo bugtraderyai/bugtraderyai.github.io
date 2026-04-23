@@ -12,26 +12,29 @@
     <style>
         :root {
             --matrix-green: #00ff41;
+            --bright-white: #ffffff;
+            --text-gray: #cccccc;
             --dark-bg: #050505;
-            --panel-border: #222;
+            --panel-border: #333;
         }
 
         body {
             margin: 0;
             background-color: var(--dark-bg);
-            color: #e0e0e0;
+            color: var(--bright-white); /* ปรับสีตัวหนังสือพื้นฐานให้สว่างขึ้น */
             font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6; /* เพิ่มช่องไฟระหว่างบรรทัดให้อ่านง่าย */
             overflow-x: hidden;
         }
 
-        /* เอฟเฟกต์ลายเส้นหน้าจอ (Scanline) */
+        /* เอฟเฟกต์ Scanline (ปรับให้จางลงนิดหน่อยเพื่อให้สบายตา) */
         body::before {
             content: " ";
             display: block;
             position: fixed;
             top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
             z-index: 9999;
             background-size: 100% 4px, 3px 100%;
             pointer-events: none;
@@ -39,83 +42,83 @@
 
         header {
             background: #000;
-            padding: 25px;
+            padding: 35px 20px;
             text-align: center;
             border-bottom: 2px solid var(--matrix-green);
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
         }
 
         .header-title {
-            font-size: 1.8rem;
-            letter-spacing: 5px;
+            font-size: 2.2rem; /* ขยายขนาดหัวข้อ */
+            letter-spacing: 6px;
             color: var(--matrix-green);
             margin: 0;
             text-transform: uppercase;
             text-shadow: 0 0 10px var(--matrix-green);
         }
 
-        /* Multi-Live Grid */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 25px;
-            padding: 30px;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            max-width: 1500px;
             margin: auto;
         }
 
         .monitor-panel {
             background: #111;
             border: 1px solid var(--panel-border);
-            padding: 15px;
+            padding: 20px;
             position: relative;
-            box-shadow: inset 0 0 20px #000;
+            box-shadow: inset 0 0 30px #000;
         }
 
         .monitor-panel::before {
             content: "CHANNEL ACTIVE";
             position: absolute;
-            top: -10px;
-            left: 15px;
+            top: -12px;
+            left: 20px;
             background: var(--dark-bg);
-            padding: 0 10px;
-            font-size: 0.7rem;
+            padding: 0 12px;
+            font-size: 0.85rem; /* ขยายขนาดป้ายชื่อ */
             color: var(--matrix-green);
+            font-weight: bold;
         }
 
         .video-wrapper {
             width: 100%;
             aspect-ratio: 16 / 9;
             background: #000;
-            border: 1px solid #333;
+            border: 1px solid #444;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* System Logs Area */
         .system-logs {
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
             background: #000;
             border: 1px solid #333;
-            padding: 15px;
-            font-size: 0.8rem;
-            height: 100px;
+            padding: 20px;
+            font-size: 1rem; /* ขยายตัวหนังสือ Log */
+            height: 120px;
             overflow-y: hidden;
-            color: #666;
+            color: #888; /* ปรับสี Log ให้ชัดขึ้นนิดหน่อย */
+            border-radius: 4px;
         }
 
-        /* Call to Action Section */
         .protocol-section {
             background: #0a0a0a;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             border-top: 1px solid #333;
+        }
+
+        .protocol-section p {
+            color: var(--text-gray); /* ปรับสีคำบรรยายให้อ่านง่าย */
+            font-size: 1.15rem; /* ขยายขนาดคำบรรยาย */
+            max-width: 750px;
+            margin: 25px auto;
         }
 
         .cta-btn {
@@ -123,47 +126,47 @@
             background: transparent;
             color: var(--matrix-green);
             border: 2px solid var(--matrix-green);
-            padding: 20px 50px;
-            font-size: 1.2rem;
+            padding: 22px 60px;
+            font-size: 1.4rem; /* ขยายขนาดปุ่ม */
             text-decoration: none;
             font-weight: bold;
+            text-transform: uppercase;
             transition: 0.3s;
-            position: relative;
-            overflow: hidden;
+            cursor: pointer;
         }
 
         .cta-btn:hover {
             background: var(--matrix-green);
             color: #000;
-            box-shadow: 0 0 30px var(--matrix-green);
+            box-shadow: 0 0 40px var(--matrix-green);
         }
 
         .blinker {
             animation: blink 1s infinite;
-            color: red;
+            color: #ff4d4d; /* สีแดงสว่างขึ้น */
+            font-weight: bold;
         }
 
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 50% { opacity: 0; } }
 
         @media (max-width: 600px) {
-            .dashboard-grid { grid-template-columns: 1fr; padding: 15px; }
-            .header-title { font-size: 1.2rem; }
+            .dashboard-grid { grid-template-columns: 1fr; padding: 20px; }
+            .header-title { font-size: 1.5rem; }
+            .cta-btn { font-size: 1.1rem; padding: 15px 30px; width: 80%; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <p style="font-size: 0.7rem; color: #888; margin: 0;">SECURITY PROTOCOL: ENCRYPTED WEB STREAM</p>
+    <p style="font-size: 0.9rem; color: var(--matrix-green); margin-bottom: 10px; letter-spacing: 2px;">SECURITY PROTOCOL: ENCRYPTED WEB STREAM</p>
     <h1 class="header-title">AUDITOR LIVE MONITOR</h1>
 </header>
 
 <div class="dashboard-grid">
     <div class="monitor-panel">
-        <div style="margin-bottom: 8px; display: flex; justify-content: space-between;">
-            <span style="font-size: 0.8rem;">[01] YOUTUBE_STREAM</span>
+        <div style="margin-bottom: 12px; display: flex; justify-content: space-between; font-weight: bold;">
+            <span style="font-size: 1rem; color: var(--matrix-green);">[01] YOUTUBE_STREAM</span>
             <span class="blinker">● LIVE</span>
         </div>
         <div class="video-wrapper">
@@ -172,8 +175,8 @@
     </div>
 
     <div class="monitor-panel">
-        <div style="margin-bottom: 8px; display: flex; justify-content: space-between;">
-            <span style="font-size: 0.8rem;">[02] FB_DATA_FEED</span>
+        <div style="margin-bottom: 12px; display: flex; justify-content: space-between; font-weight: bold;">
+            <span style="font-size: 1rem; color: var(--matrix-green);">[02] FB_DATA_FEED</span>
             <span class="blinker">● LIVE</span>
         </div>
         <div class="video-wrapper">
@@ -181,30 +184,32 @@
         </div>
     </div>
 
-    <div class="monitor-panel" style="grid-column: span 1;">
-        <div style="margin-bottom: 8px;">[03] TIKTOK_MOBILE_LINK</div>
+    <div class="monitor-panel">
+        <div style="margin-bottom: 12px; font-weight: bold;">
+            <span style="font-size: 1rem; color: var(--matrix-green);">[03] TIKTOK_MOBILE_LINK</span>
+        </div>
         <div class="video-wrapper" style="display: flex; flex-direction: column; justify-content: center; align-items: center; background: #000;">
-            <p style="font-size: 0.9rem; color: #ff0050;">TIKTOK LIVE DETECTED</p>
-            <a href="https://www.tiktok.com/@USER_NAME_พี่/live" target="_blank" style="color: #fff; border: 1px solid #ff0050; padding: 10px 20px; text-decoration: none; font-size: 0.8rem;">OPEN TIKTOK LIVE</a>
+            <p style="font-size: 1.1rem; color: #ff0050; font-weight: bold; margin-bottom: 15px;">TIKTOK LIVE DETECTED</p>
+            <a href="https://www.tiktok.com/@USER_NAME_พี่/live" target="_blank" style="color: #fff; border: 2px solid #ff0050; padding: 12px 25px; text-decoration: none; font-size: 1rem; font-weight: bold; transition: 0.3s;">OPEN TIKTOK LIVE</a>
         </div>
     </div>
 </div>
 
 <div class="system-logs">
-    <div style="color: var(--matrix-green);">[LOG] Initializing secure connection... OK</div>
-    <div>[LOG] Fetching data from multi-channel stream... OK</div>
-    <div>[LOG] Logic integrity verified. System stable. Waiting for Auditor decision...</div>
+    <div style="color: var(--matrix-green); font-weight: bold;">[LOG] Initializing secure connection... OK</div>
+    <div style="color: #bbb;">[LOG] Fetching data from multi-channel stream... OK</div>
+    <div style="color: #bbb;">[LOG] Logic integrity verified. System stable. Waiting for Auditor decision...</div>
 </div>
 
 <div class="protocol-section">
-    <h2 style="letter-spacing: 3px; font-size: 1.5rem;">[ ACCESS PROTOCOL REQUIRED ]</h2>
-    <p style="color: #666; max-width: 600px; margin: 20px auto;">หากต้องการเข้าถึงระบบ Logic และระบบบริหารจัดการ EA ที่แสดงใน Live กรุณาเข้าสู่กระบวนการคัดกรองตามมาตรฐาน Auditor</p>
+    <h2 style="letter-spacing: 5px; font-size: 2rem; color: var(--bright-white);">[ ACCESS PROTOCOL REQUIRED ]</h2>
+    <p>หากต้องการเข้าถึงระบบ Logic และระบบบริหารจัดการ EA ที่แสดงใน Live <br>กรุณาเข้าสู่กระบวนการคัดกรองตามมาตรฐาน Auditor</p>
     <br>
     <a href="https://tally.so/r/J9kgXK" class="cta-btn">BEGIN AUDIT PROCESS</a>
 </div>
 
-<footer style="padding: 40px; text-align: center; color: #333; font-size: 0.7rem; border-top: 1px solid #111;">
-    &copy; 2026 BUGTRADERYAI | ALL LOGIC PROTECTED
+<footer style="padding: 50px; text-align: center; color: #555; font-size: 0.9rem; border-top: 1px solid #111; letter-spacing: 2px;">
+    &copy; 2026 BUGTRADERYAI | ALL LOGIC PROTECTED | ENCRYPTED TERMINAL
 </footer>
 
 </body>

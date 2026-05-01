@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual - คู่มือการใช้งานระบบ EA | BugTraderYai</title>
+    <meta name="description" content="คู่มือเชิงเทคนิคสำหรับการติดตั้งและตั้งค่า Expert Advisor (EA) ของ BugTraderYai อย่างละเอียด">
+    <style>
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1, h2, h3 { color: #1a1a1a; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .system-image { width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0; }
+        .caption { text-align: center; font-style: italic; color: #666; margin-top: -10px; margin-bottom: 20px; }
+        .parameter-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .parameter-table th, .parameter-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .parameter-table th { background-color: #f8f8f8; }
+        .note { background-color: #fff3cd; border-left: 5px solid #ffeeba; padding: 15px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+    <h1>คู่มือการใช้งานระบบเทรด BugTraderYai</h1>
+    
+    <p>ยินดีต้อนรับสู่ศูนย์ข้อมูลเชิงเทคนิค หน้าเอกสารนี้ถูกออกแบบมาเพื่อให้ข้อมูลที่เชื่อถือได้สำหรับการติดตั้งและบริหารจัดการความเสี่ยงด้วยระบบ EA</p>
+
+    <h2>1. การติดตั้ง Expert Advisor (EA)</h2>
+    <p>ทำตามขั้นตอนดังนี้เพื่อเริ่มต้นการทำงานของระบบ:</p>
+    <ul>
+        <li>เปิดโปรแกรม MetaTrader 4 หรือ 5</li>
+        <li>ไปที่เมนู <strong>File > Open Data Folder</strong></li>
+        <li>วางไฟล์ EA ในโฟลเดอร์ <strong>MQL/Experts</strong></li>
+    </ul>
+
+    <img src="images/setup-step1.webp" alt="ขั้นตอนการวางไฟล์ EA ในโฟลเดอร์ MQL" class="system-image">
+    <p class="caption">รูปที่ 1: การจัดการไฟล์ในระบบ MetaTrader</p>
+
+    <h2>2. การตั้งค่าพารามิเตอร์ (Input Parameters)</h2>
+    <p>การตั้งค่าเน้น <strong>Safety Mode</strong> เพื่อความยั่งยืนของพอร์ตการลงทุน</p>
+    <table class="parameter-table">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>คำอธิบาย</th>
+                <th>ค่าที่แนะนำ (Safety Mode)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lot Size</td>
+                <td>ขนาดของการส่งคำสั่งเทรด</td>
+                <td>0.01 ต่อทุน $1,000</td>
+            </tr>
+            <tr>
+                <td>Max Spread</td>
+                <td>ค่า Spread สูงสุดที่ยอมรับได้</td>
+                <td>20-30 points</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note">
+        <strong>ข้อควรระวัง:</strong> การลงทุนมีความเสี่ยง โปรดทดสอบระบบใน Demo Account ก่อนการใช้งานจริงทุกครั้ง
+    </div>
+
+    <!-- Advanced Schema Graph -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "TechArticle",
+          "@id": "https://bugtraderyai.com/manual/#article",
+          "headline": "Technical Manual for BugTraderYai Systems",
+          "url": "https://bugtraderyai.com/manual",
+          "author": {
+            "@type": "Organization",
+            "name": "BugTraderYai"
+          },
+          "description": "เอกสารประกอบการใช้งานระบบ Expert Advisor และการบริหารจัดการความเสี่ยงเชิงเทคนิค",
+          "publisher": {
+            "@type": "Organization",
+            "name": "BugTraderYai",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://bugtraderyai.com/logo.png"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+</body>
+</html>

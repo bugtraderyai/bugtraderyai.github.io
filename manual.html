@@ -200,26 +200,36 @@
 
 <main>
     <header style="padding: 150px 20px 50px;">
-        <h1 data-text="SYSTEM MANUAL PROTOCOL">SYSTEM MANUAL PROTOCOL</h1>
+        <h1 data-text="คู่มือการเตรียมระบบและติดตั้ง EA (Step-by-Step Guide)">คู่มือการเตรียมระบบและติดตั้ง EA (Step-by-Step Guide)</h1>
         <p style="color: var(--accent-bright); font-weight: 900; letter-spacing: 3px; margin-top: 10px;">TECHNICAL INSTALLATION & CONFIGURATION</p>
     </header>
 
     <section>
-        <h2>🛡️ ขั้นตอนการติดตั้ง (Deployment)</h2>
-        <p>การนำระบบเข้าสู่สภาพแวดล้อมการเทรด ต้องทำตาม Protocol อย่างเคร่งครัด:</p>
-        <div class="center-list-container">
-            <ul class="nav-list">
-                <li>➜ เปิดโปรแกรม MetaTrader (MT4/MT5)</li>
-                <li>➜ ไปที่เมนู File > Open Data Folder</li>
-                <li>➜ เข้าสู่ Directory: MQL/Experts</li>
-                <li>➜ วางไฟล์ .ex4 หรือ .ex5 ลงในโฟลเดอร์</li>
-                <li>➜ Restart Terminal หรือคลิกขวาที่ Navigator > Refresh</li>
-            </ul>
+        <h2>🛡️ 1. หลักการคิดและความปลอดภัยก่อนเริ่มใช้งาน (Philosophy & Risk Protocol)</h2>
+        <p>
+            "ยินดีต้อนรับสู่ศูนย์ข้อมูลเชิงเทคนิคของ <strong>BugTraderYai</strong>" หน้าเอกสารฉบับนี้ถูกออกแบบขึ้นมาให้เป็นมากกว่าเพียงคู่มือการติดตั้งโปรแกรม แต่มันคือ <strong>Protocol</strong> หรือระเบียบปฏิบัติในการบริหารจัดการความเสี่ยงเชิงระบบอย่างยั่งยืน เรายึดถือหลักการที่ว่า <strong>Introducing Broker (IB)</strong> ไม่ควรเป็นเพียงแค่ตัวกลางในการเชื่อมต่อบัญชีเทรดเท่านั้น แต่ต้องทำหน้าที่เป็น <strong>“เกราะป้องกันทางความคิด” (Mental Safety Layer)</strong> เพื่อช่วยคัดกรองทัศนคติและสร้างความเข้าใจที่ถูกต้องให้แก่ผู้ใช้งานก่อนเข้าสู่ตลาดจริง
+        </p>
+        <p>
+            เนื้อหาในส่วนนี้จะมุ่งเน้นให้คุณเข้าใจถึงกลไกการทำงานของ <strong>Expert Advisor (EA)</strong> ตามความเป็นจริงของตลาด โดยให้ความสำคัญกับการรักษาเงินทุนและการอยู่รอดในระยะยาว <strong>(Survival Mode)</strong> ซึ่งสำคัญกว่าการมุ่งเน้นเพียงผลกำไรในระยะสั้นที่อาจแฝงไปด้วยความเสี่ยงที่ควบคุมไม่ได้ โปรดศึกษาและทำตามทุกขั้นตอนอย่างเคร่งครัด เพื่อรักษามาตรฐานความปลอดภัยสูงสุดให้กับพอร์ตการลงทุนของคุณ
+        </p>
+    </section>
+
+    <section>
+        <h2>⚙️ 2. ขั้นตอนการติดตั้งและเตรียมความพร้อมของระบบ (System Implementation)</h2>
+        <p>
+            การเริ่มต้นใช้งานระบบภายใต้การดูแลของ <strong>BugTraderYai</strong> จะให้ความสำคัญกับการปรับจูนทัศนคติเรื่องความเสี่ยง <strong>(Risk Perspective)</strong> เป็นลำดับแรก เพื่อให้คุณพร้อมรับมือกับทุกสภาวะตลาดอย่างมีสติ สำหรับในส่วนนี้คือการสรุปขั้นตอนทางเทคนิคอย่างละเอียด เพื่อเตรียมความพร้อมให้กับโปรแกรม <strong>MetaTrader (MT4/MT5)</strong> ของคุณให้สามารถทำงานร่วมกับระบบอัตโนมัติได้อย่างสมบูรณ์แบบ
+        </p>
+        
+        <!-- ส่วนที่เป็นขั้นตอน <ul> ถูกตัดออกตามความต้องการของคุณ -->
+
+        <div class="bug-insight">
+            โปรดระลึกไว้เสมอว่า ระบบอัตโนมัติทุกประเภทล้วนมีข้อจำกัดในตัวเอง หน้าที่สำคัญของคุณในฐานะ <strong>System Operator</strong> คือการทำความเข้าใจพารามิเตอร์และคำสั่งต่าง ๆ ของระบบให้ถ่องแท้ เพื่อให้เครื่องมือสามารถทำงานได้อย่างเต็มประสิทธิภาพภายใต้การตั้งค่าแบบปลอดภัย <strong>(Safety Mode)</strong> ตามมาตรฐานที่เราได้กำหนดไว้เพื่อลดโอกาสเกิดความเสียหายที่เกินขีดจำกัด
         </div>
+
         
         <div class="system-image-container">
-            <img src="media/dashboardeaauto.webp" class="system-image" alt="Technical Directory Access">
-            <div class="caption">PROTOCOL: การนำไฟล์เข้าสู่ระบบ MQL Technical Directory</div>
+            <img src="media/dashboardeaauto.webp" class="system-image" alt="หน้าจอแสดงผล EA BugTraderYai">
+            <div class="caption">การตั้งค่าและการแสดงผลของ EA</div>
         </div>
     </section>
 

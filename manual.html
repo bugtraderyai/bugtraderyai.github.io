@@ -65,56 +65,63 @@
             margin: 20px 0;
         }
 
-        .main-sticky-wrapper {
-            position: sticky;
-            top: 100px; 
-            width: 100%;
-            max-width: 850px;
-            margin: 0 auto;
-            z-index: 10;
-        }
+        /* --- DYNAMIC FRAME SYSTEM (STRICT HEIGHT CONTROL) --- */
+.main-sticky-wrapper {
+    position: sticky;
+    top: 80px; /* ขยับขึ้นเล็กน้อยเพื่อให้มีพื้นที่ด้านล่างมากขึ้น */
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    z-index: 10;
+    
+    /* หัวใจหลัก: บังคับความสูงรวมไม่ให้เกิน 90% ของความสูงหน้าจอ */
+    max-height: 90vh; 
+    display: flex;
+    flex-direction: column;
+}
 
-        .image-frame {
-            width: 100%;
-            min-height: 200px; /* กันกรอบยุบ */
-            overflow: hidden;
-            border: 2px solid var(--accent);
-            border-bottom: none; 
-            border-radius: 8px 8px 0 0;
-            background: #000;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: min-height 0.3s ease;
-        }
+.image-frame {
+    width: 100%;
+    flex: 1; /* ให้รูปภาพยืดหดตามพื้นที่ที่เหลือจากข้อความ */
+    overflow: hidden;
+    border: 2px solid var(--accent);
+    border-bottom: none; 
+    border-radius: 8px 8px 0 0;
+    background: #000;
+    display: flex;
+    align-items: flex-start; /* ให้ภาพเริ่มจากด้านบน */
+    justify-content: center;
+}
 
-        .sequence-image {
-            width: 100%;
-            height: auto; /* บังคับยืดหยุ่นตามไฟล์ภาพจริง */
-            display: none;
-            position: relative; /* ดันความสูงกรอบ */
-        }
+.sequence-image {
+    max-width: 100%;
+    /* บังคับความสูงภาพให้พอดีกับกรอบ ไม่ให้ล้นจนดันข้อความหาย */
+    max-height: 100%; 
+    width: auto;
+    height: auto;
+    object-fit: contain; 
+    display: none;
+}
 
-        .sequence-image.active { 
-            display: block; 
-            animation: fadeIn 0.3s ease-in; 
-        }
+.sequence-image.active { 
+    display: block; 
+    animation: fadeIn 0.3s ease-in; 
+}
 
-        .description-frame {
-            width: 100%;
-            min-height: 80px;
-            background: rgba(56, 189, 248, 0.1);
-            border: 2px solid var(--accent);
-            border-radius: 0 0 8px 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            box-sizing: border-box;
-            color: var(--accent-bright);
-            box-shadow: 0 10px 50px rgba(56, 189, 248, 0.2);
-        }
+.description-frame {
+    width: 100%;
+    min-height: 60px; /* ลดความสูงขั้นต่ำลงเล็กน้อยเพื่อให้ประหยัดที่ */
+    background: rgba(56, 189, 248, 0.1);
+    border: 2px solid var(--accent);
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    color: var(--accent-bright);
+    flex-shrink: 0; /* บังคับไม่ให้กล่องข้อความโดนบีบจนเล็กเกินไป */
+}
 
         .desc-text { display: none; width: 100%; text-align: center; font-weight: 500; }
         .desc-text.active { display: block; animation: fadeIn 0.3s ease-in; }

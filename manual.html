@@ -33,60 +33,7 @@
         overflow-x: hidden;
     }
 
-/* --- 1. ส่วนตั้งค่าหลัก (Global Styles) --- */
-.scroll-sequence-container {
-    height: 250vh; 
-    position: relative;
-    margin: 20px 0;
-}
-
-.sticky-frame-wrapper {
-    position: sticky;
-    top: 120px;
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
-    aspect-ratio: 16 / 9; /* สัดส่วนมาตรฐานคอมพิวเตอร์ */
-    overflow: hidden;
-    border: 2px solid var(--accent);
-    border-radius: 8px;
-    background: #000;
-    box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
-}
-
-.sequence-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.sequence-image.active {
-    display: block;
-}
-
-/* --- 2. ส่วนปรับแต่งมือถือ (Mobile Overrides) --- */
-/* ต้องวางไว้ "ล่างสุด" เพื่อให้ไปทับค่าข้างบนเวลาเปิดในมือถือ */
-@media screen and (max-width: 768px) {
-    .scroll-sequence-container {
-        height: 150vh; /* ลดพื้นที่ว่างด้านล่างลงบนมือถือ */
-    }
-    
-    .sticky-frame-wrapper {
-        top: 80px; 
-        aspect-ratio: 1 / 1.1; /* ปรับกรอบให้สูงขึ้นตามทรงมือถือ พื้นที่ว่างด้านข้างจะหายไป */
-        max-width: 95%; /* ให้ภาพเกือบเต็มหน้าจอมือถือ */
-    }
-
-    .sequence-image {
-        object-fit: cover; /* ทำให้ภาพเต็มกรอบมือถือมากขึ้น */
-    }
-}
-
-    /* 1. แก้ตัวหนังสือตกบรรทัด (Responsive Header) */
+    /* --- 1. GLOBAL STYLES (ส่วนกลาง) --- */
     h1 {
         font-size: clamp(1.5rem, 5vw, 2.5rem);
         line-height: 1.4;
@@ -102,16 +49,67 @@
         letter-spacing: 2px;
     }
 
-    /* 2. ลูกเล่นภาพขยับตามการเลื่อน (Scroll-Driven Protocol) */
+    main {
+        max-width: 850px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    section {
+        background: rgba(1, 2, 4, 0.95) !important;
+        border: 1px solid var(--accent);
+        margin: 40px auto !important;
+        padding: 40px !important;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    /* --- 2. SCROLL SEQUENCE SYSTEM (ระบบสลับภาพ) --- */
+    .scroll-sequence-container {
+        height: 250vh; /* ระยะไถสำหรับคอมพิวเตอร์ */
+        position: relative;
+        margin: 20px 0;
+    }
+
+    .sticky-frame-wrapper {
+        position: sticky;
+        top: 120px;
+        width: 100%;
+        max-width: 850px;
+        margin: 0 auto;
+        aspect-ratio: 16 / 9; /* สัดส่วนคอม */
+        overflow: hidden;
+        border: 2px solid var(--accent);
+        border-radius: 8px;
+        background: #000;
+        box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
+    }
+
+    .sequence-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; 
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .sequence-image.active {
+        display: block;
+    }
+
+    /* --- 3. DYNAMIC REVEAL SYSTEM (ระบบซูมภาพ) --- */
     .scroll-reveal-container {
-        height: 120vh; /* พื้นที่สำหรับสร้างระยะการขยับของภาพ */
+        height: 120vh;
         position: relative;
         margin: 50px 0;
     }
 
     .sticky-wrapper {
         position: sticky;
-        top: 120px; /* ระยะที่ภาพจะเริ่มค้างเมื่อเลื่อนมาถึง */
+        top: 120px;
         overflow: hidden;
         border: 2px solid var(--accent);
         border-radius: 8px;
@@ -125,7 +123,25 @@
         will-change: transform;
     }
 
-    /* 3. พื้นหลัง Hyper-Distortion */
+    /* --- 4. MOBILE OPTIMIZATION (ต้องอยู่ล่างสุด) --- */
+    @media screen and (max-width: 768px) {
+        section { padding: 20px !important; margin: 20px auto !important; }
+        
+        /* ลดช่องว่างบนมือถือ */
+        .scroll-sequence-container { height: 160vh; }
+        .scroll-reveal-container { height: 100vh; }
+
+        .sticky-frame-wrapper, .sticky-wrapper {
+            top: 70px; /* ขยับขึ้นไม่ให้หลุดจอ */
+            aspect-ratio: 1 / 1.2; /* ปรับภาพให้ทรงสูงเข้ากับมือถือ */
+        }
+
+        .sequence-image, .system-image-scroll {
+            object-fit: cover; /* บังคับให้ภาพเต็มกรอบมือถือ */
+        }
+    }
+
+    /* --- 5. VISUAL EFFECTS --- */
     .dimension-bg {
         position: fixed;
         top: -100%; left: -100%; width: 300%; height: 300%;
@@ -147,6 +163,20 @@
         100% { transform: perspective(400px) rotateX(10deg) rotateY(5deg) scale(1.2) skew(5deg); }
     }
 
+    .center-list-container { display: flex; justify-content: center; width: 100%; }
+    .nav-list { list-style: none; padding: 0; margin: 20px 0; text-align: left; display: inline-block; }
+    .nav-list li { margin-bottom: 15px; font-size: 1.1rem; border-bottom: 1px solid rgba(56, 189, 248, 0.1); padding-bottom: 8px; color: var(--text-silver); }
+    .caption { background: rgba(56, 189, 248, 0.15); padding: 12px; font-size: 0.9rem; color: var(--accent-bright); font-style: italic; }
+    .bug-insight { background: rgba(56, 189, 248, 0.1) !important; border: 1px dashed var(--accent); color: var(--accent-bright) !important; padding: 25px; margin-top: 25px; font-style: italic; }
+    .table-wrapper { overflow-x: auto; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; border: 1px solid var(--accent); }
+    th, td { padding: 15px; border: 1px solid rgba(56, 189, 248, 0.2); text-align: left; }
+    th { background: rgba(56, 189, 248, 0.2); color: var(--accent-bright); }
+    footer { padding: 50px 0; border-top: 1px solid var(--accent); margin-top: 50px; }
+    .hub-nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(1, 2, 4, 0.95); border-bottom: 1px solid var(--accent); padding: 15px; text-align: center; z-index: 1000; }
+    .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-size: 0.9rem; transition: 0.3s; }
+    .hub-nav a:hover { color: var(--accent); }
+</style>
     /* 4. โครงสร้างเนื้อหาทั่วไป */
     main {
         max-width: 850px;

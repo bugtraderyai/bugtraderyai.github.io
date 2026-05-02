@@ -33,13 +33,24 @@
         overflow-x: hidden;
     }
 
-/* คอนเทนเนอร์หลัก: ปรับความสูงให้สัมพันธ์กับจำนวนภาพ (เช่น 3 ภาพ ใช้ 200-300vh) */
+/* คอนเทนเนอร์หลัก: ปรับให้สั้นลงบนมือถือ */
 .scroll-sequence-container {
-    height: 250vh; 
+    height: 250vh; /* ความสูงสำหรับคอมพิวเตอร์ */
     position: relative;
     margin: 20px 0;
 }
 
+/* Media Query สำหรับมือถือ (หน้าจอเล็กกว่า 768px) */
+@media screen and (max-width: 768px) {
+    .scroll-sequence-container {
+        height: 150vh; /* ลดความสูงลงเพื่อให้พื้นที่ว่างด้านล่างน้อยลง */
+    }
+    
+    .sticky-frame-wrapper {
+        top: 80px; /* ขยับภาพขึ้นไปใกล้ขอบบนมากขึ้นบนมือถือ */
+        aspect-ratio: 1 / 1.2; /* ปรับสัดส่วนกรอบให้เข้ากับรูปทรงมือถือ */
+    }
+}
 .sticky-frame-wrapper {
     position: sticky;
     top: 120px; /* ระยะห่างจากขอบบนเมื่อภาพล็อก */

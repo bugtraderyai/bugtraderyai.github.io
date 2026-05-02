@@ -58,14 +58,13 @@
             box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
         }
 
-        /* --- SCROLL SEQUENCE SYSTEM (Unified Wrapper) --- */
+        /* --- DYNAMIC FRAME SYSTEM --- */
         .scroll-sequence-container { 
-            height: 300vh; /* สร้างพื้นที่การเลื่อน */
+            height: 300vh; 
             position: relative; 
             margin: 20px 0;
         }
 
-        /* ตัวคุมหลักที่ทำให้ทั้งก้อน Sticky ไปพร้อมกัน */
         .main-sticky-wrapper {
             position: sticky;
             top: 100px; 
@@ -77,14 +76,29 @@
 
         .image-frame {
             width: 100%;
-            aspect-ratio: 16 / 9;
+            min-height: 200px; /* กันกรอบยุบ */
             overflow: hidden;
             border: 2px solid var(--accent);
             border-bottom: none; 
             border-radius: 8px 8px 0 0;
             background: #000;
             position: relative;
-            box-shadow: 0 -10px 50px rgba(56, 189, 248, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: min-height 0.3s ease;
+        }
+
+        .sequence-image {
+            width: 100%;
+            height: auto; /* บังคับยืดหยุ่นตามไฟล์ภาพจริง */
+            display: none;
+            position: relative; /* ดันความสูงกรอบ */
+        }
+
+        .sequence-image.active { 
+            display: block; 
+            animation: fadeIn 0.3s ease-in; 
         }
 
         .description-frame {
@@ -102,21 +116,18 @@
             box-shadow: 0 10px 50px rgba(56, 189, 248, 0.2);
         }
 
-        .sequence-image, .desc-text { display: none; width: 100%; }
-        .sequence-image.active, .desc-text.active { display: block; animation: fadeIn 0.3s ease-in; }
+        .desc-text { display: none; width: 100%; text-align: center; font-weight: 500; }
+        .desc-text.active { display: block; animation: fadeIn 0.3s ease-in; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* --- UI COMPONENTS --- */
         .hub-nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(1, 2, 4, 0.95); border-bottom: 2px solid var(--accent); padding: 15px; z-index: 1000; }
-        .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; }
-        .hub-nav a:hover { color: var(--accent-bright); }
+        .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-weight: bold; }
 
         @media screen and (max-width: 768px) {
             .scroll-sequence-container { height: 180vh !important; }
             .main-sticky-wrapper { top: 70px; }
-            .image-frame { aspect-ratio: 1 / 1.2; }
-            .sequence-image { object-fit: cover; }
             .desc-text { font-size: 0.9rem; }
         }
     </style>
@@ -133,24 +144,25 @@
     <main>
         <header style="padding: 150px 20px 50px;">
             <h1 style="text-shadow: 0 0 20px var(--accent);">System Implementation Protocol</h1>
-            <p style="color: var(--accent-bright); font-weight: 900; letter-spacing: 5px;">DYNAMIC SEAMLESS INTERFACE</p>
+            <p style="color: var(--accent-bright); font-weight: 900; letter-spacing: 5px;">AUTO-HEIGHT SEAMLESS INTERFACE</p>
         </header>
 
         <section>
             <h2>⚙️ System Sequence Analysis</h2>
             <div class="scroll-sequence-container" id="sequence-trigger">
-                <!-- ก้อนนี้จะ Sticky ไปด้วยกันทั้งภาพและข้อความ -->
                 <div class="main-sticky-wrapper">
+                    <!-- ส่วนรูปภาพ: จะขยับความสูงตามรูปภาพจริง -->
                     <div class="image-frame">
                         <img src="media/dashboardeaauto.webp" class="sequence-image active">
                         <img src="media/setup-step1.webp" class="sequence-image">
                         <img src="media/apple-touch-icon.png" class="sequence-image">
                     </div>
                     
+                    <!-- ส่วนข้อความ: จะติดสอยห้อยตามท้ายรูปภาพเสมอ -->
                     <div class="description-frame">
                         <div class="desc-text active">📝 [ภาพที่ 1] Dashboard หลัก: ตรวจสอบสถานะการทำงานแบบ Real-time</div>
                         <div class="desc-text">📝 [ภาพที่ 2] การติดตั้งไฟล์ MQL: นำไฟล์เข้าสู่ Experts Directory</div>
-                        <div class="desc-text">📝 [ภาพที่ 3] การตั้งค่าพารามิเตอร์: ปรับจูน Safety Mode ตามมาตรฐาน</div>
+                        <div class="desc-text">📝 [ภาพที่ 3] ระบบตรวจสอบความสมบูรณ์: ยืนยันสถานะ Protocol Active</div>
                     </div>
                 </div>
             </div>
@@ -158,7 +170,7 @@
 
         <footer>
             <div style="border: 1px solid var(--neon-pink); padding: 10px; color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); font-weight: 900; margin-top: 50px;">
-                PROTOCOL STABLE: 500% DISTORTION ACTIVE
+                PROTOCOL STABLE: AUTO-HEIGHT ACTIVE
             </div>
         </footer>
     </main>
@@ -171,15 +183,12 @@
             
             if (trigger && images.length > 0) {
                 const rect = trigger.getBoundingClientRect();
-                
-                // คำนวณความคืบหน้า (0 ถึง 1)
                 let progress = -rect.top / (rect.height - window.innerHeight);
                 progress = Math.max(0, Math.min(1, progress));
 
                 const totalItems = images.length;
                 const activeIndex = Math.floor(progress * (totalItems - 0.01));
 
-                // สลับภาพและข้อความให้ตรงกัน
                 images.forEach((img, index) => {
                     img.classList.toggle('active', index === activeIndex);
                 });

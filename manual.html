@@ -33,32 +33,20 @@
         overflow-x: hidden;
     }
 
-/* คอนเทนเนอร์หลัก: ปรับให้สั้นลงบนมือถือ */
+/* --- 1. ส่วนตั้งค่าหลัก (Global Styles) --- */
 .scroll-sequence-container {
-    height: 250vh; /* ความสูงสำหรับคอมพิวเตอร์ */
+    height: 250vh; 
     position: relative;
     margin: 20px 0;
 }
 
-/* Media Query สำหรับมือถือ (หน้าจอเล็กกว่า 768px) */
-@media screen and (max-width: 768px) {
-    .scroll-sequence-container {
-        height: 150vh; /* ลดความสูงลงเพื่อให้พื้นที่ว่างด้านล่างน้อยลง */
-    }
-    
-    .sticky-frame-wrapper {
-        top: 80px; /* ขยับภาพขึ้นไปใกล้ขอบบนมากขึ้นบนมือถือ */
-        aspect-ratio: 1 / 1.2; /* ปรับสัดส่วนกรอบให้เข้ากับรูปทรงมือถือ */
-    }
-}
 .sticky-frame-wrapper {
     position: sticky;
     top: 120px;
     width: 100%;
     max-width: 850px;
     margin: 0 auto;
-    /* แก้จุดนี้: ลบ height: 500px ออก แล้วใช้ aspect-ratio แทน */
-    aspect-ratio: 16 / 9; /* หรือปรับตามสัดส่วนภาพ EA ของคุณ เช่น 4 / 3 */
+    aspect-ratio: 16 / 9; /* สัดส่วนมาตรฐานคอมพิวเตอร์ */
     overflow: hidden;
     border: 2px solid var(--accent);
     border-radius: 8px;
@@ -69,7 +57,7 @@
 .sequence-image {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* เปลี่ยนเป็น cover หากต้องการให้ภาพเต็มกรอบโดยไม่มีขอบดำ */
+    object-fit: contain; 
     display: none;
     position: absolute;
     top: 0;
@@ -80,11 +68,23 @@
     display: block;
 }
 
-/* แสดงภาพที่ถูกเลือก */
-.sequence-image.active {
-    display: block;
+/* --- 2. ส่วนปรับแต่งมือถือ (Mobile Overrides) --- */
+/* ต้องวางไว้ "ล่างสุด" เพื่อให้ไปทับค่าข้างบนเวลาเปิดในมือถือ */
+@media screen and (max-width: 768px) {
+    .scroll-sequence-container {
+        height: 150vh; /* ลดพื้นที่ว่างด้านล่างลงบนมือถือ */
+    }
+    
+    .sticky-frame-wrapper {
+        top: 80px; 
+        aspect-ratio: 1 / 1.1; /* ปรับกรอบให้สูงขึ้นตามทรงมือถือ พื้นที่ว่างด้านข้างจะหายไป */
+        max-width: 95%; /* ให้ภาพเกือบเต็มหน้าจอมือถือ */
+    }
+
+    .sequence-image {
+        object-fit: cover; /* ทำให้ภาพเต็มกรอบมือถือมากขึ้น */
+    }
 }
-        
 
     /* 1. แก้ตัวหนังสือตกบรรทัด (Responsive Header) */
     h1 {

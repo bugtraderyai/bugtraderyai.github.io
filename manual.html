@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>Manual Protocol | ขั้นตอนและวิธีการติดตั้งระบบ EA - bugtraderyai</title>
+    <title>Manual Protocol | BugTraderYai</title>
     <meta name="description" content="คู่มือเชิงเทคนิคสำหรับการติดตั้งและตั้งค่า Expert Advisor (EA) อย่างละเอียด เพื่อความปลอดภัยสูงสุดในการบริหารจัดการพอร์ต">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -21,6 +21,8 @@
             --accent: #38bdf8;
             --text-white: #ffffff;
             --text-silver: #e2e8f0;
+            --neon-pink: #f472b6;
+            --neon-warning: #fda4af;
         }
 
         body {
@@ -32,73 +34,80 @@
             text-align: center;
         }
 
-        /* --- UI STRUCTURE --- */
+        /* --- HYPER-DISTORTION 500% (บิดเบี้ยวขั้นสุด) --- */
+        .dimension-bg {
+            position: fixed;
+            top: -150%; left: -150%; width: 400%; height: 400%;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+                linear-gradient(rgba(56, 189, 248, 0.2) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.2) 2px, transparent 2px);
+            background-size: 100% 100%, 50px 50px, 50px 50px;
+            z-index: -1;
+            transform-style: preserve-3d;
+            will-change: transform;
+            animation: hyperDistort500 8s infinite alternate cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        @keyframes hyperDistort500 {
+            0% { transform: perspective(300px) rotateX(25deg) rotateY(-15deg) scale(1) skew(0deg); filter: hue-rotate(0deg); }
+            50% { transform: perspective(300px) rotateX(60deg) rotateY(30deg) scale(1.5) skew(25deg); filter: hue-rotate(180deg) brightness(1.5); }
+            100% { transform: perspective(300px) rotateX(-45deg) rotateY(-25deg) scale(1.2) skew(-15deg); filter: hue-rotate(360deg); }
+        }
+
         main { max-width: 850px; margin: 0 auto; padding: 0 15px; position: relative; }
         
         section {
-            background: rgba(1, 2, 4, 0.95) !important;
+            background: rgba(1, 2, 4, 0.9) !important;
             border: 1px solid var(--accent);
             margin: 40px auto !important;
             padding: 40px !important;
             border-radius: 4px;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
         }
 
-        h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.4; letter-spacing: 2px; word-break: keep-all; margin-bottom: 25px; display: inline-block; }
-        h2 { margin-bottom: 25px; display: inline-block; letter-spacing: 2px; }
+        h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.4; letter-spacing: 2px; text-shadow: 0 0 20px var(--accent); }
+        h2 { color: var(--accent-bright); text-transform: uppercase; margin-bottom: 25px; letter-spacing: 2px; }
 
-        /* --- SCROLL SEQUENCE SYSTEM (สลับภาพ) --- */
-        .scroll-sequence-container {
-            height: 250vh; 
-            position: relative;
-            margin: 20px 0;
-        }
-
+        /* --- SCROLL SEQUENCE SYSTEM --- */
+        .scroll-sequence-container { height: 250vh; position: relative; margin: 20px 0; }
         .sticky-frame-wrapper {
-            position: sticky;
-            top: 120px;
-            width: 100%;
-            max-width: 850px;
-            margin: 0 auto;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            border: 2px solid var(--accent);
-            border-radius: 8px;
-            background: #000;
-            box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
+            position: sticky; top: 120px; width: 100%; aspect-ratio: 16 / 9;
+            overflow: hidden; border: 2px solid var(--accent); border-radius: 8px;
+            background: #000; box-shadow: 0 0 50px rgba(56, 189, 248, 0.4);
         }
+        .sequence-image { width: 100%; height: 100%; object-fit: contain; display: none; position: absolute; top: 0; left: 0; }
+        .sequence-image.active { display: block; animation: fadeIn 0.3s ease-in; }
 
-        .sequence-image {
-            width: 100%; height: 100%;
-            object-fit: contain; 
-            display: none;
-            position: absolute; top: 0; left: 0;
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .sequence-image.active { display: block; }
+        /* --- UI COMPONENTS --- */
+        .hub-nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(1, 2, 4, 0.95); border-bottom: 2px solid var(--accent); padding: 15px; z-index: 1000; }
+        .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-size: 0.9rem; font-weight: bold; transition: 0.3s; }
+        .hub-nav a:hover { color: var(--accent-bright); text-shadow: 0 0 10px var(--accent); }
 
-        /* --- MOBILE OPTIMIZATION --- */
-        @media screen and (max-width: 768px) {
-            section { padding: 20px !important; margin: 20px auto !important; }
-            .scroll-sequence-container { height: 150vh !important; }
-            .sticky-frame-wrapper { top: 70px; aspect-ratio: 1 / 1.2; }
-            .sequence-image { object-fit: cover; }
-        }
-
-        /* --- VISUAL ELEMENTS --- */
-        .dimension-bg { position: fixed; top: -100%; left: -100%; width: 300%; height: 300%; background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 50%), linear-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.15) 1px, transparent 1px); background-size: 100% 100%, 60px 60px, 60px 60px; z-index: -1; animation: hyperDistort200 12s infinite alternate; }
-        @keyframes hyperDistort200 { 0% { transform: perspective(400px) rotateX(15deg); } 100% { transform: perspective(400px) rotateX(10deg) scale(1.1); } }
+        .nav-list { list-style: none; padding: 0; display: inline-block; text-align: left; }
+        .nav-list li { margin-bottom: 15px; font-size: 1.1rem; border-bottom: 1px solid rgba(56, 189, 248, 0.1); padding-bottom: 8px; }
         
-        .hub-nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(1, 2, 4, 0.95); border-bottom: 1px solid var(--accent); padding: 15px; text-align: center; z-index: 1000; }
-        .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-size: 0.9rem; transition: 0.3s; }
-        .hub-nav a:hover { color: var(--accent); }
+        .bug-insight { 
+            background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), transparent);
+            border-left: 4px solid var(--accent); padding: 25px; margin: 25px 0; font-style: italic; color: var(--accent-bright);
+        }
 
-        .caption { background: rgba(56, 189, 248, 0.15); padding: 12px; font-size: 0.9rem; color: var(--accent-bright); font-style: italic; }
-        .bug-insight { background: rgba(56, 189, 248, 0.1) !important; border: 1px dashed var(--accent); color: var(--accent-bright) !important; padding: 25px; margin-top: 25px; font-style: italic; }
-        
         .table-wrapper { overflow-x: auto; margin: 20px 0; }
         table { width: 100%; border-collapse: collapse; border: 1px solid var(--accent); }
         th, td { padding: 15px; border: 1px solid rgba(56, 189, 248, 0.2); text-align: left; }
         th { background: rgba(56, 189, 248, 0.2); color: var(--accent-bright); }
+
+        .caption { background: rgba(56, 189, 248, 0.15); padding: 12px; font-size: 0.9rem; color: var(--accent-bright); font-style: italic; }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media screen and (max-width: 768px) {
+            section { padding: 25px !important; margin: 20px auto !important; }
+            .scroll-sequence-container { height: 150vh !important; }
+            .sticky-frame-wrapper { top: 80px; aspect-ratio: 1 / 1.2; }
+            .sequence-image { object-fit: cover; }
+        }
         
         footer { padding: 50px 0; border-top: 1px solid var(--accent); margin-top: 50px; }
     </style>
@@ -111,31 +120,28 @@
         <a href="/">หน้าแรก</a>
         <a href="/intelligence-hub.html">🔥 500 คำถาม</a>
         <a href="/ea-system-philosophy.html">ปรัชญา</a>
-        <a href="/manual.html" style="color: var(--accent); font-weight: 900;">คู่มือการใช้งาน</a>
+        <a href="/manual.html" style="color: var(--accent-bright); font-weight: 900;">คู่มือการใช้งาน</a>
         <a href="/about.html">รู้จักเรา</a>
     </nav>
 
     <main>
         <header style="padding: 150px 20px 50px;">
-            <h1 data-text="คู่มือการเตรียมระบบและติดตั้ง EA (Step-by-Step Guide)">
-                คู่มือการเตรียมระบบและติดตั้ง EA<br>(Step-by-Step Guide)
-            </h1>
-            <p style="color: var(--accent-bright); font-weight: 900; letter-spacing: 3px; margin-top: 10px;">TECHNICAL INSTALLATION & CONFIGURATION</p>
+            <h1 data-text="คู่มือการเตรียมระบบ EA">คู่มือการเตรียมระบบและติดตั้ง EA<br>(Step-by-Step Guide)</h1>
+            <p style="color: var(--accent-bright); font-weight: 900; letter-spacing: 5px; margin-top: 10px;">STEALTH SYSTEM PROTOCOL ACTIVE</p>
         </header>
 
         <section>
-            <h2>🛡️ 1. หลักการคิดและความปลอดภัย (Mindset Protocol)</h2>
-            <p>
-                ยินดีต้อนรับสู่ศูนย์ข้อมูลของ <strong>BugTraderYai</strong> เรายึดถือหลักการบริหารจัดการความเสี่ยงเชิงระบบ 
-                โดยเน้นการรักษาเงินทุนและการอยู่รอดในระยะยาว (Survival Mode) เป็นสำคัญ
-            </p>
+            <h2>🛡️ 1. หลักการคิด (Philosophy & Risk Protocol)</h2>
+            <p>"IB ไม่ควรเป็นเพียงแค่ตัวกลางในการเชื่อมบัญชี แต่ต้องเป็นเกราะป้องกันทางความคิด"</p>
+            <div class="bug-insight">
+                เราให้ความสำคัญกับการรักษาเงินทุนและการอยู่รอดในระยะยาว (Survival Mode) มากกว่ากำไรฉาบฉวย
+            </div>
         </section>
 
         <section>
             <h2>⚙️ ขั้นตอนการประมวลผลเชิงระบบ (System Sequence)</h2>
             <div class="scroll-sequence-container" id="sequence-trigger">
                 <div class="sticky-frame-wrapper">
-                    <!-- ใส่รูปภาพของคุณที่นี่ -->
                     <img src="media/dashboardeaauto.webp" class="sequence-image active" alt="Step 1">
                     <img src="media/setup-step1.webp" class="sequence-image" alt="Step 2">
                     <img src="media/apple-touch-icon.png" class="sequence-image" alt="Step 3">
@@ -163,26 +169,35 @@
                         </tr>
                         <tr>
                             <td>Max Spread</td>
-                            <td>ค่าสเปรดสูงสุด</td>
+                            <td>ค่าสเปรดสูงสุดที่ยอมรับ</td>
                             <td>ไม่เกิน 25 Points</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="bug-insight">
-                "IB ควรเป็นชั้นความปลอดภัยทางความคิดในการตั้งค่าระบบ"
+        </section>
+
+        <!-- กลับมาแล้ว: ส่วนข้อควรระวังพร้อมแสงสี Neon -->
+        <section>
+            <h2 style="color: var(--neon-warning); text-shadow: 0 0 15px var(--neon-pink);">⚠️ ข้อควรระวังเชิงระบบ (Safety Protocol)</h2>
+            <div style="display: flex; justify-content: center;">
+                <ul class="nav-list" style="color: var(--neon-warning); font-weight: 500;">
+                    <li>✓ ทดสอบระบบในบัญชี Demo อย่างน้อย 2-4 สัปดาห์</li>
+                    <li>✓ ตรวจสอบการเชื่อมต่อ VPS ตลอด 24 ชั่วโมง</li>
+                    <li>✓ ห้ามแทรกแซงการทำงาน (Manual Trade) ในคู่เงินที่รัน EA</li>
+                    <li>✓ ระบบที่มี Drawdown ต่ำ ไม่ได้หมายความว่าไม่มีความเสี่ยง</li>
+                </ul>
             </div>
         </section>
 
         <footer>
             <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING INTELLIGENCE</p>
-            <div style="display: inline-block; padding: 6px 25px; border: 1px solid var(--accent); color: var(--accent-bright); font-weight: 900; margin-top: 20px; letter-spacing: 2px;">
-                4D HYPER-DISTORTION PROTOCOL ACTIVE
+            <div style="display: inline-block; padding: 6px 25px; border: 1px solid var(--neon-pink); color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); font-weight: 900; margin-top: 20px; letter-spacing: 2px;">
+                500% DISTORTION OVERLOAD: SYSTEM STABLE
             </div>
         </footer>
     </main>
 
-    <!-- JAVA SCRIPT SYSTEM -->
     <script>
         window.addEventListener('scroll', () => {
             const trigger = document.querySelector('#sequence-trigger');
@@ -190,9 +205,12 @@
             
             if (trigger && images.length > 0) {
                 const rect = trigger.getBoundingClientRect();
+                
+                // คำนวณความคืบหน้า (0 ถึง 1)
                 let progress = -rect.top / (rect.height - window.innerHeight);
                 progress = Math.max(0, Math.min(1, progress));
 
+                // กำหนดภาพที่จะแสดงตาม Progress
                 const totalImages = images.length;
                 const imageIndex = Math.floor(progress * (totalImages - 0.01));
 

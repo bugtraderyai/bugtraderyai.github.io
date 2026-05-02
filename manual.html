@@ -33,21 +33,21 @@
         overflow-x: hidden;
     }
 
-/* คอนเทนเนอร์หลักสำหรับพื้นที่การเลื่อน */
+/* คอนเทนเนอร์หลัก: ปรับความสูงให้สัมพันธ์กับจำนวนภาพ (เช่น 3 ภาพ ใช้ 200-300vh) */
 .scroll-sequence-container {
-    height: 400vh; /* เพิ่มความยาวเพื่อให้มีระยะในการเปลี่ยนภาพหลายๆ ภาพ */
+    height: 250vh; 
     position: relative;
-    margin: 50px 0;
+    margin: 20px 0;
 }
 
 .sticky-frame-wrapper {
     position: sticky;
-    top: 120px;
+    top: 120px; /* ระยะห่างจากขอบบนเมื่อภาพล็อก */
     width: 100%;
-    max-width: 100%;
+    max-width: 850px;
     margin: 0 auto;
-    /* แก้จุดนี้: ลบ height: 500px ออก แล้วใช้ aspect-ratio แทน */
-    aspect-ratio: 16 / 9; /* หรือปรับตามสัดส่วนภาพ EA ของคุณ เช่น 4 / 3 */
+    /* ใช้ aspect-ratio เพื่อให้กรอบสูงตามสัดส่วนภาพจริง */
+    aspect-ratio: 1 / 1; /* หากภาพ EA เป็นจัตุรัส หรือปรับเป็น 16/9 ตามความเหมาะสม */
     overflow: hidden;
     border: 2px solid var(--accent);
     border-radius: 8px;
@@ -58,12 +58,15 @@
 .sequence-image {
     width: 100%;
     height: 100%;
-    /* แก้จุดนี้: จาก contain เป็น cover เพื่อให้ภาพเต็มกรอบ หรือใช้เอาออกหากภาพได้สัดส่วนอยู่แล้ว */
-    object-fit: cover; 
+    object-fit: contain; /* เปลี่ยนเป็น cover หากต้องการให้ภาพเต็มกรอบโดยไม่มีขอบดำ */
     display: none;
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.sequence-image.active {
+    display: block;
 }
 
 /* แสดงภาพที่ถูกเลือก */

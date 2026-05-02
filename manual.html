@@ -3,13 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Manual Protocol | BugTraderYai</title>
-    <meta name="description" content="คู่มือเชิงเทคนิคสำหรับการติดตั้งและตั้งค่า Expert Advisor (EA) อย่างละเอียด เพื่อความปลอดภัยสูงสุดในการบริหารจัดการพอร์ต">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
-    <link rel="manifest" href="/media/site.webmanifest">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +28,7 @@
             text-align: center;
         }
 
-        /* --- HYPER-DISTORTION 500% (บิดเบี้ยวขั้นสุด) --- */
+        /* --- HYPER-DISTORTION 500% --- */
         .dimension-bg {
             position: fixed;
             top: -150%; left: -150%; width: 400%; height: 400%;
@@ -45,14 +39,13 @@
             background-size: 100% 100%, 50px 50px, 50px 50px;
             z-index: -1;
             transform-style: preserve-3d;
-            will-change: transform;
             animation: hyperDistort500 8s infinite alternate cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
 
         @keyframes hyperDistort500 {
-            0% { transform: perspective(300px) rotateX(25deg) rotateY(-15deg) scale(1) skew(0deg); filter: hue-rotate(0deg); }
-            50% { transform: perspective(300px) rotateX(60deg) rotateY(30deg) scale(1.5) skew(25deg); filter: hue-rotate(180deg) brightness(1.5); }
-            100% { transform: perspective(300px) rotateX(-45deg) rotateY(-25deg) scale(1.2) skew(-15deg); filter: hue-rotate(360deg); }
+            0% { transform: perspective(300px) rotateX(25deg) rotateY(-15deg) scale(1); filter: hue-rotate(0deg); }
+            50% { transform: perspective(300px) rotateX(60deg) rotateY(30deg) scale(1.5); filter: hue-rotate(180deg) brightness(1.5); }
+            100% { transform: perspective(300px) rotateX(-45deg) rotateY(-25deg) scale(1.2); filter: hue-rotate(360deg); }
         }
 
         main { max-width: 850px; margin: 0 auto; padding: 0 15px; position: relative; }
@@ -66,50 +59,45 @@
             box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
         }
 
-        h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.4; letter-spacing: 2px; text-shadow: 0 0 20px var(--accent); }
-        h2 { color: var(--accent-bright); text-transform: uppercase; margin-bottom: 25px; letter-spacing: 2px; }
-
-        /* --- SCROLL SEQUENCE SYSTEM --- */
+        /* --- SCROLL SEQUENCE & DYNAMIC TEXT --- */
         .scroll-sequence-container { height: 250vh; position: relative; margin: 20px 0; }
+        
         .sticky-frame-wrapper {
-            position: sticky; top: 120px; width: 100%; aspect-ratio: 16 / 9;
-            overflow: hidden; border: 2px solid var(--accent); border-radius: 8px;
+            position: sticky; top: 100px; width: 100%; aspect-ratio: 16 / 9;
+            overflow: hidden; border: 2px solid var(--accent); border-radius: 8px 8px 0 0;
             background: #000; box-shadow: 0 0 50px rgba(56, 189, 248, 0.4);
         }
+
+        /* Frame อธิบายภาพที่สร้างใหม่ข้างล่าง */
+        .description-frame {
+            position: sticky; top: calc(100px + (100% / (16/9))); /* วางต่อท้ายรูปภาพพอดี */
+            width: 100%; min-height: 80px; 
+            background: rgba(56, 189, 248, 0.1);
+            border: 2px solid var(--accent); border-top: none;
+            border-radius: 0 0 8px 8px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 15px; box-sizing: border-box;
+            color: var(--accent-bright); font-weight: 500;
+        }
+
         .sequence-image { width: 100%; height: 100%; object-fit: contain; display: none; position: absolute; top: 0; left: 0; }
         .sequence-image.active { display: block; animation: fadeIn 0.3s ease-in; }
+
+        .desc-text { display: none; text-align: center; font-size: 1.1rem; }
+        .desc-text.active { display: block; animation: fadeIn 0.3s ease-in; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* --- UI COMPONENTS --- */
         .hub-nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(1, 2, 4, 0.95); border-bottom: 2px solid var(--accent); padding: 15px; z-index: 1000; }
-        .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-size: 0.9rem; font-weight: bold; transition: 0.3s; }
-        .hub-nav a:hover { color: var(--accent-bright); text-shadow: 0 0 10px var(--accent); }
-
-        .nav-list { list-style: none; padding: 0; display: inline-block; text-align: left; }
-        .nav-list li { margin-bottom: 15px; font-size: 1.1rem; border-bottom: 1px solid rgba(56, 189, 248, 0.1); padding-bottom: 8px; }
+        .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-weight: bold; }
         
-        .bug-insight { 
-            background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), transparent);
-            border-left: 4px solid var(--accent); padding: 25px; margin: 25px 0; font-style: italic; color: var(--accent-bright);
-        }
-
-        .table-wrapper { overflow-x: auto; margin: 20px 0; }
-        table { width: 100%; border-collapse: collapse; border: 1px solid var(--accent); }
-        th, td { padding: 15px; border: 1px solid rgba(56, 189, 248, 0.2); text-align: left; }
-        th { background: rgba(56, 189, 248, 0.2); color: var(--accent-bright); }
-
-        .caption { background: rgba(56, 189, 248, 0.15); padding: 12px; font-size: 0.9rem; color: var(--accent-bright); font-style: italic; }
-
-        /* --- MOBILE OPTIMIZATION --- */
         @media screen and (max-width: 768px) {
-            section { padding: 25px !important; margin: 20px auto !important; }
-            .scroll-sequence-container { height: 150vh !important; }
+            .scroll-sequence-container { height: 180vh !important; }
             .sticky-frame-wrapper { top: 80px; aspect-ratio: 1 / 1.2; }
+            .description-frame { top: calc(80px + (100% / (1/1.2))); font-size: 0.95rem; }
             .sequence-image { object-fit: cover; }
         }
-        
-        footer { padding: 50px 0; border-top: 1px solid var(--accent); margin-top: 50px; }
     </style>
 </head>
 
@@ -118,82 +106,37 @@
 
     <nav class="hub-nav">
         <a href="/">หน้าแรก</a>
-        <a href="/intelligence-hub.html">🔥 500 คำถาม</a>
-        <a href="/ea-system-philosophy.html">ปรัชญา</a>
-        <a href="/manual.html" style="color: var(--accent-bright); font-weight: 900;">คู่มือการใช้งาน</a>
-        <a href="/about.html">รู้จักเรา</a>
+        <a href="/manual.html" style="color: var(--accent-bright);">คู่มือการใช้งาน</a>
     </nav>
 
     <main>
         <header style="padding: 150px 20px 50px;">
-            <h1 data-text="คู่มือการเตรียมระบบ EA">คู่มือการเตรียมระบบและติดตั้ง EA<br>(Step-by-Step Guide)</h1>
-            <p style="color: var(--accent-bright); font-weight: 900; letter-spacing: 5px; margin-top: 10px;">STEALTH SYSTEM PROTOCOL ACTIVE</p>
+            <h1 style="font-size: clamp(1.5rem, 5vw, 2.5rem); text-shadow: 0 0 20px var(--accent);">คู่มือการเตรียมระบบและติดตั้ง EA</h1>
+            <p style="color: var(--accent-bright); font-weight: 900; letter-spacing: 5px;">DYNAMIC DESCRIPTION ACTIVE</p>
         </header>
 
         <section>
-            <h2>🛡️ 1. หลักการคิด (Philosophy & Risk Protocol)</h2>
-            <p>"IB ไม่ควรเป็นเพียงแค่ตัวกลางในการเชื่อมบัญชี แต่ต้องเป็นเกราะป้องกันทางความคิด"</p>
-            <div class="bug-insight">
-                เราให้ความสำคัญกับการรักษาเงินทุนและการอยู่รอดในระยะยาว (Survival Mode) มากกว่ากำไรฉาบฉวย
-            </div>
-        </section>
-
-        <section>
-            <h2>⚙️ ขั้นตอนการประมวลผลเชิงระบบ (System Sequence)</h2>
+            <h2>⚙️ System Implementation Sequence</h2>
             <div class="scroll-sequence-container" id="sequence-trigger">
+                <!-- Frame รูปภาพ -->
                 <div class="sticky-frame-wrapper">
-                    <img src="media/dashboardeaauto.webp" class="sequence-image active" alt="Step 1">
-                    <img src="media/setup-step1.webp" class="sequence-image" alt="Step 2">
-                    <img src="media/apple-touch-icon.png" class="sequence-image" alt="Step 3">
+                    <img src="media/dashboardeaauto.webp" class="sequence-image active">
+                    <img src="media/setup-step1.webp" class="sequence-image">
+                    <img src="media/apple-touch-icon.png" class="sequence-image">
                 </div>
-            </div>
-            <div class="caption">PROTOCOL: ภาพจะเปลี่ยนตามลำดับการตรวจสอบเมื่อเลื่อนหน้าจอ</div>
-        </section>
-
-        <section>
-            <h2>⚙️ 2. การตั้งค่าพารามิเตอร์ (Configuration)</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Parameter</th>
-                            <th>คำอธิบาย</th>
-                            <th>Safety Mode</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Lot Size</td>
-                            <td>ขนาดการส่งคำสั่ง</td>
-                            <td>0.01 ต่อทุน $1,000</td>
-                        </tr>
-                        <tr>
-                            <td>Max Spread</td>
-                            <td>ค่าสเปรดสูงสุดที่ยอมรับ</td>
-                            <td>ไม่เกิน 25 Points</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- กลับมาแล้ว: ส่วนข้อควรระวังพร้อมแสงสี Neon -->
-        <section>
-            <h2 style="color: var(--neon-warning); text-shadow: 0 0 15px var(--neon-pink);">⚠️ ข้อควรระวังเชิงระบบ (Safety Protocol)</h2>
-            <div style="display: flex; justify-content: center;">
-                <ul class="nav-list" style="color: var(--neon-warning); font-weight: 500;">
-                    <li>✓ ทดสอบระบบในบัญชี Demo อย่างน้อย 2-4 สัปดาห์</li>
-                    <li>✓ ตรวจสอบการเชื่อมต่อ VPS ตลอด 24 ชั่วโมง</li>
-                    <li>✓ ห้ามแทรกแซงการทำงาน (Manual Trade) ในคู่เงินที่รัน EA</li>
-                    <li>✓ ระบบที่มี Drawdown ต่ำ ไม่ได้หมายความว่าไม่มีความเสี่ยง</li>
-                </ul>
+                
+                <!-- Frame อธิบายภาพที่สร้างใหม่ -->
+                <div class="description-frame">
+                    <div class="desc-text active">📝 [ภาพที่ 1] หน้าจอ Dashboard หลัก: ตรวจสอบสถานะการทำงานและ Balance แบบ Real-time</div>
+                    <div class="desc-text">📝 [ภาพที่ 2] การติดตั้งไฟล์ MQL: นำไฟล์เข้าสู่ Experts Directory เพื่อเริ่มต้นระบบ</div>
+                    <div class="desc-text">📝 [ภาพที่ 3] การตั้งค่าพารามิเตอร์: ปรับแต่งค่า Safety ตามมาตรฐานของ BugTraderYai</div>
+                </div>
             </div>
         </section>
 
         <footer>
-            <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING INTELLIGENCE</p>
-            <div style="display: inline-block; padding: 6px 25px; border: 1px solid var(--neon-pink); color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); font-weight: 900; margin-top: 20px; letter-spacing: 2px;">
-                500% DISTORTION OVERLOAD: SYSTEM STABLE
+            <div style="border: 1px solid var(--neon-pink); padding: 10px; color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); font-weight: 900;">
+                PROTOCOL STABLE: 500% DISTORTION ACTIVE
             </div>
         </footer>
     </main>
@@ -202,6 +145,7 @@
         window.addEventListener('scroll', () => {
             const trigger = document.querySelector('#sequence-trigger');
             const images = document.querySelectorAll('.sequence-image');
+            const texts = document.querySelectorAll('.desc-text');
             
             if (trigger && images.length > 0) {
                 const rect = trigger.getBoundingClientRect();
@@ -210,12 +154,18 @@
                 let progress = -rect.top / (rect.height - window.innerHeight);
                 progress = Math.max(0, Math.min(1, progress));
 
-                // กำหนดภาพที่จะแสดงตาม Progress
-                const totalImages = images.length;
-                const imageIndex = Math.floor(progress * (totalImages - 0.01));
+                // หา Index ที่ต้องการแสดงผล
+                const totalItems = images.length;
+                const activeIndex = Math.floor(progress * (totalItems - 0.01));
 
+                // สลับรูปภาพ
                 images.forEach((img, index) => {
-                    img.classList.toggle('active', index === imageIndex);
+                    img.classList.toggle('active', index === activeIndex);
+                });
+
+                // สลับข้อความอธิบาย
+                texts.forEach((txt, index) => {
+                    txt.classList.toggle('active', index === activeIndex);
                 });
             }
         });

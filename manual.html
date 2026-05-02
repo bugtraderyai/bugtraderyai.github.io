@@ -72,14 +72,47 @@
 
         /* --- DYNAMIC FRAME SYSTEM --- */
         .scroll-sequence-container { height: 300vh; position: relative; margin: 20px 0; }
-        .main-sticky-wrapper {
-            position: sticky; top: 100px; width: 100%; max-width: 850px;
-            margin: 0 auto; z-index: 10; max-height: 90vh; display: flex; flex-direction: column;
-        }
-        .image-frame {
-            width: 100%; flex: 1; overflow: hidden; border: 2px solid var(--accent); border-bottom: none; 
-            border-radius: 8px 8px 0 0; background: #000; display: flex; align-items: flex-start; justify-content: center;
-        }
+        /* 1. ปรับ Wrapper ไม่ให้บังคับขยายรูปจนเกินไป */
+.main-sticky-wrapper {
+    position: sticky;
+    top: 80px; 
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    z-index: 10;
+    max-height: 90vh; 
+    display: flex;
+    flex-direction: column;
+    /* เพิ่มบรรทัดนี้เพื่อให้ Wrapper หดตามขนาดรูปภาพจริง */
+    height: auto; 
+}
+
+/* 2. ปรับ Image Frame ให้ยืดหยุ่นตามรูปภาพ */
+.image-frame {
+    width: 100%;
+    /* เปลี่ยนจาก flex: 1 เป็นการปล่อยให้สูงตามภาพ */
+    flex: 0 1 auto; 
+    overflow: hidden;
+    border: 2px solid var(--accent);
+    border-bottom: none; 
+    border-radius: 8px 8px 0 0;
+    background: #000;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+/* 3. ล็อกขนาดรูปภาพไม่ให้เกินขนาดต้นฉบับ (Original Size) */
+.sequence-image {
+    /* เปลี่ยนจาก width: 100% เป็นการคุมไม่ให้เกินขนาดจริง */
+    max-width: 100%; 
+    max-height: 70vh; /* จำกัดความสูงภาพไม่ให้ยาวจนเบียดข้อความตกจอ */
+    width: auto;
+    height: auto;
+    /* สำคัญ: ใช้ object-fit: scale-down เพื่อให้ภาพไม่ถูกขยายเกินความละเอียดจริง */
+    object-fit: scale-down; 
+    display: none;
+}
         .description-frame {
             width: 100%; height: auto; min-height: 60px; background: rgba(56, 189, 248, 0.1);
             border: 2px solid var(--accent); border-radius: 0 0 8px 8px; display: flex; align-items: center;

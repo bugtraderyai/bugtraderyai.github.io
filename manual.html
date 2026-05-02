@@ -2,8 +2,15 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>Manual Protocol | BugTraderYai</title>
+    <!-- [Lock] Metadata -->
+    <title>Manual Protocol | ขั้นตอนและวิธีการติดตั้งระบบ EA - bugtraderyai</title>
+    <meta name="description" content="คู่มือเชิงเทคนิคสำหรับการติดตั้งและตั้งค่า Expert Advisor (EA) อย่างละเอียด เพื่อความปลอดภัยสูงสุดในการบริหารจัดการพอร์ต">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
+    <link rel="manifest" href="/media/site.webmanifest">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +23,7 @@
             --text-white: #ffffff;
             --text-silver: #e2e8f0;
             --neon-pink: #f472b6;
+            --neon-warning: #fda4af;
         }
 
         body {
@@ -56,129 +64,133 @@
             padding: 40px !important;
             border-radius: 4px;
             box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+            text-align: left; /* เนื้อหาชิดซ้ายเพื่อให้อ่านง่าย */
         }
+
+        h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.4; letter-spacing: 2px; text-shadow: 0 0 20px var(--accent); text-align: center; }
+        h2 { color: var(--accent-bright); text-transform: uppercase; margin-bottom: 25px; letter-spacing: 2px; border-left: 4px solid var(--accent); padding-left: 15px; }
 
         /* --- DYNAMIC FRAME SYSTEM --- */
-        .scroll-sequence-container { 
-            height: 300vh; 
-            position: relative; 
-            margin: 20px 0;
+        .scroll-sequence-container { height: 300vh; position: relative; margin: 20px 0; }
+        .main-sticky-wrapper {
+            position: sticky; top: 100px; width: 100%; max-width: 850px;
+            margin: 0 auto; z-index: 10; max-height: 90vh; display: flex; flex-direction: column;
         }
-
-        /* --- DYNAMIC FRAME SYSTEM (STRICT HEIGHT CONTROL) --- */
-.main-sticky-wrapper {
-    position: sticky;
-    top: 80px; /* ขยับขึ้นเล็กน้อยเพื่อให้มีพื้นที่ด้านล่างมากขึ้น */
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
-    z-index: 10;
-    
-    /* หัวใจหลัก: บังคับความสูงรวมไม่ให้เกิน 90% ของความสูงหน้าจอ */
-    max-height: 90vh; 
-    display: flex;
-    flex-direction: column;
-}
-
-.image-frame {
-    width: 100%;
-    flex: 1; /* ให้รูปภาพยืดหดตามพื้นที่ที่เหลือจากข้อความ */
-    overflow: hidden;
-    border: 2px solid var(--accent);
-    border-bottom: none; 
-    border-radius: 8px 8px 0 0;
-    background: #000;
-    display: flex;
-    align-items: flex-start; /* ให้ภาพเริ่มจากด้านบน */
-    justify-content: center;
-}
-
-.sequence-image {
-    max-width: 100%;
-    /* บังคับความสูงภาพให้พอดีกับกรอบ ไม่ให้ล้นจนดันข้อความหาย */
-    max-height: 100%; 
-    width: auto;
-    height: auto;
-    object-fit: contain; 
-    display: none;
-}
-
-.sequence-image.active { 
-    display: block; 
-    animation: fadeIn 0.3s ease-in; 
-}
-
-.description-frame {
-    width: 100%;
-    height: auto;
-    min-height: 60px; /* ลดความสูงขั้นต่ำลงเล็กน้อยเพื่อให้ประหยัดที่ */
-    background: rgba(56, 189, 248, 0.1);
-    border: 2px solid var(--accent);
-    border-radius: 0 0 8px 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    color: var(--accent-bright);
-    flex-shrink: 0; /* บังคับไม่ให้กล่องข้อความโดนบีบจนเล็กเกินไป */
-}
-
-        .desc-text { display: none; width: 100%; text-align: center; font-weight: 500; }
-        .desc-text.active { display: block; animation: fadeIn 0.3s ease-in; }
-
+        .image-frame {
+            width: 100%; flex: 1; overflow: hidden; border: 2px solid var(--accent); border-bottom: none; 
+            border-radius: 8px 8px 0 0; background: #000; display: flex; align-items: flex-start; justify-content: center;
+        }
+        .description-frame {
+            width: 100%; height: auto; min-height: 60px; background: rgba(56, 189, 248, 0.1);
+            border: 2px solid var(--accent); border-radius: 0 0 8px 8px; display: flex; align-items: center;
+            justify-content: center; padding: 10px 15px; box-sizing: border-box; color: var(--accent-bright); flex-shrink: 0;
+        }
+        .sequence-image, .desc-text { display: none; width: 100%; }
+        .sequence-image.active, .desc-text.active { display: block; animation: fadeIn 0.3s ease-in; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* --- UI COMPONENTS --- */
-        .hub-nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(1, 2, 4, 0.95); border-bottom: 2px solid var(--accent); padding: 15px; z-index: 1000; }
-        .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-weight: bold; }
+        .hub-nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(1, 2, 4, 0.95); border-bottom: 2px solid var(--accent); padding: 15px; z-index: 1000; text-align: center; }
+        .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        .hub-nav a:hover { color: var(--accent-bright); }
+
+        .bug-insight { 
+            background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), transparent);
+            border-left: 4px solid var(--accent); padding: 25px; margin: 25px 0; font-style: italic; color: var(--accent-bright);
+        }
+
+        .nav-list { list-style: none; padding: 0; }
+        .nav-list li { margin-bottom: 12px; font-size: 1.05rem; display: flex; align-items: flex-start; }
+        .nav-list li::before { content: "✓"; color: var(--accent); margin-right: 10px; font-weight: bold; }
 
         @media screen and (max-width: 768px) {
-            .scroll-sequence-container { height: 180vh !important; }
+            header { padding: 120px 20px 30px !important; }
+            section { padding: 25px !important; }
             .main-sticky-wrapper { top: 70px; }
-            .desc-text { font-size: 0.9rem; }
         }
+        
+        footer { padding: 50px 0; border-top: 1px solid var(--accent); margin-top: 50px; text-align: center; }
     </style>
 </head>
 
 <body>
     <div class="dimension-bg"></div>
 
+    <!-- [Lock] Navigation -->
     <nav class="hub-nav">
-        <a href="/">HOME</a>
-        <a href="/manual.html" style="color: var(--accent-bright);">MANUAL</a>
+        <a href="/">หน้าแรก</a>
+        <a href="/intelligence-hub.html">🔥 500 คำถาม</a>
+        <a href="/ea-system-philosophy.html">ปรัชญา</a>
+        <a href="/manual.html" style="color: var(--accent); font-weight: 900;">คู่มือการใช้งาน</a>
+        <a href="/about.html">รู้จักเรา</a>
     </nav>
 
     <main>
+        <!-- [Lock] Header -->
         <header style="padding: 150px 20px 50px;">
-            <h1 style="text-shadow: 0 0 20px var(--accent);">System Implementation Protocol</h1>
-            <p style="color: var(--accent-bright); font-weight: 900; letter-spacing: 5px;">AUTO-HEIGHT SEAMLESS INTERFACE</p>
+            <h1 data-text="คู่มือการเตรียมระบบและติดตั้ง EA (Step-by-Step Guide)">
+                คู่มือการเตรียมระบบและติดตั้ง EA<br>(Step-by-Step Guide)
+            </h1>
+            <p style="color: var(--accent-bright); font-weight: 900; letter-spacing: 3px; margin-top: 10px;">TECHNICAL INSTALLATION & CONFIGURATION</p>
         </header>
 
+        <!-- Section 1 -->
         <section>
-            <h2>⚙️ System Sequence Analysis</h2>
-            <div class="scroll-sequence-container" id="sequence-trigger">
-                <div class="main-sticky-wrapper">
-                    <!-- ส่วนรูปภาพ: จะขยับความสูงตามรูปภาพจริง -->
-                    <div class="image-frame">
-                        <img src="media/dashboardeaauto.webp" class="sequence-image active">
-                        <img src="media/setup-step1.webp" class="sequence-image">
-                        <img src="media/apple-touch-icon.png" class="sequence-image">
-                    </div>
-                    
-                    <!-- ส่วนข้อความ: จะติดสอยห้อยตามท้ายรูปภาพเสมอ -->
-                    <div class="description-frame">
-                        <div class="desc-text active">📝 [ภาพที่ 1] Dashboard หลัก: ตรวจสอบสถานะการทำงานแบบ Real-time</div>
-                        <div class="desc-text">📝 [ภาพที่ 2] การติดตั้งไฟล์ MQL: นำไฟล์เข้าสู่ Experts Directory</div>
-                        <div class="desc-text">📝 [ภาพที่ 3] ระบบตรวจสอบความสมบูรณ์: ยืนยันสถานะ Protocol Active</div>
-                    </div>
+            <h2>🛡️ 1. หลักการคิดและความปลอดภัยก่อนเริ่มใช้งาน (Philosophy & Risk Protocol)</h2>
+            <p>
+                "ยินดีต้อนรับสู่ศูนย์ข้อมูลเชิงเทคนิคของ <strong>BugTraderYai</strong>" หน้าเอกสารฉบับนี้ถูกออกแบบขึ้นมาให้เป็นมากกว่าเพียงคู่มือการติดตั้งโปรแกรม แต่มันคือ <strong>Protocol</strong> หรือระเบียบปฏิบัติในการบริหารจัดการความเสี่ยงเชิงระบบอย่างยั่งยืน
+            </p>
+            <p>
+                เรายึดถือหลักการที่ว่า <strong>Introducing Broker (IB)</strong> ไม่ควรเป็นเพียงแค่ตัวกลางในการเชื่อมต่อบัญชีเทรดเท่านั้น แต่ต้องทำหน้าที่เป็น <strong>“เกราะป้องกันทางความคิด” (Mental Safety Layer)</strong> เพื่อช่วยคัดกรองทัศนคติและสร้างความเข้าใจที่ถูกต้องให้แก่ผู้ใช้งานก่อนเข้าสู่ตลาดจริง
+            </p>
+            <p>
+                เนื้อหาในส่วนนี้จะมุ่งเน้นให้คุณเข้าใจถึงกลไกการทำงานของ <strong>Expert Advisor (EA)</strong> ตามความเป็นจริงของตลาด โดยให้ความสำคัญกับการรักษาเงินทุนและการอยู่รอดในระยะยาว <strong>(Survival Mode)</strong> โปรดศึกษาและทำตามทุกขั้นตอนอย่างเคร่งครัด เพื่อรักษามาตรฐานความปลอดภัยสูงสุดให้กับพอร์ตการลงทุนของคุณ
+            </p>
+        </section>
+
+        <!-- System Sequence (Dynamic Frame) -->
+        <div class="scroll-sequence-container" id="sequence-trigger">
+            <div class="main-sticky-wrapper">
+                <div class="image-frame">
+                    <img src="media/dashboardeaauto.webp" class="sequence-image active">
+                    <img src="media/setup-step1.webp" class="sequence-image">
+                    <img src="media/apple-touch-icon.png" class="sequence-image">
                 </div>
+                <div class="description-frame">
+                    <div class="desc-text active">📝 [ภาพที่ 1] Dashboard หลัก: ตรวจสอบสถานะการทำงานแบบ Real-time</div>
+                    <div class="desc-text">📝 [ภาพที่ 2] การติดตั้งไฟล์ MQL: นำไฟล์เข้าสู่ Experts Directory</div>
+                    <div class="desc-text">📝 [ภาพที่ 3] ระบบตรวจสอบความสมบูรณ์: ยืนยันสถานะ Protocol Active</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <section>
+            <h2>⚙️ 2. ขั้นตอนการติดตั้งและเตรียมความพร้อมของระบบ (System Implementation)</h2>
+            <p>
+                การเริ่มต้นใช้งานระบบภายใต้การดูแลของ <strong>BugTraderYai</strong> จะให้ความสำคัญกับการปรับจูนทัศนคติเรื่องความเสี่ยง <strong>(Risk Perspective)</strong> เป็นลำดับแรก เพื่อให้คุณพร้อมรับมือกับทุกสภาวะตลาดอย่างมีสติ สำหรับในส่วนนี้คือการสรุปขั้นตอนทางเทคนิคอย่างละเอียด เพื่อเตรียมความพร้อมให้กับโปรแกรม <strong>MetaTrader</strong> ของคุณให้สามารถทำงานร่วมกับระบบอัตโนมัติได้อย่างสมบูรณ์แบบ
+            </p>
+            
+            <div class="bug-insight">
+                โปรดระลึกไว้เสมอว่า ระบบอัตโนมัติทุกประเภทล้วนมีข้อจำกัดในตัวเอง หน้าที่สำคัญของคุณในฐานะ <strong>System Operator</strong> คือการทำความเข้าใจพารามิเตอร์และคำสั่งต่าง ๆ ของระบบให้ถ่องแท้ เพื่อลดโอกาสเกิดความเสียหายที่เกินขีดจำกัด
             </div>
         </section>
 
+        <!-- Section 3: Safety Checklist -->
+        <section>
+            <h2 style="color: var(--neon-warning); border-color: var(--neon-pink);">⚠️ ข้อควรระวังเชิงระบบ (Safety Protocol)</h2>
+            <ul class="nav-list" style="color: var(--neon-warning);">
+                <li>ทดสอบระบบในบัญชี Demo อย่างน้อย 2-4 สัปดาห์</li>
+                <li>ตรวจสอบการเชื่อมต่อ VPS ตลอด 24 ชั่วโมง</li>
+                <li>ห้ามแทรกแซงการทำงาน (Manual Trade) ในคู่เงินที่รัน EA</li>
+                <li>ระบบที่มี Drawdown ต่ำ ไม่ได้หมายความว่าไม่มีความเสี่ยง</li>
+            </ul>
+        </section>
+
         <footer>
-            <div style="border: 1px solid var(--neon-pink); padding: 10px; color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); font-weight: 900; margin-top: 50px;">
-                PROTOCOL STABLE: AUTO-HEIGHT ACTIVE
+            <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING INTELLIGENCE</p>
+            <div style="display: inline-block; padding: 6px 25px; border: 1px solid var(--neon-pink); color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); font-weight: 900; margin-top: 20px; letter-spacing: 2px; font-size: 0.8rem;">
+                500% DISTORTION OVERLOAD: SYSTEM STABLE
             </div>
         </footer>
     </main>
@@ -188,21 +200,13 @@
             const trigger = document.querySelector('#sequence-trigger');
             const images = document.querySelectorAll('.sequence-image');
             const texts = document.querySelectorAll('.desc-text');
-            
             if (trigger && images.length > 0) {
                 const rect = trigger.getBoundingClientRect();
                 let progress = -rect.top / (rect.height - window.innerHeight);
                 progress = Math.max(0, Math.min(1, progress));
-
-                const totalItems = images.length;
-                const activeIndex = Math.floor(progress * (totalItems - 0.01));
-
-                images.forEach((img, index) => {
-                    img.classList.toggle('active', index === activeIndex);
-                });
-                texts.forEach((txt, index) => {
-                    txt.classList.toggle('active', index === activeIndex);
-                });
+                const activeIndex = Math.floor(progress * (images.length - 0.01));
+                images.forEach((img, index) => img.classList.toggle('active', index === activeIndex));
+                texts.forEach((txt, index) => txt.classList.toggle('active', index === activeIndex));
             }
         });
     </script>

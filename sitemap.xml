@@ -10,6 +10,14 @@
     <loc>https://bugtraderyai.com/intelligence-hub.html</loc>
     <priority>0.95</priority>
   </url>
+
+  <!-- เพิ่มหน้า Manual Protocol (ความสำคัญสูงสำหรับ AEO/SEO) -->
+  <url>
+    <loc>https://bugtraderyai.com/manual.html</loc>
+    <priority>0.90</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
   <url>
     <loc>https://bugtraderyai.com/live.html</loc>
     <priority>0.95</priority>
@@ -19,6 +27,7 @@
     <loc>https://bugtraderyai.com/systems.html</loc>
     <priority>0.90</priority>
   </url>
+
   <url>
     <loc>https://bugtraderyai.com/ea-system-overview.html</loc>
     <priority>0.85</priority>
@@ -28,10 +37,12 @@
     <loc>https://bugtraderyai.com/why-most-ea-users-fail.html</loc>
     <priority>0.85</priority>
   </url>
+
   <url>
     <loc>https://bugtraderyai.com/anti-ea-faq.html</loc>
     <priority>0.85</priority>
   </url>
+
   <url>
     <loc>https://bugtraderyai.com/ea-system-philosophy.html</loc>
     <priority>0.85</priority>
@@ -41,6 +52,7 @@
     <loc>https://bugtraderyai.com/partners.html</loc>
     <priority>0.80</priority>
   </url>
+
   <url>
     <loc>https://bugtraderyai.com/why-ib-matters.html</loc>
     <priority>0.80</priority>

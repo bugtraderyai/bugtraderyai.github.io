@@ -115,7 +115,7 @@
         h2 { color: var(--accent-bright); text-transform: uppercase; margin-bottom: 25px; letter-spacing: 2px; border-left: 4px solid var(--accent); padding-left: 15px; }
 
         /* --- DYNAMIC FRAME SYSTEM IMPROVED --- */
-        .scroll-sequence-container { height: 300vh; position: relative; margin: 20px 0; }
+        .scroll-sequence-container { height: 600vh; position: relative; margin: 20px 0; }
         
         .main-sticky-wrapper {
             position: sticky; top: 80px; width: 100%; max-width: 850px;
@@ -353,18 +353,34 @@
 
     <script>
         window.addEventListener('scroll', () => {
-            const trigger = document.querySelector('#sequence-trigger');
-            const images = document.querySelectorAll('.sequence-image');
-            const texts = document.querySelectorAll('.desc-text');
-            if (trigger && images.length > 0) {
-                const rect = trigger.getBoundingClientRect();
-                let progress = -rect.top / (rect.height - window.innerHeight);
-                progress = Math.max(0, Math.min(1, progress));
-                const activeIndex = Math.floor(progress * (images.length - 0.01));
-                images.forEach((img, index) => img.classList.toggle('active', index === activeIndex));
-                texts.forEach((txt, index) => txt.classList.toggle('active', index === activeIndex));
-            }
+    const trigger = document.querySelector('#sequence-trigger');
+    const images = document.querySelectorAll('.sequence-image');
+    const texts = document.querySelectorAll('.desc-text');
+    
+    if (trigger && images.length > 0) {
+        const rect = trigger.getBoundingClientRect();
+        
+        // คำนวณความคืบหน้าให้ละเอียดขึ้น
+        let progress = -rect.top / (rect.height - window.innerHeight);
+        progress = Math.max(0, Math.min(1, progress));
+
+        // ใช้สูตรคำนวณ Index แบบล็อกจำนวนให้เท่ากัน
+        // images.length - 1 เพื่อไม่ให้ภาพสุดท้ายโดนข้ามไป
+        const totalImages = images.length;
+        const activeIndex = Math.min(
+            Math.floor(progress * totalImages),
+            totalImages - 1
+        );
+
+        // แสดงผลเฉพาะ Index ที่คำนวณได้
+        images.forEach((img, index) => {
+            img.classList.toggle('active', index === activeIndex);
         });
+        texts.forEach((txt, index) => {
+            txt.classList.toggle('active', index === activeIndex);
+        });
+    }
+});
     </script>
 </body>
 </html>

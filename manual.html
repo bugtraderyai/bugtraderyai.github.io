@@ -115,7 +115,7 @@
         h2 { color: var(--accent-bright); text-transform: uppercase; margin-bottom: 25px; letter-spacing: 2px; border-left: 4px solid var(--accent); padding-left: 15px; }
 
         /* --- DYNAMIC FRAME SYSTEM IMPROVED --- */
-        .scroll-sequence-container { height: 600vh; position: relative; margin: 20px 0; }
+        .scroll-sequence-container { height: 1000vh; position: relative; margin: 20px 0; }
         
         .main-sticky-wrapper {
             position: sticky; top: 80px; width: 100%; max-width: 850px;
@@ -131,7 +131,7 @@
             max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; display: none;
         }
 
-        .sequence-image.active { display: block; animation: fadeIn 0.3s ease-in; }
+        .sequence-image.active { display: block; animation: fadeIn 0.5s ease-in; }
 
         .description-frame {
             width: 100%; height: auto; min-height: 60px; background: rgba(56, 189, 248, 0.1);
@@ -140,13 +140,13 @@
         }
 
         .desc-text { display: none; width: 100%; text-align: center; font-weight: 500; line-height: 1.6; }
-        .desc-text.active { display: block; animation: fadeIn 0.3s ease-in; }
+        .desc-text.active { display: block; animation: fadeIn 0.5s ease-in; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* --- UI COMPONENTS --- */
         .hub-nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(1, 2, 4, 0.95); border-bottom: 2px solid var(--accent); padding: 15px; z-index: 1000; text-align: center; }
-        .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        .hub-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.9rem; transition: 0.5s; }
         .hub-nav a:hover { color: var(--accent-bright); }
 
         .bug-insight { 
@@ -360,27 +360,31 @@
     if (trigger && images.length > 0) {
         const rect = trigger.getBoundingClientRect();
         
-        // คำนวณความคืบหน้าให้ละเอียดขึ้น
+        // 1. คำนวณ Progress แบบละเอียด
         let progress = -rect.top / (rect.height - window.innerHeight);
         progress = Math.max(0, Math.min(1, progress));
 
-        // ใช้สูตรคำนวณ Index แบบล็อกจำนวนให้เท่ากัน
-        // images.length - 1 เพื่อไม่ให้ภาพสุดท้ายโดนข้ามไป
-        const totalImages = images.length;
-        const activeIndex = Math.min(
-            Math.floor(progress * totalImages),
-            totalImages - 1
-        );
+        // 2. ใช้ Math.round แทน Math.floor เพื่อให้การเปลี่ยนภาพดูสมดุลขึ้น
+        // และคูณด้วยจำนวนภาพทั้งหมด (Total - 1)
+        const totalFrames = images.length - 1;
+        const activeIndex = Math.round(progress * totalFrames);
 
-        // แสดงผลเฉพาะ Index ที่คำนวณได้
+        // 3. ป้องกันการกระโดดด้วยการเช็กสถานะเดิม (Invisible Update)
         images.forEach((img, index) => {
-            img.classList.toggle('active', index === activeIndex);
+            const isActive = index === activeIndex;
+            if (img.classList.contains('active') !== isActive) {
+                img.classList.toggle('active', isActive);
+            }
         });
+
         texts.forEach((txt, index) => {
-            txt.classList.toggle('active', index === activeIndex);
+            const isActive = index === activeIndex;
+            if (txt.classList.contains('active') !== isActive) {
+                txt.classList.toggle('active', isActive);
+            }
         });
     }
-});
+}, { passive: true }); // เพิ่ม passive: true เพื่อประสิทธิภาพการ Scroll
     </script>
 </body>
 </html>

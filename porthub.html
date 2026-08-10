@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="_ZVkMH7efLNyDOvZowNRBDQ_XYNkdWktE_PxKr0DVPs" />
+  <title>เชื่อมต่อระบบ Porthub | bugtraderyai</title>
+  <meta name="description" content="พอร์ทัลทางเข้าสู่แพลตฟอร์ม Porthub ที่ได้รับการรับรองประสิทธิภาพการทำงานเชิงระบบโดย BugTraderYai Insight" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+  <link rel="manifest" href="media/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== BugTraderYai V9: THE HYPER-DISTORTION & WARP SPEED ===== */
+    :root {
+      --bg-dark: #010204;
+      --card-bg: rgba(5, 10, 20, 0.95);
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.6);
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --border: rgba(56, 189, 248, 0.4);
+      --glitch-red: rgba(255, 0, 193, 0.7);
+      --glitch-blue: rgba(0, 255, 240, 0.7);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Noto Sans Thai', sans-serif;
+      color: var(--text-main);
+      line-height: 1.8;
+      background-color: var(--bg-dark);
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    /* 🌀 พื้นหลังพุ่งทะยาน (Warp Speed Animation) */
+    .dimension-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1;
+      background-image: 
+        linear-gradient(rgba(56, 189, 248, 0.2) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.2) 2px, transparent 2px);
+      background-size: 80px 80px;
+      transform: perspective(300px) rotateX(60deg) scale(3);
+      transform-origin: center top;
+      animation: warpSpeed 2s linear infinite;
+      filter: blur(0.5px) contrast(1.5);
+    }
+
+    @keyframes warpSpeed {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 80px; }
+    }
+
+    /* ⚡️ กล่อง Section แบบ Glitch บิดเบี้ยว */
+    section {
+      background: var(--card-bg);
+      backdrop-filter: blur(15px);
+      padding: 50px;
+      border-radius: 4px;
+      margin: 40px auto;
+      max-width: 850px;
+      border: 1px solid var(--border);
+      animation: glitchBox 6s infinite;
+      transition: 0.3s;
+    }
+
+    @keyframes glitchBox {
+      0%, 100% { box-shadow: 0 0 20px rgba(0, 0, 0, 1); border-color: var(--border); }
+      40% { box-shadow: -10px 0 20px var(--glitch-red), 10px 0 20px var(--glitch-blue); transform: translate(-2px, 1px) skewX(-1deg); }
+      42% { transform: translate(2px, -1px) skewX(1deg); }
+      44% { box-shadow: 0 0 20px rgba(0, 0, 0, 1); transform: translate(0, 0) skewX(0deg); }
+    }
+
+    section:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    /* 📺 ตัวหนังสือ Glitch Text (h1, h2) */
+    h1, h2 {
+      color: #fff;
+      position: relative;
+      display: inline-block;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    h1::before, h1::after, h2::before, h2::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0.8;
+    }
+    h1::before, h2::before { color: #ff00c1; z-index: -1; animation: glitchAnim 0.4s infinite; display: none; }
+    h1::after, h2::after { color: #00fff0; z-index: -2; animation: glitchAnim 0.4s infinite reverse; display: none; }
+    h1:hover::before, h1:hover::after, h2:hover::before, h2:hover::after { display: block; }
+
+    @keyframes glitchAnim {
+      0% { transform: translate(0); }
+      20% { transform: translate(-3px, 2px); }
+      40% { transform: translate(3px, -2px); }
+      60% { transform: translate(-3px, -2px); }
+      80% { transform: translate(3px, 2px); }
+      100% { transform: translate(0); }
+    }
+
+    /* 1. Shimmer Animation */
+    .shimmer {
+      background: linear-gradient(90deg, transparent 25%, rgba(56, 189, 248, 0.2) 50%, transparent 75%);
+      background-size: 200% 100%;
+      animation: shimmer-ani 3s infinite;
+    }
+    @keyframes shimmer-ani {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* 2. Nav Dark Glass */
+    .hub-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px;
+      background: rgba(1, 2, 4, 0.8);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--accent);
+    }
+    .hub-nav a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .hub-nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); background: rgba(56, 189, 248, 0.1); }
+
+    /* 3. Header */
+    header { position: relative; padding: 100px 20px 40px; text-align: center; z-index: 1; }
+    
+    /* 5. Tooltip (Neon Style) */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      color: var(--accent);
+      border-bottom: 1px dashed var(--accent);
+      cursor: help;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 220px;
+      background-color: #0f172a;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 15px;
+      position: absolute;
+      z-index: 10;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: 0.3s;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      border: 1px solid var(--accent);
+    }
+    .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+
+    /* 6. Accordion (Command Center Style) */
+    .accordion-item {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 4px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+      text-align: left;
+    }
+    .accordion-header {
+      padding: 20px 30px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      transition: 0.3s;
+    }
+    .accordion-header:hover { background: rgba(56, 189, 248, 0.1); color: var(--accent); }
+    .accordion-content {
+      max-height: 0;
+      padding: 0 30px;
+      overflow: hidden;
+      transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--text-sub);
+    }
+
+    /* 7. Button (Solid & Sharp) */
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 18px 50px;
+      background: var(--accent);
+      color: #05070a !important;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px var(--accent-glow);
+      transition: 0.3s;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px) skewX(-5deg);
+      box-shadow: 0 0 35px var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 60px 20px; }
+      section { padding: 35px 20px; margin: 20px; }
+      .hub-nav { display: grid; grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+  
+  <!-- Global site tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GD0H18D9JE');
+  </script>
+
+  <!-- Advanced Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Porthub Platform Connection - BugTraderYai",
+    "url": "https://bugtraderyai.com/porthub.html",
+    "description": "ประตูเชื่อมต่อเข้าสู่ระบบ Porthub ภายใต้โครงสร้างการทำงานและมาตรฐานของ BugTraderYai Insight",
+    "publisher": {
+      "@type": "Organization",
+      "name": "BugTraderYai Insight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bugtraderyai.com/media/apple-touch-icon.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "WebSite",
+      "name": "Porthub",
+      "url": "https://porthub.biz/",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Access System Affiliate Platform",
+        "target": "https://porthub.biz/?ref=YOUR_AFFILIATE_ID"
+      }
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+<div class="dimension-bg"></div>
+
+<nav class="hub-nav">
+    <a href="/">หน้าแรก</a>
+    <a href="/intelligence-hub.html" style="color: var(--accent); font-weight: 700;">🔥 500 คำถาม</a>
+    <a href="/manual.html">คู่มือการใช้งาน</a>
+    <a href="/partners.html">Partners</a>
+    <a href="/ea-system-philosophy.html">ปรัชญา</a>
+    <a href="/systems.html">Systems</a>
+    <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
+    <a href="/anti-ea-faq.html">FAQ</a>
+    <a href="/about.html">รู้จักเรา</a>
+</nav>
+
+<main>
+  <header>
+    <h1 data-text="INITIALIZING CONNECTION">INITIALIZING CONNECTION</h1><br>
+    <h2 data-text="ระบบเตรียมเข้าสู่แพลตฟอร์ม Porthub" style="font-size: 1.5rem; margin-top: 10px;">
+      ระบบเตรียมเข้าสู่แพลตฟอร์ม Porthub
+    </h2>
+    <p style="color: var(--accent); font-weight: 900; letter-spacing: 2px; margin-top: 25px; text-transform: uppercase;">
+      SECURE ROUTING IN PROGRESS
+    </p>
+  </header>
+
+  <section style="text-align: center; border: 1px solid var(--accent);">
+    <h2 data-text="🔗 PORTHUB GATEWAY">🔗 PORTHUB GATEWAY</h2>
+    <p>ระบบกำลังนำทางเข้าสู่ <span class="tooltip">Porthub<span class="tooltiptext">แพลตฟอร์มที่ได้รับการประเมินเชิงเทคนิคว่ารองรับการจัดการอย่างเป็นระบบ</span></span> เพื่อสนับสนุนการดำเนินการของเครือข่าย</p>
+    <p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 30px;">
+      คลิกปุ่มด้านล่างเพื่อยืนยันการทำรายการผ่านช่องทางระบบ (Systematic Affiliate Link)
+    </p>
+    
+    <!-- === อย่าลืมเปลี่ยน YOUR_AFFILIATE_ID เป็นรหัสของคุณ === -->
+    <a href="https://porthub.biz/?ref=YOUR_AFFILIATE_ID" class="cta-button" rel="nofollow noopener" target="_blank">
+      ดำเนินการเชื่อมต่อ ➜
+    </a>
+  </section>
+
+  <section>
+    <h2 data-text="⚙️ SYSTEM PROTOCOL">⚙️ SYSTEM PROTOCOL</h2>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        ทำไมถึงมีการแนะนำ Porthub ผ่านระบบนี้? <span>+</span>
+      </div>
+      <div class="accordion-content">
+        <p>การเลือกใช้งานเครื่องมือหรือแพลตฟอร์มภายนอก ยึดหลักการพิจารณาจากประสิทธิภาพ ความเสถียร และโครงสร้างทางเทคนิคที่สอดคล้องกับมาตรฐานการทำงานเชิงระบบ (Systematic Operation) ของทีมงาน</p>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        Affiliate Routing คืออะไร? <span>+</span>
+      </div>
+      <div class="accordion-content">
+        <p>คือกลไกการส่งผ่านฐานข้อมูล (Traffic) อย่างโปร่งใส เพื่อประโยชน์ในการติดตามผลทางสถิติ ซึ่งช่วยให้การพัฒนาระบบและการเข้าถึงข้อมูลมีประสิทธิภาพสูงขึ้น โดยไม่กระทบต่อผู้ใช้งานปลายทาง</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING</p>
+    <div class="shimmer" style="display: inline-block; padding: 6px 25px; border: 1px solid var(--accent); color: var(--accent); font-weight: 900; border-radius: 4px; letter-spacing: 2px;">
+      4D WARP SPEED ACTIVE
+    </div>
+  </footer>
+</main>
+
+<script>
+  function toggleAccordion(element) {
+    const content = element.nextElementSibling;
+    const isExpanded = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+    
+    document.querySelectorAll('.accordion-content').forEach(c => {
+      if (c !== content) {
+        c.style.maxHeight = '0px';
+        c.style.padding = '0 30px';
+        c.previousElementSibling.querySelector('span').innerText = '+';
+      }
+    });
+
+    if (!isExpanded) {
+      content.style.maxHeight = content.scrollHeight + 30 + "px";
+      content.style.padding = '20px 30px';
+      element.querySelector('span').innerText = '-';
+      element.style.color = 'var(--accent)';
+    } else {
+      content.style.maxHeight = '0px';
+      content.style.padding = '0 30px';
+      element.querySelector('span').innerText = '+';
+      element.style.color = 'inherit';
+    }
+  }
+</script>
+
+</body>
+</html>

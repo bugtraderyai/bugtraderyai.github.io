@@ -1,372 +1,585 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="google-site-verification" content="_ZVkMH7efLNyDOvZowNRBDQ_XYNkdWktE_PxKr0DVPs" />
-  <title>เชื่อมต่อระบบ Porthub | bugtraderyai</title>
-  <meta name="description" content="พอร์ทัลทางเข้าสู่แพลตฟอร์ม Porthub ที่ได้รับการรับรองประสิทธิภาพการทำงานเชิงระบบโดย BugTraderYai Insight" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
-  <link rel="manifest" href="media/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="คู่มือการใช้งาน PortHub สำหรับผู้ใช้งาน (Systematic Operation Manual)">
+<link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<title>คู่มือการใช้งาน PortHub | BugTraderYai V9</title>
+<style>
+  /* ===== BugTraderYai V9: THE HYPER-DISTORTION & WARP SPEED ===== */
+  :root {
+    /* V9 Core Colors */
+    --bg-dark: #010204;
+    --card-bg: rgba(5, 10, 20, 0.75);
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.6);
+    --text-main: #f8fafc;
+    --text-sub: #94a3b8;
+    --border: rgba(56, 189, 248, 0.4);
+    --glitch-red: rgba(255, 0, 193, 0.7);
+    --glitch-blue: rgba(0, 255, 240, 0.7);
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-  <style>
-    /* ===== BugTraderYai V9: THE HYPER-DISTORTION & WARP SPEED ===== */
-    :root {
-      --bg-dark: #010204;
-      --card-bg: rgba(5, 10, 20, 0.95);
-      --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.6);
-      --text-main: #f8fafc;
-      --text-sub: #94a3b8;
-      --border: rgba(56, 189, 248, 0.4);
-      --glitch-red: rgba(255, 0, 193, 0.7);
-      --glitch-blue: rgba(0, 255, 240, 0.7);
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Noto Sans Thai', sans-serif;
-      color: var(--text-main);
-      line-height: 1.8;
-      background-color: var(--bg-dark);
-      overflow-x: hidden;
-      text-align: center;
-    }
-
-    /* 🌀 พื้นหลังพุ่งทะยาน (Warp Speed Animation) */
-    .dimension-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      z-index: -1;
-      background-image: 
-        linear-gradient(rgba(56, 189, 248, 0.2) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(56, 189, 248, 0.2) 2px, transparent 2px);
-      background-size: 80px 80px;
-      transform: perspective(300px) rotateX(60deg) scale(3);
-      transform-origin: center top;
-      animation: warpSpeed 2s linear infinite;
-      filter: blur(0.5px) contrast(1.5);
-    }
-
-    @keyframes warpSpeed {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 80px; }
-    }
-
-    /* ⚡️ กล่อง Section แบบ Glitch บิดเบี้ยว */
-    section {
-      background: var(--card-bg);
-      backdrop-filter: blur(15px);
-      padding: 50px;
-      border-radius: 4px;
-      margin: 40px auto;
-      max-width: 850px;
-      border: 1px solid var(--border);
-      animation: glitchBox 6s infinite;
-      transition: 0.3s;
-    }
-
-    @keyframes glitchBox {
-      0%, 100% { box-shadow: 0 0 20px rgba(0, 0, 0, 1); border-color: var(--border); }
-      40% { box-shadow: -10px 0 20px var(--glitch-red), 10px 0 20px var(--glitch-blue); transform: translate(-2px, 1px) skewX(-1deg); }
-      42% { transform: translate(2px, -1px) skewX(1deg); }
-      44% { box-shadow: 0 0 20px rgba(0, 0, 0, 1); transform: translate(0, 0) skewX(0deg); }
-    }
-
-    section:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 30px var(--accent-glow);
-    }
-
-    /* 📺 ตัวหนังสือ Glitch Text (h1, h2) */
-    h1, h2 {
-      color: #fff;
-      position: relative;
-      display: inline-block;
-      font-weight: 900;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px var(--accent-glow);
-    }
-
-    h1::before, h1::after, h2::before, h2::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      opacity: 0.8;
-    }
-    h1::before, h2::before { color: #ff00c1; z-index: -1; animation: glitchAnim 0.4s infinite; display: none; }
-    h1::after, h2::after { color: #00fff0; z-index: -2; animation: glitchAnim 0.4s infinite reverse; display: none; }
-    h1:hover::before, h1:hover::after, h2:hover::before, h2:hover::after { display: block; }
-
-    @keyframes glitchAnim {
-      0% { transform: translate(0); }
-      20% { transform: translate(-3px, 2px); }
-      40% { transform: translate(3px, -2px); }
-      60% { transform: translate(-3px, -2px); }
-      80% { transform: translate(3px, 2px); }
-      100% { transform: translate(0); }
-    }
-
-    /* 1. Shimmer Animation */
-    .shimmer {
-      background: linear-gradient(90deg, transparent 25%, rgba(56, 189, 248, 0.2) 50%, transparent 75%);
-      background-size: 200% 100%;
-      animation: shimmer-ani 3s infinite;
-    }
-    @keyframes shimmer-ani {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    /* 2. Nav Dark Glass */
-    .hub-nav {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      padding: 15px;
-      background: rgba(1, 2, 4, 0.8);
-      backdrop-filter: blur(20px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--accent);
-    }
-    .hub-nav a {
-      color: var(--text-sub);
-      text-decoration: none;
-      font-size: 0.85rem;
-      padding: 6px 16px;
-      border-radius: 5px;
-      transition: 0.3s;
-    }
-    .hub-nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); background: rgba(56, 189, 248, 0.1); }
-
-    /* 3. Header */
-    header { position: relative; padding: 100px 20px 40px; text-align: center; z-index: 1; }
-    
-    /* 5. Tooltip (Neon Style) */
-    .tooltip {
-      position: relative;
-      display: inline-block;
-      color: var(--accent);
-      border-bottom: 1px dashed var(--accent);
-      cursor: help;
-    }
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 220px;
-      background-color: #0f172a;
-      color: #fff;
-      text-align: center;
-      border-radius: 4px;
-      padding: 15px;
-      position: absolute;
-      z-index: 10;
-      bottom: 130%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: 0.3s;
-      font-size: 0.85rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      border: 1px solid var(--accent);
-    }
-    .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
-
-    /* 6. Accordion (Command Center Style) */
-    .accordion-item {
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 4px;
-      margin-bottom: 15px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.05);
-      text-align: left;
-    }
-    .accordion-header {
-      padding: 20px 30px;
-      cursor: pointer;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      transition: 0.3s;
-    }
-    .accordion-header:hover { background: rgba(56, 189, 248, 0.1); color: var(--accent); }
-    .accordion-content {
-      max-height: 0;
-      padding: 0 30px;
-      overflow: hidden;
-      transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      color: var(--text-sub);
-    }
-
-    /* 7. Button (Solid & Sharp) */
-    .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 18px 50px;
-      background: var(--accent);
-      color: #05070a !important;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      box-shadow: 0 0 20px var(--accent-glow);
-      transition: 0.3s;
-    }
-    .cta-button:hover {
-      transform: translateY(-3px) skewX(-5deg);
-      box-shadow: 0 0 35px var(--accent);
-    }
-
-    @media (max-width: 600px) {
-      header { padding: 60px 20px; }
-      section { padding: 35px 20px; margin: 20px; }
-      .hub-nav { display: grid; grid-template-columns: 1fr 1fr; }
-    }
-  </style>
-  
-  <!-- Global site tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GD0H18D9JE');
-  </script>
-
-  <!-- Advanced Schema Graph -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Porthub Platform Connection - BugTraderYai",
-    "url": "https://bugtraderyai.com/porthub.html",
-    "description": "ประตูเชื่อมต่อเข้าสู่ระบบ Porthub ภายใต้โครงสร้างการทำงานและมาตรฐานของ BugTraderYai Insight",
-    "publisher": {
-      "@type": "Organization",
-      "name": "BugTraderYai Insight",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://bugtraderyai.com/media/apple-touch-icon.png"
-      }
-    },
-    "mainEntity": {
-      "@type": "WebSite",
-      "name": "Porthub",
-      "url": "https://porthub.biz/",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "Access System Affiliate Platform",
-        "target": "https://porthub.biz/signup?ref=95AD4C77E6"
-      }
-    }
+    /* Mapped from Original PortHub CSS to V9 Dark Mode */
+    --paper: var(--bg-dark);
+    --card: var(--card-bg);
+    --ink: var(--text-main);
+    --ink-2: var(--text-sub);
+    --muted: #64748b;
+    --line: var(--border);
+    --line-soft: rgba(56, 189, 248, 0.15);
+    --accent-soft: rgba(56, 189, 248, 0.1);
+    --up: #4ade80;
+    --down: #f43f5e;
+    --warn: #fbbf24;
+    --chrome: rgba(1, 2, 4, 0.9);
+    --screen: #0f172a;
+    --screen-side: rgba(5, 10, 20, 0.95);
+    --radius: 4px; /* V9 is sharp, not rounded */
+    --sans: 'Noto Sans Thai', sans-serif;
+    --mono: 'Courier New', Courier, monospace;
   }
-  </script>
-</head>
 
+  * { box-sizing: border-box; font-family: var(--sans); }
+  body { 
+    margin: 0; background: var(--paper); color: var(--ink); 
+    font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+
+  /* 🌀 พื้นหลังพุ่งทะยาน (Warp Speed Animation) */
+  .dimension-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background-image: 
+      linear-gradient(rgba(56, 189, 248, 0.15) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(56, 189, 248, 0.15) 2px, transparent 2px);
+    background-size: 80px 80px;
+    transform: perspective(300px) rotateX(60deg) scale(3);
+    transform-origin: center top;
+    animation: warpSpeed 3s linear infinite;
+    filter: blur(1px) contrast(1.2);
+  }
+  @keyframes warpSpeed {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 80px; }
+  }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px 96px; display: grid; grid-template-columns: 260px 1fr; gap: 48px; }
+  @media(max-width:900px){ .wrap { grid-template-columns: 1fr; gap: 0; padding: 0 16px 64px; } }
+
+  /* ---------- masthead (V9 Style) ---------- */
+  header.top { 
+    grid-column: 1/-1; padding: 60px 40px; margin: 24px 0 38px; 
+    border: 1px solid var(--accent); border-radius: var(--radius); 
+    background: var(--card); backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.2); 
+    position: relative; overflow: hidden; text-align: center;
+  }
+  .eyebrow { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); font-weight: 900; }
+  
+  /* 📺 Glitch Text */
+  .glitch-text {
+    color: #fff; position: relative; display: inline-block;
+    font-weight: 900; text-transform: uppercase; text-shadow: 0 0 10px var(--accent-glow);
+  }
+  .glitch-text::before, .glitch-text::after {
+    content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.8;
+  }
+  .glitch-text::before { color: #ff00c1; z-index: -1; animation: glitchAnim 0.4s infinite; display: none; }
+  .glitch-text::after { color: #00fff0; z-index: -2; animation: glitchAnim 0.4s infinite reverse; display: none; }
+  .glitch-text:hover::before, .glitch-text:hover::after { display: block; }
+  
+  @keyframes glitchAnim {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 2px); }
+    40% { transform: translate(3px, -2px); }
+    60% { transform: translate(-3px, -2px); }
+    80% { transform: translate(3px, 2px); }
+    100% { transform: translate(0); }
+  }
+
+  header.top h1 { font-size: clamp(28px, 4vw, 42px); line-height: 1.2; margin: .3em 0; letter-spacing: 1px; }
+  .lede { color: var(--ink-2); max-width: 70ch; margin: 0 auto; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; justify-content: center; }
+  .meta span { font-size: 11px; color: var(--accent); border: 1px solid var(--accent); border-radius: var(--radius); padding: 5px 15px; background: rgba(56, 189, 248, 0.1); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ---------- toc ---------- */
+  nav.toc { 
+    position: sticky; top: 18px; align-self: start; font-size: 13px; 
+    max-height: calc(100vh - 36px); overflow: auto; 
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; 
+    background: var(--card); backdrop-filter: blur(15px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.8); 
+  }
+  @media(max-width:900px){ nav.toc { position: static; margin-bottom: 36px; } }
+  nav.toc h4 { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; font-weight: 900; }
+  nav.toc a { display: block; color: var(--ink-2); text-decoration: none; padding: 8px 12px; margin: 4px 0; border-left: 2px solid transparent; transition: 0.3s; }
+  nav.toc a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 700; text-shadow: 0 0 8px var(--accent); }
+  nav.toc a:hover { color: var(--text-main); background: var(--line-soft); }
+  nav.toc .grp { margin: 0 0 22px; }
+  nav.toc .grp b { display: block; font-size: 14px; margin-bottom: 10px; color: var(--accent); font-weight: 900; letter-spacing: 1px; }
+
+  /* ---------- Content Sections (V9 Glitch Box) ---------- */
+  main { min-width: 0; z-index: 1; }
+  section { 
+    margin-bottom: 40px; scroll-margin-top: 28px; 
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); 
+    padding: 35px; backdrop-filter: blur(15px);
+    transition: 0.3s; 
+  }
+  section:hover { border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow); }
+  section:target { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+  
+  .part { border-top: 2px dashed var(--accent); padding-top: 20px; margin: 0 0 34px; }
+  .part .tag { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); font-weight: 900; }
+  .part h2 { font-size: 26px; margin: .2em 0; font-weight: 900; color: #fff; text-shadow: 0 0 10px var(--accent-glow); }
+  .part p { margin: 0; color: var(--ink-2); max-width: 62ch; }
+
+  h3 { font-size: 20px; margin: 0 0 15px; font-weight: 900; display: flex; align-items: center; gap: 12px; color: #fff; }
+  h3 .n { font-family: var(--mono); font-size: 14px; color: var(--bg-dark); background: var(--accent); border-radius: 2px; padding: 2px 8px; flex: none; font-weight: 900; box-shadow: 0 0 10px var(--accent); }
+  h3+p { margin: 0 0 20px; color: var(--ink-2); max-width: 64ch; }
+  h4.sub { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 26px 0 10px; font-weight: 700; border-bottom: 1px solid var(--line-soft); padding-bottom: 5px; }
+
+  ol.steps, ul.plain { margin: 0 0 20px; padding-left: 20px; max-width: 64ch; }
+  ol.steps li, ul.plain li { margin-bottom: 8px; }
+  code { font-family: var(--mono); font-size: .9em; background: rgba(56, 189, 248, 0.15); color: var(--accent); border-radius: 2px; padding: 2px 6px; border: 1px solid var(--line); }
+  
+  .note { border-left: 4px solid var(--accent); background: rgba(56, 189, 248, 0.05); padding: 15px 20px; border-radius: 0; margin: 20px 0; font-size: 14px; color: var(--ink-2); border-right: 1px solid var(--line-soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+  .note.warn { border-left-color: var(--warn); background: rgba(251, 191, 36, 0.05); }
+  .note b { color: var(--text-main); }
+
+  /* Tools & Quickstart */
+  .guide-tools { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 20px; }
+  .searchbox { display: flex; align-items: center; gap: 9px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 12px 15px; }
+  .searchbox input { width: 100%; font: inherit; color: var(--ink); background: transparent; border: 0; outline: 0; }
+  
+  .quickstart { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 0 0 35px; }
+  .quick-card { display: block; text-decoration: none; color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 20px; transition: 0.3s; backdrop-filter: blur(10px); }
+  .quick-card:hover { transform: translateY(-3px) skewX(-2deg); border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+  .quick-card .qnum { font-family: var(--mono); font-size: 12px; color: var(--bg-dark); background: var(--accent); padding: 2px 6px; font-weight: 900; }
+  .quick-card b { display: block; margin: 10px 0 5px; color: #fff; }
+  .quick-card small { color: var(--muted); font-size: 12px; }
+
+  table.spec { width: 100%; border-collapse: collapse; font-size: 13px; margin: 15px 0 25px; }
+  .scroll { overflow-x: auto; }
+  table.spec th, table.spec td { border-bottom: 1px solid var(--line); padding: 12px; text-align: right; }
+  table.spec th { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 700; border-bottom: 1px solid var(--accent); }
+  table.spec td:first-child, table.spec th:first-child { text-align: left; font-weight: 700; color: var(--text-main); }
+  .yes { color: var(--up); font-weight: 900; }.no { color: var(--muted); }
+
+  /* ---------- device frames (V9 Dark Mode UI Mapping) ---------- */
+  .shots { display: flex; flex-wrap: wrap; gap: 25px; align-items: flex-start; margin: 25px 0 15px; }
+  figure { margin: 0; flex: 1 1 380px; min-width: 0; }
+  figure.narrow { flex: 0 0 auto; }
+  figcaption { font-size: 12px; color: var(--muted); margin-top: 12px; border-left: 2px solid var(--accent); padding-left: 10px; }
+  figcaption b { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+  .desktop { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--screen); box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+  .bar { background: var(--chrome); display: flex; align-items: center; gap: 10px; padding: 10px 15px; border-bottom: 1px solid var(--line); }
+  .dots { display: flex; gap: 6px; } .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--muted); display: block; }
+  .url { flex: 1; background: var(--bg-dark); border: 1px solid var(--line); border-radius: 4px; font-family: var(--mono); font-size: 11px; color: var(--accent); padding: 4px 10px; overflow: hidden; white-space: nowrap; text-align: center; letter-spacing: 1px; }
+
+  .phone { width: 300px; border: 12px solid #0a0f1a; border-radius: 20px; overflow: hidden; background: var(--screen); box-shadow: 0 15px 40px rgba(0,0,0,0.9); }
+  .phone .status { background: var(--chrome); display: flex; justify-content: space-between; align-items: center; padding: 8px 16px 4px; font-size: 10px; color: var(--muted); font-family: var(--mono); }
+  .phone .home { height: 4px; width: 100px; border-radius: 99px; background: var(--line); margin: 10px auto 8px; }
+  .phone.app { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+  .phone.app .status { background: rgba(56, 189, 248, 0.1); color: var(--accent); }
+
+  /* ---------- mock ui atoms ---------- */
+  .ui { padding: 15px; font-size: 12px; line-height: 1.6; color: var(--ink); }
+  .ui .row { display: flex; gap: 10px; }
+  .side { width: 120px; flex: none; background: var(--screen-side); border-right: 1px solid var(--line); padding: 15px 10px; font-size: 11px; display: flex; flex-direction: column; gap: 4px; }
+  .side .brand { font-weight: 900; font-size: 13px; color: var(--accent); margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; }
+  .side .grp { font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin: 10px 0 4px; }
+  .side .it { padding: 6px 8px; border-radius: 4px; color: var(--ink-2); white-space: nowrap; cursor: default; }
+  .side .it.on { background: rgba(56, 189, 248, 0.15); color: var(--accent); font-weight: 700; border-left: 2px solid var(--accent); }
+  
+  .body { flex: 1; padding: 15px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+  .h { display: flex; justify-content: space-between; align-items: center; gap: 10px; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 5px; }
+  .h .t { font-weight: 900; font-size: 15px; color: #fff; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+  .cards.c2 { grid-template-columns: repeat(2, 1fr); }
+  .kpi { border: 1px solid var(--line); border-radius: 4px; padding: 10px; background: rgba(5, 10, 20, 0.5); }
+  .kpi .k { font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .kpi .v { font-family: var(--mono); font-size: 14px; font-weight: 700; margin-top: 4px; color: #fff; }
+  .v.up { color: var(--up); text-shadow: 0 0 5px var(--up); }
+  .v.down { color: var(--down); text-shadow: 0 0 5px var(--down); }
+  
+  .panel { border: 1px solid var(--line); border-radius: 4px; background: rgba(5, 10, 20, 0.5); padding: 12px; }
+  .panel .pt { font-weight: 700; font-size: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+  
+  .pill { font-size: 9px; border-radius: 2px; padding: 2px 8px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; font-family: var(--mono); text-transform: uppercase; }
+  .pill.ok { color: var(--up); border-color: var(--up); background: rgba(74, 222, 128, 0.1); }
+  .pill.bad { color: var(--down); border-color: var(--down); background: rgba(244, 63, 94, 0.1); }
+  .pill.warn { color: var(--warn); border-color: var(--warn); background: rgba(251, 191, 36, 0.1); }
+  .pill.acc { color: var(--bg-dark); border-color: var(--accent); background: var(--accent); font-weight: 900; }
+  
+  /* V9 Specific Buttons inside UI */
+  .btn { font-size: 11px; border-radius: 2px; padding: 6px 14px; background: var(--accent); color: var(--bg-dark); font-weight: 900; display: inline-block; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; border: 1px solid var(--accent); }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn:hover { box-shadow: 0 0 10px var(--accent-glow); }
+  
+  .tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .tbl th { font-size: 9px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); text-align: right; padding: 6px; border-bottom: 1px solid var(--line); }
+  .tbl td { padding: 8px 6px; border-bottom: 1px solid rgba(56,189,248,0.1); text-align: right; font-family: var(--mono); }
+  .tbl th:first-child, .tbl td:first-child { text-align: left; font-family: var(--sans); color: #fff; }
+  
+  .field { border: 1px solid var(--line); border-radius: 2px; padding: 8px 10px; color: #fff; background: rgba(0,0,0,0.5); font-size: 11px; font-family: var(--mono); }
+  .lbl { font-size: 10px; color: var(--accent); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+  
+  .sw { width: 30px; height: 16px; border-radius: 99px; background: var(--accent); position: relative; flex: none; box-shadow: 0 0 8px var(--accent-glow); }
+  .sw::after { content: ""; position: absolute; right: 2px; top: 2px; width: 12px; height: 12px; border-radius: 50%; background: #000; }
+  .sw.off { background: var(--line); box-shadow: none; } .sw.off::after { left: 2px; right: auto; background: var(--muted); }
+  
+  .toggle-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(56,189,248,0.1); }
+  .toggle-row:last-child { border-bottom: 0; }
+  
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal div { aspect-ratio: 1; border-radius: 2px; background: rgba(56,189,248,0.05); font-size: 9px; display: flex; align-items: flex-start; justify-content: flex-end; padding: 4px; color: var(--muted); font-family: var(--mono); border: 1px solid transparent; }
+  .cal div.p { background: rgba(74, 222, 128, 0.15); color: var(--up); border-color: rgba(74, 222, 128, 0.3); }
+  .cal div.pp { background: rgba(74, 222, 128, 0.3); color: #fff; border-color: var(--up); font-weight: 700; text-shadow: 0 0 5px var(--up); }
+  .cal div.l { background: rgba(244, 63, 94, 0.15); color: var(--down); border-color: rgba(244, 63, 94, 0.3); }
+  
+  .spark { display: flex; align-items: flex-end; gap: 3px; height: 40px; }
+  .spark i { flex: 1; background: var(--accent); display: block; opacity: 0.8; transition: 0.3s; }
+  .spark i:hover { opacity: 1; box-shadow: 0 0 10px var(--accent); }
+  
+  .qr { width: 80px; height: 80px; border-radius: 4px; background: repeating-conic-gradient(var(--accent) 0 25%, transparent 0 50%) 0 0/10px 10px; border: 2px solid var(--accent); flex: none; opacity: 0.8; }
+  .avatar { width: 24px; height: 24px; border-radius: 2px; background: var(--accent); color: var(--bg-dark); font-weight: 900; font-size: 11px; display: flex; align-items: center; justify-content: center; flex: none; }
+  
+  .mob { padding: 15px; display: flex; flex-direction: column; gap: 12px; font-size: 12px; }
+  .mobbar { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 5px; }
+  .tabbar { display: flex; justify-content: space-around; border-top: 1px solid var(--line); padding: 10px 0 5px; font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+  .tabbar b { color: var(--accent); font-weight: 900; text-shadow: 0 0 5px var(--accent-glow); }
+  
+  .toastbox { border: 1px solid var(--accent); border-radius: 4px; background: rgba(5, 10, 20, 0.9); padding: 10px; display: flex; gap: 10px; align-items: flex-start; font-size: 11px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); }
+  .glyph { width: 18px; height: 18px; border-radius: 2px; background: var(--accent); flex: none; box-shadow: 0 0 8px var(--accent-glow); }
+  .glyph.red { background: var(--down); box-shadow: 0 0 8px rgba(244, 63, 94, 0.6); }
+  .glyph.amber { background: var(--warn); box-shadow: 0 0 8px rgba(251, 191, 36, 0.6); }
+
+  footer.end { grid-column: 1/-1; border-top: 1px dashed var(--line); padding-top: 25px; color: var(--muted); font-size: 12px; text-align: center; letter-spacing: 1px; }
+  a { color: var(--accent); text-decoration: none; font-weight: 700; }
+  a:hover { text-shadow: 0 0 8px var(--accent-glow); }
+  
+  /* Link Routing Highlight */
+  .affiliate-link { display: inline-block; padding: 10px 20px; background: rgba(56,189,248,0.1); border: 1px solid var(--accent); border-radius: 2px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-weight: 900; transition: 0.3s; margin: 10px 0; }
+  .affiliate-link:hover { background: var(--accent); color: var(--bg-dark); box-shadow: 0 0 20px var(--accent-glow); transform: translateX(5px); }
+</style>
+</head>
 <body>
 
 <div class="dimension-bg"></div>
 
-<nav class="hub-nav">
-    <a href="/">หน้าแรก</a>
-    <a href="/intelligence-hub.html" style="color: var(--accent); font-weight: 700;">🔥 500 คำถาม</a>
-    <a href="/manual.html">คู่มือการใช้งาน</a>
-    <a href="/partners.html">Partners</a>
-    <a href="/ea-system-philosophy.html">ปรัชญา</a>
-    <a href="/systems.html">Systems</a>
-    <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
-    <a href="/anti-ea-faq.html">FAQ</a>
-    <a href="/about.html">รู้จักเรา</a>
-</nav>
-
-<main>
-  <header>
-    <h1 data-text="INITIALIZING CONNECTION">INITIALIZING CONNECTION</h1><br>
-    <h2 data-text="ระบบเตรียมเข้าสู่แพลตฟอร์ม Porthub" style="font-size: 1.5rem; margin-top: 10px;">
-      ระบบเตรียมเข้าสู่แพลตฟอร์ม Porthub
-    </h2>
-    <p style="color: var(--accent); font-weight: 900; letter-spacing: 2px; margin-top: 25px; text-transform: uppercase;">
-      SECURE ROUTING IN PROGRESS
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">SYSTEMATIC OPERATION MANUAL</div>
+    <h1 class="glitch-text" data-text="คู่มือการใช้งาน PortHub">คู่มือการใช้งาน PortHub</h1>
+    <p class="lede" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;">
+      สำหรับผู้ใช้งาน (User Protocol)
     </p>
+    <p class="lede" style="margin-top: 15px;">
+      เอกสารนี้อธิบายการใช้งาน PortHub ตั้งแต่สมัครสมาชิกผ่าน Affiliate Gateway, เชื่อมต่อพอร์ต MT4/MT5 ผ่าน Bridge EA ไปจนถึงการตั้งค่าการแจ้งเตือน ภาพประกอบทุกภาพเป็น <b>ภาพจำลองหน้าจอเชิงเทคนิค</b> เพื่อสนับสนุนการทำงานอย่างเป็นระบบ
+    </p>
+    <div class="meta">
+      <span>Desktop</span><span>Mobile</span><span>PWA App</span><span>BugTraderYai Insight</span>
+    </div>
   </header>
 
-  <section style="text-align: center; border: 1px solid var(--accent);">
-    <h2 data-text="🔗 PORTHUB GATEWAY">🔗 PORTHUB GATEWAY</h2>
-    <p>ระบบกำลังนำทางเข้าสู่ <span class="tooltip">Porthub<span class="tooltiptext">แพลตฟอร์มที่ได้รับการประเมินเชิงเทคนิคว่ารองรับการจัดการอย่างเป็นระบบ</span></span> เพื่อสนับสนุนการดำเนินการของเครือข่าย</p>
-    <p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 30px;">
-      คลิกปุ่มด้านล่างเพื่อยืนยันการทำรายการผ่านช่องทางระบบ (Systematic Affiliate Link)
-    </p>
-    
-    <!-- === อย่าลืมเปลี่ยน YOUR_AFFILIATE_ID เป็นรหัสของคุณ === -->
-    <a href="https://porthub.biz/signup?ref=95AD4C77E6" class="cta-button" rel="nofollow noopener" target="_blank">
-      ดำเนินการเชื่อมต่อ ➜
-    </a>
-  </section>
+  <nav class="toc">
+    <div class="grp">
+      <b>USER PROTOCOL</b>
+      <a href="#u1">1. สมัคร &amp; เข้าสู่ระบบ</a>
+      <a href="#u2">2. แดชบอร์ดติดตามพอร์ต</a>
+      <a href="#u3">3. เชื่อมพอร์ตด้วย EA</a>
+      <a href="#u4">4. ปฏิทินเทรด</a>
+      <a href="#u5">5. อันดับพอร์ต</a>
+      <a href="#u6">6. แจ้งเตือน</a>
+      <a href="#u7">7. แพ็กเกจ &amp; Wallet</a>
+      <a href="#u8">8. แนะนำเพื่อน (Affiliate)</a>
+      <a href="#u9">9. ตั้งค่าบัญชี</a>
+      <a href="#u10">10. ติดตั้งเป็นแอป</a>
+    </div>
+  </nav>
 
-  <section>
-    <h2 data-text="⚙️ SYSTEM PROTOCOL">⚙️ SYSTEM PROTOCOL</h2>
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        ทำไมถึงมีการแนะนำ Porthub ผ่านระบบนี้? <span>+</span>
-      </div>
-      <div class="accordion-content">
-        <p>การเลือกใช้งานเครื่องมือหรือแพลตฟอร์มภายนอก ยึดหลักการพิจารณาจากประสิทธิภาพ ความเสถียร และโครงสร้างทางเทคนิคที่สอดคล้องกับมาตรฐานการทำงานเชิงระบบ (Systematic Operation) ของทีมงาน</p>
-      </div>
+  <main>
+    <div class="guide-tools">
+      <label class="searchbox"><span style="color:var(--accent); font-weight:900;">[?]</span><input id="guideSearch" type="search" placeholder="ค้นหาข้อมูลระบบ เช่น เชื่อมพอร์ต, แจ้งเตือน..." autocomplete="off"></label>
     </div>
     
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        Affiliate Routing คืออะไร? <span>+</span>
-      </div>
-      <div class="accordion-content">
-        <p>คือกลไกการส่งผ่านฐานข้อมูล (Traffic) อย่างโปร่งใส เพื่อประโยชน์ในการติดตามผลทางสถิติ ซึ่งช่วยให้การพัฒนาระบบและการเข้าถึงข้อมูลมีประสิทธิภาพสูงขึ้น โดยไม่กระทบต่อผู้ใช้งานปลายทาง</p>
-      </div>
+    <h2 style="font-size:16px; margin:26px 0 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">⚡ Quick Start Protocol</h2>
+    <div class="quickstart">
+      <a class="quick-card" href="#u1"><span class="qnum">01</span><b>สร้างบัญชี</b><small>สมัครผ่านลิงก์ระบบ</small></a>
+      <a class="quick-card" href="#u3"><span class="qnum">02</span><b>เชื่อมต่อพอร์ต</b><small>รัน Bridge EA บน Terminal</small></a>
+      <a class="quick-card" href="#u6"><span class="qnum">03</span><b>เปิดแจ้งเตือน</b><small>รับสัญญาณตรงเข้ามือถือ</small></a>
     </div>
-  </section>
 
-  <footer>
-    <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING</p>
-    <div class="shimmer" style="display: inline-block; padding: 6px 25px; border: 1px solid var(--accent); color: var(--accent); font-weight: 900; border-radius: 4px; letter-spacing: 2px;">
-      4D WARP SPEED ACTIVE
+    <!-- ============ PART 1 ============ -->
+    <div class="part">
+      <div class="tag">PHASE 1</div>
+      <h2 class="glitch-text" data-text="สำหรับผู้ใช้งาน">สำหรับผู้ใช้งาน</h2>
+      <p>เส้นทางของพาร์ทเนอร์ตั้งแต่สมัครสมาชิก จนข้อมูล MT4/MT5 ซิงก์ขึ้นแดชบอร์ดและเชื่อมต่อระบบแจ้งเตือน</p>
     </div>
+
+    <!-- 1 -->
+    <section id="u1">
+      <h3><span class="n">01</span> สมัครสมาชิกและเข้าสู่ระบบ</h3>
+      <p>การเข้าถึงแพลตฟอร์มอย่างเป็นระบบ ควรสมัครผ่าน Gateway Link ของทีมงาน เพื่อรับการเชื่อมต่อเข้ากับเครือข่ายอย่างสมบูรณ์</p>
+      <ol class="steps">
+        <li>คลิกที่ลิงก์เชื่อมต่อระบบ: <br>
+            <a href="https://porthub.biz/signup?ref=95AD4C77E6" class="affiliate-link" target="_blank" rel="nofollow noopener">➜ เข้าสู่หน้าสมัครสมาชิก (System Affiliate)</a>
+        </li>
+        <li>กรอกอีเมลและรหัสผ่าน หรือเลือก <b>ดำเนินการต่อด้วย Google</b></li>
+        <li>หากสมัครด้วยอีเมล ระบบจะส่งลิงก์ยืนยันไปที่ Inbox ให้ทำการกดยืนยันให้เรียบร้อย</li>
+        <li>ระบบจะพาเข้า <b>แดชบอร์ด</b> พื้นฐาน (รองรับ 1 พอร์ตฟรี)</li>
+      </ol>
+      <div class="note"><b>ข้อควรระวัง:</b> รหัสแนะนำ (Affiliate Code) <code>95AD4C77E6</code> จะถูกฝังไว้ในลิงก์แล้ว ไม่สามารถใส่ย้อนหลังได้ กรุณาสมัครผ่านลิงก์ด้านบนเท่านั้น</div>
+
+      <div class="shots">
+        <figure>
+          <div class="desktop">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">https://porthub.biz/signup?ref=95AD4C77E6</span></div>
+            <div class="ui" style="padding:30px 24px">
+              <div style="max-width:320px; margin:0 auto; display:flex; flex-direction:column; gap:12px">
+                <div style="font-weight:900; color:var(--accent); font-size:16px; letter-spacing: 2px;">PORTHUB</div>
+                <div style="font-weight:900; font-size:20px; color:#fff;">สร้างบัญชีใหม่</div>
+                <div style="color:var(--muted); margin-bottom:10px;">เชื่อมต่อระบบติดตามพอร์ต MT4/MT5</div>
+                <div><div class="lbl">อีเมล</div><div class="field">trader@bugtraderyai.com</div></div>
+                <div><div class="lbl">รหัสผ่าน</div><div class="field">••••••••••</div></div>
+                <div class="btn" style="text-align:center; padding: 10px;">สมัครสมาชิก</div>
+                <div class="btn ghost" style="text-align:center; padding: 10px;">ดำเนินการต่อด้วย Google</div>
+                <div style="color:var(--muted); text-align:center; font-size:11px; margin-top: 10px;">Ref Code: 95AD4C77E6</div>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>Desktop — หน้าลงทะเบียน.</b> การเชื่อมต่อผ่านรหัสอ้างอิงของระบบ</figcaption>
+        </figure>
+
+        <figure class="narrow">
+          <div class="phone">
+            <div class="status"><span>09:41</span><span>PortHub</span><span>100%</span></div>
+            <div class="mob">
+              <div style="font-weight:900; color:var(--accent); font-size: 16px;">PORTHUB</div>
+              <div style="font-weight:900; font-size:16px; color:#fff;">เข้าสู่ระบบ</div>
+              <div><div class="lbl">อีเมล</div><div class="field">trader@bugtraderyai.com</div></div>
+              <div><div class="lbl">รหัสผ่าน</div><div class="field">••••••••••</div></div>
+              <div class="btn" style="text-align:center; padding: 10px;">เข้าสู่ระบบ</div>
+              <div class="toastbox"><span class="glyph amber"></span><div><b>SYSTEM ALERT</b><br><span style="color:var(--muted)">ยืนยันอีเมลก่อนใช้งานระบบเต็มรูปแบบ</span></div></div>
+            </div>
+            <div class="home"></div>
+          </div>
+          <figcaption><b>Mobile — อินเทอร์เฟซเข้าสู่ระบบ</b></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section id="u2">
+      <h3><span class="n">02</span> แดชบอร์ดติดตามพอร์ต</h3>
+      <p>ศูนย์บัญชาการข้อมูล (Command Center) รวมทุกบัญชีเทรดไว้ในหน้าเดียว โครงสร้างข้อมูลเรียงตาม <b>พอร์ต → EA/ระบบเทรด → ออเดอร์</b></p>
+      <ul class="plain">
+        <li><b>การ์ดสรุป KPI</b> — ยอดเงิน, Equity, จำนวนออเดอร์ และกำไร/ขาดทุนลอยตัวแบบ Real-time (แพ็กเกจ Pro)</li>
+        <li><b>การจัดเรียง (Sorting)</b> — วิเคราะห์ข้อมูลตามมูลค่าพอร์ต หรือกำไรลอยตัว</li>
+        <li><b>สวิตช์สาธารณะ</b> — เปิดเพื่อส่งข้อมูลขึ้น Leaderboard (ต้องใช้ Pro)</li>
+      </ul>
+
+      <div class="shots">
+        <figure style="flex:1 1 560px">
+          <div class="desktop">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">https://porthub.biz/dashboard</span></div>
+            <div class="row">
+              <div class="side">
+                <div class="brand">PORTHUB</div>
+                <div class="grp">CORE</div>
+                <div class="it on">แดชบอร์ด</div>
+                <div class="it">อันดับพอร์ต</div>
+                <div class="it">ปฏิทินเทรด</div>
+                <div class="it">แจ้งเตือน</div>
+                <div class="grp">SYSTEM</div>
+                <div class="it">API Keys</div>
+                <div class="it">ตั้งค่า</div>
+              </div>
+              <div class="body">
+                <div class="h">
+                  <div><div class="t">SYSTEM DASHBOARD</div><div style="color:var(--muted);font-size:10px;font-family:var(--mono);">PORTFOLIO OVERVIEW</div></div>
+                  <div style="display:flex;gap:8px;align-items:center"><span class="pill ok">ONLINE</span><span class="avatar">B</span></div>
+                </div>
+                <div class="cards">
+                  <div class="kpi"><div class="k">พอร์ต Active</div><div class="v">3</div></div>
+                  <div class="kpi"><div class="k">ยอดเงิน (USD)</div><div class="v">$24,180</div></div>
+                  <div class="kpi"><div class="k">ลอยตัว</div><div class="v up">+$862</div></div>
+                  <div class="kpi"><div class="k">ออเดอร์</div><div class="v">12</div></div>
+                </div>
+                <div class="panel">
+                  <div class="pt"><span>พอร์ตทั้งหมด</span><span class="pill">SORT: BALANCE</span></div>
+                  <div class="scroll"><table class="tbl">
+                    <tr><th>บัญชี</th><th>สถานะ</th><th>ยอดเงิน</th><th>Equity</th><th>ลอยตัว</th><th>สาธารณะ</th></tr>
+                    <tr><td>Stealth_Omni · MT5</td><td><span class="pill ok">SYNCED</span></td><td>12,400.00</td><td>13,010.55</td><td class="v up">+610.55</td><td><span class="pill acc">ON</span></td></tr>
+                    <tr><td>Grid System · MT4</td><td><span class="pill ok">SYNCED</span></td><td>8,780.00</td><td>9,031.20</td><td class="v up">+251.20</td><td><span class="pill">OFF</span></td></tr>
+                  </table></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>Desktop — Dashboard.</b> ออกแบบมาเพื่อการติดตามอย่างเป็นระบบ</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section id="u3">
+      <h3><span class="n">03</span> เชื่อมพอร์ตด้วย PortHub Bridge EA</h3>
+      <p>กลไกการส่งข้อมูลจาก Terminal สู่ Web Dashboard จำเป็นต้องรัน Bridge EA บนเครื่องหรือ VPS เดียวกันกับที่เปิด MT4/MT5 ไว้</p>
+      <ol class="steps">
+        <li>ไปที่ <b>API Keys</b> ตั้งชื่ออ้างอิงเครื่อง (เช่น <code>VPS-Stealth-01</code>) แล้วกด <b>สร้าง API Key</b></li>
+        <li>คัดลอก Token ที่ได้เก็บไว้</li>
+        <li>ติดตั้งไฟล์ PortHub Bridge ลงในแฟ้ม Experts ของ MetaTrader</li>
+        <li>ลาก EA ใส่กราฟเปล่า นำ Token ไปวางในช่อง <code>InpApiKey</code></li>
+        <li>เปิดปุ่ม <b>AutoTrading / Algo Trading</b> บนแถบเมนู (ต้องเป็นสีเขียว)</li>
+      </ol>
+      <div class="note warn"><b>CHECKLIST:</b> หากข้อมูลไม่ขึ้น ให้ตรวจสอบ 1. Algo Trading เปิดหรือไม่ 2. อนุญาต WebRequest ในออปชั่นของ MT4/MT5 หรือยัง 3. VPS มีสัญญาณอินเทอร์เน็ตปกติหรือไม่</div>
+    </section>
+
+    <!-- 4 -->
+    <section id="u4">
+      <h3><span class="n">04</span> ปฏิทินเทรด (Trading Calendar)</h3>
+      <p>ระบบประมวลผล P&L รายวันจาก Closed Deals (รวม Swap และ Commission) สร้างสถิติอ้างอิงสำหรับการวิเคราะห์เชิงลึก</p>
+      <div class="shots">
+        <figure style="flex:1 1 520px">
+          <div class="desktop">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">https://porthub.biz/dashboard/calendar</span></div>
+            <div class="row">
+              <div class="side">
+                <div class="brand">PORTHUB</div>
+                <div class="it">แดชบอร์ด</div>
+                <div class="it on">ปฏิทินเทรด</div>
+              </div>
+              <div class="body">
+                <div class="h"><div><div class="t">TRADING CALENDAR</div></div><span class="pill">AUG 2026</span></div>
+                <div class="cards c3">
+                  <div class="kpi"><div class="k">NET PROFIT</div><div class="v up">+$1,942</div></div>
+                  <div class="kpi"><div class="k">WIN RATE</div><div class="v">62%</div></div>
+                  <div class="kpi"><div class="k">ACTIVE DAYS</div><div class="v">18</div></div>
+                </div>
+                <div class="panel">
+                  <div class="pt"><span>DAILY PERFORMANCE</span><span class="pill ok">GREEN = PROFIT</span></div>
+                  <div class="cal">
+                    <div>1</div><div class="p">2</div><div class="pp">3</div><div class="l">4</div><div class="p">5</div><div>6</div><div>7</div>
+                    <div class="pp">8</div><div class="p">9</div><div class="l">10</div><div class="p">11</div><div class="pp">12</div><div>13</div><div>14</div>
+                    <div class="p">15</div><div class="l">16</div><div class="pp">17</div><div class="p">18</div><div class="p">19</div><div>20</div><div>21</div>
+                  </div>
+                </div>
+                <div class="panel">
+                  <div class="pt"><span>EQUITY CURVE</span><span class="pill acc">30 DAYS</span></div>
+                  <div class="spark"><i style="height:30%"></i><i style="height:38%"></i><i style="height:34%"></i><i style="height:46%"></i><i style="height:52%"></i><i style="height:72%"></i><i style="height:80%"></i><i style="height:100%"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section id="u5">
+      <h3><span class="n">05</span> อันดับพอร์ต (Leaderboard)</h3>
+      <p>ระบบจัดอันดับอิงตาม Performance จริง พอร์ตที่ถูกตั้งค่าเป็นสาธารณะ (ผ่านแพ็กเกจ Pro) จะได้รับลิงก์สำหรับแชร์ผลงานทางสถิติให้บุคคลภายนอกตรวจสอบได้โดยไม่ต้อง Login</p>
+    </section>
+
+    <!-- 6 -->
+    <section id="u6">
+      <h3><span class="n">06</span> การแจ้งเตือน (System Alerts & Push Notifications)</h3>
+      <p>ตั้งค่า Protocol การเฝ้าระวังพอร์ต เมื่อตัวเลขถึงเกณฑ์ที่กำหนด ระบบจะยิงสัญญาณแจ้งเตือนเข้า Telegram หรือแจ้งเตือนแบบ Push บนมือถือทันที</p>
+      <ul class="plain">
+        <li><b>Drawdown Alert</b> — แจ้งเตือนเมื่อ DD พุ่งสูงกว่าค่า % ที่ตั้งไว้</li>
+        <li><b>Terminal Status</b> — แจ้งเตือนทันทีเมื่อ VPS หลุด หรือ EA หยุดทำงานเกินเวลา</li>
+        <li><b>Daily Summary</b> — บอทสรุปผลประกอบการเข้า Telegram ทุกวันตามเวลาที่ระบุ</li>
+      </ul>
+      <div class="note"><b>TELEGRAM SETUP:</b> ค้นหา <code>@BotFather</code> ใน Telegram → พิมพ์ <code>/newbot</code> → นำ Token ที่ได้มาใส่ในระบบ PortHub เพื่อเปิดใช้งานบอทส่วนตัว</div>
+    </section>
+
+    <!-- 7 -->
+    <section id="u7">
+      <h3><span class="n">07</span> แพ็กเกจ & Wallet</h3>
+      <p>ขับเคลื่อนระบบผ่าน PortHub Wallet เติมเงินด้วย QR PromptPay (สแกนผ่านแอปธนาคารและแนบสลิปเพื่อตรวจอัตโนมัติ) เพื่อใช้อัปเกรดความเร็วในการดึงข้อมูลเป็นระดับ Real-time (แพ็กเกจ Pro)</p>
+    </section>
+
+    <!-- 8 -->
+    <section id="u8">
+      <h3><span class="n">08</span> แนะนำเพื่อน (Affiliate Program)</h3>
+      <p>เมื่อคุณมีบัญชีแล้ว คุณสามารถใช้ระบบแนะนำเพื่อสร้างโครงสร้างเครือข่ายของตนเองได้</p>
+      <ul class="plain">
+        <li>คัดลอกลิงก์ Affiliate ประจำตัวจากเมนู <b>จัดการ → แนะนำ</b></li>
+        <li>รายได้จาก Affiliate แยกกระเป๋ากับ Wallet หลัก</li>
+        <li>สามารถสั่งถอนรายได้เข้าบัญชีธนาคาร (ผ่านการอนุมัติ) หรือโอนเข้า Wallet เพื่อใช้งานในระบบต่อได้ทันที</li>
+      </ul>
+      <div class="note">อย่าลืม: สำหรับการเริ่มต้นใช้งานของคุณเอง ให้สมัครผ่าน <a href="https://porthub.biz/signup?ref=95AD4C77E6" target="_blank">ลิงก์ระบบ (Ref: 95AD4C77E6)</a> นี้เท่านั้น</div>
+    </section>
+
+    <!-- 9 -->
+    <section id="u9">
+      <h3><span class="n">09</span> ตั้งค่าบัญชี (Account Settings)</h3>
+      <p>จัดการข้อมูลโปรไฟล์, ชื่อที่แสดงผล (Display Name), และความปลอดภัยของรหัสผ่าน รองรับการปรับเปลี่ยนภาษาของหน้าต่างการทำงาน</p>
+    </section>
+
+    <!-- 10 -->
+    <section id="u10">
+      <h3><span class="n">10</span> ติดตั้งแอปพลิเคชัน (PWA Installation)</h3>
+      <p>PortHub ถูกออกแบบด้วยสถาปัตยกรรม PWA (Progressive Web App) สามารถติดตั้งลงบนหน้าจอโฮมของ Smartphone ได้โดยตรง</p>
+      <ul class="plain">
+        <li><b>iOS (Safari):</b> กดปุ่มแชร์ด้านล่าง → เลือก <b>"เพิ่มไปยังหน้าจอโฮม" (Add to Home Screen)</b> (จำเป็นอย่างยิ่งเพื่อให้ Push Notification ทำงานได้)</li>
+        <li><b>Android (Chrome):</b> กดเมนู 3 จุดมุมขวาบน → เลือก <b>"ติดตั้งแอป" (Install App)</b></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="end">
+    © 2026 BUGTRADERYAI - SYSTEMATIC TRADING · PORTHUB PROTOCOL DOCUMENTATION
   </footer>
-</main>
+</div>
 
 <script>
-  function toggleAccordion(element) {
-    const content = element.nextElementSibling;
-    const isExpanded = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+  (function(){
+    // Simplified Search function for V9 Theme
+    var search = document.getElementById("guideSearch"),
+        sections = [].slice.call(document.querySelectorAll("main section"));
     
-    document.querySelectorAll('.accordion-content').forEach(c => {
-      if (c !== content) {
-        c.style.maxHeight = '0px';
-        c.style.padding = '0 30px';
-        c.previousElementSibling.querySelector('span').innerText = '+';
-      }
+    search.addEventListener("input", function() {
+      var q = search.value.trim().toLowerCase();
+      sections.forEach(function(s) {
+        var okText = !q || s.textContent.toLowerCase().indexOf(q) > -1;
+        s.style.display = okText ? "block" : "none";
+      });
     });
 
-    if (!isExpanded) {
-      content.style.maxHeight = content.scrollHeight + 30 + "px";
-      content.style.padding = '20px 30px';
-      element.querySelector('span').innerText = '-';
-      element.style.color = 'var(--accent)';
-    } else {
-      content.style.maxHeight = '0px';
-      content.style.padding = '0 30px';
-      element.querySelector('span').innerText = '+';
-      element.style.color = 'inherit';
+    // TOC Active State Sync
+    var links = [].slice.call(document.querySelectorAll("nav.toc a"));
+    function updateTOC() {
+      var current = "";
+      sections.forEach(function(s) {
+        if (s.style.display !== "none" && s.getBoundingClientRect().top < 250) {
+          current = s.id;
+        }
+      });
+      links.forEach(function(a) {
+        if(a.getAttribute("href") === "#" + current) {
+          a.classList.add("active");
+        } else {
+          a.classList.remove("active");
+        }
+      });
     }
-  }
+    window.addEventListener("scroll", updateTOC, {passive: true});
+    updateTOC();
+  })();
 </script>
-
 </body>
 </html>

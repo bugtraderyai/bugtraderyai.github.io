@@ -2,11 +2,54 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="_ZVkMH7efLNyDOvZowNRBDQ_XYNkdWktE_PxKr0DVPs" />
-  <title>EA ไม่ได้อันตราย | bugtraderyai</title>
-  <meta name="description" content="มุมมองเชิงระบบเกี่ยวกับ EA ความเสี่ยง และการใช้งานอย่างรับผิดชอบ โดย bugtraderyai" />
+  <title>Manual Protocol | ขั้นตอนและวิธีการติดตั้งระบบ EA - bugtraderyai</title>
+  <meta name="description" content="คู่มือเชิงเทคนิคสำหรับการติดตั้งและตั้งค่า Expert Advisor (EA) อย่างละเอียด เพื่อความปลอดภัยสูงสุดในการบริหารจัดการพอร์ต" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "คู่มือการเตรียมระบบและติดตั้ง EA (Step-by-Step Guide)",
+        "description": "Protocol การติดตั้งและตั้งค่า Expert Advisor เพื่อความปลอดภัยสูงสุดในการเทรด Forex",
+        "author": {
+          "@type": "Organization",
+          "name": "BugTraderYai",
+          "url": "https://bugtraderyai.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "BugTraderYai"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://bugtraderyai.com/manual.html"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "name": "ขั้นตอนการติดตั้งระบบ EA Thailand",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "text": "ตรวจสอบหน้าจอ Dashboard หลักและสถานะการทำงาน"
+          },
+          {
+            "@type": "HowToStep",
+            "text": "การติดตั้งไฟล์ MQL เข้าสู่ Experts Directory"
+          },
+          {
+            "@type": "HowToStep",
+            "text": "ปรับจูนพารามิเตอร์ตามมาตรฐาน Safety Mode"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png" />
@@ -28,7 +71,7 @@
       --bg-page: var(--color-sand-bg);
       --bg-surface: #ffffff;
       --bg-surface-elevated: #faf6f2;
-      --bg-surface-soft: rgba(245, 236, 228, 0.6);
+      --bg-surface-soft: rgba(245, 236, 228, 0.7);
 
       --text-headline: var(--color-charcoal);
       --text-body: var(--color-slate-grey);
@@ -37,9 +80,13 @@
       --accent: var(--color-vibrant-orange);
       --accent-hover: #e05514;
       --accent-soft: rgba(252, 106, 39, 0.08);
+      --accent-border: rgba(252, 106, 39, 0.3);
 
       --border-subtle: rgba(200, 190, 180, 0.45);
-      --border-card: rgba(200, 190, 180, 0.3);
+      --border-card: rgba(200, 190, 180, 0.35);
+
+      --accent-warning: #e11d48;
+      --accent-warning-soft: #fff1f2;
 
       --radius-full: 9999px;
       --radius-xl: 32px;
@@ -66,7 +113,7 @@
       overflow-x: hidden;
     }
 
-    /* 🌐 Ambient Tech Grid (Subtle Flagship Backdrop) */
+    /* 🌐 Ambient Tech Grid */
     .bg-canvas {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -94,11 +141,11 @@
       align-items: center;
       gap: 4px;
       padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-radius: var(--radius-full);
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.9);
       box-shadow: var(--shadow-float);
       overflow-x: auto;
       max-width: 1000px;
@@ -131,15 +178,15 @@
     }
 
     .container {
-      max-width: 1080px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 40px 24px 100px;
     }
 
-    /* 🚀 Samsung-Style Hero Experience */
+    /* 🚀 Hero Section */
     .hero-section {
       text-align: center;
-      padding: 80px 20px 60px;
+      padding: 70px 20px 50px;
     }
 
     .brand-badge {
@@ -156,104 +203,42 @@
       color: var(--accent);
       border: 1px solid var(--border-subtle);
       box-shadow: var(--shadow-surface);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .hero-title {
-      font-size: clamp(38px, 6vw, 64px);
+      font-size: clamp(32px, 5.5vw, 56px);
       font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -1.5px;
+      line-height: 1.2;
+      letter-spacing: -1px;
       color: var(--text-headline);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hero-subtitle {
-      font-size: clamp(18px, 2.8vw, 24px);
-      font-weight: 400;
+      font-size: clamp(16px, 2.4vw, 20px);
+      font-weight: 500;
       color: var(--text-body);
-      max-width: 720px;
-      margin: 0 auto 36px;
-      line-height: 1.5;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    /* 🔘 Modern Capsule Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px 36px;
-      border-radius: var(--radius-full);
-      text-decoration: none;
-      font-size: 0.98rem;
-      font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #ffffff !important;
-      box-shadow: var(--shadow-orange-glow);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 16px 32px -4px rgba(252, 106, 39, 0.45);
-    }
-
-    .btn-secondary {
-      background: #ffffff;
-      color: var(--text-headline) !important;
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-surface);
-    }
-
-    .btn-secondary:hover {
-      background: var(--bg-surface-elevated);
-      border-color: var(--color-warm-stone);
-      transform: translateY(-2px);
-    }
-
-    /* 🍱 Bento Grid Architecture */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .bento-card {
+    /* 🍱 Modern Section Card */
+    .section-card {
       background: var(--bg-surface);
       border-radius: var(--radius-xl);
       padding: 44px 40px;
+      margin: 32px 0;
       border: 1px solid var(--border-card);
       box-shadow: var(--shadow-surface);
-      position: relative;
-      overflow: hidden;
       transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    .bento-card:hover {
-      transform: translateY(-4px);
+    .section-card:hover {
       box-shadow: var(--shadow-float);
       border-color: rgba(200, 190, 180, 0.6);
     }
-
-    .col-12 { grid-column: span 12; }
-    .col-8 { grid-column: span 8; }
-    .col-6 { grid-column: span 6; }
-    .col-4 { grid-column: span 4; }
 
     .card-eyebrow {
       display: inline-block;
@@ -262,196 +247,201 @@
       letter-spacing: 1.2px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .card-title {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--text-headline);
       letter-spacing: -0.5px;
       margin-bottom: 14px;
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     .card-desc {
       color: var(--text-body);
       font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    /* 💡 Modern Tooltip */
-    .tooltip {
-      position: relative;
-      display: inline-block;
-      color: var(--accent);
-      font-weight: 600;
-      cursor: help;
-      border-bottom: 1.5px dashed var(--accent);
-    }
-
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 280px;
-      background-color: var(--color-charcoal);
-      color: #ffffff;
-      text-align: left;
-      border-radius: var(--radius-md);
-      padding: 14px 18px;
-      position: absolute;
-      z-index: 100;
-      bottom: 135%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: all 0.25s ease;
-      font-size: 0.85rem;
-      line-height: 1.5;
-      box-shadow: var(--shadow-float);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    /* 📂 Fluid Accordion Component */
-    .accordion-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .accordion-item {
-      background: var(--bg-surface-elevated);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-card);
-      overflow: hidden;
-      transition: all 0.25s ease;
-    }
-
-    .accordion-item:hover {
-      border-color: var(--border-subtle);
-    }
-
-    .accordion-header {
-      padding: 22px 28px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: var(--text-headline);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
-      transition: color 0.2s ease;
-    }
-
-    .accordion-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: var(--radius-full);
-      background: #ffffff;
-      border: 1px solid var(--border-card);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      color: var(--accent);
-      transition: transform 0.3s ease;
-    }
-
-    .accordion-content {
-      max-height: 0;
-      padding: 0 28px;
-      overflow: hidden;
-      transition: max-height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), padding 0.3s ease;
-      color: var(--text-body);
-      font-size: 0.96rem;
       line-height: 1.75;
     }
 
-    /* 🛡️ Anti-Greed Hero Banner */
-    .anti-greed-card {
-      background: #ffffff;
-      border-radius: var(--radius-xl);
-      padding: 50px 40px;
-      border: 1px solid rgba(225, 29, 72, 0.2);
-      box-shadow: var(--shadow-surface);
-      text-align: center;
-      position: relative;
+    .insight-box {
+      background: var(--bg-surface-elevated);
+      border-left: 3.5px solid var(--accent);
+      padding: 18px 24px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      color: var(--text-headline);
+      font-size: 0.96rem;
+      margin-top: 20px;
+      border-top: 1px solid var(--border-card);
+      border-right: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
     }
 
-    .anti-greed-badge {
+    /* 📱 Modern Scroll-Sequence Showcase (Flagship Device Frame) */
+    .scroll-sequence-container {
+      height: 2000vh;
+      position: relative;
+      margin: 40px 0;
+    }
+
+    .main-sticky-wrapper {
+      position: sticky;
+      top: 100px;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-float);
+      overflow: hidden;
+    }
+
+    .frame-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .frame-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .frame-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .image-frame {
+      width: 100%;
+      height: 52vh;
+      min-height: 380px;
+      background: var(--bg-surface-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .sequence-image {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: none;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.08));
+    }
+
+    .sequence-image.active {
+      display: block;
+      animation: modernFadeIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .description-frame {
+      width: 100%;
+      background: #ffffff;
+      border-top: 1px solid var(--border-subtle);
+      padding: 20px 28px;
+      min-height: 95px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .desc-text {
+      display: none;
+      width: 100%;
+      font-size: 0.98rem;
+      color: var(--text-headline);
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .desc-text.active {
+      display: block;
+      animation: modernFadeIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .desc-text b {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    @keyframes modernFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 🛡️ Safety Warning Card */
+    .safety-card {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: 44px 40px;
+      border: 1px solid rgba(225, 29, 72, 0.25);
+      box-shadow: var(--shadow-surface);
+      margin: 32px 0;
+    }
+
+    .warning-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 6px 16px;
       border-radius: var(--radius-full);
-      background: #fff1f2;
-      color: #e11d48;
+      background: var(--accent-warning-soft);
+      color: var(--accent-warning);
       font-size: 0.8rem;
       font-weight: 700;
       margin-bottom: 16px;
     }
 
-    .anti-greed-title {
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: var(--text-headline);
-      margin-bottom: 12px;
-    }
-
-    .anti-greed-desc {
-      color: var(--text-body);
-      font-size: 1rem;
-      max-width: 680px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* 🔗 Navigation Action Cards */
-    .quick-links {
+    .safety-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 24px;
+      gap: 14px;
     }
 
-    .quick-card {
+    .safety-list li {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 28px;
-      background: var(--bg-surface-elevated);
-      border-radius: var(--radius-lg);
-      text-decoration: none;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.98rem;
       color: var(--text-headline);
-      font-weight: 600;
+      background: var(--bg-surface-elevated);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
       border: 1px solid var(--border-card);
-      transition: all 0.25s ease;
     }
 
-    .quick-card:hover {
-      background: #ffffff;
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-surface);
+    .safety-list li::before {
+      content: "⚠️";
+      font-size: 1rem;
     }
 
-    .quick-card span.arrow {
-      font-size: 1.2rem;
-      transition: transform 0.2s ease;
-    }
-
-    .quick-card:hover span.arrow {
-      transform: translateX(4px);
-    }
-
-    /* 🦶 Flagship Minimal Footer */
+    /* 🦶 Footer */
     footer {
       text-align: center;
       padding: 80px 20px 40px;
@@ -468,30 +458,14 @@
       font-size: 1rem;
     }
 
-    @media (max-width: 900px) {
-      .col-8, .col-6, .col-4 { grid-column: span 12; }
-      .bento-card { padding: 32px 24px; border-radius: var(--radius-lg); }
-      .hero-section { padding: 50px 10px 40px; }
-      .quick-links { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      .hero-section { padding: 40px 10px 30px; }
+      .section-card, .safety-card { padding: 30px 20px; border-radius: var(--radius-lg); }
+      .main-sticky-wrapper { top: 75px; border-radius: var(--radius-lg); }
+      .image-frame { height: 40vh; min-height: 280px; padding: 14px; }
+      .description-frame { padding: 16px 18px; min-height: 80px; }
     }
   </style>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GD0H18D9JE');
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "bugtraderyai",
-    "url": "https://bugtraderyai.com/",
-    "description": "EA Intelligence Hub | ระบบจัดการและวิเคราะห์ EA แบบมืออาชีพ"
-  }
-  </script>
 </head>
 
 <body>
@@ -500,10 +474,10 @@
 
 <div class="nav-wrapper">
   <nav class="hub-nav">
-      <a href="/" class="active">หน้าแรก</a>
+      <a href="/">หน้าแรก</a>
       <a href="/intelligence-hub.html" style="color: var(--accent); font-weight: 600;">🔥 500 คำถาม</a>
       <a href="/porthub.html">Porthub</a>
-      <a href="/manual.html">คู่มือการใช้งาน</a>
+      <a href="/manual.html" class="active">คู่มือการใช้งาน</a>
       <a href="/partners.html">Partners</a>
       <a href="/ea-system-philosophy.html">ปรัชญา</a>
       <a href="/systems.html">Systems</a>
@@ -514,107 +488,145 @@
 </div>
 
 <main class="container">
-  <section class="hero-section">
-    <div class="brand-badge">Systematic Trading Intelligence</div>
-    <h1 class="hero-title">EA ไม่ได้อันตราย</h1>
-    <h2 class="hero-subtitle">คนที่ใช้ EA โดยไม่เข้าใจต่างหากที่อันตราย</h2>
-    <div class="hero-actions">
-      <a href="/intelligence-hub.html" class="btn btn-primary">สำรวจคลังความรู้ 500 ข้อ</a>
-      <a href="https://www.myfxbook.com" target="_blank" class="btn btn-secondary">ตรวจสอบสถิติพอร์ตจริง 📊</a>
+  <header class="hero-section">
+    <div class="brand-badge">Technical Installation &amp; Configuration</div>
+    <h1 class="hero-title">คู่มือการเตรียมระบบและติดตั้ง EA</h1>
+    <h2 class="hero-subtitle">Step-by-Step Protocol เพื่อความปลอดภัยสูงสุดในการบริหารจัดการพอร์ต</h2>
+  </header>
+
+  <section class="section-card">
+    <span class="card-eyebrow">Phase 01</span>
+    <h3 class="card-title">🛡️ 1. หลักการคิดและความปลอดภัยก่อนเริ่มใช้งาน (Philosophy &amp; Risk Protocol)</h3>
+    <p class="card-desc">
+      ยินดีต้อนรับสู่ศูนย์ข้อมูลเชิงเทคนิคของ <strong>BugTraderYai</strong> หน้าเอกสารฉบับนี้คือ Protocol ในการบริหารจัดการความเสี่ยงเชิงระบบอย่างยั่งยืน เราทำหน้าที่เป็น <strong>“เกราะป้องกันทางความคิด” (Mental Safety Layer)</strong> เพื่อช่วยคัดกรองทัศนคติและสร้างความเข้าใจที่ถูกต้องให้แก่ผู้ใช้งานก่อนเข้าสู่ตลาดจริง
+    </p>
+  </section>
+
+  <div class="scroll-sequence-container" id="sequence-trigger">
+    <div class="main-sticky-wrapper">
+      <div class="frame-header">
+        <div class="frame-badge">Interactive System Showcase</div>
+        <span style="font-size: 0.8rem; color: var(--text-subtle); font-weight: 600;">Scroll to Explore ↕</span>
+      </div>
+
+      <div class="image-frame">
+        <img src="media/dashboardeaauto.webp" class="sequence-image active" width="720" height="895" alt="Dashboard EA THAILAND" />
+        <img src="media/overview.webp" class="sequence-image" width="720" height="400" alt="Overview สรุปยอด" />
+        <img src="media/manualtrade.webp" class="sequence-image" width="720" height="500" alt="Manual Trade Control" />
+        <img src="media/startlot.webp" class="sequence-image" width="720" height="500" alt="startlot" />
+        <img src="media/closeall.webp" class="sequence-image" width="241" height="296" alt="close all" />
+        <img src="media/autotrade.webp" class="sequence-image" width="254" height="542" alt="auto trade" />
+        <img src="media/autoall.webp" class="sequence-image" width="253" height="128" alt="auto all" />
+        <img src="media/autobuy.webp" class="sequence-image" width="255" height="128" alt="auto buy" />
+        <img src="media/autosell.webp" class="sequence-image" width="252" height="130" alt="auto sell" />
+        <img src="media/pendingstopout.webp" class="sequence-image" width="251" height="100" alt="pending stop out" />
+        <img src="media/zonerecovery.webp" class="sequence-image" width="251" height="98" alt="zone recovery" />
+        <img src="media/antimartingale.webp" class="sequence-image" width="249" height="98" alt="anti martingale" />
+        <img src="media/martingale.webp" class="sequence-image" width="250" height="99" alt="martingale" />
+        <img src="media/grid.webp" class="sequence-image" width="250" height="27" alt="grid" />
+        <img src="media/timeframe.webp" class="sequence-image" width="250" height="24" alt="timeframe" />
+        <img src="media/multilotbuysell.webp" class="sequence-image" width="252" height="167" alt="multilot buy sell" />
+        <img src="media/trailingstop.webp" class="sequence-image" width="248" height="69" alt="trailing stop" />
+        <img src="media/targetprofittoday.webp" class="sequence-image" width="253" height="66" alt="target profit today" />
+        <img src="media/hedgingsystem.webp" class="sequence-image" width="678" height="69" alt="hedging system" />
+        <img src="media/hedgingmanual.webp" class="sequence-image" width="178" height="68" alt="hedging manual" />
+        <img src="media/hedgingauto.webp" class="sequence-image" width="243" height="69" alt="hedging auto" />
+        <img src="media/hedgingtechnical.webp" class="sequence-image" width="162" height="70" alt="hedging technical" />
+        <img src="media/profitcancelloss.webp" class="sequence-image" width="520" height="67" alt="profit cancel loss" />
+        <img src="media/grouporderstep.webp" class="sequence-image" width="162" height="66" alt="group order step" />
+        <img src="media/rebalance.webp" class="sequence-image" width="163" height="69" alt="rebalance" />
+        <img src="media/indicator.webp" class="sequence-image" width="570" height="68" alt="indicator" />
+        <img src="media/functions.webp" class="sequence-image" width="678" height="68" alt="functions" />
+        <img src="media/modetradenow.webp" class="sequence-image" width="178" height="69" alt="mode trade now" />
+        <img src="media/modetradepending.webp" class="sequence-image" width="178" height="69" alt="mode trade pending" />
+        <img src="media/modemultilot.webp" class="sequence-image" width="130" height="70" alt="mode multi lot" />
+        <img src="media/modepluslot.webp" class="sequence-image" width="128" height="67" alt="mode plus lot" />
+        <img src="media/tpaverage.webp" class="sequence-image" width="127" height="67" alt="tp average" />
+        <img src="media/tpperorder.webp" class="sequence-image" width="128" height="67" alt="tp per order" />
+        <img src="media/fixnextindicators.webp" class="sequence-image" width="129" height="70" alt="fix next indicators" />
+        <img src="media/fixnextcandle.webp" class="sequence-image" width="129" height="70" alt="fix next candle" />
+        <img src="media/spreadfilter.webp" class="sequence-image" width="127" height="70" alt="spread filter" />
+        <img src="media/daytime.webp" class="sequence-image" width="675" height="67" alt="day time" />
+      </div>
+
+      <div class="description-frame">
+        <div class="desc-text active">📝 <b>Dashboard EA THAILAND :</b> ภาพรวมหน้าต่างควบคุมและฟังก์ชันการทำงานทั้งหมด</div>
+        <div class="desc-text">📝 <b>Overview :</b> ส่วนนี้ทำหน้าที่แสดงผลและสรุปรวมยอดสถิติในบัญชีของคุณ</div>
+        <div class="desc-text">📝 <b>Manual Trade :</b> โหมดสั่งการด้วยตนเอง เหมาะสำหรับเทรดเดอร์ที่มอนิเตอร์หน้าจอ</div>
+        <div class="desc-text">
+          📝 <b>Start Lot :</b> Lot เริ่มต้น | <b>ใส่ระยะ TP/SL :</b> ระยะนับเป็นจุด | <b>Clear TP/SL :</b> ลบล้างเส้นออก
+        </div>
+        <div class="desc-text">
+          📝 <b>Close Controls :</b> ปิดออเดอร์ All / Buy / Sell / บวกทั้งหมด / ติดลบทั้งหมด | <b>Partial Close :</b> หักปิดครึ่งเมื่อถึงเป้า
+        </div>
+        <div class="desc-text">📝 <b>Auto Trade :</b> การตั้งค่าให้ระบบ EA เริ่มต้นออกออเดอร์และบริหารหน้าตักอัตโนมัติ</div>
+        <div class="desc-text">📝 <b>Auto All :</b> เปิดออเดอร์แรกทั้ง Buy และ Sell (หากใช้ Indicator ต้องรอสัญญาณยืนยัน)</div>
+        <div class="desc-text">📝 <b>Auto Buy :</b> เปิดเฉพาะออเดอร์ Buy ในไม้แรกตามเงื่อนไขทางสถิติ</div>
+        <div class="desc-text">📝 <b>Auto Sell :</b> เปิดเฉพาะออเดอร์ Sell ในไม้แรกตามเงื่อนไขทางสถิติ</div>
+        <div class="desc-text">📝 <b>Pending Stop Out :</b> เปิดคำสั่ง Pending ดักทั้ง Buy Stop และ Sell Stop</div>
+        <div class="desc-text">📝 <b>Zone Recovery :</b> วางโซนดักราคาแบบปิงปองบน-ล่างเพื่อบริหารการกลับตัว</div>
+        <div class="desc-text">📝 <b>Anti-Martingale :</b> เพิ่มขนาดไม้ตามเมื่อกราฟเคลื่อนที่ถูกทางตามแนวโน้ม</div>
+        <div class="desc-text">📝 <b>Martingale :</b> คำนวณแก้ไม้เมื่อกราฟเคลื่อนที่ผิดทางตามค่าสถิติที่กำหนด</div>
+        <div class="desc-text">📝 <b>Grid Mode :</b> สั่งเปิดไม้แก้ทันทีเมื่อราคาวิ่งถึงระยะทางที่ระบุ</div>
+        <div class="desc-text">📝 <b>Timeframe Filter :</b> ต้องรอการปิดแท่งเทียนใน Timeframe นั้นก่อน จึงจะทำการแก้ไม้</div>
+        <div class="desc-text">
+          📝 <b>Parameter Tuning :</b> กำหนดระยะถัว (จุด), ตัวคูณ Multi Lot, และระยะ TP/SL อย่างแม่นยำ
+        </div>
+        <div class="desc-text">
+          📝 <b>Trailing Stop :</b> สร้างเส้น Stop Loss ล็อกหน้าทุนอัตโนมัติเมื่อราคาวิ่งถูกทางถึงระยะที่ตั้งไว้
+        </div>
+        <div class="desc-text">
+          📝 <b>Target Profit Today :</b> สั่งให้ระบบหยุดการเทรดทันทีเมื่อทำกำไรถึงเป้าประจำวัน ($ หรือ %)
+        </div>
+        <div class="desc-text">📝 <b>Hedging System :</b> เปิดออเดอร์ฝั่งตรงข้ามเพื่อคานความเสี่ยงและรักษาสภาพคล่อง</div>
+        <div class="desc-text">📝 <b>Hedging Manual :</b> เลือกเปิดออเดอร์คานความเสี่ยง 10% - 100% ของ Lot รวมปัจจุบัน</div>
+        <div class="desc-text">
+          📝 <b>Hedging Auto Trade :</b> ระบบจะออกไม้คานให้อัตโนมัติเมื่อค่า Drawdown (%) หรือจำนวนไม้ถึงเกณฑ์
+        </div>
+        <div class="desc-text">
+          📝 <b>Hedging Technical :</b> กลยุทธ์แก้ไม้ฝั่ง Hedging (Martingale / Anti-Martingale / แยก TP ฝั่งคาน)
+        </div>
+        <div class="desc-text">
+          📝 <b>Profit Cancel Loss :</b> ระบบจับคู่ปิดไม้กำไรตัดขาดทุนไม้ลบ (Last to First / Recover 1-1)
+        </div>
+        <div class="desc-text">📝 <b>Group Order Step :</b> กำหนดระยะแก้ไม้แบบขั้นบันไดยืดหยุ่นตามพฤติกรรมราคา</div>
+        <div class="desc-text">📝 <b>Rebalance :</b> เมื่อกำไรรวมถึงเป้า ระบบจะเคลียร์ปิดออเดอร์ทุกคู่เงินทั้งหมดทันที</div>
+        <div class="desc-text">📝 <b>Indicators :</b> เลือกระบบสัญญาณทางเทคนิคเพื่อเป็นตัวกรองในการเปิดไม้แรก</div>
+        <div class="desc-text">📝 <b>Functions :</b> โมดูลเสริมความปลอดภัยและระบบช่วยควบคุมการทำงานรอบด้าน</div>
+        <div class="desc-text">📝 <b>Mode Trade Now :</b> สั่งเปิดออเดอร์ทันทีตามราคาตลาดแบบเรียลไทม์</div>
+        <div class="desc-text">📝 <b>Mode Trade Pending :</b> สั่งส่งเป็นคำสั่ง Pending Order ตามระดับราคาที่คำนวณ</div>
+        <div class="desc-text">📝 <b>Mode Multi Lot :</b> เลือกใช้สูตรตัวคูณขนาดไม้ตามตารางอัตราเร่ง</div>
+        <div class="desc-text">📝 <b>Mode Plus Lot :</b> เลือกใช้การเพิ่มขนาด Lot แบบคงที่ทีละสเต็ป</div>
+        <div class="desc-text">📝 <b>TP Average :</b> รวมจุดทำกำไรเป็นเส้นค่าเฉลี่ยเส้นเดียวทั้งพอร์ต</div>
+        <div class="desc-text">📝 <b>TP Per Order :</b> แยกเส้น Take Profit อิสระของแต่ละออเดอร์</div>
+        <div class="desc-text">📝 <b>Fix Next Indicators :</b> ต้องรอสัญญาณ Indicator เกิดขึ้นซ้ำอีกครั้งจึงจะออกไม้แก้</div>
+        <div class="desc-text">📝 <b>Fix Next Candle :</b> ต้องรอแท่งเทียนใหม่ตามเงื่อนไขยืนยันจึงจะออกไม้แก้</div>
+        <div class="desc-text">📝 <b>Spread Filter :</b> หากค่า Spread ตลาดสูงเกินเพดานที่กำหนด ระบบจะระงับการเปิดไม้แรก</div>
+        <div class="desc-text">📝 <b>Day Time Filter :</b> กำหนดตารางวันและช่วงเวลาอนุญาตให้ระบบทำงานอย่างเคร่งครัด</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section-card">
+    <span class="card-eyebrow">Phase 02</span>
+    <h3 class="card-title">⚙️ 2. ขั้นตอนการติดตั้งและเตรียมความพร้อมของระบบ (System Implementation)</h3>
+    <p class="card-desc">
+      การเริ่มต้นใช้งานระบบภายใต้การดูแลของ BugTraderYai จะให้ความสำคัญกับการปรับจูนทัศนคติเรื่องความเสี่ยงเป็นลำดับแรก
+    </p>
+    <div class="insight-box">
+      💡 <strong>ข้อพึงระลึกเชิงระบบ:</strong> ระบบอัตโนมัติทุกประเภทล้วนมีข้อจำกัด หน้าที่สำคัญของนักลงทุนไม่ใช่การมองหากำไรสูงสุด แต่คือการทำความเข้าใจพารามิเตอร์และการจำกัดความเสียหายให้ถ่องแท้
     </div>
   </section>
 
-  <div class="bento-grid">
-    
-    <div class="bento-card col-8">
-      <span class="card-eyebrow">Enterprise Hub</span>
-      <h3 class="card-title">วิเคราะห์ระบบเทรดด้วยสถิติและตรรกะ AI</h3>
-      <p class="card-desc">
-        ก้าวข้ามการเทรดด้วยสัญชาตญาณ สู่การประเมินโครงสร้างอัลกอริทึมผ่าน <span class="tooltip">Logic AI<span class="tooltiptext">อัลกอริทึมที่คำนวณจากสถิติและบริบทตลาดจริง ไม่มีการใช้อารมณ์หรือสัญชาตญาณ</span></span> ชำแหละความเสี่ยงเชิงลึกกว่า 500 มิติ เพื่อความอยู่รอดในระยะยาว
-      </p>
-      <div style="margin-top: 28px;">
-        <a href="/intelligence-hub.html" class="btn btn-secondary">เข้าสู่ฐานข้อมูล &rarr;</a>
-      </div>
-    </div>
-
-    <div class="bento-card col-4" style="background: var(--bg-surface-elevated);">
-      <span class="card-eyebrow">Forensic Proof</span>
-      <h3 class="card-title">สถิติไม่ใช่ภาพแคป</h3>
-      <p class="card-desc">
-        เราไม่สนับสนุนภาพกำไรรายวัน ข้อมูลทุกอย่างต้องผ่านการ Backtest ย้อนหลัง 5 ปี และ Forward Test บนบัญชีจริงที่ตรวจสอบได้
-      </p>
-      <div style="margin-top: 24px;">
-        <a href="https://www.myfxbook.com" target="_blank" style="color: var(--accent); font-weight: 600; text-decoration: none; font-size: 0.95rem;">
-          ตรวจ Myfxbook &rarr;
-        </a>
-      </div>
-    </div>
-
-    <div class="bento-card col-12">
-      <span class="card-eyebrow">System Architecture</span>
-      <h3 class="card-title">หัวใจของระบบ &amp; การควบคุมความเสียหาย</h3>
-      <p class="card-desc">
-        โครงสร้างคณิตศาสตร์ที่ถูกออกแบบมาเพื่อรับมือกับสภาวะที่ตลาดไร้เหตุผล
-      </p>
-
-      <div class="accordion-list">
-        <div class="accordion-item">
-          <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span>01. Core Strategy &amp; Logic การทำงาน</span>
-            <div class="accordion-icon">+</div>
-          </div>
-          <div class="accordion-content">
-            <p>ผสานกลยุทธ์เชิงสถิติ (Quantitative Statistical Model) เน้นบริหารรอบความน่าจะเป็นและรักษาเงินต้น ไม่มีการเบิ้ลล็อตแบบ Martingale ไร้ขอบเขต</p>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span>02. สภาวะที่ระบบเสียเปรียบ &amp; เพดาน Max Drawdown</span>
-            <div class="accordion-icon">+</div>
-          </div>
-          <div class="accordion-content">
-            <p>ไม่มีระบบใดชนะทุกสภาวะ ระบบจะเสียเปรียบเมื่อเจอเทรนด์ทิศทางเดียวรุนแรงไร้การย่อตัว เราจึงกำหนดเพดาน <strong>Hard Cut Max Drawdown</strong> ชัดเจนเพื่อตัดความเสียหายทันที</p>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <div class="accordion-header" onclick="toggleAccordion(this)">
-            <span>03. ทำไมเราไม่โชว์ผลกำไรสูง ๆ?</span>
-            <div class="accordion-icon">+</div>
-          </div>
-          <div class="accordion-content">
-            <p>เพราะกำไรในอดีตไม่ใช่เครื่องการันตีอนาคต การคุยเรื่อง "ความเสี่ยง" (Risk) และ "ตรรกะ" (Logic) ให้จบก่อนเริ่มลงเงิน คือวิถีเดียวที่จะรักษาเงินต้นไว้ได้จริง</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12">
-      <div class="anti-greed-card">
-        <div class="anti-greed-badge">⚠️ Extreme Transparency</div>
-        <h3 class="anti-greed-title">ตัวกรองความจริงใจ (The Anti-Greed Filter)</h3>
-        <p class="anti-greed-desc">
-          หากเป้าหมายของคุณคือการหากำไร 100% ภายใน 3 วัน หรือมองหาระบบที่ไม่มีวันขาดทุน <strong>โปรดปิดหน้านี้ทิ้งได้เลยครับ</strong> ที่นี่เราคุยเฉพาะ <em>"คณิตศาสตร์ความเสี่ยง"</em> และ <em>"วินัยการรักษาเงินต้นเพื่อผลตอบแทนระยะยาว"</em> เท่านั้น
-        </p>
-      </div>
-    </div>
-
-    <div class="bento-card col-12">
-      <span class="card-eyebrow">Next Chapters</span>
-      <h3 class="card-title">ข้อมูลและบทวิเคราะห์สำคัญ</h3>
-      <div class="quick-links">
-        <a href="/why-most-ea-users-fail.html" class="quick-card">
-          <span>➜ เจาะลึก: ทำไมคนส่วนใหญ่ถึงใช้ EA แล้วเจ๊ง</span>
-          <span class="arrow">&rarr;</span>
-        </a>
-        <a href="/ea-system-overview.html" class="quick-card">
-          <span>➜ ภาพรวมระบบ &amp; วิศวกรรมความเสี่ยง</span>
-          <span class="arrow">&rarr;</span>
-        </a>
-      </div>
-    </div>
-
+  <div class="safety-card">
+    <div class="warning-badge">⚠️ Safety Protocol</div>
+    <h3 class="card-title">ข้อควรระวังเชิงระบบที่ต้องปฏิบัติตามอย่างเคร่งครัด</h3>
+    <ul class="safety-list">
+      <li>ทดสอบระบบในบัญชี Demo หรือ Forward Test ความเสี่ยงต่ำอย่างน้อย 2-4 สัปดาห์</li>
+      <li>ตรวจสอบการเชื่อมต่อ VPS (Virtual Private Server) ให้มีความเสถียรตลอด 24 ชั่วโมง</li>
+      <li>ห้ามแทรกแซงการทำงานด้วยการเทรดมือ (Manual Trade) ทับซ้อนในคู่เงินที่ระบบกำลังบริหาร</li>
+      <li>ระบบที่มีค่า Drawdown ในอดีตต่ำ ไม่ได้แปลว่าจะไม่มีความเสี่ยงในอนาคต จงบริหารเงินต้นอย่างระมัดระวังเสมอ</li>
+    </ul>
   </div>
 
   <footer>
@@ -624,35 +636,38 @@
 </main>
 
 <script>
-  function toggleAccordion(element) {
-    const content = element.nextElementSibling;
-    const icon = element.querySelector('.accordion-icon');
-    const isExpanded = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+  window.addEventListener('scroll', () => {
+    const trigger = document.querySelector('#sequence-trigger');
+    const images = document.querySelectorAll('.sequence-image');
+    const texts = document.querySelectorAll('.desc-text');
 
-    document.querySelectorAll('.accordion-content').forEach(c => {
-      if (c !== content) {
-        c.style.maxHeight = '0px';
-        c.style.padding = '0 28px';
-        const parentIcon = c.previousElementSibling.querySelector('.accordion-icon');
-        if (parentIcon) {
-          parentIcon.innerText = '+';
-          parentIcon.style.transform = 'rotate(0deg)';
+    if (trigger && images.length > 0) {
+      const rect = trigger.getBoundingClientRect();
+
+      // 1. คำนวณ Progress แบบละเอียด
+      let progress = -rect.top / (rect.height - window.innerHeight);
+      progress = Math.max(0, Math.min(1, progress));
+
+      // 2. ใช้ Math.round เพื่อให้การเปลี่ยนภาพสมดุลสัมพันธ์กับจำนวนเฟรม
+      const totalFrames = images.length - 1;
+      const activeIndex = Math.round(progress * totalFrames);
+
+      // 3. ป้องกันการกระตุกด้วยการเช็กสถานะเดิม (Invisible Update)
+      images.forEach((img, index) => {
+        const isActive = index === activeIndex;
+        if (img.classList.contains('active') !== isActive) {
+          img.classList.toggle('active', isActive);
         }
-      }
-    });
+      });
 
-    if (!isExpanded) {
-      content.style.maxHeight = content.scrollHeight + 30 + 'px';
-      content.style.padding = '12px 28px 24px';
-      icon.innerText = '−';
-      icon.style.transform = 'rotate(180deg)';
-    } else {
-      content.style.maxHeight = '0px';
-      content.style.padding = '0 28px';
-      icon.innerText = '+';
-      icon.style.transform = 'rotate(0deg)';
+      texts.forEach((txt, index) => {
+        const isActive = index === activeIndex;
+        if (txt.classList.contains('active') !== isActive) {
+          txt.classList.toggle('active', isActive);
+        }
+      });
     }
-  }
+  }, { passive: true });
 </script>
 
 </body>

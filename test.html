@@ -14,39 +14,41 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ===== BUGTRADERYAI: WARM SAND & VIBRANT ORANGE PALETTE ===== */
+    /* ===== SAMSUNG MODERN FLAGSHIP ARCHITECTURE ===== */
     :root {
       --color-charcoal: #292929;
       --color-slate-grey: #585757;
       --color-warm-stone: #C8BEB4;
       --color-sand-bg: #F5ECE4;
       --color-vibrant-orange: #FC6A27;
-      
-      --bg-body: var(--color-sand-bg);
-      --bg-card: #ffffff;
-      --bg-subcard: #faf5f0;
-      
-      --accent-orange: var(--color-vibrant-orange);
-      --accent-orange-hover: #e05514;
-      --accent-orange-soft: rgba(252, 106, 39, 0.12);
-      --accent-orange-border: rgba(252, 106, 39, 0.35);
-      
-      --text-main: var(--color-charcoal);
-      --text-muted: var(--color-slate-grey);
-      --text-light: #8c8985;
-      
-      --border-color: var(--color-warm-stone);
-      --border-light: rgba(200, 190, 180, 0.45);
-      
-      --accent-danger: #e11d48;
-      --accent-danger-soft: #fff1f2;
-      
-      --shadow-sm: 0 2px 4px rgba(41, 41, 41, 0.04);
-      --shadow-md: 0 12px 32px -4px rgba(41, 41, 41, 0.06), 0 4px 8px -2px rgba(41, 41, 41, 0.03);
-      --shadow-orange: 0 10px 25px -4px rgba(252, 106, 39, 0.35);
+
+      --bg-page: var(--color-sand-bg);
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #faf6f2;
+      --bg-surface-soft: rgba(245, 236, 228, 0.6);
+
+      --text-headline: var(--color-charcoal);
+      --text-body: var(--color-slate-grey);
+      --text-subtle: #8a8885;
+
+      --accent: var(--color-vibrant-orange);
+      --accent-hover: #e05514;
+      --accent-soft: rgba(252, 106, 39, 0.08);
+
+      --border-subtle: rgba(200, 190, 180, 0.45);
+      --border-card: rgba(200, 190, 180, 0.3);
+
+      --radius-full: 9999px;
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+
+      --shadow-surface: 0 4px 20px -2px rgba(41, 41, 41, 0.04);
+      --shadow-float: 0 20px 40px -10px rgba(41, 41, 41, 0.08);
+      --shadow-orange-glow: 0 12px 28px -6px rgba(252, 106, 39, 0.35);
     }
 
     * {
@@ -57,195 +59,256 @@
 
     body {
       font-family: 'Prompt', 'Plus Jakarta Sans', -apple-system, sans-serif;
-      color: var(--text-main);
-      background-color: var(--bg-body);
-      line-height: 1.75;
+      color: var(--text-headline);
+      background-color: var(--bg-page);
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    /* 🌐 ลายพื้นหลัง Grid สะอาดตาแบบ Lab สถิติ */
-    .clean-grid-bg {
+    /* 🌐 Ambient Tech Grid (Subtle Flagship Backdrop) */
+    .bg-canvas {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       z-index: -1;
       background-image: 
-        linear-gradient(to right, rgba(200, 190, 180, 0.25) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(200, 190, 180, 0.25) 1px, transparent 1px);
-      background-size: 32px 32px;
+        radial-gradient(circle at 50% 0%, rgba(252, 106, 39, 0.06) 0%, transparent 60%),
+        linear-gradient(to right, rgba(200, 190, 180, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(200, 190, 180, 0.2) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
       pointer-events: none;
     }
 
-    /* 🧭 Navbar เรียบหรู Clean Glass */
-    .hub-nav {
+    /* 🧭 Floating Pill Navigation (Samsung Style) */
+    .nav-wrapper {
+      position: sticky;
+      top: 20px;
+      z-index: 1000;
       display: flex;
       justify-content: center;
+      padding: 0 20px;
+    }
+
+    .hub-nav {
+      display: flex;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 14px 20px;
-      background: rgba(245, 236, 228, 0.9);
-      backdrop-filter: blur(16px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
+      gap: 4px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: var(--shadow-float);
+      overflow-x: auto;
+      max-width: 1000px;
+    }
+
+    .hub-nav::-webkit-scrollbar {
+      display: none;
     }
 
     .hub-nav a {
-      color: var(--text-muted);
+      color: var(--text-body);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
-      padding: 6px 14px;
-      border-radius: 8px;
-      transition: all 0.2s ease;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .hub-nav a:hover {
-      color: var(--accent-orange);
-      background: var(--accent-orange-soft);
+      color: var(--text-headline);
+      background: rgba(245, 236, 228, 0.8);
     }
 
     .hub-nav a.active {
-      color: var(--accent-orange);
+      color: #ffffff;
+      background: var(--color-charcoal);
       font-weight: 600;
-      background: #ffffff;
-      border: 1px solid var(--accent-orange-border);
-      box-shadow: var(--shadow-sm);
     }
 
-    main {
-      max-width: 860px;
+    .container {
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 40px 20px 80px;
+      padding: 40px 24px 100px;
     }
 
-    /* 🏷️ Header */
-    header {
+    /* 🚀 Samsung-Style Hero Experience */
+    .hero-section {
       text-align: center;
-      padding: 30px 0 20px;
+      padding: 80px 20px 60px;
     }
 
-    .logo-container {
-      margin-bottom: 20px;
-      display: inline-block;
-    }
-
-    .logo-img {
-      border-radius: 22px;
-      box-shadow: var(--shadow-md);
-      border: 2px solid var(--border-color);
-      background: #ffffff;
-      padding: 5px;
-    }
-
-    .system-badge {
+    .brand-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      padding: 8px 20px;
       background: #ffffff;
-      color: var(--accent-orange);
-      border: 1px solid var(--accent-orange-border);
-      padding: 6px 18px;
-      border-radius: 999px;
-      font-size: 0.82rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-surface);
+      margin-bottom: 28px;
+    }
+
+    .hero-title {
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      color: var(--text-headline);
       margin-bottom: 18px;
-      box-shadow: var(--shadow-sm);
     }
 
-    h1 {
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 700;
-      color: var(--text-main);
-      line-height: 1.25;
-      letter-spacing: -0.5px;
+    .hero-subtitle {
+      font-size: clamp(18px, 2.8vw, 24px);
+      font-weight: 400;
+      color: var(--text-body);
+      max-width: 720px;
+      margin: 0 auto 36px;
+      line-height: 1.5;
     }
 
-    h2.sub-headline {
-      font-size: clamp(18px, 2.5vw, 22px);
-      font-weight: 500;
-      color: var(--text-muted);
-      margin-top: 10px;
-      line-height: 1.4;
-    }
-
-    /* 📦 Card Sections มีมิติและกรอบชัด */
-    section {
-      background: var(--bg-card);
-      border-radius: 16px;
-      padding: 36px 32px;
-      margin: 28px 0;
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-md);
-      transition: all 0.25s ease;
-    }
-
-    section:hover {
-      border-color: var(--color-slate-grey);
-      box-shadow: 0 16px 36px -4px rgba(41, 41, 41, 0.08);
-    }
-
-    .section-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 16px;
+    .hero-actions {
       display: flex;
+      justify-content: center;
       align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 🔘 Modern Capsule Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       gap: 10px;
+      padding: 16px 36px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-size: 0.98rem;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer;
     }
 
-    .section-title span.icon {
-      color: var(--accent-orange);
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff !important;
+      box-shadow: var(--shadow-orange-glow);
     }
 
-    .intro-quote {
-      background: var(--bg-subcard);
-      border-left: 3.5px solid var(--accent-orange);
-      padding: 16px 20px;
-      border-radius: 0 10px 10px 0;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 22px;
-      border-top: 1px solid var(--border-light);
-      border-right: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -4px rgba(252, 106, 39, 0.45);
     }
 
-    /* 💡 Tooltip */
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text-headline) !important;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-surface);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-surface-elevated);
+      border-color: var(--color-warm-stone);
+      transform: translateY(-2px);
+    }
+
+    /* 🍱 Bento Grid Architecture */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .bento-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      padding: 44px 40px;
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-surface);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-float);
+      border-color: rgba(200, 190, 180, 0.6);
+    }
+
+    .col-12 { grid-column: span 12; }
+    .col-8 { grid-column: span 8; }
+    .col-6 { grid-column: span 6; }
+    .col-4 { grid-column: span 4; }
+
+    .card-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-headline);
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      color: var(--text-body);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* 💡 Modern Tooltip */
     .tooltip {
       position: relative;
       display: inline-block;
-      color: var(--accent-orange);
+      color: var(--accent);
       font-weight: 600;
-      border-bottom: 1.5px dashed var(--accent-orange);
       cursor: help;
+      border-bottom: 1.5px dashed var(--accent);
     }
 
     .tooltip .tooltiptext {
       visibility: hidden;
-      width: 260px;
+      width: 280px;
       background-color: var(--color-charcoal);
       color: #ffffff;
       text-align: left;
-      border-radius: 8px;
-      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
       position: absolute;
-      z-index: 10;
+      z-index: 100;
       bottom: 135%;
       left: 50%;
       transform: translateX(-50%);
       opacity: 0;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      font-size: 0.82rem;
+      transition: all 0.25s ease;
+      font-size: 0.85rem;
       line-height: 1.5;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--color-slate-grey);
+      box-shadow: var(--shadow-float);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .tooltip:hover .tooltiptext {
@@ -253,187 +316,163 @@
       opacity: 1;
     }
 
-    /* 🔘 ปุ่ม CTA */
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-      padding: 14px 36px;
-      background: var(--accent-orange);
-      color: #ffffff !important;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      box-shadow: var(--shadow-orange);
-      transition: all 0.2s ease;
-    }
-
-    .cta-button:hover {
-      background: var(--accent-orange-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px -4px rgba(252, 106, 39, 0.45);
-    }
-
-    /* 📊 Forensic Proof Buttons */
-    .action-links {
+    /* 📂 Fluid Accordion Component */
+    .accordion-list {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 24px;
     }
 
-    .btn-proof {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-subcard);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-
-    .btn-proof:hover {
-      background: #ffffff;
-      border-color: var(--accent-orange);
-      color: var(--accent-orange);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    /* 📂 Accordion */
     .accordion-item {
-      background: var(--bg-subcard);
-      border-radius: 10px;
-      margin-bottom: 12px;
-      border: 1px solid var(--border-light);
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-card);
       overflow: hidden;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
 
     .accordion-item:hover {
-      border-color: var(--border-color);
+      border-color: var(--border-subtle);
     }
 
     .accordion-header {
-      padding: 18px 24px;
+      padding: 22px 28px;
       cursor: pointer;
       font-weight: 600;
-      font-size: 1rem;
-      color: var(--text-main);
+      font-size: 1.05rem;
+      color: var(--text-headline);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      user-select: none;
       transition: color 0.2s ease;
     }
 
-    .accordion-header span.symbol {
-      color: var(--accent-orange);
-      font-weight: 700;
-      font-size: 1.2rem;
+    .accordion-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--accent);
+      transition: transform 0.3s ease;
     }
 
     .accordion-content {
       max-height: 0;
-      padding: 0 24px;
+      padding: 0 28px;
       overflow: hidden;
-      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
+      transition: max-height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), padding 0.3s ease;
+      color: var(--text-body);
+      font-size: 0.96rem;
+      line-height: 1.75;
     }
 
-    /* ⚠️ Anti-Greed Filter Box */
-    .disclaimer-card {
-      background: var(--accent-danger-soft);
-      border: 1px solid rgba(225, 29, 72, 0.3);
-      border-radius: 16px;
-      padding: 32px 28px;
+    /* 🛡️ Anti-Greed Hero Banner */
+    .anti-greed-card {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: 50px 40px;
+      border: 1px solid rgba(225, 29, 72, 0.2);
+      box-shadow: var(--shadow-surface);
       text-align: center;
-      margin: 32px 0;
-      box-shadow: var(--shadow-sm);
+      position: relative;
     }
 
-    .disclaimer-title {
-      font-size: 1.15rem;
+    .anti-greed-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: #fff1f2;
+      color: #e11d48;
+      font-size: 0.8rem;
       font-weight: 700;
-      color: var(--accent-danger);
-      margin-bottom: 10px;
+      margin-bottom: 16px;
     }
 
-    .disclaimer-text {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
+    .anti-greed-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-headline);
+      margin-bottom: 12px;
+    }
+
+    .anti-greed-desc {
+      color: var(--text-body);
+      font-size: 1rem;
       max-width: 680px;
       margin: 0 auto;
+      line-height: 1.7;
     }
 
-    /* 🔗 Grid การ์ดลิงก์สำคัญ */
-    .links-grid {
+    /* 🔗 Navigation Action Cards */
+    .quick-links {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin-top: 10px;
+      margin-top: 24px;
     }
 
-    .action-card {
+    .quick-card {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      padding: 24px 28px;
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-lg);
       text-decoration: none;
-      padding: 20px;
-      background: var(--bg-subcard);
-      border-radius: 12px;
-      color: var(--text-main);
+      color: var(--text-headline);
       font-weight: 600;
-      border: 1px solid var(--border-color);
-      transition: all 0.2s ease;
-      text-align: center;
+      border: 1px solid var(--border-card);
+      transition: all 0.25s ease;
     }
 
-    .action-card:hover {
+    .quick-card:hover {
       background: #ffffff;
-      border-color: var(--accent-orange);
-      color: var(--accent-orange);
+      border-color: var(--accent);
+      color: var(--accent);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-surface);
     }
 
-    /* 🦶 Footer */
+    .quick-card span.arrow {
+      font-size: 1.2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .quick-card:hover span.arrow {
+      transform: translateX(4px);
+    }
+
+    /* 🦶 Flagship Minimal Footer */
     footer {
       text-align: center;
-      padding: 50px 0 20px;
-      color: var(--text-light);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--border-color);
-      margin-top: 40px;
+      padding: 80px 20px 40px;
+      color: var(--text-subtle);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 60px;
     }
 
-    .footer-badge {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 4px 14px;
-      background: var(--bg-card);
-      color: var(--text-muted);
-      font-weight: 600;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      border: 1px solid var(--border-light);
+    .footer-brand {
+      font-weight: 700;
+      color: var(--text-headline);
+      margin-bottom: 8px;
+      font-size: 1rem;
     }
 
-    @media (max-width: 640px) {
-      .hub-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-      section { padding: 26px 20px; margin: 20px 0; }
-      .links-grid { grid-template-columns: 1fr; }
-      .btn-proof { width: 100%; justify-content: center; }
+    @media (max-width: 900px) {
+      .col-8, .col-6, .col-4 { grid-column: span 12; }
+      .bento-card { padding: 32px 24px; border-radius: var(--radius-lg); }
+      .hero-section { padding: 50px 10px 40px; }
+      .quick-links { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -457,135 +496,161 @@
 
 <body>
 
-<div class="clean-grid-bg"></div>
+<div class="bg-canvas"></div>
 
-<nav class="hub-nav">
-    <a href="/" class="active">หน้าแรก</a>
-    <a href="/intelligence-hub.html" style="color: var(--accent-orange); font-weight: 600;">🔥 500 คำถาม</a>
-    <a href="/porthub.html">Porthub</a>
-    <a href="/manual.html">คู่มือการใช้งาน</a>
-    <a href="/partners.html">Partners</a>
-    <a href="/ea-system-philosophy.html">ปรัชญา</a>
-    <a href="/systems.html">Systems</a>
-    <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
-    <a href="/anti-ea-faq.html">FAQ</a>
-    <a href="/about.html">รู้จักเรา</a>
-</nav>
+<div class="nav-wrapper">
+  <nav class="hub-nav">
+      <a href="/" class="active">หน้าแรก</a>
+      <a href="/intelligence-hub.html" style="color: var(--accent); font-weight: 600;">🔥 500 คำถาม</a>
+      <a href="/porthub.html">Porthub</a>
+      <a href="/manual.html">คู่มือการใช้งาน</a>
+      <a href="/partners.html">Partners</a>
+      <a href="/ea-system-philosophy.html">ปรัชญา</a>
+      <a href="/systems.html">Systems</a>
+      <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
+      <a href="/anti-ea-faq.html">FAQ</a>
+      <a href="/about.html">รู้จักเรา</a>
+  </nav>
+</div>
 
-<main>
-  <header>
-    <div class="logo-container">
-        <img src="media/apple-touch-icon.png" width="90" height="90" class="logo-img" alt="bugtraderyai" />
-    </div>
-    <br />
-    <div class="system-badge">Systematic Trading Intelligence</div>
-    <h1>EA ไม่ได้อันตราย</h1>
-    <h2 class="sub-headline">คนที่ใช้ EA โดยไม่เข้าใจต่างหากที่อันตราย</h2>
-  </header>
-
-  <section style="text-align: center;">
-    <h2 class="section-title" style="justify-content: center;"><span class="icon">📂</span> EA Intelligence Hub</h2>
-    <p style="color: var(--text-muted);">
-      วิเคราะห์ระบบเทรดผ่าน <span class="tooltip">Logic AI<span class="tooltiptext">อัลกอริทึมที่คำนวณจากสถิติและบริบทตลาดจริง ไม่มีการใช้อารมณ์หรือสัญชาตญาณ</span></span> และคำถามเจาะลึกความเสี่ยงกว่า 500 ข้อ
-    </p>
-    <a href="/intelligence-hub.html" class="cta-button">สำรวจคลังความรู้</a>
-  </section>
-
-  <section>
-    <h2 class="section-title"><span class="icon">📊</span> สถิติไม่ใช่ภาพแคป แต่คือนิติเวชข้อมูล</h2>
-    <div class="intro-quote">
-      "เราไม่สนับสนุนการดูผลงานผ่านภาพแคปกำไรรายวัน เพราะผลลัพธ์ระยะสั้นไม่สามารถพิสูจน์ตรรกะความอยู่รอดได้ ข้อมูลทั้งหมดต้องตรวจสอบย้อนหลังได้จริง"
-    </div>
-    <p style="color: var(--text-muted); font-size: 0.95rem;">
-      เพื่อความโปร่งใสสูงสุด ท่านสามารถเข้าไปแกะและตรวจสอบข้อมูลเชิงปริมาณ (Forward Test & Stress Test Data) ได้โดยตรง:
-    </p>
-    <div class="action-links">
-      <a href="https://www.myfxbook.com" target="_blank" class="btn-proof">
-        <span>📈 ตรวจสอบ Myfxbook (Real Account)</span>
-      </a>
-      <a href="#" target="_blank" class="btn-proof">
-        <span>📑 ดาวน์โหลด HTML Report (Backtest 5 ปี)</span>
-      </a>
+<main class="container">
+  <section class="hero-section">
+    <div class="brand-badge">Systematic Trading Intelligence</div>
+    <h1 class="hero-title">EA ไม่ได้อันตราย</h1>
+    <h2 class="hero-subtitle">คนที่ใช้ EA โดยไม่เข้าใจต่างหากที่อันตราย</h2>
+    <div class="hero-actions">
+      <a href="/intelligence-hub.html" class="btn btn-primary">สำรวจคลังความรู้ 500 ข้อ</a>
+      <a href="https://www.myfxbook.com" target="_blank" class="btn btn-secondary">ตรวจสอบสถิติพอร์ตจริง 📊</a>
     </div>
   </section>
 
-  <section>
-    <h2 class="section-title"><span class="icon">⚙️</span> หัวใจของระบบ & การจำกัดความเสียหาย</h2>
+  <div class="bento-grid">
     
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span>Core Strategy & Logic การทำงาน</span> <span class="symbol">+</span>
-      </div>
-      <div class="accordion-content">
-        <p>ผสานกลยุทธ์เชิงสถิติ (Quantitative Model) เก็บกำไรตามความน่าจะเป็น ตัดอารมณ์ความกลัวและความโลภออกไปอย่างเด็ดขาด ไม่มีการเบิ้ลล็อตอย่างไร้ขอบเขต</p>
+    <div class="bento-card col-8">
+      <span class="card-eyebrow">Enterprise Hub</span>
+      <h3 class="card-title">วิเคราะห์ระบบเทรดด้วยสถิติและตรรกะ AI</h3>
+      <p class="card-desc">
+        ก้าวข้ามการเทรดด้วยสัญชาตญาณ สู่การประเมินโครงสร้างอัลกอริทึมผ่าน <span class="tooltip">Logic AI<span class="tooltiptext">อัลกอริทึมที่คำนวณจากสถิติและบริบทตลาดจริง ไม่มีการใช้อารมณ์หรือสัญชาตญาณ</span></span> ชำแหละความเสี่ยงเชิงลึกกว่า 500 มิติ เพื่อความอยู่รอดในระยะยาว
+      </p>
+      <div style="margin-top: 28px;">
+        <a href="/intelligence-hub.html" class="btn btn-secondary">เข้าสู่ฐานข้อมูล &rarr;</a>
       </div>
     </div>
 
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span>ระบบกลัวตลาดแบบไหน & คุม Max Drawdown ยังไง?</span> <span class="symbol">+</span>
-      </div>
-      <div class="accordion-content">
-        <p>ไม่มีระบบไหนชนะได้ทุกสภาวะ ระบบจะเสียเปรียบที่สุดเมื่อเจอ <strong>เทรนด์ทิศทางเดียวรุนแรงไร้การพักตัว</strong> หรือข่าวนอกตาราง เราจึงล็อกเพดาน <strong>Max Drawdown (Hard Cut)</strong> เพื่อตัดความเสียหายและรักษาเงินต้นไว้เสมอ</p>
-      </div>
-    </div>
-    
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span>ทำไมเราไม่โชว์ผลกำไรสูง ๆ?</span> <span class="symbol">+</span>
-      </div>
-      <div class="accordion-content">
-        <p>เพราะกำไรในอดีตไม่ใช่เครื่องการันตีอนาคต เราให้ความสำคัญกับการทำความเข้าใจ <strong>"ความเสี่ยง" (Risk)</strong> และ <strong>"ตรรกะคณิตศาสตร์" (Logic)</strong> เพื่อให้คุณคุมพอร์ตให้อยู่รอดได้จริงในทุกสภาวะตลาด</p>
+    <div class="bento-card col-4" style="background: var(--bg-surface-elevated);">
+      <span class="card-eyebrow">Forensic Proof</span>
+      <h3 class="card-title">สถิติไม่ใช่ภาพแคป</h3>
+      <p class="card-desc">
+        เราไม่สนับสนุนภาพกำไรรายวัน ข้อมูลทุกอย่างต้องผ่านการ Backtest ย้อนหลัง 5 ปี และ Forward Test บนบัญชีจริงที่ตรวจสอบได้
+      </p>
+      <div style="margin-top: 24px;">
+        <a href="https://www.myfxbook.com" target="_blank" style="color: var(--accent); font-weight: 600; text-decoration: none; font-size: 0.95rem;">
+          ตรวจ Myfxbook &rarr;
+        </a>
       </div>
     </div>
-  </section>
 
-  <div class="disclaimer-card">
-    <div class="disclaimer-title">⚠️ ตัวกรองความจริงใจ (The Anti-Greed Filter)</div>
-    <p class="disclaimer-text">
-      หากเป้าหมายของคุณคือการหากำไร 100% ภายใน 3 วัน หรือมองหาระบบที่ไม่เคยติดลบ <strong>โปรดปิดหน้านี้ทิ้งได้เลยครับ</strong><br />
-      ที่นี่เราคุยเฉพาะ <em>"คณิตศาสตร์ความเสี่ยง"</em> และ <em>"วินัยการรักษาเงินต้นเพื่อผลตอบแทนระยะยาว"</em> เท่านั้น
-    </p>
+    <div class="bento-card col-12">
+      <span class="card-eyebrow">System Architecture</span>
+      <h3 class="card-title">หัวใจของระบบ &amp; การควบคุมความเสียหาย</h3>
+      <p class="card-desc">
+        โครงสร้างคณิตศาสตร์ที่ถูกออกแบบมาเพื่อรับมือกับสภาวะที่ตลาดไร้เหตุผล
+      </p>
+
+      <div class="accordion-list">
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>01. Core Strategy &amp; Logic การทำงาน</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>ผสานกลยุทธ์เชิงสถิติ (Quantitative Statistical Model) เน้นบริหารรอบความน่าจะเป็นและรักษาเงินต้น ไม่มีการเบิ้ลล็อตแบบ Martingale ไร้ขอบเขต</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>02. สภาวะที่ระบบเสียเปรียบ &amp; เพดาน Max Drawdown</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>ไม่มีระบบใดชนะทุกสภาวะ ระบบจะเสียเปรียบเมื่อเจอเทรนด์ทิศทางเดียวรุนแรงไร้การย่อตัว เราจึงกำหนดเพดาน <strong>Hard Cut Max Drawdown</strong> ชัดเจนเพื่อตัดความเสียหายทันที</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>03. ทำไมเราไม่โชว์ผลกำไรสูง ๆ?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>เพราะกำไรในอดีตไม่ใช่เครื่องการันตีอนาคต การคุยเรื่อง "ความเสี่ยง" (Risk) และ "ตรรกะ" (Logic) ให้จบก่อนเริ่มลงเงิน คือวิถีเดียวที่จะรักษาเงินต้นไว้ได้จริง</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="anti-greed-card">
+        <div class="anti-greed-badge">⚠️ Extreme Transparency</div>
+        <h3 class="anti-greed-title">ตัวกรองความจริงใจ (The Anti-Greed Filter)</h3>
+        <p class="anti-greed-desc">
+          หากเป้าหมายของคุณคือการหากำไร 100% ภายใน 3 วัน หรือมองหาระบบที่ไม่มีวันขาดทุน <strong>โปรดปิดหน้านี้ทิ้งได้เลยครับ</strong> ที่นี่เราคุยเฉพาะ <em>"คณิตศาสตร์ความเสี่ยง"</em> และ <em>"วินัยการรักษาเงินต้นเพื่อผลตอบแทนระยะยาว"</em> เท่านั้น
+        </p>
+      </div>
+    </div>
+
+    <div class="bento-card col-12">
+      <span class="card-eyebrow">Next Chapters</span>
+      <h3 class="card-title">ข้อมูลและบทวิเคราะห์สำคัญ</h3>
+      <div class="quick-links">
+        <a href="/why-most-ea-users-fail.html" class="quick-card">
+          <span>➜ เจาะลึก: ทำไมคนส่วนใหญ่ถึงใช้ EA แล้วเจ๊ง</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="/ea-system-overview.html" class="quick-card">
+          <span>➜ ภาพรวมระบบ &amp; วิศวกรรมความเสี่ยง</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 
-  <section>
-    <h2 class="section-title"><span class="icon">🔗</span> ข้อมูลสำคัญ</h2>
-    <div class="links-grid">
-      <a href="/why-most-ea-users-fail.html" class="action-card">➜ ทำไมคนส่วนใหญ่เจ๊ง</a>
-      <a href="/ea-system-overview.html" class="action-card">➜ ภาพรวมระบบ</a>
-    </div>
-  </section>
-
   <footer>
-    <p>© 2026 BUGTRADERYAI — SYSTEMATIC RISK MANAGEMENT</p>
-    <div class="footer-badge">Extreme Transparency Edition</div>
+    <div class="footer-brand">BUGTRADERYAI</div>
+    <p>© 2026 BUGTRADERYAI — SYSTEMATIC RISK ARCHITECTURE. ALL RIGHTS RESERVED.</p>
   </footer>
 </main>
 
 <script>
   function toggleAccordion(element) {
     const content = element.nextElementSibling;
+    const icon = element.querySelector('.accordion-icon');
     const isExpanded = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
-    
+
     document.querySelectorAll('.accordion-content').forEach(c => {
       if (c !== content) {
         c.style.maxHeight = '0px';
-        c.style.padding = '0 24px';
-        c.previousElementSibling.querySelector('.symbol').innerText = '+';
-        c.previousElementSibling.style.color = 'var(--text-main)';
+        c.style.padding = '0 28px';
+        const parentIcon = c.previousElementSibling.querySelector('.accordion-icon');
+        if (parentIcon) {
+          parentIcon.innerText = '+';
+          parentIcon.style.transform = 'rotate(0deg)';
+        }
       }
     });
 
     if (!isExpanded) {
       content.style.maxHeight = content.scrollHeight + 30 + 'px';
-      content.style.padding = '16px 24px 20px';
-      element.querySelector('.symbol').innerText = '−';
-      element.style.color = 'var(--accent-orange)';
+      content.style.padding = '12px 28px 24px';
+      icon.innerText = '−';
+      icon.style.transform = 'rotate(180deg)';
     } else {
       content.style.maxHeight = '0px';
-      content.style.padding = '0 24px';
-      element.querySelector('.symbol').innerText = '+';
-      element.style.color = 'var(--text-main)';
+      content.style.padding = '0 28px';
+      icon.innerText = '+';
+      icon.style.transform = 'rotate(0deg)';
     }
   }
 </script>

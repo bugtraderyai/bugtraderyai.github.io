@@ -4,260 +4,288 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="คู่มือการใช้งาน PortHub สำหรับผู้ใช้งาน (Systematic Operation Manual)">
-<title>คู่มือการใช้งาน PortHub | BugTraderYai V9</title>
-
+<link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+<title>คู่มือการใช้งาน PortHub | BugTraderYai V9</title>
 <style>
-  /* =========================================================
-     THE ULTIMATE MIX TOKENS (Ivory Glass 3.0 - Hi-End)
-     Palette: #292929 | #585757 | #C8BEB4 | #F5ECE4 | #FC6A27
-  ========================================================= */
+  /* ===== IVORY GLASS 3.0 (Hi-End World Class) ===== */
   :root {
-    --bg-ambient: #FAF7F2; 
-    --bg-surface: #FFFFFF;
-    --bg-surface-elevated: #F5ECE4;
-    
-    --text-hero: #1A1A1A;
-    --text-headline: #292929;
-    --text-body: #585757;
-    --text-muted: #8A8884;
-    
-    --accent-orange: #FC6A27;
-    --accent-glow: rgba(252, 106, 39, 0.15);
-    
-    --border-subtle: rgba(200, 190, 180, 0.4);
-    --border-active: rgba(252, 106, 39, 0.4);
-    
-    --radius-pill: 999px;
-    --radius-xl: 32px;
-    --radius-lg: 24px;
-    --radius-md: 16px;
+    --paper: #FAF7F2; 
+    --card: #FFFFFF; 
+    --ink: #1A1A1A; 
+    --ink-2: #585757; 
+    --muted: #8A8884;
+    --line: rgba(200, 190, 180, 0.4); 
+    --line-soft: rgba(200, 190, 180, 0.15);
+    --accent: #FC6A27; 
+    --accent-soft: rgba(252, 106, 39, 0.08); 
+    --admin: #8a5a12; 
+    --admin-soft: #fbf0dd;
+    --up: #10b981; 
+    --down: #f43f5e; 
+    --warn: #f59e0b;
+    --chrome: #F5ECE4; 
+    --screen: #FFFFFF; 
+    --screen-side: #FAF7F2;
+    --radius: 16px;
+    --mono: "Courier New", Courier, monospace;
+    --sans: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     
     --shadow-ambient: 0 40px 80px -20px rgba(41, 41, 41, 0.08);
     --shadow-card: 0 10px 30px -10px rgba(41, 41, 41, 0.05);
-    --shadow-btn: 0 16px 32px -8px rgba(252, 106, 39, 0.35);
-
     --ease-linear: cubic-bezier(0.16, 1, 0.3, 1);
-
-    /* Status Colors */
-    --up: #10b981;
-    --down: #f43f5e;
-    --warn: #f59e0b;
-    --mono: 'Courier New', Courier, monospace;
+  }
+  
+  /* Dark Mode: Charcoal Quant Luxury */
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884;
+      --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05);
+      --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15);
+      --up: #34d399; --down: #fb7185; --warn: #fbbf24;
+      --chrome: #1f1f1f; --screen: #1a1a1a; --screen-side: #141414;
+    }
+  }
+  :root[data-theme="dark"]{
+      --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884;
+      --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05);
+      --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15);
+      --up: #34d399; --down: #fb7185; --warn: #fbbf24;
+      --chrome: #1f1f1f; --screen: #1a1a1a; --screen-side: #141414;
+  }
+  :root[data-theme="light"]{
+    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884;
+    --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15);
+    --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); 
+    --up: #10b981; --down: #f43f5e; --warn: #f59e0b;
+    --chrome: #F5ECE4; --screen: #FFFFFF; --screen-side: #FAF7F2;
   }
 
-  * { box-sizing: border-box; font-family: 'Prompt', 'Plus Jakarta Sans', sans-serif; }
-  body { 
-    margin: 0; background: var(--bg-ambient); color: var(--text-headline); 
-    font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-
+  *{box-sizing:border-box;font-family:var(--sans)}
+  button,input,select,textarea,code{font-family:var(--sans)}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased; transition: background 0.4s ease;}
+  html{scroll-behavior:smooth;scroll-padding-top:100px}
+  
   /* 🌐 Ambient Canvas */
   .ambient-canvas {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.8) 0%, transparent 80%);
+    background: radial-gradient(circle at 50% 0%, rgba(252,106,39,0.05) 0%, transparent 80%);
     pointer-events: none;
   }
 
-  /* 🧭 Floating Glass Dock */
+  /* 🧭 Floating Glass Dock (Nav) */
   .dock-container {
     position: sticky; top: 24px; z-index: 1000; display: flex; justify-content: center; padding: 0 20px;
   }
   .glass-dock {
     display: flex; align-items: center; gap: 4px; padding: 6px 8px;
-    background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-    border-radius: var(--radius-pill); border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 12px 32px -8px rgba(41, 41, 41, 0.08); max-width: 100%; overflow-x: auto;
+    background: color-mix(in srgb, var(--card) 85%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border-radius: 999px; border: 1px solid var(--line);
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08); max-width: 100%; overflow-x: auto;
   }
   .glass-dock::-webkit-scrollbar { display: none; }
-  
   .nav-brand-logo {
     display: flex; align-items: center; padding-left: 6px; padding-right: 14px;
-    border-right: 1px solid var(--border-subtle); margin-right: 6px; text-decoration: none;
+    border-right: 1px solid var(--line); margin-right: 6px; text-decoration: none;
   }
-  .nav-brand-logo img { height: 36px; width: auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+  .nav-brand-logo img { height: 32px; width: auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
   .nav-brand-logo:hover img { transform: scale(1.05); }
-
   .dock-link {
-    color: var(--text-body); text-decoration: none; font-size: 0.88rem; font-weight: 500;
-    padding: 8px 20px; border-radius: var(--radius-pill); white-space: nowrap; transition: all 0.4s var(--ease-linear);
+    color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500;
+    padding: 8px 20px; border-radius: 999px; white-space: nowrap; transition: all 0.4s var(--ease-linear);
   }
-  .dock-link:hover { color: var(--text-headline); background: rgba(245, 236, 228, 0.6); }
-  .dock-link.active { color: #ffffff; background: var(--text-headline); font-weight: 600; box-shadow: 0 4px 12px rgba(41, 41, 41, 0.15); }
+  .dock-link:hover { color: var(--ink); background: var(--line-soft); }
+  .dock-link.active { color: #ffffff; background: var(--ink); font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
-  /* 📄 Layout Grid */
-  .wrap { max-width: 1240px; margin: 40px auto 0; padding: 0 28px 96px; display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
-  @media(max-width:900px){ .wrap { grid-template-columns: 1fr; gap: 0; padding: 0 16px 64px; margin-top: 20px;} }
+  /* ---------- Layout Grid ---------- */
+  .wrap{max-width:1240px;margin:40px auto 0;padding:0 28px 96px;display:grid;grid-template-columns:260px 1fr;gap:48px}
+  @media(max-width:900px){.wrap{grid-template-columns:1fr;gap:0;padding:0 16px 64px; margin-top: 20px;}}
 
-  /* 💎 Apple Hierarchy Hero */
-  header.top { 
-    grid-column: 1/-1; padding: 80px 40px; margin-bottom: 40px; 
-    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); 
-    box-shadow: var(--shadow-card); text-align: center; position: relative; overflow: hidden;
-  }
-  .hero-badge {
-    display: inline-block; padding: 8px 24px; border-radius: var(--radius-pill); font-size: 0.8rem; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase; background: var(--bg-ambient); color: var(--accent-orange);
-    border: 1px solid var(--border-subtle); margin-bottom: 24px;
-  }
-  header.top h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; color: var(--text-hero); }
-  .lede { color: var(--text-body); max-width: 760px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6; }
-  .meta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-  .meta span { font-size: 11px; color: var(--text-muted); border: 1px solid var(--border-subtle); border-radius: var(--radius-pill); padding: 6px 16px; background: var(--bg-surface-elevated); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  /* ---------- Hero Masthead (Apple Hierarchy) ---------- */
+  header.top{grid-column:1/-1;padding:80px 40px;margin-bottom:40px;border:1px solid var(--line);border-radius:32px;background:var(--card);box-shadow:var(--shadow-card);position:relative;overflow:hidden;text-align:center;}
+  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:24px;}
+  h1{font-size:clamp(36px,5.5vw,64px);line-height:1.1;margin:0 0 .2em;font-weight:800;letter-spacing:-1px;color:var(--ink);}
+  .lede{color:var(--ink-2);max-width:68ch;margin:0 auto 30px; font-size: 1.05rem;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;justify-content:center;}
+  .meta span{font-size:11px;color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:5px 14px;background:var(--paper); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
 
-  /* 🧭 Table of Contents (Sticky) */
-  nav.toc { 
-    position: sticky; top: 100px; align-self: start; max-height: calc(100vh - 120px); overflow-y: auto; 
-    border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px 24px; 
-    background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); box-shadow: var(--shadow-card); 
-  }
+  /* ---------- TOC (Sticky Glass) ---------- */
+  nav.toc{position:sticky;top:100px;align-self:start;font-size:14px;max-height:calc(100vh - 120px);overflow:auto;border:1px solid var(--line);border-radius:24px;padding:24px;background:color-mix(in srgb, var(--card) 80%, transparent);backdrop-filter:blur(12px);box-shadow:var(--shadow-card)}
+  @media(max-width:900px){nav.toc{position:static;margin-bottom:36px;}}
   nav.toc::-webkit-scrollbar { width: 4px; }
-  nav.toc::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 4px; }
-  @media(max-width:900px){ nav.toc { position: static; margin-bottom: 36px; } }
-  nav.toc .grp b { display: block; font-size: 11px; margin-bottom: 16px; color: var(--accent-orange); font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
-  nav.toc a { display: block; color: var(--text-body); text-decoration: none; padding: 10px 14px; margin: 4px 0; border-radius: 8px; font-size: 0.95rem; font-weight: 500; transition: 0.3s; }
-  nav.toc a.active { color: var(--accent-orange); background: var(--bg-ambient); font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-  nav.toc a:hover:not(.active) { color: var(--text-headline); background: rgba(0,0,0,0.02); }
-
-  /* 🍱 Content Sections (Bento Cards) */
-  main { min-width: 0; z-index: 1; }
+  nav.toc::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+  nav.toc .grp b{display:block;font-size:12px;margin-bottom:12px; color:var(--accent); font-weight:800; letter-spacing: 1.5px; text-transform: uppercase;}
+  nav.toc a{display:block;color:var(--ink-2);text-decoration:none;padding:8px 12px;margin:4px 0;border-radius:8px;transition:0.3s; font-weight: 500;}
+  nav.toc a.active{color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  nav.toc a:hover:not(.active){color:var(--ink);background:var(--line-soft);}
   
-  .guide-tools { margin-bottom: 30px; }
-  .searchbox { display: flex; align-items: center; gap: 12px; border: 1px solid var(--border-subtle); border-radius: var(--radius-pill); background: var(--bg-surface); padding: 14px 24px; box-shadow: var(--shadow-card); transition: 0.3s; }
-  .searchbox:focus-within { border-color: var(--accent-orange); box-shadow: 0 0 0 3px rgba(252,106,39,0.1); }
-  .searchbox input { width: 100%; font: inherit; color: var(--text-headline); background: transparent; border: 0; outline: 0; font-size: 1rem; }
+  main{min-width:0}
   
-  .quickstart { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 0 0 48px; }
-  .quick-card { display: flex; flex-direction: column; text-decoration: none; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-surface); padding: 24px; transition: all 0.4s var(--ease-linear); box-shadow: var(--shadow-card); }
-  .quick-card:hover { transform: translateY(-4px); border-color: var(--accent-orange); box-shadow: var(--shadow-ambient); }
-  .quick-card .qnum { font-family: var(--mono); font-size: 12px; color: var(--accent-orange); font-weight: 800; margin-bottom: 8px; }
-  .quick-card b { font-size: 1.1rem; color: var(--text-headline); font-weight: 700; margin-bottom: 4px; }
-  .quick-card small { color: var(--text-body); font-size: 0.85rem; }
-
-  section { 
-    margin-bottom: 40px; scroll-margin-top: 100px; 
-    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); 
-    padding: 48px 40px; box-shadow: var(--shadow-card); position: relative; overflow: hidden;
-    transition: transform 0.5s var(--ease-linear), box-shadow 0.5s var(--ease-linear); 
-  }
-  
-  /* Linear Glow Effect on Section Hover */
+  /* ---------- Bento Sections & Linear Glow ---------- */
+  section{margin-bottom:40px;scroll-margin-top:100px;background:var(--card);border:1px solid var(--line);border-radius:32px;padding:48px 40px;box-shadow:var(--shadow-card);position:relative;z-index:1;transition:transform 0.5s var(--ease-linear), box-shadow 0.5s var(--ease-linear);}
   section::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; padding: 2px;
-    background: linear-gradient(135deg, rgba(252,106,39,0.4) 0%, rgba(252,106,39,0) 50%, rgba(200,190,180,0.2) 100%);
+    background: linear-gradient(135deg, rgba(252,106,39,0.5) 0%, rgba(252,106,39,0) 50%, rgba(200,190,180,0.4) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
     opacity: 0; z-index: -1; transition: opacity 0.5s var(--ease-linear);
   }
-  section:hover { transform: translateY(-4px); box-shadow: var(--shadow-ambient); }
-  section:hover::before { opacity: 1; }
-  section:target { border-color: var(--accent-orange); }
-
-  .part-header { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--border-subtle); }
-  .part-header .tag { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-orange); font-weight: 800; display: block; margin-bottom: 10px; }
-  .part-header h2 { font-size: 32px; margin: 0; font-weight: 800; color: var(--text-hero); letter-spacing: -1px; }
-
-  h3 { font-size: 22px; margin: 0 0 20px; font-weight: 800; display: flex; align-items: center; gap: 12px; color: var(--text-headline); letter-spacing: -0.5px; }
-  h3 .n { font-family: var(--mono); font-size: 14px; color: #fff; background: var(--text-headline); border-radius: 6px; padding: 4px 10px; flex: none; font-weight: 700; }
+  section:hover{transform:translateY(-4px);box-shadow:var(--shadow-ambient);}
+  section:hover::before{opacity:1;}
+  section:target{border-color:var(--accent);}
   
-  p, li { color: var(--text-body); font-size: 1.05rem; }
-  p { margin: 0 0 20px; max-width: 72ch; }
-  ol.steps, ul.plain { margin: 0 0 24px; padding-left: 24px; max-width: 72ch; }
-  ol.steps li, ul.plain li { margin-bottom: 10px; }
-  code { font-family: var(--mono); font-size: 0.9em; background: var(--bg-surface-elevated); color: var(--accent-orange); border-radius: 4px; padding: 2px 6px; border: 1px solid var(--border-subtle); font-weight: 600; }
+  .part{border-bottom:1px solid var(--line);padding-bottom:20px;margin:0 0 34px}
+  .part .tag{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:800;display:block;margin-bottom:8px;}
+  .part h2{font-size:32px;margin:0;font-weight:800;letter-spacing:-1px;}
+  .part p{margin:10px 0 0;color:var(--ink-2);max-width:62ch}
+
+  h3{font-size:24px;margin:0 0 16px;font-weight:800;display:flex;align-items:center;gap:12px;letter-spacing:-0.5px;}
+  h3 .n{font-family:var(--mono);font-size:14px;color:var(--card);background:var(--ink);border-radius:6px;padding:4px 10px;flex:none;font-weight:700;}
+  h3+p{margin:0 0 20px;color:var(--ink-2);max-width:68ch}
+  h4.sub{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px;font-weight:700;}
+
+  ol.steps, ul.plain{margin:0 0 24px;padding-left:24px;max-width:68ch}
+  ol.steps li, ul.plain li{margin-bottom:8px}
+  code{font-family:var(--mono);font-size:.9em;background:var(--line-soft);color:var(--accent);border-radius:4px;padding:2px 6px;border:1px solid var(--line);font-weight:600;}
   
-  .note { border-left: 4px solid var(--accent-orange); background: var(--bg-ambient); padding: 18px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; font-size: 0.95rem; color: var(--text-body); border: 1px solid var(--border-subtle); border-left-width: 4px; }
-  .note.warn { border-left-color: var(--warn); background: #FFFBEB; }
-  .note b { color: var(--text-headline); font-weight: 700; }
-
-  .affiliate-link { display: inline-block; padding: 12px 28px; background: #fff; border: 1px solid var(--border-subtle); border-radius: var(--radius-pill); color: var(--accent-orange); font-weight: 700; transition: 0.3s; margin: 10px 0; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-  .affiliate-link:hover { background: var(--accent-orange); color: #fff; box-shadow: var(--shadow-btn); transform: translateY(-2px); border-color: var(--accent-orange); }
-
-  /* 💻 Device Mockups (MacOS / iOS Minimal Style) */
-  .shots { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; margin: 32px 0 16px; }
-  figure { margin: 0; flex: 1 1 400px; min-width: 0; }
-  figure.narrow { flex: 0 0 auto; }
-  figcaption { font-size: 13px; color: var(--text-muted); margin-top: 16px; font-weight: 500; }
-  figcaption b { color: var(--text-headline); font-weight: 700; }
-
-  /* Mac Window */
-  .desktop { border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; background: #fff; box-shadow: var(--shadow-ambient); }
-  .bar { background: #F3F4F6; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #E5E7EB; }
-  .dots { display: flex; gap: 8px; } 
-  .dots i { width: 12px; height: 12px; border-radius: 50%; display: block; }
-  .dots i:nth-child(1) { background: #FF5F56; } .dots i:nth-child(2) { background: #FFBD2E; } .dots i:nth-child(3) { background: #27C93F; }
-  .url { flex: 1; background: #fff; border: 1px solid #E5E7EB; border-radius: 6px; font-family: var(--mono); font-size: 11px; color: var(--text-muted); padding: 6px 12px; text-align: center; max-width: 60%; margin: 0 auto; }
-
-  /* iPhone Window */
-  .phone { width: 280px; border: 10px solid #1A1A1A; border-radius: 36px; overflow: hidden; background: #fff; box-shadow: var(--shadow-ambient); position: relative; }
-  .phone .notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 20px; background: #1A1A1A; border-radius: 0 0 10px 10px; z-index: 10; }
-  .phone .status { display: flex; justify-content: space-between; padding: 12px 20px 8px; font-size: 11px; font-weight: 600; color: #1A1A1A; }
-  .phone .home { height: 4px; width: 100px; border-radius: 99px; background: #D1D5DB; margin: 15px auto 10px; }
-
-  /* UI Atoms (Light Theme) */
-  .ui { padding: 20px; font-size: 13px; color: var(--text-headline); }
-  .ui .row { display: flex; gap: 0; }
-  .side { width: 160px; flex: none; background: #F9FAFB; border-right: 1px solid #E5E7EB; padding: 24px 16px; display: flex; flex-direction: column; gap: 8px; }
-  .side .brand { font-weight: 800; font-size: 14px; color: var(--text-headline); margin-bottom: 16px; letter-spacing: 1px; }
-  .side .grp { font-size: 10px; font-weight: 700; color: var(--text-muted); margin: 16px 0 4px; text-transform: uppercase; }
-  .side .it { padding: 8px 12px; border-radius: 6px; color: var(--text-body); font-weight: 500; font-size: 12px; }
-  .side .it.on { background: #fff; color: var(--accent-orange); font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+  .note{border-left:4px solid var(--accent);background:var(--paper);padding:18px 24px;border-radius:0 12px 12px 0;margin:24px 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .note.warn{border-left-color:var(--warn);background:color-mix(in srgb,var(--warn) 5%,var(--paper));}
+  .note b{color:var(--ink);font-weight:700;}
   
-  .body { flex: 1; padding: 24px; display: flex; flex-direction: column; gap: 16px; background: #fff; }
-  .h { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #E5E7EB; padding-bottom: 12px; margin-bottom: 8px; }
-  .h .t { font-weight: 800; font-size: 18px; color: var(--text-headline); }
-  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .cards.c3 { grid-template-columns: repeat(3, 1fr); }
-  .kpi { border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-  .kpi .k { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
-  .kpi .v { font-family: var(--mono); font-size: 18px; font-weight: 700; margin-top: 8px; color: var(--text-headline); }
-  .v.up { color: var(--up); }
-  .v.down { color: var(--down); }
+  .guide-tools{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:24px}
+  .searchbox{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:999px;background:var(--card);padding:12px 20px;box-shadow:var(--shadow-card);transition:0.3s;}
+  .searchbox:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+  .searchbox input{width:100%;font:inherit;color:var(--ink);background:transparent;border:0;outline:0;font-size:1rem;}
   
-  .panel { border: 1px solid #E5E7EB; border-radius: 8px; background: #fff; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-  .panel .pt { font-weight: 700; font-size: 13px; margin-bottom: 16px; display: flex; justify-content: space-between; color: var(--text-headline); }
+  .quickstart{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 40px}
+  .quick-card{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:20px;background:var(--card);padding:24px;transition:all 0.4s var(--ease-linear);box-shadow:var(--shadow-card);}
+  .quick-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow-ambient);}
+  .quick-card .qnum{font-family:var(--mono);font-size:12px;color:var(--accent);font-weight:800;margin-bottom:8px;}
+  .quick-card b{display:block;margin:0 0 4px;font-size:1.1rem;font-weight:700;}
+  .quick-card small{color:var(--muted);font-size:0.9rem;}
   
-  .pill { font-size: 10px; border-radius: 4px; padding: 4px 8px; background: #F3F4F6; color: var(--text-body); font-weight: 600; }
-  .pill.ok { color: var(--up); background: #ECFDF5; }
-  .pill.acc { color: #fff; background: var(--text-headline); }
+  .progress-wrap{margin-top:20px;max-width:100%}.progress-head{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:600;}
+  .progress-track{height:6px;border-radius:99px;background:var(--line);overflow:hidden}.progress-bar{height:100%;width:0;background:var(--accent);transition:width .25s}
+  .empty{display:none;border:1px dashed var(--line);border-radius:16px;padding:32px;text-align:center;color:var(--muted)}
+
+  table.spec{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 22px}
+  .scroll{overflow-x:auto}
+  table.spec th,table.spec td{border-bottom:1px solid var(--line);padding:12px;text-align:right;vertical-align:top}
+  table.spec th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;border-bottom:1px solid var(--ink)}
+  table.spec td:first-child,table.spec th:first-child{text-align:left;font-weight:700}
+  .yes{color:var(--up);font-weight:800}.no{color:var(--muted)}
+
+  /* ---------- Hi-End Device Frames ---------- */
+  .shots{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;margin:24px 0 16px}
+  figure{margin:0;flex:1 1 380px;min-width:0}
+  figure.narrow{flex:0 0 auto}
+  figcaption{font-size:13px;color:var(--muted);margin-top:12px;font-weight:500;}
+  figcaption b{color:var(--ink);font-weight:700;}
+
+  /* Mac Style */
+  .desktop{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--screen);box-shadow:var(--shadow-ambient);}
+  .bar{background:var(--chrome);display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .dots{display:flex;gap:6px;} 
+  .dots i{width:10px;height:10px;border-radius:50%;display:block;}
+  .dots i:nth-child(1){background:#FF5F56} .dots i:nth-child(2){background:#FFBD2E} .dots i:nth-child(3){background:#27C93F}
+  .url{flex:1;background:var(--card);border:1px solid var(--line);border-radius:6px;font-family:var(--mono);font-size:11px;color:var(--muted);padding:4px 10px;text-align:center;max-width:60%;margin:0 auto;overflow:hidden;white-space:nowrap;}
+
+  /* iPhone Style */
+  .phone{position:relative; width:280px;border:10px solid #1A1A1A;border-radius:36px;overflow:hidden;background:var(--screen);box-shadow:var(--shadow-ambient);}
+  .phone::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:40%;height:20px;background:#1A1A1A;border-radius:0 0 12px 12px;z-index:10;}
+  .phone .status{background:var(--screen);display:flex;justify-content:space-between;align-items:center;padding:12px 20px 8px;font-size:11px;color:var(--ink);font-weight:600;font-family:var(--sans)}
+  .phone .home{height:4px;width:100px;border-radius:99px;background:var(--muted);margin:12px auto 8px}
+  .phone.app{border-color:var(--accent)}
+  .phone.app .status{background:var(--accent-soft);color:var(--accent);}
+
+  /* ---------- Mock UI Atoms ---------- */
+  .ui{padding:16px;font-size:12px;line-height:1.6;color:var(--ink)}
+  .ui .row{display:flex;gap:0}
+  .side{width:140px;flex:none;background:var(--screen-side);border-right:1px solid var(--line);padding:20px 12px;font-size:11px;display:flex;flex-direction:column;gap:6px}
+  .side .brand{font-weight:800;font-size:14px;color:var(--ink);margin-bottom:12px;letter-spacing:1px;}
+  .side .grp{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:12px 0 4px;font-weight:700;}
+  .side .it{padding:6px 10px;border-radius:8px;color:var(--ink-2);font-weight:500;cursor:default;}
+  .side .it.on{background:var(--card);color:var(--accent);font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
   
-  .btn-ui { font-size: 12px; border-radius: 6px; padding: 10px 16px; background: var(--text-headline); color: #fff; font-weight: 600; text-align: center; border: 1px solid var(--text-headline); }
-  .btn-ui.ghost { background: transparent; color: var(--text-headline); }
+  .body{flex:1;padding:20px;min-width:0;display:flex;flex-direction:column;gap:12px;background:var(--card);}
+  .h{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:8px}
+  .h .t{font-weight:800;font-size:16px}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .cards.c3{grid-template-columns:repeat(3,1fr)}
+  .cards.c2{grid-template-columns:repeat(2,1fr)}
+  .kpi{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--paper);min-width:0;box-shadow:0 2px 4px rgba(0,0,0,0.02);}
+  .kpi .k{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .kpi .v{font-family:var(--mono);font-size:16px;font-weight:800;margin-top:4px}
+  .v.up{color:var(--up)}.v.down{color:var(--down)}
   
-  .tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
-  .tbl th { font-size: 10px; font-weight: 600; color: var(--text-muted); text-align: right; padding: 10px; border-bottom: 1px solid #E5E7EB; }
-  .tbl td { padding: 12px 10px; border-bottom: 1px solid #F3F4F6; text-align: right; font-family: var(--mono); color: var(--text-body); }
-  .tbl th:first-child, .tbl td:first-child { text-align: left; font-family: var(--sans); color: var(--text-headline); font-weight: 500; }
+  .panel{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:16px;box-shadow:0 2px 4px rgba(0,0,0,0.02);}
+  .panel .pt{font-weight:700;font-size:13px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+  
+  .pill{font-size:10px;border-radius:6px;padding:2px 8px;border:1px solid var(--line);color:var(--muted);white-space:nowrap;font-weight:600;}
+  .pill.ok{color:var(--up);border-color:currentColor;background:color-mix(in srgb,var(--up) 12%,transparent)}
+  .pill.bad{color:var(--down);border-color:currentColor;background:color-mix(in srgb,var(--down) 12%,transparent)}
+  .pill.warn{color:var(--warn);border-color:currentColor;background:color-mix(in srgb,var(--warn) 14%,transparent)}
+  .pill.acc{color:var(--card);border-color:var(--ink);background:var(--ink)}
+  
+  .btn{font-size:11px;border-radius:8px;padding:8px 16px;background:var(--ink);color:var(--card);font-weight:700;display:inline-block;white-space:nowrap;cursor:pointer;border:1px solid var(--ink);}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+  
+  .tbl{width:100%;border-collapse:collapse;font-size:11px;}
+  .tbl th{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:right;padding:6px;border-bottom:1px solid var(--line);font-weight:600}
+  .tbl td{padding:10px 6px;border-bottom:1px solid var(--line-soft);text-align:right;font-family:var(--mono);color:var(--ink-2);}
+  .tbl th:first-child,.tbl td:first-child{text-align:left;font-family:var(--sans);font-weight:500;color:var(--ink);}
+  
+  .field{border:1px solid var(--line);border-radius:8px;padding:8px 12px;color:var(--ink);background:var(--paper);font-size:12px;font-family:var(--mono)}
+  .lbl{font-size:10px;color:var(--muted);margin-bottom:4px;font-weight:600;}
+  
+  .sw{width:32px;height:18px;border-radius:99px;background:var(--up);position:relative;flex:none}
+  .sw::after{content:"";position:absolute;right:2px;top:2px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.2);}
+  .sw.off{background:var(--line)}.sw.off::after{left:2px;right:auto;background:var(--card);}
+  
+  .toggle-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line-soft)}
+  .toggle-row:last-child{border-bottom:0}
+  
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .cal div{aspect-ratio:1;border-radius:6px;background:var(--line-soft);font-size:9px;display:flex;align-items:flex-start;justify-content:flex-end;padding:4px;color:var(--muted);font-weight:500;}
+  .cal div.p{background:color-mix(in srgb,var(--up) 15%,transparent);color:var(--up);border:1px solid color-mix(in srgb,var(--up) 30%,transparent);}
+  .cal div.pp{background:var(--up);color:var(--card);font-weight:700;}
+  .cal div.l{background:color-mix(in srgb,var(--down) 10%,transparent);color:var(--down);border:1px solid color-mix(in srgb,var(--down) 20%,transparent);}
+  
+  .spark{display:flex;align-items:flex-end;gap:3px;height:48px}
+  .spark i{flex:1;background:var(--line);border-radius:2px 2px 0 0;display:block;transition:0.3s}
+  .spark i:hover{background:var(--accent);}
+  .spark i:last-child{background:var(--ink);}
+  
+  .qr{width:80px;height:80px;border-radius:8px;background:repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0/10px 10px;border:2px solid var(--card);outline:1px solid var(--line);flex:none;opacity:0.8}
+  .avatar{width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--card);font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;flex:none}
+  
+  .mob{padding:24px 16px 16px;display:flex;flex-direction:column;gap:12px;font-size:12px}
+  .mobbar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:4px}
+  .tabbar{display:flex;justify-content:space-around;border-top:1px solid var(--line);padding:12px 0 6px;font-size:9px;color:var(--muted);font-weight:600;}
+  .tabbar b{color:var(--ink);font-weight:800}
+  
+  .toastbox{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:12px;display:flex;gap:10px;align-items:flex-start;font-size:11px;box-shadow:var(--shadow-ambient);margin-top:8px;}
+  .glyph{width:18px;height:18px;border-radius:4px;background:var(--accent);flex:none}
+  .glyph.red{background:var(--down)} .glyph.amber{background:var(--warn)}
 
-  .field-ui { border: 1px solid #D1D5DB; border-radius: 6px; padding: 10px 12px; color: var(--text-headline); background: #fff; font-size: 13px; }
-  .lbl-ui { font-size: 11px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+  footer.end{grid-column:1/-1;border-top:1px solid var(--line);padding-top:32px;color:var(--muted);font-size:13px;text-align:center;font-weight:500;}
+  a.affiliate-link{display:inline-block;padding:12px 24px;background:var(--card);border:1px solid var(--line);border-radius:999px;color:var(--accent);font-weight:700;transition:0.3s;margin:10px 0;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,0.02);}
+  a.affiliate-link:hover{background:var(--accent);color:#fff;box-shadow:var(--shadow-btn);transform:translateY(-2px);border-color:var(--accent);}
 
-  /* Calendar Mockup */
-  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
-  .cal div { aspect-ratio: 1; border-radius: 4px; background: #F9FAFB; font-size: 10px; display: flex; align-items: flex-start; justify-content: flex-end; padding: 6px; color: #9CA3AF; font-weight: 500; border: 1px solid #E5E7EB; }
-  .cal div.p { background: #ECFDF5; color: var(--up); border-color: #A7F3D0; }
-  .cal div.pp { background: var(--up); color: #fff; border-color: var(--up); font-weight: 700; }
-  .cal div.l { background: #FFF1F2; color: var(--down); border-color: #FECDD3; }
-
-  /* Sparkline Mockup */
-  .spark { display: flex; align-items: flex-end; gap: 4px; height: 60px; }
-  .spark i { flex: 1; background: #D1D5DB; display: block; border-radius: 2px 2px 0 0; transition: 0.3s; }
-  .spark i:hover { background: var(--accent-orange); }
-  .spark i:last-child { background: var(--text-headline); }
-
-  /* Mobile Toast */
-  .toastbox { border: 1px solid #E5E7EB; border-radius: 8px; background: #fff; padding: 12px; display: flex; gap: 12px; align-items: flex-start; font-size: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-top: 10px; }
-  .glyph { width: 20px; height: 20px; border-radius: 4px; background: var(--warn); flex: none; }
-
-  footer.end { grid-column: 1/-1; border-top: 1px solid var(--border-subtle); padding-top: 40px; color: var(--text-muted); font-size: 13px; text-align: center; font-weight: 500; }
-  a { color: var(--accent-orange); text-decoration: none; font-weight: 600; }
-  a:hover { text-decoration: underline; }
+  @media(max-width:768px){
+    header.top{padding:50px 24px;border-radius:24px;}
+    section{padding:32px 24px;border-radius:24px;}
+    .shots{gap:16px}
+    .phone{width:min(280px,100%)}
+  }
 </style>
+<script defer data-domain="porthub.tiiny.site" src="https://analytics.tiiny.net/js/plausible.js"></script>
 </head>
+
 <body>
 
 <div class="ambient-canvas"></div>
@@ -268,7 +296,7 @@
         <img src="media/Bugtraderyai logo.png" alt="BugTraderYai Logo">
       </a>
       <a href="/" class="dock-link">หน้าแรก</a>
-      <a href="/intelligence-hub.html" class="dock-link" style="color: var(--accent-orange); font-weight: 600;">🔥 500 คำถาม</a>
+      <a href="/intelligence-hub.html" class="dock-link" style="color: var(--accent); font-weight: 600;">🔥 500 คำถาม</a>
       <a href="/porthub.html" class="dock-link active">Porthub</a>
       <a href="/manual.html" class="dock-link">คู่มือการใช้งาน</a>
       <a href="/partners.html" class="dock-link">Partners</a>
@@ -279,279 +307,391 @@
 
 <div class="wrap">
   <header class="top">
-    <div class="hero-badge">Systematic Operation Manual</div>
-    <h1>คู่มือการใช้งาน PortHub</h1>
-    <p class="lede">
-      เอกสารโปรโตคอลอธิบายการใช้งานตั้งแต่สมัครสมาชิกผ่าน Affiliate Gateway, เชื่อมต่อพอร์ต MT4/MT5 ผ่าน Bridge EA ไปจนถึงการตั้งค่าการแจ้งเตือน ภาพประกอบทั้งหมดเป็น <b>ภาพจำลองหน้าจอระดับ Hi-End</b> เพื่อสนับสนุนความเข้าใจ
-    </p>
-    <div class="meta">
-      <span>Desktop</span><span>Mobile</span><span>PWA Ready</span><span>BugTraderYai Insight</span>
-    </div>
+    <div class="eyebrow">คู่มือการใช้งาน · PortHub</div>
+    <h1>คู่มือการใช้งาน PortHub<br>สำหรับผู้ใช้งาน</h1>
+    <p class="lede">เอกสารนี้อธิบายการใช้งาน PortHub ฝั่งผู้ใช้งาน ตั้งแต่สมัครสมาชิก เชื่อมต่อพอร์ต MT4/MT5 ผ่าน PortHub Bridge EA ไปจนถึงการตั้งค่าบัญชีและติดตั้งเป็นแอป ภาพประกอบทุกภาพเป็น <b>ภาพจำลองหน้าจอระดับ Hi-End</b> เพื่อสนับสนุนความเข้าใจ</p>
+    <div class="meta"><span>Desktop</span><span>Mobile</span><span>ติดตั้งเป็นแอป (PWA)</span><span>ผู้ใช้งาน</span></div>
   </header>
 
   <nav class="toc">
     <div class="grp">
-      <b>USER PROTOCOL</b>
-      <a href="#u1" class="active">1. สมัคร &amp; เข้าสู่ระบบ</a>
-      <a href="#u2">2. แดชบอร์ดติดตามพอร์ต</a>
-      <a href="#u3">3. เชื่อมพอร์ตด้วย EA</a>
-      <a href="#u4">4. ปฏิทินเทรด</a>
-      <a href="#u5">5. อันดับพอร์ต</a>
-      <a href="#u6">6. แจ้งเตือน</a>
-      <a href="#u7">7. แพ็กเกจ &amp; Wallet</a>
-      <a href="#u8">8. แนะนำเพื่อน (Affiliate)</a>
-      <a href="#u9">9. ตั้งค่าบัญชี</a>
+      <b>สารบัญ — คู่มือผู้ใช้งาน</b>
+      <a href="#u1" class="">1. สมัคร &amp; เข้าสู่ระบบ</a>
+      <a href="#u2" class="">2. แดชบอร์ดติดตามพอร์ต</a>
+      <a href="#u3" class="">3. เชื่อมพอร์ตด้วย EA</a>
+      <a href="#u4" class="">4. ปฏิทินเทรด</a>
+      <a href="#u5" class="">5. อันดับพอร์ต</a>
+      <a href="#u6" class="active">6. แจ้งเตือน</a>
+      <a href="#u7" class="">7. แพ็กเกจ &amp; Wallet</a>
+      <a href="#u8" class="">8. แนะนำเพื่อน (Affiliate)</a>
+      <a href="#u9" class="">9. ตั้งค่าบัญชี</a>
       <a href="#u10">10. ติดตั้งเป็นแอป</a>
     </div>
   </nav>
 
   <main>
-    <div class="guide-tools">
-      <label class="searchbox">
-        <span style="color:var(--text-muted); font-weight:700;">🔍</span>
-        <input id="guideSearch" type="search" placeholder="ค้นหาคู่มือ เช่น เชื่อมพอร์ต, แจ้งเตือน..." autocomplete="off">
-      </label>
-    </div>
-    
-    <div class="part-header" style="margin-top: 20px;">
-      <span class="tag">⚡ Quick Start Protocol</span>
-    </div>
-    <div class="quickstart">
-      <a class="quick-card" href="#u1"><span class="qnum">01</span><b>สร้างบัญชี</b><small>สมัครผ่านลิงก์พาร์ทเนอร์</small></a>
-      <a class="quick-card" href="#u3"><span class="qnum">02</span><b>เชื่อมต่อพอร์ต</b><small>รัน Bridge EA บน Terminal</small></a>
-      <a class="quick-card" href="#u6"><span class="qnum">03</span><b>เปิดแจ้งเตือน</b><small>รับสัญญาณตรงเข้ามือถือ</small></a>
-    </div>
+  <div class="guide-tools" aria-label="เครื่องมือค้นหาคู่มือ">
+    <label class="searchbox" style="width:100%"><span style="color:var(--muted);font-weight:700" aria-hidden="true">⌕</span><input id="guideSearch" type="search" placeholder="ค้นหา เช่น เชื่อมพอร์ต, แจ้งเตือน, ถอนเงิน…" autocomplete="off"></label>
+  </div>
+  <div class="progress-wrap" aria-label="ความคืบหน้าในการอ่าน">
+    <div class="progress-head"><span>ความคืบหน้าในการอ่าน</span><span id="progressText">0%</span></div><div class="progress-track"><div class="progress-bar" id="progressBar" style="width: 0%;"></div></div>
+  </div>
+  <h2 style="font-size:18px;margin:32px 0 16px;font-weight:700">เริ่มต้นแบบเร็ว</h2>
+  <div class="quickstart">
+    <a class="quick-card" href="#u1"><span class="qnum">01</span><b>สร้างบัญชี</b><small>สมัครและยืนยันอีเมล</small></a>
+    <a class="quick-card" href="#u3"><span class="qnum">02</span><b>เชื่อมต่อพอร์ต</b><small>ติดตั้ง Bridge EA บน MT4/MT5</small></a>
+    <a class="quick-card" href="#u6"><span class="qnum">03</span><b>เปิดการแจ้งเตือน</b><small>รับสถานะพอร์ตบนมือถือ</small></a>
+  </div>
+  <div class="empty" id="emptyResult">ไม่พบหัวข้อที่ค้นหา ลองใช้คำที่สั้นลง เช่น “พอร์ต” หรือ “ชำระเงิน”</div>
 
-    <div class="part-header">
-      <span class="tag">PHASE 1</span>
-      <h2>สำหรับผู้ใช้งาน (User Guide)</h2>
-      <p style="margin-top: 10px;">เส้นทางตั้งแต่สมัครสมาชิก จนข้อมูลขึ้นแดชบอร์ดและแจ้งเตือนเข้ามือถือ</p>
+  <div class="part">
+    <span class="tag">ส่วนที่ 1</span>
+    <h2>สำหรับผู้ใช้งาน</h2>
+    <p>เส้นทางของลูกค้าตั้งแต่สมัครสมาชิก จนพอร์ต MT4/MT5 ขึ้นบนแดชบอร์ดและได้รับการแจ้งเตือนบนมือถือ</p>
+  </div>
+
+  <section id="u1">
+    <h3><span class="n">01</span> สมัครสมาชิกและเข้าสู่ระบบ</h3>
+    <p>สมัครได้ทั้งด้วยอีเมล + รหัสผ่าน หรือเข้าด้วยบัญชี Google ถ้าสมัครด้วยอีเมล ระบบจะส่งลิงก์ยืนยันไปที่กล่องจดหมาย ต้องกดยืนยันก่อนจึงจะใช้งานแดชบอร์ดได้ครบ</p>
+    <ol class="steps">
+      <li>เปิด <code>porthub.biz</code> แล้วกด <b>เริ่มต้นใช้งานฟรี</b> ที่มุมขวาบน</li>
+      <li>กรอกอีเมลและรหัสผ่าน หรือกด <b>ดำเนินการต่อด้วย Google</b></li>
+      <li>ถ้าสมัครด้วยอีเมล ให้เปิดเมลแล้วกดลิงก์ยืนยัน จากนั้นกลับมากด <b>ฉันยืนยันแล้ว</b></li>
+      <li>ระบบพาเข้า <b>แดชบอร์ด</b> โดยเริ่มที่แพ็กเกจ Free (1 พอร์ต)</li>
+    </ol>
+    <div class="note">มีรหัสแนะนำจากเพื่อน? ให้สมัครผ่านลิงก์แนะนำของเขาโดยตรง ระบบจะผูกรหัสให้อัตโนมัติ — ใส่ย้อนหลังไม่ได้</div>
+
+    <div class="shots">
+      <figure>
+        <div class="desktop">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">porthub.biz/signup</span></div>
+          <div class="ui" style="padding:40px 24px;background:var(--paper)">
+            <div style="max-width:320px;margin:0 auto;display:flex;flex-direction:column;gap:12px;background:var(--card);padding:32px;border-radius:24px;border:1px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,0.02)">
+              <div style="font-weight:800;color:var(--ink);font-size:22px;text-align:center;letter-spacing:-0.5px">PortHub.</div>
+              <div style="font-weight:600;font-size:14px;text-align:center;margin-bottom:4px">สร้างบัญชีใหม่</div>
+              <div style="color:var(--muted);text-align:center;margin-bottom:12px">ติดตามทุกพอร์ต MT4/MT5 ในที่เดียว</div>
+              <div><div class="lbl">อีเมล</div><div class="field">trader@example.com</div></div>
+              <div><div class="lbl">รหัสผ่าน</div><div class="field">••••••••••</div></div>
+              <div class="btn" style="text-align:center;padding:12px">สมัครสมาชิก</div>
+              <div class="btn ghost" style="text-align:center;padding:12px">ดำเนินการต่อด้วย Google</div>
+              <div style="color:var(--muted);text-align:center;font-size:11px;margin-top:8px">มีบัญชีแล้ว? เข้าสู่ระบบ</div>
+            </div>
+          </div>
+        </div>
+        <figcaption><b>Desktop — หน้าสมัครสมาชิก.</b> ฟอร์มเดียวกันนี้ใช้กับหน้าเข้าสู่ระบบ</figcaption>
+      </figure>
+
+      <figure class="narrow">
+        <div class="phone">
+          <div class="status"><span>09:41</span><span>PortHub</span><span>100%</span></div>
+          <div class="mob">
+            <div style="font-weight:800;color:var(--ink);font-size:20px;margin-bottom:16px">Sign In</div>
+            <div><div class="lbl">อีเมล</div><div class="field">trader@example.com</div></div>
+            <div><div class="lbl">รหัสผ่าน</div><div class="field">••••••••••</div></div>
+            <div class="btn" style="text-align:center;padding:12px;margin-top:8px">เข้าสู่ระบบ</div>
+            <div class="btn ghost" style="text-align:center;padding:12px">Google</div>
+            <div class="toastbox"><span class="glyph amber"></span><div><b style="color:var(--ink)">ระบบแจ้งเตือน</b><br><span style="color:var(--muted)">ยืนยันอีเมลก่อนใช้งาน — เราส่งลิงก์ไปแล้ว</span></div></div>
+          </div>
+          <div class="home"></div>
+        </div>
+        <figcaption><b>Mobile — เข้าสู่ระบบ</b> พร้อมข้อความเตือนยืนยันอีเมล</figcaption>
+      </figure>
     </div>
+  </section>
 
-    <section id="u1">
-      <h3><span class="n">01</span> สมัครสมาชิกและเข้าสู่ระบบ</h3>
-      <p>การเข้าถึงแพลตฟอร์มอย่างเป็นระบบ ควรสมัครผ่าน Gateway Link ของทีมงาน เพื่อรับการเชื่อมต่อเข้ากับเครือข่ายอย่างสมบูรณ์</p>
-      <ol class="steps">
-        <li>คลิกที่ลิงก์เชื่อมต่อระบบ: <br>
-            <a href="https://porthub.biz/signup?ref=95AD4C77E6" class="affiliate-link" target="_blank" rel="nofollow noopener">เข้าสู่หน้าสมัครสมาชิก &rarr;</a>
-        </li>
-        <li>กรอกอีเมลและรหัสผ่าน หรือเลือก <b>ดำเนินการต่อด้วย Google</b></li>
-        <li>หากสมัครด้วยอีเมล ระบบจะส่งลิงก์ยืนยันไปที่ Inbox ให้ทำการกดยืนยันให้เรียบร้อย</li>
-        <li>ระบบจะพาเข้า <b>แดชบอร์ด</b> พื้นฐาน (รองรับ 1 พอร์ตฟรี)</li>
-      </ol>
-      <div class="note"><b>ข้อควรระวัง:</b> รหัสแนะนำ (Affiliate Code) <code>95AD4C77E6</code> จะถูกฝังไว้ในลิงก์แล้ว ไม่สามารถใส่ย้อนหลังได้ กรุณาสมัครผ่านลิงก์ด้านบนเท่านั้น</div>
+  <section id="u2">
+    <h3><span class="n">02</span> แดชบอร์ดติดตามพอร์ต</h3>
+    <p>หน้าแรกหลังเข้าสู่ระบบ รวมทุกบัญชีที่เชื่อมต่อไว้ในหน้าเดียว โครงข้อมูลเป็นลำดับชั้น <b>พอร์ต → EA / เทรดมือ → ออเดอร์</b> กดที่พอร์ตเพื่อกางกลุ่มเทรด และกดกลุ่มเพื่อดูออเดอร์ที่เปิดอยู่</p>
+    <ul class="plain">
+      <li><b>การ์ดสรุปด้านบน</b> — จำนวนพอร์ต, บัญชี, ออเดอร์, ยอดเงิน, Equity และกำไร/ขาดทุนลอยตัว (แปลงเป็น USD)</li>
+      <li><b>เรียงพอร์ตตาม</b> — มูลค่าพอร์ต, ยอดเงิน, กำไรลอยตัว, จำนวนออเดอร์, สถานะออนไลน์, ชื่อ หรืออัปเดตล่าสุด</li>
+      <li><b>สาธารณะ / ส่วนตัว</b> — สวิตช์ประจำพอร์ต เปิดเพื่อเผยแพร่ขึ้นอันดับพอร์ตและหน้าโปรไฟล์สาธารณะ</li>
+      <li><b>ความเร็วอัปเดต</b> — Free/Standard อัปเดตทุก 1 ชั่วโมง ส่วน Pro เป็นเรียลไทม์ราว 5 วินาที</li>
+    </ul>
 
-      <div class="shots">
-        <figure>
-          <div class="desktop">
-            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">porthub.biz/signup</span></div>
-            <div class="ui" style="padding:40px 24px; background:#F9FAFB;">
-              <div style="max-width:320px; margin:0 auto; display:flex; flex-direction:column; gap:16px; background:#fff; padding:32px; border-radius:16px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border:1px solid #E5E7EB;">
-                <div style="font-weight:800; color:var(--text-headline); font-size:22px; text-align:center;">PORTHUB.</div>
-                <div style="color:var(--text-muted); margin-bottom:16px; text-align:center; font-size:13px;">Create your account</div>
-                <div><div class="lbl-ui">Email</div><div class="field-ui">trader@bugtraderyai.com</div></div>
-                <div><div class="lbl-ui">Password</div><div class="field-ui">••••••••••</div></div>
-                <div class="btn-ui" style="margin-top:8px;">Sign Up</div>
-                <div class="btn-ui ghost">Continue with Google</div>
-                <div style="color:var(--text-muted); text-align:center; font-size:11px; margin-top: 8px;">Ref Code: 95AD4C77E6</div>
+    <div class="shots">
+      <figure style="flex:1 1 560px">
+        <div class="desktop">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">porthub.biz/dashboard</span></div>
+          <div class="row">
+            <div class="side">
+              <div class="brand">PortHub.</div>
+              <div class="grp">หลัก</div>
+              <div class="it on">แดชบอร์ด</div>
+              <div class="it">อันดับพอร์ต</div>
+              <div class="it">ปฏิทินเทรด</div>
+              <div class="it">แจ้งเตือน</div>
+              <div class="grp">ชุมชน</div>
+              <div class="it">เครื่องมือช่วยเทรด</div>
+              <div class="grp">จัดการ</div>
+              <div class="it">API Keys</div>
+              <div class="it">การชำระเงิน</div>
+              <div class="it">ตั้งค่า</div>
+            </div>
+            <div class="body">
+              <div class="h">
+                <div><div class="t">ติดตามพอร์ต</div><div style="color:var(--muted);font-size:10px;margin-top:2px">พอร์ต → EA / Manual → ออเดอร์</div></div>
+                <div style="display:flex;gap:8px;align-items:center"><span class="pill ok">สด</span><span class="pill">Wallet ฿1,250</span><span class="avatar">ส</span></div>
+              </div>
+              <div class="cards">
+                <div class="kpi"><div class="k">พอร์ต</div><div class="v">3</div></div>
+                <div class="kpi"><div class="k">ออเดอร์</div><div class="v">12</div></div>
+                <div class="kpi"><div class="k">ยอดเงิน</div><div class="v">$24,180</div></div>
+                <div class="kpi"><div class="k">ลอยตัว</div><div class="v up">+$862</div></div>
+              </div>
+              <div class="panel">
+                <div class="pt"><span>พอร์ตทั้งหมด</span><span class="pill">เรียงตาม: มูลค่าพอร์ต</span></div>
+                <div class="scroll"><table class="tbl">
+                  <tbody><tr><th>พอร์ต</th><th>สถานะ</th><th>ยอดเงิน</th><th>Equity</th><th>ลอยตัว</th><th>ออเดอร์</th><th>สาธารณะ</th></tr>
+                  <tr><td>Gold Rider · MT5</td><td><span class="pill ok">ออนไลน์</span></td><td>12,400.00</td><td>13,010.55</td><td class="v up">+610.55</td><td>6</td><td><span class="pill acc">เปิด</span></td></tr>
+                  <tr><td>Scalper A · MT4</td><td><span class="pill ok">ออนไลน์</span></td><td>8,780.00</td><td>9,031.20</td><td class="v up">+251.20</td><td>4</td><td>ปิด</td></tr>
+                  <tr><td>Swing Demo</td><td><span class="pill warn">รอสัญญาณ</span></td><td>3,000.00</td><td>2,999.10</td><td class="v down">−0.90</td><td>2</td><td>ปิด</td></tr>
+                </tbody></table></div>
+              </div>
+              <div class="panel">
+                <div class="pt"><span>Gold Rider — กลุ่มเทรด</span><span class="pill acc">2 กลุ่ม · 6 ออเดอร์เปิด</span></div>
+                <div class="scroll"><table class="tbl">
+                  <tbody><tr><th>Order</th><th>Symbol</th><th>Side</th><th>Lot</th><th>Open</th><th>Current</th><th>P&amp;L</th></tr>
+                  <tr><td>#20481</td><td>XAUUSD</td><td>Buy</td><td>0.20</td><td>2,318.40</td><td>2,325.10</td><td class="v up">+134.00</td></tr>
+                  <tr><td>#20482</td><td>XAUUSD</td><td>Buy</td><td>0.10</td><td>2,321.05</td><td>2,325.10</td><td class="v up">+40.50</td></tr>
+                  <tr><td>#20486</td><td>EURUSD</td><td>Sell</td><td>0.50</td><td>1.0864</td><td>1.0871</td><td class="v down">−35.00</td></tr>
+                </tbody></table></div>
               </div>
             </div>
           </div>
-          <figcaption><b>Desktop</b> — Clean Authentication Interface</figcaption>
-        </figure>
+        </div>
+        <figcaption><b>Desktop — แดชบอร์ด.</b> เมนูซ้ายแบ่งโซน · การ์ดสรุป · ตารางข้อมูลโครงสร้างลำดับชั้น</figcaption>
+      </figure>
 
-        <figure class="narrow">
-          <div class="phone">
-            <div class="notch"></div>
-            <div class="status"><span>09:41</span><span></span></div>
-            <div class="ui" style="padding:40px 24px 20px;">
-              <div style="font-weight:800; font-size:24px; color:var(--text-headline); margin-bottom: 24px;">Sign In</div>
-              <div style="display:flex; flex-direction:column; gap:16px;">
-                <div><div class="lbl-ui">Email</div><div class="field-ui">trader@bug...</div></div>
-                <div><div class="lbl-ui">Password</div><div class="field-ui">••••••••</div></div>
-                <div class="btn-ui">Login</div>
-              </div>
-              <div class="toastbox">
-                <span class="glyph"></span>
-                <div><b style="color:var(--text-headline)">SYSTEM ALERT</b><br><span style="color:var(--text-muted)">Please verify email first.</span></div>
-              </div>
+      <figure class="narrow">
+        <div class="phone">
+          <div class="status"><span>09:41</span><span></span><span>100%</span></div>
+          <div class="mob">
+            <div class="mobbar"><span style="font-weight:800;color:var(--ink);font-size:16px;">PortHub.</span><span style="display:flex;gap:8px;align-items:center"><span class="pill ok">สด</span><span class="avatar">ส</span></span></div>
+            <div class="cards c2">
+              <div class="kpi"><div class="k">ยอดเงิน</div><div class="v">$24,180</div></div>
+              <div class="kpi"><div class="k">ลอยตัว</div><div class="v up">+$862</div></div>
             </div>
-            <div class="home"></div>
-          </div>
-          <figcaption><b>Mobile</b> — iOS Inspired Layout</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="u2">
-      <h3><span class="n">02</span> แดชบอร์ดติดตามพอร์ต</h3>
-      <p>ศูนย์บัญชาการข้อมูล (Command Center) รวมทุกบัญชีเทรดไว้ในหน้าเดียว โครงสร้างข้อมูลเรียงตาม <b>พอร์ต → EA/ระบบเทรด → ออเดอร์</b></p>
-      <ul class="plain">
-        <li><b>การ์ดสรุป KPI</b> — ยอดเงิน, Equity, จำนวนออเดอร์ และกำไร/ขาดทุนลอยตัวแบบ Real-time</li>
-        <li><b>การจัดเรียง (Sorting)</b> — วิเคราะห์ข้อมูลตามมูลค่าพอร์ต หรือกำไรลอยตัว</li>
-        <li><b>สวิตช์สาธารณะ</b> — เปิดเพื่อส่งข้อมูลขึ้น Leaderboard</li>
-      </ul>
-
-      <div class="shots">
-        <figure style="flex:1 1 560px">
-          <div class="desktop">
-            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">porthub.biz/dashboard</span></div>
-            <div class="row">
-              <div class="side">
-                <div class="brand">PORTHUB.</div>
-                <div class="grp">CORE</div>
-                <div class="it on">Dashboard</div>
-                <div class="it">Leaderboard</div>
-                <div class="it">Calendar</div>
-                <div class="it">Alerts</div>
-                <div class="grp">SYSTEM</div>
-                <div class="it">API Keys</div>
-                <div class="it">Settings</div>
-              </div>
-              <div class="body">
-                <div class="h">
-                  <div><div class="t">Overview</div><div style="color:var(--text-muted);font-size:11px;font-family:var(--mono); margin-top:4px;">PORTFOLIO METRICS</div></div>
-                  <div style="display:flex;gap:12px;align-items:center"><span class="pill ok">ONLINE</span><div style="width:32px;height:32px;background:#1A1A1A;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;">B</div></div>
-                </div>
-                <div class="cards">
-                  <div class="kpi"><div class="k">Active Ports</div><div class="v">3</div></div>
-                  <div class="kpi"><div class="k">Balance (USD)</div><div class="v">$24,180</div></div>
-                  <div class="kpi"><div class="k">Floating P/L</div><div class="v up">+$862</div></div>
-                  <div class="kpi"><div class="k">Open Deals</div><div class="v">12</div></div>
-                </div>
-                <div class="panel" style="margin-top: 8px;">
-                  <div class="pt"><span>All Accounts</span><span class="pill">SORT: BALANCE</span></div>
-                  <div style="overflow-x:auto;"><table class="tbl">
-                    <tr><th>Account</th><th>Status</th><th>Balance</th><th>Equity</th><th>Floating</th><th>Public</th></tr>
-                    <tr><td>Stealth_Omni · MT5</td><td><span class="pill ok">SYNCED</span></td><td>12,400.00</td><td>13,010.55</td><td class="v up">+610.55</td><td><span class="pill acc">ON</span></td></tr>
-                    <tr><td>Grid System · MT4</td><td><span class="pill ok">SYNCED</span></td><td>8,780.00</td><td>9,031.20</td><td class="v up">+251.20</td><td><span class="pill">OFF</span></td></tr>
-                  </table></div>
-                </div>
-              </div>
+            <div class="panel">
+              <div class="pt"><span>Gold Rider · MT5</span><span class="pill ok">ออนไลน์</span></div>
+              <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>Equity</span><b style="font-family:var(--mono);color:var(--ink)">13,010.55</b></div>
+              <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>ลอยตัว</span><b class="v up" style="font-size:13px">+610.55</b></div>
+            </div>
+            <div class="panel">
+              <div class="pt"><span>Scalper A · MT4</span><span class="pill ok">ออนไลน์</span></div>
+              <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>ลอยตัว</span><b class="v up" style="font-size:13px">+251.20</b></div>
             </div>
           </div>
-          <figcaption><b>Desktop</b> — Clean Light-mode Dashboard</figcaption>
-        </figure>
-      </div>
-    </section>
+          <div class="tabbar"><b>แดชบอร์ด</b><span>อันดับ</span><span>ปฏิทิน</span><span>แจ้งเตือน</span><span>เมนู</span></div>
+          <div class="home"></div>
+        </div>
+        <figcaption><b>Mobile — แดชบอร์ด.</b> ตารางเปลี่ยนเป็นการ์ดต่อพอร์ต</figcaption>
+      </figure>
+    </div>
+  </section>
 
-    <section id="u3">
-      <h3><span class="n">03</span> เชื่อมพอร์ตด้วย PortHub Bridge EA</h3>
-      <p>กลไกการส่งข้อมูลจาก Terminal สู่ Web Dashboard จำเป็นต้องรัน Bridge EA บนเครื่องหรือ VPS เดียวกันกับที่เปิด MT4/MT5 ไว้</p>
-      <ol class="steps">
-        <li>ไปที่ <b>API Keys</b> ตั้งชื่ออ้างอิงเครื่อง (เช่น <code>VPS-Stealth-01</code>) แล้วกด <b>สร้าง API Key</b></li>
-        <li>คัดลอก Token ที่ได้เก็บไว้</li>
-        <li>ติดตั้งไฟล์ PortHub Bridge ลงในแฟ้ม Experts ของ MetaTrader</li>
-        <li>ลาก EA ใส่กราฟเปล่า นำ Token ไปวางในช่อง <code>InpApiKey</code></li>
-        <li>เปิดปุ่ม <b>AutoTrading / Algo Trading</b> บนแถบเมนู</li>
-      </ol>
-      <div class="note warn"><b>CHECKLIST:</b> หากข้อมูลไม่ขึ้น ให้ตรวจสอบ 1. Algo Trading เปิดหรือไม่ 2. อนุญาต WebRequest หรือยัง 3. VPS อินเทอร์เน็ตปกติหรือไม่</div>
-    </section>
+  <section id="u3">
+    <h3><span class="n">03</span> เชื่อมพอร์ตด้วย PortHub Bridge EA</h3>
+    <p>พอร์ตจะขึ้นบนแดชบอร์ดได้ต้องมี EA ส่งข้อมูลเข้ามา ขั้นตอนคือ สร้าง API Key → ติดตั้ง Bridge บนเครื่อง/VPS ที่รัน MetaTrader → แนบ EA ใส่ Key → เปิด AutoTrading</p>
+    <ol class="steps">
+      <li>ไปที่ <b>จัดการ → API Keys</b> ใส่ชื่อเครื่อง (เช่น <code>MT5-Gold-Rider-1</code>) แล้วกด <b>สร้าง API Key</b></li>
+      <li>กด <b>คัดลอก API Key เต็ม</b> เก็บไว้ — ใช้กับเครื่องนั้นเครื่องเดียว</li>
+      <li>ไปที่ <b>ติดตั้ง EA</b> ดาวน์โหลดตัวติดตั้ง แล้วรันบนเครื่อง/VPS ที่เปิด MetaTrader อยู่</li>
+      <li>ใน MetaTrader เปิดกราฟใดก็ได้ แล้วลาก <b>PortHub Bridge</b> ลงบนกราฟ</li>
+      <li>ในหน้าต่างตั้งค่า EA วาง Key ลงช่อง <code>InpApiKey</code> กด OK แล้วเปิดปุ่ม <b>AutoTrading</b></li>
+      <li>เปิด MetaTrader ทิ้งไว้ ราวหนึ่งนาทีพอร์ตจะโผล่บนแดชบอร์ดเอง จากนั้นตั้งชื่อพอร์ตได้ตามใจ</li>
+    </ol>
+    <div class="note warn"><b>ถ้าพอร์ตไม่ขึ้น:</b> 1. AutoTrading เปิดอยู่ไหม (ปุ่มสีเขียว) 2. มุมขวาบนของกราฟมีหน้ายิ้มไหม 3. เครื่อง/VPS ต่อเน็ตอยู่ไหม</div>
 
-    <section id="u4">
-      <h3><span class="n">04</span> ปฏิทินเทรด (Trading Calendar)</h3>
-      <p>ระบบประมวลผล P&L รายวันจาก Closed Deals สร้างสถิติอ้างอิงสำหรับการวิเคราะห์เชิงลึก</p>
-      <div class="shots">
-        <figure style="flex:1 1 520px">
-          <div class="desktop">
-            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">porthub.biz/calendar</span></div>
-            <div class="row">
-              <div class="side" style="width: 120px;">
-                <div class="brand">PORTHUB.</div>
-                <div class="it">Dashboard</div>
-                <div class="it on">Calendar</div>
+    <div class="shots">
+      <figure>
+        <div class="desktop">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">porthub.biz/api-keys</span></div>
+          <div class="row">
+            <div class="side">
+              <div class="brand">PortHub.</div>
+              <div class="grp">จัดการ</div>
+              <div class="it on">API Keys</div>
+              <div class="it">การชำระเงิน</div>
+            </div>
+            <div class="body">
+              <div class="h"><div class="t">API Keys</div><span class="pill">2 keys · ลบแล้วหายถาวร</span></div>
+              <div class="panel">
+                <div class="pt"><span>สร้าง API Key ใหม่</span></div>
+                <div style="display:flex;gap:10px;align-items:center">
+                  <div class="field" style="flex:1">ตัวอย่าง: MT5-Gold-Rider-1</div>
+                  <span class="btn">สร้าง API Key</span>
+                </div>
               </div>
-              <div class="body">
-                <div class="h"><div><div class="t">Calendar</div></div><span class="pill">AUG 2026</span></div>
-                <div class="cards c3">
-                  <div class="kpi"><div class="k">NET PROFIT</div><div class="v up">+$1,942</div></div>
-                  <div class="kpi"><div class="k">WIN RATE</div><div class="v">62%</div></div>
-                  <div class="kpi"><div class="k">ACTIVE DAYS</div><div class="v">18</div></div>
-                </div>
-                <div class="panel" style="margin-top: 8px;">
-                  <div class="pt"><span>Daily Heatmap</span></div>
-                  <div class="cal">
-                    <div>1</div><div class="p">2</div><div class="pp">3</div><div class="l">4</div><div class="p">5</div><div>6</div><div>7</div>
-                    <div class="pp">8</div><div class="p">9</div><div class="l">10</div><div class="p">11</div><div class="pp">12</div><div>13</div><div>14</div>
-                    <div class="p">15</div><div class="l">16</div><div class="pp">17</div><div class="p">18</div><div class="p">19</div><div>20</div><div>21</div>
-                  </div>
-                </div>
-                <div class="panel" style="margin-top: 8px;">
-                  <div class="pt"><span>Equity Curve</span></div>
-                  <div class="spark"><i style="height:30%"></i><i style="height:38%"></i><i style="height:34%"></i><i style="height:46%"></i><i style="height:52%"></i><i style="height:72%"></i><i style="height:80%"></i><i style="height:100%"></i></div>
-                </div>
+              <div class="panel">
+                <div class="pt"><span>Stored Keys</span></div>
+                <div class="scroll"><table class="tbl">
+                  <tbody><tr><th>ชื่อเครื่อง</th><th>Key ID (prefix)</th><th>Created</th><th>Actions</th></tr>
+                  <tr><td>MT5-Gold-Rider-1</td><td>ph_live_9f3a…</td><td>2026-08-01</td><td><span class="pill acc" style="cursor:pointer">คัดลอก</span> <span class="pill bad" style="cursor:pointer">ลบ</span></td></tr>
+                  <tr><td>VPS-Scalper</td><td>ph_live_47bc…</td><td>2026-07-18</td><td><span class="pill acc" style="cursor:pointer">คัดลอก</span> <span class="pill bad" style="cursor:pointer">ลบ</span></td></tr>
+                </tbody></table></div>
               </div>
             </div>
           </div>
-        </figure>
-      </div>
-    </section>
+        </div>
+      </figure>
+    </div>
+  </section>
 
-    <section id="u5">
-      <h3><span class="n">05</span> อันดับพอร์ต (Leaderboard)</h3>
-      <p>ระบบจัดอันดับอิงตาม Performance จริง พอร์ตที่ถูกตั้งค่าเป็นสาธารณะ (ผ่านแพ็กเกจ Pro) จะได้รับลิงก์สำหรับแชร์ผลงานทางสถิติให้บุคคลภายนอกตรวจสอบได้โดยไม่ต้อง Login</p>
-    </section>
+  <section id="u4">
+    <h3><span class="n">04</span> ปฏิทินเทรด</h3>
+    <p>สรุปกำไร/ขาดทุนรายวันจากออเดอร์ที่ปิดแล้ว รวมค่าคอมมิชชันและ swap พร้อมกราฟ equity สีเขียวคือวันที่กำไร สีแดงคือวันที่ขาดทุน (สีเข้มหมายถึงยอดเงินสูง)</p>
+    <div class="note">ปฏิทินอ่านจาก closed deals ที่ EA ส่งเข้ามา วันที่ตัดรอบตามเวลาไทย (Asia/Bangkok) จึงอาจไม่ตรงกับเวลาเซิร์ฟเวอร์ของโบรกเกอร์</div>
+    <div class="shots">
+      <figure style="flex:1 1 520px">
+        <div class="desktop">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">porthub.biz/calendar</span></div>
+          <div class="row">
+            <div class="side" style="width: 130px;">
+              <div class="brand">PortHub.</div>
+              <div class="it">แดชบอร์ด</div>
+              <div class="it on">ปฏิทินเทรด</div>
+            </div>
+            <div class="body">
+              <div class="h"><div><div class="t">Trading Calendar</div><div style="color:var(--muted);font-size:10px;margin-top:2px">บันทึกผลกำไรรายวัน</div></div><span class="pill">สิงหาคม 2026</span></div>
+              <div class="cards c3">
+                <div class="kpi"><div class="k">NET PROFIT</div><div class="v up">+$1,942</div></div>
+                <div class="kpi"><div class="k">WIN RATE</div><div class="v">62%</div></div>
+                <div class="kpi"><div class="k">ACTIVE DAYS</div><div class="v">18</div></div>
+              </div>
+              <div class="panel">
+                <div class="pt"><span>Daily Heatmap</span></div>
+                <div class="cal">
+                  <div>1</div><div class="p">2</div><div class="pp">3</div><div class="l">4</div><div class="p">5</div><div>6</div><div>7</div>
+                  <div class="pp">8</div><div class="p">9</div><div class="l">10</div><div class="p">11</div><div class="pp">12</div><div>13</div><div>14</div>
+                  <div class="p">15</div><div class="l">16</div><div class="pp">17</div><div class="p">18</div><div class="p">19</div><div>20</div><div>21</div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="pt"><span>Equity curve</span><span class="pill acc">30 วัน</span></div>
+                <div class="spark"><i style="height:30%"></i><i style="height:38%"></i><i style="height:34%"></i><i style="height:46%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:58%"></i><i style="height:66%"></i><i style="height:60%"></i><i style="height:72%"></i><i style="height:80%"></i><i style="height:74%"></i><i style="height:88%"></i><i style="height:100%"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </section>
 
-    <section id="u6">
-      <h3><span class="n">06</span> การแจ้งเตือน (System Alerts)</h3>
-      <p>ตั้งค่า Protocol การเฝ้าระวังพอร์ต เมื่อตัวเลขถึงเกณฑ์ ระบบจะยิงสัญญาณเข้า Telegram หรือ Push บนมือถือทันที</p>
-      <ul class="plain">
-        <li><b>Drawdown Alert</b> — แจ้งเตือนเมื่อ DD พุ่งสูง</li>
-        <li><b>Terminal Status</b> — แจ้งเตือนเมื่อ VPS หลุด</li>
-      </ul>
-      <div class="note"><b>TELEGRAM SETUP:</b> ค้นหา <code>@BotFather</code> ใน Telegram &rarr; พิมพ์ <code>/newbot</code> &rarr; นำ Token มาใส่ในระบบ</div>
-    </section>
+  <section id="u5">
+    <h3><span class="n">05</span> อันดับพอร์ต และโปรไฟล์สาธารณะ</h3>
+    <p>เปิดสวิตช์ <b>สาธารณะ</b> ที่พอร์ตแล้วพอร์ตนั้นจะขึ้นกระดานอันดับ และได้ลิงก์โปรไฟล์สาธารณะไว้แชร์ให้คนอื่นดูผลงานโดยไม่ต้องเข้าสู่ระบบ</p>
+    <ul class="plain">
+      <li>ต้องใช้แพ็กเกจ <b>Pro</b> จึงจะเผยแพร่ขึ้นกระดานอันดับได้</li>
+      <li>พอร์ต <b>Demo</b> เผยแพร่บนกระดานไม่ได้ — จัดอันดับแยกจากพอร์ต Real</li>
+    </ul>
+  </section>
 
-    <section id="u10">
-      <h3><span class="n">10</span> ติดตั้งแอปพลิเคชัน (PWA Installation)</h3>
-      <p>PortHub ออกแบบด้วยสถาปัตยกรรม PWA สามารถติดตั้งลงบนหน้าจอโฮม Smartphone ได้โดยตรง</p>
-      <ul class="plain">
-        <li><b>iOS (Safari):</b> กดแชร์ด้านล่าง &rarr; เลือก <b>"เพิ่มไปยังหน้าจอโฮม"</b> (เพื่อให้ Push Notification ทำงานได้)</li>
-        <li><b>Android (Chrome):</b> กดเมนู 3 จุด &rarr; เลือก <b>"ติดตั้งแอป"</b></li>
-      </ul>
-    </section>
+  <section id="u6">
+    <h3><span class="n">06</span> ตั้งค่าการแจ้งเตือน</h3>
+    <p>PortHub เฝ้าพอร์ตให้ตลอดเวลา เมื่อเข้าเงื่อนไขที่ตั้งไว้จะแจ้งเตือนเข้ากระดิ่งในเว็บ เข้า Telegram และเด้งบนมือถือได้ ปรับค่าแล้วระบบบันทึกให้ทันที</p>
+    <h4 class="sub">เงื่อนไขที่ตั้งได้</h4>
+    <ul class="plain">
+      <li><b>ความเสี่ยง / Drawdown</b> — Drawdown สูง, ขาดทุนวันนี้, ขาดทุนลอยตัวรวม, Equity ร่วง</li>
+      <li><b>Margin</b> — Margin Level ต่ำ, เสี่ยง Margin Call</li>
+      <li><b>สถานะ Terminal</b> — ขาดการเชื่อมต่อโบรกเกอร์ AutoTrading ถูกปิด หรือซิงก์ล้มเหลว</li>
+      <li><b>การ์ดสรุปรายวัน</b> — ส่งการ์ดรูปภาพเข้า Telegram วันละครั้งตามเวลาที่ตั้ง</li>
+    </ul>
+    <div class="note"><b>TELEGRAM SETUP:</b> ค้นหา <code>@BotFather</code> ใน Telegram &rarr; พิมพ์ <code>/newbot</code> &rarr; นำ Token มาใส่ในระบบ</div>
+
+    <div class="shots">
+      <figure class="narrow">
+        <div class="phone app">
+          <div class="status"><span>20:00</span><span>PortHub</span><span>82%</span></div>
+          <div class="mob">
+            <div class="toastbox"><span class="glyph red"></span><div><b style="color:var(--ink)">Gold Rider · Drawdown 12.4%</b><br><span style="color:var(--muted)">Balance 12,400 → Equity 10,862</span></div></div>
+            <div class="toastbox"><span class="glyph amber"></span><div><b style="color:var(--ink)">Scalper A · Terminal หลุด</b><br><span style="color:var(--muted)">ไม่ได้รับข้อมูล 6 นาที</span></div></div>
+            <div class="panel" style="text-align:center;color:var(--muted); margin-top: 16px;">การ์ดสรุปรายวันถูกส่งเข้า Telegram แล้ว</div>
+          </div>
+          <div class="home"></div>
+        </div>
+        <figcaption><b>แอป PWA.</b> การแจ้งเตือนที่เด้งบนมือถือ</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="u7">
+    <h3><span class="n">07</span> แพ็กเกจ Wallet และการชำระเงิน</h3>
+    <p>PortHub จ่ายผ่าน <b>Wallet</b> ในระบบ เติมเงินเข้า Wallet ด้วย QR PromptPay แล้วอัปโหลดสลิป จากนั้นใช้ยอดใน Wallet ซื้อหรือต่ออายุแพ็กเกจได้</p>
+    <div class="scroll"><table class="spec">
+      <tbody><tr><th>ความสามารถ</th><th>Free</th><th>Standard</th><th>Pro</th></tr>
+      <tr><td>จำนวนพอร์ต</td><td>1 พอร์ต</td><td>สูงสุด 3</td><td>ไม่จำกัด</td></tr>
+      <tr><td>ความเร็วอัปเดต</td><td>ทุก 1 ชั่วโมง</td><td>ทุก 1 ชั่วโมง</td><td>เรียลไทม์ ~5 วินาที</td></tr>
+      <tr><td>Analytics + AI Brief</td><td>ปฏิทินอย่างเดียว</td><td>ปฏิทิน + analytics</td><td>วิเคราะห์เต็มแบบเรียลไทม์</td></tr>
+      <tr><td>อันดับสาธารณะ</td><td class="no">ไม่รวม</td><td>แสดงอันดับได้</td><td><span class="yes">เรียลไทม์</span></td></tr>
+      <tr><td>ราคา / เดือน</td><td>฿0</td><td>฿299</td><td>฿599</td></tr>
+    </tbody></table></div>
+    <div class="note warn"><b>แพ็กเกจหมดอายุ</b> จะยังเข้าสู่ระบบได้ แต่เข้าแดชบอร์ดไม่ได้จนกว่าจะต่ออายุ ควรเปิด "ต่ออายุอัตโนมัติจาก Wallet" ไว้</div>
+  </section>
+
+  <section id="u8">
+    <h3><span class="n">08</span> แนะนำเพื่อน (Affiliate)</h3>
+    <p>แชร์ลิงก์แนะนำของคุณ ใครสมัครผ่านลิงก์นี้จะถูกนับเป็นของคุณ เมื่อเขาจ่ายเงินคุณจะได้ส่วนแบ่งเข้ายอด Affiliate ซึ่ง<b>แยกจาก Wallet</b></p>
+    <ul class="plain">
+      <li><b>โอนเข้า Wallet</b> — เข้าทันที ไม่ต้องรอแอดมินตรวจสอบ ใช้จ่ายใน PortHub ได้เลย</li>
+      <li><b>ถอนเข้าบัญชีธนาคาร</b> — กรอกข้อมูลแล้วส่งคำขอ รอแอดมินอนุมัติ มียอดขั้นต่ำ</li>
+    </ul>
+    <a href="https://porthub.biz/signup?ref=95AD4C77E6" target="_blank" class="affiliate-link">รับลิงก์แนะนำของคุณ &rarr;</a>
+  </section>
+
+  <section id="u9">
+    <h3><span class="n">09</span> ตั้งค่าบัญชี</h3>
+    <p>แก้ชื่อที่แสดง รูปโปรไฟล์ ภาษา (ไทย / English) และเปลี่ยนรหัสผ่าน ถ้าเข้าสู่ระบบด้วย Google จะไม่มีช่องเปลี่ยนรหัสผ่าน เพราะรหัสผ่านอยู่ที่ Google</p>
+  </section>
+
+  <section id="u10">
+    <h3><span class="n">10</span> ติดตั้ง PortHub เป็นแอปบนมือถือ</h3>
+    <p>PortHub เป็นเว็บแอป (PWA) ที่ติดตั้งลงหน้าโฮมได้ เปิดแล้วเต็มจอเหมือนแอปทั่วไป และจำเป็นสำหรับผู้ใช้ iPhone ที่ต้องการให้แจ้งเตือนเด้ง</p>
+    <ul class="plain">
+      <li><b>iOS (Safari):</b> กดปุ่มแชร์ด้านล่าง &rarr; เลือก <b>"เพิ่มไปยังหน้าจอโฮม"</b> (สำคัญเพื่อให้ Push Notification ทำงาน)</li>
+      <li><b>Android (Chrome):</b> กดเมนู 3 จุดมุมขวาบน &rarr; เลือก <b>"ติดตั้งแอป"</b></li>
+    </ul>
+  </section>
 
   </main>
-
-  <footer class="end">
-    © 2026 BUGTRADERYAI - SYSTEMATIC TRADING · PORTHUB PROTOCOL DOCUMENTATION
-  </footer>
 </div>
+
+<footer class="end">
+  ภาพหน้าจอทั้งหมดในเอกสารนี้เป็นภาพจำลองเชิงโครงสร้าง (UI Mockups) · จัดทำเพื่อใช้เป็นสื่อการสอนของ BUGTRADERYAI
+</footer>
+
+<button id="themeBtn" type="button" aria-label="สลับโหมดสว่าง/มืด">Dark Mode</button>
+<style>
+  #themeBtn{position:fixed;right:24px;bottom:24px;z-index:20;font-family:var(--sans);font-size:12px;font-weight:700;
+    background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:999px;
+    padding:10px 20px;cursor:pointer;box-shadow:var(--shadow-ambient);transition:0.3s;}
+  #themeBtn:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px);}
+  @media print{#themeBtn{display:none}}
+</style>
 
 <script>
   (function(){
-    var search = document.getElementById("guideSearch"),
-        sections = [].slice.call(document.querySelectorAll("main section"));
+    var b=document.getElementById("themeBtn"),r=document.documentElement;
+    function dark(){return r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);}
+    function label(){b.textContent=dark()?"Light Mode":"Dark Mode";}
+    b.addEventListener("click",function(){r.setAttribute("data-theme",dark()?"light":"dark");label();});
+    label();
     
-    // Search Function
-    search.addEventListener("input", function() {
-      var q = search.value.trim().toLowerCase();
-      sections.forEach(function(s) {
-        var okText = !q || s.textContent.toLowerCase().indexOf(q) > -1;
-        s.style.display = okText ? "block" : "none";
-      });
-    });
-
-    // TOC Active Sync
-    var links = [].slice.call(document.querySelectorAll("nav.toc a"));
-    function updateTOC() {
-      var current = "";
-      sections.forEach(function(s) {
-        if (s.style.display !== "none" && s.getBoundingClientRect().top < 300) {
-          current = s.id;
-        }
-      });
-      links.forEach(function(a) {
-        if(a.getAttribute("href") === "#" + current) {
-          a.classList.add("active");
-        } else {
-          a.classList.remove("active");
-        }
-      });
+    var search=document.getElementById("guideSearch"),sections=[].slice.call(document.querySelectorAll("main section")),empty=document.getElementById("emptyResult");
+    function filter(){var q=search.value.trim().toLowerCase(),shown=0;sections.forEach(function(s){var okText=!q||s.textContent.toLowerCase().indexOf(q)>-1;s.hidden=!okText;if(!s.hidden)shown++;});empty.style.display=shown?"none":"block";}
+    search.addEventListener("input",filter);
+    
+    var links=[].slice.call(document.querySelectorAll("nav.toc a")),bar=document.getElementById("progressBar"),pct=document.getElementById("progressText");
+    function update(){
+      var max=document.documentElement.scrollHeight-innerHeight,p=max>0?Math.round(scrollY/max*100):100;
+      bar.style.width=p+"%";pct.textContent=p+"%";
+      var current="";
+      sections.forEach(function(s){if(!s.hidden&&s.getBoundingClientRect().top<300)current=s.id;});
+      links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+current);});
     }
-    window.addEventListener("scroll", updateTOC, {passive: true});
-    updateTOC();
+    addEventListener("scroll",update,{passive:true});addEventListener("resize",update);update();
   })();
 </script>
+
 </body>
 </html>

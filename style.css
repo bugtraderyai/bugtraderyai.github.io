@@ -1,173 +1,484 @@
-/* ===== BugTraderYai V8: THE HYPER-DISTORTION PROTOCOL (4D) ===== */
+/* ===== BUGTRADERYAI V8: IVORY GLASS 3.0 ARCHITECTURE ===== */
 
+/* -------------------------------------------
+   1. GLOBAL VARIABLES (THEME TOKENS)
+------------------------------------------- */
 :root {
-    --bg-dark: #010204;
-    --card-bg: rgba(5, 10, 20, 0.95);
-    --accent: #38bdf8;
-    --accent-glow: rgba(56, 189, 248, 0.6);
-    --text-white: #ffffff;
-    --text-dim: #94a3b8;
-    --glitch-red: rgba(255, 0, 193, 0.7);
-    --glitch-blue: rgba(0, 255, 240, 0.7);
+  /* Default Light Theme (Ivory Glass) */
+  --paper: #FAF7F2;
+  --card: #FFFFFF;
+  --ink: #1A1A1A;
+  --ink-2: #585757;
+  --muted: #8A8884;
+  --line: rgba(200, 190, 180, 0.4);
+  --line-soft: rgba(200, 190, 180, 0.15);
+  
+  /* Brand Accents */
+  --accent: #FC6A27;
+  --accent-soft: rgba(252, 106, 39, 0.08); 
+  --warn: #f59e0b;
+  --down: #f43f5e;
+  --up: #10b981;
+  --pink: #ec4899;
+  --cyan: #06b6d4;
+  --purple: #8b5cf6;
+  
+  /* Glitch Protocol Colors (For Animation) */
+  --glitch-red: rgba(255, 0, 193, 0.4);
+  --glitch-blue: rgba(0, 255, 240, 0.4);
+  
+  /* UI Metrics & Shadows */
+  --shadow-ambient: 0 40px 80px -20px rgba(41, 41, 41, 0.08);
+  --shadow-card: 0 10px 30px -10px rgba(41, 41, 41, 0.05);
+  --ease-linear: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-glitch: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Typography */
+  --mono: "Courier New", Courier, monospace;
+  --sans: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
-/* 1. Reset & Global Setup */
-* { box-sizing: border-box; }
+/* Dark Theme Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1a1a1a;
+    --card: #242424;
+    --ink: #FAF7F2;
+    --ink-2: #C8BEB4;
+    --muted: #8A8884;
+    --line: rgba(255, 255, 255, 0.1);
+    --line-soft: rgba(255, 255, 255, 0.05);
+    --accent-soft: rgba(252, 106, 39, 0.15);
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1a1a1a;
+  --card: #242424;
+  --ink: #FAF7F2;
+  --ink-2: #C8BEB4;
+  --muted: #8A8884;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-soft: rgba(255, 255, 255, 0.05);
+  --accent-soft: rgba(252, 106, 39, 0.15);
+}
+:root[data-theme="light"] {
+  --paper: #FAF7F2;
+  --card: #FFFFFF;
+  --ink: #1A1A1A;
+  --ink-2: #585757;
+  --muted: #8A8884;
+  --line: rgba(200, 190, 180, 0.4);
+  --line-soft: rgba(200, 190, 180, 0.15);
+  --accent-soft: rgba(252, 106, 39, 0.08);
+}
+
+
+/* -------------------------------------------
+   2. RESET & BASE SETUP
+------------------------------------------- */
+* {
+  box-sizing: border-box;
+  font-family: var(--sans);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Noto Sans Thai', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    line-height: 1.8;
-    overflow-x: hidden;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.4s ease;
 }
 
-/* 2. 🌀 มิติที่ 4 บิดเบี้ยว 200% (Animated Background) */
+
+/* -------------------------------------------
+   3. BACKGROUND & AMBIENT EFFECTS (4D DISTORTION)
+------------------------------------------- */
+.ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 0%, rgba(252,106,39,0.05) 0%, transparent 80%);
+  pointer-events: none;
+}
+
 .dimension-bg {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1;
-    /* สร้าง Grid ลึกมหาศาล */
-    background-image: 
-        linear-gradient(rgba(56, 189, 248, 0.15) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(56, 189, 248, 0.15) 2px, transparent 2px);
-    background-size: 60px 60px;
-    background-position: center;
-    /* บิดมุมมองให้ลึกสุด */
-    transform: perspective(400px) rotateX(60deg) scale(2.5);
-    filter: blur(0.5px) contrast(1.2);
-    /* Animation Warp แบบบ้าคลั่ง */
-    animation: hyperWarp 12s infinite linear;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: 
+    linear-gradient(var(--accent-soft) 2px, transparent 2px),
+    linear-gradient(90deg, var(--accent-soft) 2px, transparent 2px);
+  background-size: 80px 80px;
+  background-position: center;
+  transform: perspective(600px) rotateX(60deg) scale(2.5);
+  filter: blur(0.5px);
+  animation: hyperWarp 12s infinite linear;
+  pointer-events: none;
 }
 
 @keyframes hyperWarp {
-    0% { transform: perspective(400px) rotateX(60deg) rotateZ(0deg) scale(2.5); background-position: 0 0; }
-    25% { transform: perspective(400px) rotateX(65deg) rotateZ(3deg) scale(2.7); filter: hue-rotate(10deg); }
-    50% { transform: perspective(400px) rotateX(60deg) rotateZ(0deg) scale(2.5); background-position: -120px -120px; }
-    75% { transform: perspective(400px) rotateX(55deg) rotateZ(-3deg) scale(2.3); filter: hue-rotate(-10deg); }
-    100% { transform: perspective(400px) rotateX(60deg) rotateZ(0deg) scale(2.5); background-position: -240px -240px; }
+  0% { transform: perspective(600px) rotateX(60deg) rotateZ(0deg) scale(2.5); background-position: 0 0; }
+  25% { transform: perspective(600px) rotateX(62deg) rotateZ(2deg) scale(2.7); }
+  50% { transform: perspective(600px) rotateX(60deg) rotateZ(0deg) scale(2.5); background-position: -160px -160px; }
+  75% { transform: perspective(600px) rotateX(58deg) rotateZ(-2deg) scale(2.3); }
+  100% { transform: perspective(600px) rotateX(60deg) rotateZ(0deg) scale(2.5); background-position: -320px -320px; }
 }
 
-/* 3. Navigation Bar (Glass Distortion) */
-.hub-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 15px;
-    background: rgba(1, 2, 4, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--accent);
-}
-.hub-nav a {
-    color: var(--text-dim);
-    text-decoration: none;
-    font-size: 0.9rem;
-    padding: 8px 16px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-.hub-nav a:hover {
-    color: var(--accent);
-    text-shadow: 0 0 8px var(--accent);
-    background: rgba(56, 189, 248, 0.1);
+
+/* -------------------------------------------
+   4. NAVIGATION (GLASS DOCK)
+------------------------------------------- */
+.dock-container {
+  position: sticky;
+  top: 24px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  margin-bottom: 40px;
 }
 
-/* 4. Main Content Structure */
-main {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
+.glass-dock {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08);
+  max-width: 100%;
+  overflow-x: auto;
+}
+.glass-dock::-webkit-scrollbar { display: none; }
+
+.nav-brand-logo {
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+  padding-right: 14px;
+  border-right: 1px solid var(--line);
+  margin-right: 6px;
+  text-decoration: none;
+}
+.nav-brand-logo img {
+  height: 32px;
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+.nav-brand-logo:hover img { transform: scale(1.05); }
+
+.dock-link {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: all 0.4s var(--ease-linear);
+  text-transform: uppercase;
+}
+.dock-link:hover {
+  color: var(--ink);
+  background: var(--line-soft);
+}
+.dock-link.active {
+  color: var(--card);
+  background: var(--ink);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* 5. ⚡️ Section Cards แบบ Glitch Effect */
-section {
-    background: var(--card-bg) !important;
-    border: 1px solid rgba(56, 189, 248, 0.4);
-    padding: 40px !important;
-    border-radius: 15px;
-    margin: 40px auto !important;
-    backdrop-filter: blur(15px);
-    animation: glitchBox 6s infinite;
+
+/* -------------------------------------------
+   5. MASTER LAYOUT & HEADINGS
+------------------------------------------- */
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 28px 96px;
+  position: relative;
+  z-index: 1;
+}
+
+header.top {
+  padding: 80px 40px;
+  margin-bottom: 40px;
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--paper);
+  color: var(--accent);
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.1;
+  margin: 0 0 .1em;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+h2.sub-title {
+  font-size: clamp(20px, 3vw, 32px);
+  color: var(--down);
+  margin: 0;
+  font-weight: 800;
+}
+
+p {
+  margin: 0 0 16px;
+  color: var(--ink-2);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+p strong { color: var(--ink); font-weight: 700; }
+
+
+/* -------------------------------------------
+   6. SECTIONS & GLITCH EFFECTS
+------------------------------------------- */
+section.part {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  padding: 48px 40px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+  transition: transform 0.5s var(--ease-linear), box-shadow 0.5s var(--ease-linear);
+  animation: glitchBox 8s infinite var(--ease-glitch);
+}
+
+section.part:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-ambient);
+}
+
+.part h2 {
+  font-size: 24px;
+  margin: 0 0 16px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 @keyframes glitchBox {
-    0%, 100% { box-shadow: 0 0 20px rgba(0, 0, 0, 1); border-color: var(--accent); }
-    40% { box-shadow: -10px 0 20px var(--glitch-red), 10px 0 20px var(--glitch-blue); transform: translate(-2px, 1px); }
-    42% { transform: translate(2px, -1px); }
-    44% { box-shadow: 0 0 20px rgba(0, 0, 0, 1); transform: translate(0, 0); }
+  0%, 100% { box-shadow: var(--shadow-card); border-color: var(--line); transform: translate(0, 0); }
+  40% { box-shadow: -8px 0 15px var(--glitch-red), 8px 0 15px var(--glitch-blue); border-color: var(--accent); transform: translate(-2px, 1px); }
+  42% { transform: translate(2px, -1px); }
+  44% { box-shadow: var(--shadow-card); border-color: var(--line); transform: translate(0, 0); }
 }
 
-/* 6. 📺 Glitch Text Setup (h1, h2) */
-h1, h2 {
-    color: #fff;
-    position: relative;
-    display: inline-block;
-    font-weight: 900;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px var(--accent-glow);
+
+/* -------------------------------------------
+   7. BENTO GRID ARCHITECTURE
+------------------------------------------- */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
 }
 
-/* 7. Accordion & List (Modern Style) */
-.nav-list {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    display: inline-block;
+.bento-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 32px 24px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
-.nav-list li {
-    margin-bottom: 12px;
-    color: var(--text-white);
-}
-.nav-list a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: bold;
-}
-.nav-list a:hover { text-decoration: underline; }
 
-/* 8. UI Elements: Shimmer & CTA */
-.shimmer {
-    background: linear-gradient(90deg, transparent 25%, rgba(56, 189, 248, 0.2) 50%, transparent 75%);
-    background-size: 200% 100%;
-    animation: shimmer-ani 3s infinite;
+.bento-card:hover {
+  border-color: var(--accent);
+  background: var(--card);
+  box-shadow: var(--shadow-ambient);
+  transform: translateY(-4px);
 }
-@keyframes shimmer-ani {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+
+.bento-card h3 {
+  font-size: 1.15rem;
+  margin: 0 0 16px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.bento-card p {
+  font-size: 1rem;
+  color: var(--ink-2);
+  margin: 0;
+  line-height: 1.7;
+}
+
+
+/* -------------------------------------------
+   8. COMPONENTS (NOTES, LISTS, LINKS)
+------------------------------------------- */
+/* Highlight/Insight Box */
+.note {
+  border-left: 4px solid var(--accent);
+  background: var(--paper);
+  padding: 24px;
+  border-radius: 0 16px 16px 0;
+  margin: 24px 0 0;
+  font-size: 1.05rem;
+  color: var(--ink-2);
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+}
+.note b {
+  color: var(--ink);
+  font-weight: 800;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Base Lists */
+ul.plain {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul.plain li {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  color: var(--ink-2);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 500;
+}
+ul.plain li::before {
+  content: "→";
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* Link Grid & Buttons */
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.quick-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  padding: 20px;
+  transition: all 0.4s var(--ease-linear);
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.quick-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  background: var(--card);
+  color: var(--accent);
+  box-shadow: var(--shadow-ambient);
 }
 
 .cta-button {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 18px 50px;
-    background: var(--accent);
-    color: #000 !important;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 900;
-    letter-spacing: 2px;
-    transition: 0.3s;
-    box-shadow: 0 0 20px var(--accent-glow);
+  display: inline-block;
+  margin-top: 24px;
+  padding: 18px 48px;
+  background: var(--ink);
+  color: var(--card);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: 0.4s var(--ease-linear);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  text-transform: uppercase;
+  font-size: 1.1rem;
 }
 .cta-button:hover {
-    transform: scale(1.05) skewX(-5deg);
-    box-shadow: 0 0 40px var(--accent);
+  transform: translateY(-4px);
+  background: var(--accent);
+  box-shadow: 0 12px 32px rgba(252, 106, 39, 0.3);
 }
 
-footer { padding: 80px 0; color: #475569; letter-spacing: 2px; font-size: 0.8rem; }
+/* Shimmer Effect */
+.shimmer {
+  background: linear-gradient(90deg, transparent 25%, var(--accent-soft) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer-ani 3s infinite;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px dashed var(--accent);
+}
+@keyframes shimmer-ani { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
-@media (max-width: 600px) {
-    main { padding: 0 15px; }
-    section { padding: 25px !important; }
-    h1 { font-size: 2rem; }
+
+/* -------------------------------------------
+   9. FOOTER & RESPONSIVE
+------------------------------------------- */
+footer.end {
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+  margin-top: 60px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  font-weight: 500;
+  font-family: var(--mono);
+}
+
+@media (max-width: 768px) {
+  header.top { padding: 50px 24px; border-radius: 24px; }
+  section.part { padding: 32px 24px; border-radius: 24px; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .cta-button { padding: 16px 32px; font-size: 1rem; width: 100%; text-align: center;}
 }

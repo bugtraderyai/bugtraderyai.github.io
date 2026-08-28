@@ -1,235 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>bugtraderyai คือใคร | System-Aware IB & EA Risk Perspective</title>
-  <meta name="description" content="ตัวตนของ bugtraderyai Introducing Broker (IB) ผู้โฟกัสการใช้งาน EA ในเชิงระบบ ความเสี่ยง และความเข้าใจ ไม่ใช่การขายผลลัพธ์">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bugtraderyai คือใคร | System-Aware IB & EA Risk Perspective</title>
+<meta name="description" content="ตัวตนของ bugtraderyai Introducing Broker (IB) ผู้โฟกัสการใช้งาน EA ในเชิงระบบ ความเสี่ยง และความเข้าใจ ไม่ใช่การขายผลลัพธ์">
+<meta name="author" content="bugtraderyai">
 
+<!-- Canonical & Social Meta -->
+<link rel="canonical" href="https://bugtraderyai.com/about.html" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="bugtraderyai คือใคร | System-Aware IB & EA Risk Perspective" />
+<meta property="og:description" content="ตัวตนของ bugtraderyai Introducing Broker (IB) ผู้โฟกัสการใช้งาน EA ในเชิงระบบ ความเสี่ยง และความเข้าใจ" />
+<meta property="og:url" content="https://bugtraderyai.com/about.html" />
+<meta property="og:site_name" content="bugtraderyai" />
+<meta property="og:image" content="https://bugtraderyai.com/media/apple-touch-icon.png" />
+
+<!-- Favicon & Icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
 <link rel="manifest" href="/media/site.webmanifest">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* บังคับคอนทราสต์ให้สูงและจัดกลาง */
-    :root {
-      --accent-bright: #7dd3fc; 
-      --text-white: #ffffff;
-      --text-silver: #e2e8f0;
-    }
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body {
-      color: var(--text-white);
-      text-align: center;
-      text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,1);
-    }
-
-    main {
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    section {
-      background: rgba(1, 2, 4, 0.95) !important;
-      border: 1px solid var(--accent);
-      margin: 40px auto !important;
-      padding: 40px !important;
-      border-radius: 4px;
-      text-align: center; /* บังคับเนื้อหาใน section จัดกลาง */
-    }
-
-    h1, h2 {
-      margin-bottom: 25px;
-      display: inline-block;
-    }
-
-    /* แก้ไขส่วนรายการ (List) ให้จัดกลางแบบดูเป็นระเบียบ */
-    .center-list-container {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .nav-list {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0;
-      text-align: left; /* ให้เครื่องหมายติ๊กอยู่ข้างหน้าตรงกัน */
-      display: inline-block;
-    }
-
-    .nav-list li {
-      margin-bottom: 15px;
-      font-size: 1.15rem;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.1);
-      padding-bottom: 8px;
-      color: var(--text-silver);
-    }
-
-    .profile-img {
-      width: 140px;
-      height: 140px;
-      border-radius: 20px;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 30px var(--accent-glow);
-      margin-bottom: 25px;
-      background: #fff;
-    }
-
-    .grid-about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      margin-bottom: 40px;
-    }
-
-    @media (max-width: 768px) {
-      .grid-about { grid-template-columns: 1fr; }
-    }
-
-    .target-list { 
-      border-top: 5px solid #00fff0 !important; 
-      box-shadow: 0 0 20px rgba(0, 255, 240, 0.2); 
-    }
-
-    .bug-insight {
-      background: rgba(56, 189, 248, 0.1) !important;
-      border: 1px dashed var(--accent);
-      color: var(--accent-bright) !important;
-      padding: 25px;
-      margin-top: 25px;
-      font-style: italic;
-    }
-
-    .link-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .link-grid a {
-      text-decoration: none;
-      padding: 20px;
-      background: rgba(56, 189, 248, 0.05);
-      color: var(--accent-bright);
-      border: 1px solid var(--accent);
-      font-weight: 900;
-      transition: 0.3s;
-    }
-
-    .link-grid a:hover {
-      background: var(--accent);
-      color: #000;
-    }
-  </style>
-
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GD0H18D9JE');
-  </script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GD0H18D9JE');
+</script>
 
+<!-- Advanced Schema Graph -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "about",
-  "url": "https://bugtraderyai.com/about.html",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "bugtraderyai",
-    "url": "https://bugtraderyai.com/"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bugtraderyai.com/#organization",
+      "name": "BugTraderYai Enterprise",
+      "description": "System-Aware IB & EA Risk Architect",
+      "url": "https://bugtraderyai.com/",
+      "logo": "https://bugtraderyai.com/media/apple-touch-icon.png"
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://bugtraderyai.com/about.html#webpage",
+      "url": "https://bugtraderyai.com/about.html",
+      "name": "bugtraderyai คือใคร | System-Aware IB & EA Risk Perspective",
+      "isPartOf": {
+        "@id": "https://bugtraderyai.com/#website"
+      },
+      "about": {
+        "@id": "https://bugtraderyai.com/#organization"
+      }
+    }
+  ]
 }
 </script>
 
-
-
-
-
+<style>
+  /* ===== IVORY GLASS 3.0 (Hi-End World Class) ===== */
+  :root {
+    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884;
+    --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15);
+    --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); 
+    --warn: #f59e0b; --down: #f43f5e; --up: #10b981;
+    
+    --shadow-ambient: 0 40px 80px -20px rgba(41, 41, 41, 0.08);
+    --shadow-card: 0 10px 30px -10px rgba(41, 41, 41, 0.05);
+    --ease-linear: cubic-bezier(0.16, 1, 0.3, 1);
+    --mono: "Courier New", Courier, monospace;
+    --sans: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
   
+  @media (prefers-color-scheme:dark){
+    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+  }
+  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); }
+
+  *{box-sizing:border-box;font-family:var(--sans)}
+  body{margin:0;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background 0.4s ease;}
+  html{scroll-behavior:smooth;scroll-padding-top:100px}
+  
+  .ambient-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 0%, rgba(252,106,39,0.05) 0%, transparent 80%); pointer-events: none; }
+  
+  /* Navigation */
+  .dock-container { position: sticky; top: 24px; z-index: 1000; display: flex; justify-content: center; padding: 0 20px; margin-bottom: 40px;}
+  .glass-dock { display: flex; align-items: center; gap: 4px; padding: 6px 8px; background: color-mix(in srgb, var(--card) 85%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 999px; border: 1px solid var(--line); box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08); max-width: 100%; overflow-x: auto; }
+  .glass-dock::-webkit-scrollbar { display: none; }
+  .nav-brand-logo { display: flex; align-items: center; padding-left: 6px; padding-right: 14px; border-right: 1px solid var(--line); margin-right: 6px; text-decoration: none; }
+  .nav-brand-logo img { height: 32px; width: auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+  .nav-brand-logo:hover img { transform: scale(1.05); }
+  .dock-link { color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 8px 20px; border-radius: 999px; white-space: nowrap; transition: all 0.4s var(--ease-linear); }
+  .dock-link:hover { color: var(--ink); background: var(--line-soft); }
+  .dock-link.active { color: #ffffff; background: var(--ink); font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+  /* Layout */
+  .wrap{max-width:900px;margin:0 auto;padding:0 28px 96px;}
+  
+  /* Hero Header */
+  header.top{padding:80px 40px;margin-bottom:40px;border:1px solid var(--line);border-radius:32px;background:var(--card);box-shadow:var(--shadow-card);text-align:center;}
+  .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 1px solid var(--line); box-shadow: var(--shadow-ambient); margin-bottom: 24px; transition: 0.4s var(--ease-linear); }
+  .profile-img:hover { transform: scale(1.05) translateY(-4px); }
+  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:16px;}
+  h1{font-size:clamp(32px,5vw,56px);line-height:1.1;margin:0 0 .2em;font-weight:800;letter-spacing:-1px;color:var(--ink);}
+  
+  /* Sections & Panels */
+  section{margin-bottom:40px;background:var(--card);border:1px solid var(--line);border-radius:32px;padding:48px 40px;box-shadow:var(--shadow-card);position:relative;z-index:1;transition:transform 0.5s var(--ease-linear), box-shadow 0.5s var(--ease-linear);}
+  section:hover{transform:translateY(-4px);box-shadow:var(--shadow-ambient);}
+  
+  .part h2{font-size:28px;margin:0 0 16px;font-weight:800;letter-spacing:-0.5px; display:flex; align-items:center; gap: 10px;}
+  p{margin:0 0 16px;color:var(--ink-2); font-size: 1.05rem; line-height: 1.8;}
+  p strong { color: var(--ink); font-weight: 700; }
+
+  /* Bento Grid for Lists */
+  .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;}
+  .bento-card { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 32px 24px; transition: 0.3s; }
+  .bento-card:hover { border-color: var(--accent); background: var(--card); box-shadow: var(--shadow-ambient);}
+  .bento-card h3 { font-size: 18px; margin: 0 0 16px; font-weight: 800; color: var(--ink); }
+  
+  ul.plain{margin:0;padding:0;list-style:none;}
+  ul.plain li{margin-bottom:12px; font-size: 1rem; color: var(--ink-2); display: flex; align-items: flex-start; gap: 10px; font-weight: 500;}
+  ul.plain li::before { content: "→"; color: var(--accent); font-weight: 800; }
+
+  /* Tally Form Container */
+  .tally-container { background: #1A1A1A; border: 1px solid var(--accent); border-radius: 24px; padding: 12px; box-shadow: var(--shadow-card); overflow: hidden; margin-top: 24px; }
+  
+  /* Bug Insight Note */
+  .note{border-left:4px solid var(--accent);background:var(--paper);padding:24px;border-radius:0 16px 16px 0;margin:24px 0 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line); font-weight: 500;}
+  .note b{color:var(--ink);font-weight:700;}
+
+  /* Link Grid */
+  .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
+  .quick-card{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:20px;background:var(--paper);padding:20px;transition:all 0.4s var(--ease-linear);text-align: center; font-weight: 700; font-size: 1.1rem;}
+  .quick-card:hover{transform:translateY(-4px);border-color:var(--accent);background: var(--card); color: var(--accent); box-shadow:var(--shadow-ambient);}
+
+  footer.end{border-top:1px solid var(--line);padding-top:32px;color:var(--muted);font-size:13px;text-align:center;font-weight:500;}
+
+  @media(max-width:768px){
+    header.top{padding:50px 24px;border-radius:24px;}
+    section{padding:32px 24px;border-radius:24px;}
+    .bento-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 
 <body>
 
-<div class="dimension-bg"></div>
+<div class="ambient-canvas"></div>
 
-<nav class="hub-nav">
-    <a href="/">หน้าแรก</a>
-    <a href="/intelligence-hub.html">🔥 500 คำถาม</a>
-    <a href="/ea-system-philosophy.html">ปรัชญา</a>
-    <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
-  <a href="/live.html">Live</a>
-    <a href="/about.html" style="color: var(--accent); font-weight: 900;">รู้จักเรา</a>
-</nav>
+<!-- Floating Glass Navigation Dock -->
+<div class="dock-container">
+  <nav class="glass-dock">
+      <a href="/" class="nav-brand-logo">
+        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo">
+      </a>
+      <a href="/" class="dock-link">หน้าแรก</a>
+      <a href="/intelligence-hub.html" class="dock-link">🔥 500 คำถาม</a>
+      <a href="/porthub.html" class="dock-link">Porthub</a>
+      <a href="/manual.html" class="dock-link">คู่มือการใช้งาน</a>
+      <a href="/ea-system-philosophy.html" class="dock-link">ปรัชญา</a>
+      <a href="/about.html" class="dock-link active" style="color: var(--accent); font-weight: 600;">รู้จักเรา</a>
+  </nav>
+</div>
 
-<main>
-  <header style="padding: 100px 20px 50px;">
-    <img src="media/apple-touch-icon.png" class="profile-img" alt="bugtraderyai logo">
-    <h1 data-text="bugtraderyai คือใคร">bugtraderyai คือใคร</h1>
-    <p style="color: var(--accent-bright); font-weight: 900; letter-spacing: 3px; margin-top: 10px;">SYSTEM-AWARE IB & RISK ARCHITECT</p>
+<div class="wrap">
+  <header class="top">
+    <img src="/media/apple-touch-icon.png" class="profile-img" alt="bugtraderyai logo">
+    <br>
+    <div class="eyebrow">SYSTEM-AWARE IB & RISK ARCHITECT</div>
+    <h1>bugtraderyai คือใคร</h1>
   </header>
 
-  <section>
-    <p>
-      <strong>bugtraderyai</strong> คือ Introducing Broker (IB) ที่ทำงานกับระบบ EA (Expert Advisor)  
-      โดยโฟกัส <span style="color: var(--accent-bright); font-weight: bold;">“ความเข้าใจเชิงระบบ”</span> มากกว่าการขายผลลัพธ์สวยหรู
-    </p>
-    <p style="margin-top: 20px;">
-      เว็บไซต์นี้ไม่ได้ถูกสร้างขึ้นเพื่อชวนให้ทุกคนใช้ EA แต่เพื่ออธิบายว่า EA ควรถูกใช้งานอย่างไร และที่สำคัญกว่าคือ <strong>“เมื่อใดที่ไม่ควรถูกใช้งาน”</strong>
-    </p>
+  <section class="part">
+    <p><strong>bugtraderyai</strong> คือ Introducing Broker (IB) ที่ทำงานกับระบบ EA (Expert Advisor) โดยโฟกัส <strong style="color: var(--accent);">“ความเข้าใจเชิงระบบ”</strong> มากกว่าการขายผลลัพธ์สวยหรู</p>
+    <p>เว็บไซต์นี้ไม่ได้ถูกสร้างขึ้นเพื่อชวนให้ทุกคนใช้ EA แต่เพื่ออธิบายว่า EA ควรถูกใช้งานอย่างไร และที่สำคัญกว่าคือ <strong>“เมื่อใดที่ไม่ควรถูกใช้งาน”</strong></p>
   </section>
 
-  <div class="grid-about">
-    <section>
-      <h2 data-text="⚙️ แนวคิดหลัก">⚙️ แนวคิดหลัก</h2>
-      <div class="center-list-container">
-        <ul class="nav-list">
-          <li>➜ EA ไม่ใช่เครื่องพิมพ์เงิน</li>
-          <li>➜ EA คือระบบที่มีข้อจำกัดชัดเจน</li>
-          <li>➜ ความเสี่ยงไม่หายไปเพราะระบบ</li>
-          <li>➜ ความเข้าใจสำคัญกว่าผลลัพธ์</li>
-        </ul>
-      </div>
-    </section>
+  <div class="bento-grid">
+    <div class="bento-card">
+      <h3>⚙️ แนวคิดหลัก</h3>
+      <ul class="plain">
+        <li>EA ไม่ใช่เครื่องพิมพ์เงิน</li>
+        <li>EA คือระบบที่มีข้อจำกัดชัดเจน</li>
+        <li>ความเสี่ยงไม่หายไปเพราะระบบ</li>
+        <li>ความเข้าใจสำคัญกว่าผลลัพธ์</li>
+      </ul>
+    </div>
 
-    <section style="border-top: 5px solid #ff00c1;">
-      <h2 data-text="❌ สิ่งที่ bugtraderyai ไม่ทำ">❌ สิ่งที่ bugtraderyai ไม่ทำ</h2>
-      <div class="center-list-container">
-        <ul class="nav-list">
-          <li>➜ ไม่การันตีกำไรใดๆ</li>
-          <li>➜ ไม่โฆษณาผลตอบแทนเกินจริง</li>
-          <li>➜ ไม่ชักชวนคนที่ไม่พร้อม</li>
-          <li>➜ ไม่สนับสนุนการใช้โดยไม่เข้าใจ</li>
-        </ul>
-      </div>
-    </section>
+    <div class="bento-card" style="border-top: 4px solid var(--down);">
+      <h3>❌ สิ่งที่เราไม่ทำ</h3>
+      <ul class="plain" style="--accent: var(--down);">
+        <li>ไม่การันตีกำไรใดๆ</li>
+        <li>ไม่โฆษณาผลตอบแทนเกินจริง</li>
+        <li>ไม่ชักชวนคนที่ไม่พร้อม</li>
+        <li>ไม่สนับสนุนการใช้โดยไม่เข้าใจ</li>
+      </ul>
+    </div>
   </div>
 
-<section>
-    <h2 data-text="🛡️ บทบาทของ IB">🛡️ บทบาทของ IB</h2>
-    <p style="margin-top: 15px;">IB ไม่ควรเป็นเพียงตัวเชื่อมบัญชี แต่ควรเป็น <strong>“ชั้นความปลอดภัยทางความคิด”</strong></p>
-    <div class="bug-insight">
-      หน้าที่สำคัญของ IB คือ ช่วยสะท้อนความเสี่ยง, เตือนเมื่อระบบถูกใช้งานผิดบริบท และช่วยให้ผู้ใช้ไม่หลงไปกับตัวเลขกำไรชั่วคราว
+  <section class="part">
+    <h2>🛡️ บทบาทของ IB</h2>
+    <p>IB ไม่ควรเป็นเพียงตัวเชื่อมบัญชี แต่ควรเป็น <strong>“ชั้นความปลอดภัยทางความคิด”</strong></p>
+    <div class="note">
+      <b>BugTraderYai Insight:</b> หน้าที่สำคัญของ IB คือ ช่วยสะท้อนความเสี่ยง, เตือนเมื่อระบบถูกใช้งานผิดบริบท และช่วยให้ผู้ใช้ไม่หลงไปกับตัวเลขกำไรชั่วคราว
     </div>
   </section>
 
-  <section style="border: 2px solid var(--accent); background: rgba(56, 189, 248, 0.02) !important;">
-    <h2 data-text="SYSTEM ACCESS PROTOCOL">SYSTEM ACCESS PROTOCOL</h2>
-    <p style="color: var(--accent-bright); font-size: 0.9rem; margin-bottom: 20px;">
-      [ การเข้าใช้งานระบบภายใต้การดูแลของ bugtraderyai ต้องผ่านการคัดกรองตรรกะ ]
-    </p>
+  <section class="part" id="protocol">
+    <h2>SYSTEM ACCESS PROTOCOL</h2>
+    <p style="font-size: 0.95rem; font-family: var(--mono); color: var(--accent);">[ การเข้าใช้งานระบบภายใต้การดูแลของ bugtraderyai ต้องผ่านการคัดกรองตรรกะ ]</p>
     
-    <div style="width: 100%; min-height: 600px; overflow: hidden; border-radius: 4px; background: transparent;">
+    <div class="tally-container">
       <iframe 
         data-tally-src="https://tally.so/r/J9kgXK?transparentBackground=1" 
         width="100%" 
@@ -240,41 +231,47 @@
         title="SYSTEM ACCESS PROTOCOL EA">
       </iframe>
     </div>
+    <script async src="https://tally.so/widgets/embed.js"></script>
 
-    <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 20px;">
+    <p style="font-size: 13px; color: var(--muted); margin-top: 16px; text-align: center;">
       * ข้อมูลทั้งหมดจะถูกส่งเข้าศูนย์บัญชาการเพื่อตรวจสอบทัศนคติความเสี่ยง
     </p>
   </section>
 
-  <script async src="https://tally.so/widgets/embed.js"></script>
-
-  <section class="target-list">
-    <h2 data-text="🎯 เว็บไซต์นี้เหมาะกับใคร">🎯 เว็บไซต์นี้เหมาะกับใคร</h2>
-    <div class="center-list-container">
-      <ul class="nav-list">
-        <li>✓ คนที่ต้องการเข้าใจกลไก EA ก่อนลงเงินจริง</li>
-        <li>✓ คนที่ยอมรับ Drawdown ได้อย่างมีเหตุผล</li>
-        <li>✓ คนที่ไม่มอง EA เป็นทางลัดสู่ความรวย</li>
-        <li>✓ คนที่ต้องการ "ระบบ" มากกว่า "ความหวัง"</li>
-      </ul>
-    </div>
+  <section class="part">
+    <h2>🎯 เว็บไซต์นี้เหมาะกับใคร</h2>
+    <ul class="plain" style="--accent: var(--up);">
+      <li>คนที่ต้องการเข้าใจกลไก EA ก่อนลงเงินจริง</li>
+      <li>คนที่ยอมรับ Drawdown ได้อย่างมีเหตุผล</li>
+      <li>คนที่ไม่มอง EA เป็นทางลัดสู่ความรวย</li>
+      <li>คนที่ต้องการ "ระบบ" มากกว่า "ความหวัง"</li>
+    </ul>
   </section>
 
-  <section>
-    <h2 data-text="🔗 สำรวจเนื้อหาเพิ่มเติม">🔗 สำรวจเนื้อหาเพิ่มเติม</h2>
+  <section class="part" style="background: transparent; border: none; box-shadow: none; padding: 0;">
+    <h2>🔗 สำรวจเนื้อหาเพิ่มเติม</h2>
     <div class="link-grid">
-      <a href="/ea-system-overview.html">ภาพรวมระบบ</a>
-      <a href="/why-most-ea-users-fail.html">ทำไมคนส่วนใหญ่เจ๊ง</a>
+      <a href="/ea-system-overview.html" class="quick-card">ภาพรวมระบบ (Overview)</a>
+      <a href="/why-most-ea-users-fail.html" class="quick-card">ทำไมคนส่วนใหญ่เจ๊ง</a>
     </div>
   </section>
 
-  <footer>
-    <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING INTELLIGENCE</p>
-    <div class="shimmer" style="display: inline-block; padding: 6px 25px; border: 1px solid var(--accent); color: var(--accent-bright); font-weight: 900; margin-top: 20px; letter-spacing: 2px;">
-      4D HYPER-DISTORTION PROTOCOL
-    </div>
+  <footer class="end">
+    <p>© 2026 BUGTRADERYAI · SYSTEMATIC TRADING INTELLIGENCE ARCHITECTURE</p>
   </footer>
-</main>
+</div>
+
+<!-- Theme Toggle Button -->
+<button id="themeBtn" type="button" aria-label="สลับโหมดสว่าง/มืด">Dark Mode</button>
+<script>
+  (function(){
+    var b=document.getElementById("themeBtn"),r=document.documentElement;
+    function dark(){return r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);}
+    function label(){b.textContent=dark()?"Light Mode":"Dark Mode";}
+    b.addEventListener("click",function(){r.setAttribute("data-theme",dark()?"light":"dark");label();});
+    label();
+  })();
+</script>
 
 </body>
 </html>

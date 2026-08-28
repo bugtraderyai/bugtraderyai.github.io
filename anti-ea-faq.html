@@ -1,241 +1,299 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>คำถามที่คุณควรถามตัวเองก่อนใช้ EA | bugtraderyai</title>
-  <meta name="description" content="Anti-FAQ สำหรับผู้คิดจะใช้ EA คำถามที่ช่วยคัดกรองความพร้อม ความเสี่ยง และความรับผิดชอบ โดย bugtraderyai">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="bugtraderyai">
-  <link rel="canonical" href="https://bugtraderyai.github.io/anti-ea-faq.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>คำถามที่คุณควรถามตัวเองก่อนใช้ EA | bugtraderyai</title>
+<meta name="description" content="Anti-FAQ สำหรับผู้คิดจะใช้ EA คำถามที่ช่วยคัดกรองความพร้อม ความเสี่ยง และความรับผิดชอบ โดย bugtraderyai">
+<meta name="author" content="bugtraderyai">
 
-  <link rel="stylesheet" href="style.css">
+<!-- Canonical & Social Meta -->
+<link rel="canonical" href="https://bugtraderyai.com/anti-ea-faq.html" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="คำถามที่คุณควรถามตัวเองก่อนใช้ EA | bugtraderyai" />
+<meta property="og:description" content="Anti-FAQ สำหรับผู้คิดจะใช้ EA คำถามที่ช่วยคัดกรองความพร้อม ความเสี่ยง และความรับผิดชอบ" />
+<meta property="og:url" content="https://bugtraderyai.com/anti-ea-faq.html" />
+<meta property="og:site_name" content="bugtraderyai" />
+<meta property="og:image" content="https://bugtraderyai.com/media/apple-touch-icon.png" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+<!-- Favicon & Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
 <link rel="manifest" href="/media/site.webmanifest">
 
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    /* บังคับคอนทราสต์ให้สูงและจัดกลาง */
-    :root {
-      --accent-bright: #7dd3fc; 
-      --text-white: #ffffff;
-      --text-silver: #e2e8f0;
-    }
-
-    body {
-      color: var(--text-white);
-      text-align: center;
-      text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,1);
-    }
-
-    main {
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    section {
-      background: rgba(1, 2, 4, 0.95) !important;
-      border: 1px solid var(--accent);
-      margin: 30px auto !important;
-      padding: 40px !important;
-      border-radius: 4px;
-      text-align: left; /* เนื้อหา FAQ ให้อ่านง่ายแบบชิดซ้าย */
-      animation: glitchBox 8s infinite;
-    }
-
-    h1, h2 {
-      display: inline-block;
-      text-transform: uppercase;
-    }
-
-    .question-header {
-      color: var(--accent-bright);
-      font-weight: 900;
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      display: block;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.3);
-      padding-bottom: 10px;
-    }
-
-    .answer-text {
-      color: var(--text-silver);
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    blockquote {
-      background: rgba(56, 189, 248, 0.1);
-      border-left: 5px solid var(--accent);
-      padding: 30px;
-      margin: 40px 0;
-      font-size: 1.2rem;
-      font-style: italic;
-      color: var(--accent-bright);
-      text-align: center;
-    }
-
-    .link-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .link-list li {
-      margin-bottom: 15px;
-    }
-
-    .link-list a {
-      color: var(--accent-bright);
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .link-list a:hover {
-      text-shadow: 0 0 10px var(--accent);
-      padding-left: 10px;
-    }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "ถ้า EA ขาดทุน ผมจะโทษใคร",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "หากคำตอบคือ EA โบรกเกอร์ หรือตลาด แสดงว่าคุณยังไม่พร้อมรับผิดชอบต่อระบบที่คุณเลือกใช้"
-        }
-      }
-      /* ... ข้ออื่นคงเดิมในระบบ SEO ... */
-    ]
-  }
-  </script>
-
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GD0H18D9JE');
-  </script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GD0H18D9JE');
+</script>
 
+<!-- Advanced Schema Graph -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "anti-ea-faq",
-  "url": "https://bugtraderyai.com/anti-ea-faq.html",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "bugtraderyai",
-    "url": "https://bugtraderyai.com/"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bugtraderyai.com/#organization",
+      "name": "BugTraderYai Enterprise",
+      "description": "System-Aware IB & EA Risk Architect",
+      "url": "https://bugtraderyai.com/"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://bugtraderyai.com/anti-ea-faq.html#webpage",
+      "url": "https://bugtraderyai.com/anti-ea-faq.html",
+      "name": "คำถามที่คุณควรถามตัวเองก่อนใช้ EA | bugtraderyai",
+      "isPartOf": {
+        "@id": "https://bugtraderyai.com/#website"
+      },
+      "about": {
+        "@id": "https://bugtraderyai.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://bugtraderyai.com/anti-ea-faq.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ถ้า EA ขาดทุน ผมจะโทษใคร?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ถ้าคำตอบคือ EA, โบรกเกอร์ หรือตลาด แปลว่าคุณยังไม่พร้อมรับผิดชอบต่อระบบที่คุณเลือกใช้"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ผมเข้าใจหรือไม่ว่า EA ตัวนี้ถูกออกแบบมาสำหรับตลาดแบบไหน?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ถ้าคุณรู้แค่ว่า 'มันเคยกำไร' แต่ไม่รู้ว่ามันทำงานได้ดีในสภาวะใด ความเสี่ยงของคุณสูงกว่าที่คิด"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ผมรู้หรือไม่ว่า Drawdown ระดับไหนคือสัญญาณเตือน?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Drawdown ไม่ใช่สิ่งที่ต้องทน แต่มันคือข้อมูลที่ใช้ประเมินว่าสมควรหยุดหรือปรับระบบหรือไม่"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ถ้าระบบควรหยุด ผมกล้าหยุดหรือไม่?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "คนจำนวนมากรู้ว่าควรหยุดตาม Logic แต่ไม่กล้าหยุดเพราะอารมณ์ ซึ่งเป็นความเสี่ยงที่ใหญ่กว่าตัวระบบเอง"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ผมต้องการระบบที่ช่วยคิด หรือระบบที่ทำให้ไม่ต้องคิด?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EA ที่ดีควรเพิ่มวินัยในการตัดสินใจ ไม่ใช่ลดความรับผิดชอบของผู้ใช้"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ผมยอมรับได้หรือไม่ว่า EA ไม่เหมาะกับทุกช่วงชีวิต?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "บางช่วงชีวิต การไม่ใช้ EA คือการบริหารความเสี่ยงที่ดีที่สุด"
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 
-
-
-
-
+<style>
+  /* ===== IVORY GLASS 3.0 (Hi-End World Class) ===== */
+  :root {
+    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884;
+    --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15);
+    --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); 
+    --warn: #f59e0b; --down: #f43f5e; --up: #10b981;
+    --pink: #ec4899; --cyan: #06b6d4; --purple: #8b5cf6;
+    
+    --shadow-ambient: 0 40px 80px -20px rgba(41, 41, 41, 0.08);
+    --shadow-card: 0 10px 30px -10px rgba(41, 41, 41, 0.05);
+    --ease-linear: cubic-bezier(0.16, 1, 0.3, 1);
+    --mono: "Courier New", Courier, monospace;
+    --sans: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
   
+  @media (prefers-color-scheme:dark){
+    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+  }
+  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); }
+
+  *{box-sizing:border-box;font-family:var(--sans)}
+  body{margin:0;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background 0.4s ease;}
+  html{scroll-behavior:smooth;scroll-padding-top:100px}
+  
+  .ambient-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 0%, rgba(252,106,39,0.05) 0%, transparent 80%); pointer-events: none; }
+  
+  /* Navigation */
+  .dock-container { position: sticky; top: 24px; z-index: 1000; display: flex; justify-content: center; padding: 0 20px; margin-bottom: 40px;}
+  .glass-dock { display: flex; align-items: center; gap: 4px; padding: 6px 8px; background: color-mix(in srgb, var(--card) 85%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 999px; border: 1px solid var(--line); box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08); max-width: 100%; overflow-x: auto; }
+  .glass-dock::-webkit-scrollbar { display: none; }
+  .nav-brand-logo { display: flex; align-items: center; padding-left: 6px; padding-right: 14px; border-right: 1px solid var(--line); margin-right: 6px; text-decoration: none; }
+  .nav-brand-logo img { height: 32px; width: auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+  .nav-brand-logo:hover img { transform: scale(1.05); }
+  .dock-link { color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 8px 20px; border-radius: 999px; white-space: nowrap; transition: all 0.4s var(--ease-linear); }
+  .dock-link:hover { color: var(--ink); background: var(--line-soft); }
+  .dock-link.active { color: #ffffff; background: var(--ink); font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+  /* Layout */
+  .wrap{max-width:900px;margin:0 auto;padding:0 28px 96px;}
+  
+  /* Hero Header */
+  header.top{padding:80px 40px;margin-bottom:40px;border:1px solid var(--line);border-radius:32px;background:var(--card);box-shadow:var(--shadow-card);text-align:center;}
+  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:16px;}
+  h1{font-size:clamp(32px,5vw,56px);line-height:1.2;margin:0 0 .1em;font-weight:800;letter-spacing:-1px;color:var(--ink);}
+  .sub-headline { color: var(--ink-2); font-size: 1.15rem; font-weight: 500; margin-top: 16px; line-height: 1.6; }
+  
+  /* Sections */
+  section.part{margin-bottom:40px;background:var(--card);border:1px solid var(--line);border-radius:32px;padding:48px 40px;box-shadow:var(--shadow-card);position:relative;z-index:1;transition:transform 0.5s var(--ease-linear), box-shadow 0.5s var(--ease-linear);}
+  section.part:hover{transform:translateY(-4px);box-shadow:var(--shadow-ambient);}
+  .part h2{font-size:24px;margin:0 0 16px;font-weight:800;letter-spacing:-0.5px; display:flex; align-items:center; gap: 10px;}
+
+  /* Bento Grid for FAQ */
+  .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;}
+  .bento-card { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 32px 24px; transition: 0.3s; display: flex; flex-direction: column; justify-content: flex-start;}
+  .bento-card:hover { border-color: var(--accent); background: var(--card); box-shadow: var(--shadow-ambient);}
+  .bento-card h3 { font-size: 1.15rem; margin: 0 0 16px; font-weight: 700; color: var(--ink); line-height: 1.4;}
+  .bento-card p { font-size: 1rem; color: var(--ink-2); margin: 0; line-height: 1.7;}
+
+  /* BugTraderYai Insight Box */
+  .note{border-left:4px solid var(--accent);background:var(--card);padding:32px;border-radius:24px;margin:40px 0;font-size:1.1rem;color:var(--ink-2);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line); font-weight: 500; text-align: center; box-shadow: var(--shadow-card);}
+  .note b{color:var(--ink);font-weight:800; display: block; margin-bottom: 8px;}
+
+  /* Link Grid */
+  .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+  .quick-card{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:20px;background:var(--paper);padding:24px 20px;transition:all 0.4s var(--ease-linear);text-align: center; font-weight: 700; font-size: 1.05rem;}
+  .quick-card:hover{transform:translateY(-4px);border-color:var(--accent);background: var(--card); color: var(--accent); box-shadow:var(--shadow-ambient);}
+
+  footer.end{border-top:1px solid var(--line);padding-top:32px;color:var(--muted);font-size:13px;text-align:center;font-weight:500;}
+
+  @media(max-width:768px){
+    header.top{padding:50px 24px;border-radius:24px;}
+    section.part{padding:32px 24px;border-radius:24px;}
+    .bento-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 
 <body>
 
-<div class="dimension-bg"></div>
+<div class="ambient-canvas"></div>
 
-<nav class="hub-nav">
-    <a href="/">หน้าแรก</a>
-    <a href="/intelligence-hub.html">🔥 500 คำถาม</a>
-    <a href="/ea-system-philosophy.html">ปรัชญา</a>
-    <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
-    <a href="/anti-ea-faq.html" style="color: var(--accent); font-weight: 900;">FAQ</a>
-    <a href="/about.html">รู้จักเรา</a>
-</nav>
+<!-- Floating Glass Navigation Dock -->
+<div class="dock-container">
+  <nav class="glass-dock">
+      <a href="/" class="nav-brand-logo">
+        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo">
+      </a>
+      <a href="/" class="dock-link">หน้าแรก</a>
+      <a href="/intelligence-hub.html" class="dock-link">🔥 500 คำถาม</a>
+      <a href="/porthub.html" class="dock-link">Porthub</a>
+      <a href="/manual.html" class="dock-link">คู่มือการใช้งาน</a>
+      <a href="/ea-system-philosophy.html" class="dock-link">ปรัชญา</a>
+      <a href="/anti-ea-faq.html" class="dock-link active" style="color: var(--accent);">FAQ</a>
+  </nav>
+</div>
 
-<main>
-  <header style="padding: 100px 20px 50px;">
-    <h1 data-text="Anti-EA FAQ">Anti-EA FAQ</h1>
-    <h2 data-text="คำถามก่อนเริ่มใช้บอท" style="display: block; font-size: 1.5rem; margin-top: 10px;">คำถามก่อนเริ่มใช้บอท</h2>
-    <p style="margin-top: 25px; color: var(--text-silver);">
-      หน้านี้ไม่ได้ถูกเขียนขึ้นมาเพื่อชวนให้คุณใช้ EA แต่เพื่อช่วยให้คุณตัดสินใจว่า <br>
-      <strong style="color: var(--accent-bright);">"คุณควรใช้มันหรือไม่"</strong>
-    </p>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">PRE-DEPLOYMENT PROTOCOL</div>
+    <h1>Anti-EA FAQ</h1>
+    <h2 style="font-size: 1.5rem; color: var(--accent); margin: 0; font-weight: 700;">คำถามก่อนเริ่มใช้บอท</h2>
+    <p class="sub-headline">หน้านี้ไม่ได้ถูกเขียนขึ้นมาเพื่อชวนให้คุณใช้ EA แต่เพื่อช่วยให้คุณตัดสินใจว่า<br><strong style="color: var(--ink);">"คุณควรใช้มันหรือไม่"</strong></p>
   </header>
 
-  <section>
-    <span class="question-header">Q1: ถ้า EA ขาดทุน ผมจะโทษใคร</span>
-    <p class="answer-text">
-      ถ้าคำตอบคือ EA, โบรกเกอร์ หรือตลาด แปลว่าคุณยังไม่พร้อมรับผิดชอบต่อระบบที่คุณเลือกใช้
-    </p>
-  </section>
-
-  <section>
-    <span class="question-header">Q2: ผมเข้าใจหรือไม่ว่า EA ตัวนี้ถูกออกแบบมาสำหรับตลาดแบบไหน</span>
-    <p class="answer-text">
-      ถ้าคุณรู้แค่ว่า “มันเคยกำไร” แต่ไม่รู้ว่ามันทำงานได้ดีในสภาวะใด ความเสี่ยงของคุณสูงกว่าที่คิด
-    </p>
-  </section>
-
-  <section>
-    <span class="question-header">Q3: ผมรู้หรือไม่ว่า Drawdown ระดับไหนคือสัญญาณเตือน</span>
-    <p class="answer-text">
-      Drawdown ไม่ใช่สิ่งที่ต้องทน แต่มันคือข้อมูลที่ใช้ประเมินว่าสมควรหยุดหรือปรับระบบหรือไม่
-    </p>
-  </section>
-
-  <section>
-    <span class="question-header">Q4: ถ้าระบบควรหยุด ผมกล้าหยุดหรือไม่</span>
-    <p class="answer-text">
-      คนจำนวนมากรู้ว่าควรหยุดตาม Logic แต่ไม่กล้าหยุดเพราะอารมณ์ ซึ่งเป็นความเสี่ยงที่ใหญ่กว่าตัวระบบเอง
-    </p>
-  </section>
-
-  <section>
-    <span class="question-header">Q5: ผมต้องการระบบที่ช่วยคิด หรือระบบที่ทำให้ไม่ต้องคิด</span>
-    <p class="answer-text">
-      EA ที่ดีควรเพิ่มวินัยในการตัดสินใจ ไม่ใช่ลดความรับผิดชอบของผู้ใช้
-    </p>
-  </section>
-
-  <section>
-    <span class="question-header">Q6: ผมยอมรับได้หรือไม่ว่า EA ไม่เหมาะกับทุกช่วงชีวิต</span>
-    <p class="answer-text">
-      บางช่วงชีวิต การไม่ใช้ EA คือการบริหารความเสี่ยงที่ดีที่สุด
-    </p>
-  </section>
-
-  <blockquote data-text="ถ้าคำถามเหล่านี้ทำให้คุณรู้สึกอึดอัด นั่นคือสัญญาณของความพร้อม">
-    "ถ้าคำถามเหล่านี้ทำให้คุณรู้สึกอึดอัด นั่นไม่ใช่สัญญาณแย่ แต่มันคือสัญญาณของความพร้อม"
-  </blockquote>
-
-  <section style="text-align: center;">
-    <h2 data-text="อ่านต่อเพื่อทำความเข้าใจ">อ่านต่อเพื่อทำความเข้าใจ</h2>
-    <ul class="link-list" style="margin-top: 20px;">
-      <li><a href="/index.html">➜ แนวคิดหลัก: EA ไม่ได้อันตราย คนที่เข้าใจต่างหากที่อันตราย</a></li>
-      <li><a href="/ea-system-overview.html">➜ ภาพรวมการใช้ EA อย่างมีระบบ</a></li>
-      <li><a href="/why-most-ea-users-fail.html">➜ ทำไมคนส่วนใหญ่ใช้ EA แล้วล้มเหลว</a></li>
-    </ul>
-  </section>
-
-  <footer>
-    <p>© 2026 BUGTRADERYAI - MINDSET FIRST PROTOCOL</p>
-    <div class="shimmer" style="display: inline-block; padding: 8px 25px; border: 1px solid var(--accent); color: var(--accent); font-weight: 900; letter-spacing: 2px; margin-top: 20px;">
-      4D WARP SPEED ACTIVE
+  <div class="bento-grid">
+    <!-- Q1 -->
+    <div class="bento-card" style="border-top: 4px solid var(--down);">
+      <h3>Q1: ถ้า EA ขาดทุน ผมจะโทษใคร?</h3>
+      <p>ถ้าคำตอบคือ EA, โบรกเกอร์ หรือตลาด แปลว่าคุณยังไม่พร้อมรับผิดชอบต่อระบบที่คุณเลือกใช้</p>
     </div>
+
+    <!-- Q2 -->
+    <div class="bento-card" style="border-top: 4px solid var(--warn);">
+      <h3>Q2: ผมเข้าใจหรือไม่ว่า EA ตัวนี้ถูกออกแบบมาสำหรับตลาดแบบไหน?</h3>
+      <p>ถ้าคุณรู้แค่ว่า “มันเคยกำไร” แต่ไม่รู้ว่ามันทำงานได้ดีในสภาวะใด ความเสี่ยงของคุณสูงกว่าที่คิด</p>
+    </div>
+
+    <!-- Q3 -->
+    <div class="bento-card" style="border-top: 4px solid var(--cyan);">
+      <h3>Q3: ผมรู้หรือไม่ว่า Drawdown ระดับไหนคือสัญญาณเตือน?</h3>
+      <p>Drawdown ไม่ใช่สิ่งที่ต้องทน แต่มันคือข้อมูลที่ใช้ประเมินว่าสมควรหยุดหรือปรับระบบหรือไม่</p>
+    </div>
+
+    <!-- Q4 -->
+    <div class="bento-card" style="border-top: 4px solid var(--pink);">
+      <h3>Q4: ถ้าระบบควรหยุด ผมกล้าหยุดหรือไม่?</h3>
+      <p>คนจำนวนมากรู้ว่าควรหยุดตาม Logic แต่ไม่กล้าหยุดเพราะอารมณ์ ซึ่งเป็นความเสี่ยงที่ใหญ่กว่าตัวระบบเอง</p>
+    </div>
+
+    <!-- Q5 -->
+    <div class="bento-card" style="border-top: 4px solid var(--purple);">
+      <h3>Q5: ผมต้องการระบบที่ช่วยคิด หรือระบบที่ทำให้ไม่ต้องคิด?</h3>
+      <p>EA ที่ดีควรเพิ่มวินัยในการตัดสินใจ ไม่ใช่ลดความรับผิดชอบของผู้ใช้</p>
+    </div>
+
+    <!-- Q6 -->
+    <div class="bento-card" style="border-top: 4px solid var(--up);">
+      <h3>Q6: ผมยอมรับได้หรือไม่ว่า EA ไม่เหมาะกับทุกช่วงชีวิต?</h3>
+      <p>บางช่วงชีวิต การไม่ใช้ EA คือการบริหารความเสี่ยงที่ดีที่สุด</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>BugTraderYai Insight</b>
+    "ถ้าคำถามเหล่านี้ทำให้คุณรู้สึกอึดอัด นั่นไม่ใช่สัญญาณแย่ แต่มันคือสัญญาณของความพร้อม"
+  </div>
+
+  <section class="part" style="background: transparent; border: none; box-shadow: none; padding: 0; text-align: center;">
+    <h2 style="justify-content: center;">🔗 อ่านต่อเพื่อทำความเข้าใจ</h2>
+    <div class="link-grid">
+      <a href="/index.html" class="quick-card">แนวคิดหลัก: EA ไม่ได้อันตราย</a>
+      <a href="/ea-system-overview.html" class="quick-card">ภาพรวมการใช้ EA อย่างมีระบบ</a>
+      <a href="/why-most-ea-users-fail.html" class="quick-card">ทำไมคนส่วนใหญ่ใช้ EA แล้วเจ๊ง</a>
+    </div>
+  </section>
+
+  <footer class="end">
+    <p>© 2026 BUGTRADERYAI · MINDSET FIRST PROTOCOL</p>
+    <p style="font-family: var(--mono); font-size: 11px; margin-top: 10px; color: var(--accent);">[ SYSTEM STABLE ]</p>
   </footer>
-</main>
+</div>
+
+<!-- Theme Toggle Button -->
+<button id="themeBtn" type="button" aria-label="สลับโหมดสว่าง/มืด">Dark Mode</button>
+<script>
+  (function(){
+    var b=document.getElementById("themeBtn"),r=document.documentElement;
+    function dark(){return r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);}
+    function label(){b.textContent=dark()?"Light Mode":"Dark Mode";}
+    b.addEventListener("click",function(){r.setAttribute("data-theme",dark()?"light":"dark");label();});
+    label();
+  })();
+</script>
 
 </body>
 </html>

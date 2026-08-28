@@ -1,370 +1,710 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="google-site-verification" content="_ZVkMH7efLNyDOvZowNRBDQ_XYNkdWktE_PxKr0DVPs" />
-  <title>EA ไม่ได้อันตราย | bugtraderyai</title>
+  <title>EA ไม่ได้อันตราย | bugtraderyai — Systematic Intelligence</title>
   <meta name="description" content="มุมมองเชิงระบบเกี่ยวกับ EA ความเสี่ยง และการใช้งานอย่างรับผิดชอบ โดย bugtraderyai" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-<link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
-<link rel="manifest" href="media/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Canonical & Social Meta -->
+  <link rel="canonical" href="https://bugtraderyai.com/" />
+  <meta property="og:locale" content="th_TH" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="EA ไม่ได้อันตราย | bugtraderyai — Systematic Intelligence" />
+  <meta property="og:description" content="มุมมองเชิงระบบเกี่ยวกับ EA ความเสี่ยง และการใช้งานอย่างรับผิดชอบ โดย bugtraderyai" />
+  <meta property="og:url" content="https://bugtraderyai.com/" />
+  <meta property="og:site_name" content="bugtraderyai" />
+  <meta property="og:image" content="https://bugtraderyai.com/media/apple-touch-icon.png" />
+
+  <!-- Favicon & Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ===== BugTraderYai V9: THE HYPER-DISTORTION & WARP SPEED (ดุดัน 200%) ===== */
+    /* ===== WORLD-CLASS HI-END IVORY GLASS TOKENS ===== */
     :root {
-      --bg-dark: #010204;
-      --card-bg: rgba(5, 10, 20, 0.95);
-      --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.6);
-      --text-main: #f8fafc;
-      --text-sub: #94a3b8;
-      --border: rgba(56, 189, 248, 0.4);
-      --glitch-red: rgba(255, 0, 193, 0.7);
-      --glitch-blue: rgba(0, 255, 240, 0.7);
+      --bg-base: #FAF7F2;
+      --bg-surface: #FFFFFF;
+      --bg-surface-translucent: rgba(255, 255, 255, 0.75);
+      --bg-accent-soft: rgba(252, 106, 39, 0.06);
+
+      --color-charcoal: #1F1F1F;
+      --color-body: #525252;
+      --color-subtle: #8A8884;
+      
+      --accent-orange: #FC6A27;
+      --accent-orange-hover: #E05514;
+      --accent-glow: rgba(252, 106, 39, 0.25);
+
+      --border-light: rgba(200, 190, 180, 0.35);
+      --border-glass: rgba(255, 255, 255, 0.8);
+      --border-active: rgba(252, 106, 39, 0.4);
+
+      --radius-pill: 9999px;
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+
+      --shadow-ambient: 0 30px 60px -12px rgba(31, 31, 31, 0.08);
+      --shadow-card: 0 10px 30px -5px rgba(31, 31, 31, 0.04), 0 2px 6px -1px rgba(31, 31, 31, 0.02);
+      --shadow-button: 0 12px 28px -6px rgba(252, 106, 39, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: 'Noto Sans Thai', sans-serif;
-      color: var(--text-main);
-      line-height: 1.8;
-      background-color: var(--bg-dark);
+      font-family: 'Prompt', 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--color-charcoal);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-      text-align: center;
     }
 
-    /* 🌀 พื้นหลังพุ่งทะยาน (Warp Speed Animation) */
-    .dimension-bg {
+    /* 🌐 Ambient Luxury Aura Gradient Background */
+    .ambient-canvas {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       z-index: -1;
-      background-image: 
-        linear-gradient(rgba(56, 189, 248, 0.2) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(56, 189, 248, 0.2) 2px, transparent 2px);
-      background-size: 80px 80px;
-      /* บิดมิติลึกและใหญ่ขึ้น 200% */
-      transform: perspective(300px) rotateX(60deg) scale(3);
-      transform-origin: center top;
-      animation: warpSpeed 2s linear infinite;
-      filter: blur(0.5px) contrast(1.5);
+      background: 
+        radial-gradient(circle at 50% -20%, rgba(252, 106, 39, 0.08) 0%, transparent 70%),
+        radial-gradient(circle at 90% 60%, rgba(200, 190, 180, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 10% 80%, rgba(252, 106, 39, 0.04) 0%, transparent 40%);
+      pointer-events: none;
     }
 
-    @keyframes warpSpeed {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 80px; }
-    }
-
-    /* ⚡️ กล่อง Section แบบ Glitch บิดเบี้ยว */
-    section {
-      background: var(--card-bg);
-      backdrop-filter: blur(15px);
-      padding: 50px;
-      border-radius: 4px; /* ดุดันแบบเหลี่ยมตัด */
-      margin: 40px auto;
-      max-width: 850px;
-      border: 1px solid var(--border);
-      animation: glitchBox 6s infinite;
-      transition: 0.3s;
-    }
-
-    @keyframes glitchBox {
-      0%, 100% { box-shadow: 0 0 20px rgba(0, 0, 0, 1); border-color: var(--border); }
-      40% { box-shadow: -10px 0 20px var(--glitch-red), 10px 0 20px var(--glitch-blue); transform: translate(-2px, 1px) skewX(-1deg); }
-      42% { transform: translate(2px, -1px) skewX(1deg); }
-      44% { box-shadow: 0 0 20px rgba(0, 0, 0, 1); transform: translate(0, 0) skewX(0deg); }
-    }
-
-    section:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 30px var(--accent-glow);
-    }
-
-    /* 📺 ตัวหนังสือ Glitch Text (h1, h2) */
-    h1, h2 {
-      color: #fff;
-      position: relative;
-      display: inline-block;
-      font-weight: 900;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px var(--accent-glow);
-    }
-
-    /* สร้าง Layer สั่น RGB */
-    h1::before, h1::after, h2::before, h2::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      opacity: 0.8;
-    }
-    h1::before, h2::before { color: #ff00c1; z-index: -1; animation: glitchAnim 0.4s infinite; display: none; }
-    h1::after, h2::after { color: #00fff0; z-index: -2; animation: glitchAnim 0.4s infinite reverse; display: none; }
-
-    /* โชว์ Layer เมื่อต้องการความบ้าคลั่ง */
-    h1:hover::before, h1:hover::after, h2:hover::before, h2:hover::after { display: block; }
-
-    @keyframes glitchAnim {
-      0% { transform: translate(0); }
-      20% { transform: translate(-3px, 2px); }
-      40% { transform: translate(3px, -2px); }
-      60% { transform: translate(-3px, -2px); }
-      80% { transform: translate(3px, 2px); }
-      100% { transform: translate(0); }
-    }
-
-    /* 1. Shimmer Animation */
-    .shimmer {
-      background: linear-gradient(90deg, transparent 25%, rgba(56, 189, 248, 0.2) 50%, transparent 75%);
-      background-size: 200% 100%;
-      animation: shimmer-ani 3s infinite;
-    }
-    @keyframes shimmer-ani {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    /* 2. Nav Dark Glass */
-    .hub-nav {
+    /* 🧭 Floating Dock Navigation */
+    .dock-container {
+      position: sticky;
+      top: 24px;
+      z-index: 1000;
       display: flex;
       justify-content: center;
-      gap: 10px;
-      padding: 15px;
-      background: rgba(1, 2, 4, 0.8);
-      backdrop-filter: blur(20px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--accent);
+      padding: 0 20px;
     }
-    .hub-nav a {
-      color: var(--text-sub);
+
+    .glass-dock {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-glass);
+      box-shadow: 0 16px 36px -8px rgba(31, 31, 31, 0.08);
+      overflow-x: auto;
+      max-width: 1020px;
+    }
+
+    .glass-dock::-webkit-scrollbar { display: none; }
+
+    .dock-link {
+      color: var(--color-body);
       text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dock-link:hover {
+      color: var(--color-charcoal);
+      background: rgba(250, 247, 242, 0.9);
+    }
+
+    .dock-link.active {
+      color: #ffffff;
+      background: var(--color-charcoal);
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(31, 31, 31, 0.15);
+    }
+
+    .main-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 24px 120px;
+    }
+
+    /* 💎 Hi-End Dramatic Hero Section */
+    .hero-wrapper {
+      text-align: center;
+      padding: 80px 10px 60px;
+      position: relative;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 22px;
+      background: var(--bg-surface);
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+      margin-bottom: 32px;
+    }
+
+    .hero-title {
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -2px;
+      color: var(--color-charcoal);
+      margin-bottom: 24px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--color-charcoal) 30%, var(--accent-orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 2.8vw, 24px);
+      font-weight: 400;
+      color: var(--color-body);
+      max-width: 720px;
+      margin: 0 auto 40px;
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 🔘 Capsule Action Buttons */
+    .btn-capsule {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 38px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent-orange);
+      color: #ffffff !important;
+      box-shadow: var(--shadow-button);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-orange-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px -4px rgba(252, 106, 39, 0.45);
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--color-charcoal) !important;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+    }
+
+    .btn-secondary:hover {
+      background: #FFFFFF;
+      border-color: var(--accent-orange);
+      color: var(--accent-orange) !important;
+      transform: translateY(-3px);
+    }
+
+    /* 🍱 Asymmetric Bento Grid Architecture */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .bento-card {
+      background: var(--bg-surface-translucent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: var(--radius-xl);
+      padding: 48px 42px;
+      border: 1px solid var(--border-glass);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(252, 106, 39, 0.3), transparent);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-ambient);
+      border-color: var(--border-active);
+    }
+
+    .bento-card:hover::before { opacity: 1; }
+
+    .col-12 { grid-column: span 12; }
+    .col-8 { grid-column: span 8; }
+    .col-4 { grid-column: span 4; }
+
+    .card-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .card-title {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--color-charcoal);
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      color: var(--color-body);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    /* 📊 Metric Counters Spotlight Card */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .metric-box {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      border: 1px solid var(--border-light);
+      text-align: left;
+    }
+
+    .metric-val {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--color-charcoal);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .metric-val span {
+      color: var(--accent-orange);
+    }
+
+    .metric-lbl {
       font-size: 0.85rem;
-      padding: 6px 16px;
-      border-radius: 5px;
-      transition: 0.3s;
-    }
-    .hub-nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); background: rgba(56, 189, 248, 0.1); }
-
-    /* 3. Header & Logo */
-    header { position: relative; padding: 100px 20px 60px; text-align: center; z-index: 1; }
-    .logo-img {
-      border-radius: 10px;
-      box-shadow: 0 0 30px var(--accent-glow);
-      border: 3px solid var(--accent);
-      margin-bottom: 25px;
-      filter: brightness(1.1);
+      color: var(--color-subtle);
+      margin-top: 8px;
+      font-weight: 500;
     }
 
-    /* 5. Tooltip (Neon Style) */
+    /* 💡 Tooltip */
     .tooltip {
       position: relative;
       display: inline-block;
-      color: var(--accent);
-      border-bottom: 1px dashed var(--accent);
+      color: var(--accent-orange);
+      font-weight: 600;
+      border-bottom: 1.5px dashed var(--accent-orange);
       cursor: help;
     }
+
     .tooltip .tooltiptext {
       visibility: hidden;
-      width: 220px;
-      background-color: #0f172a;
-      color: #fff;
-      text-align: center;
-      border-radius: 4px;
-      padding: 15px;
+      width: 280px;
+      background-color: var(--color-charcoal);
+      color: #ffffff;
+      text-align: left;
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
       position: absolute;
-      z-index: 10;
-      bottom: 130%;
+      z-index: 100;
+      bottom: 135%;
       left: 50%;
       transform: translateX(-50%);
       opacity: 0;
-      transition: 0.3s;
+      transition: all 0.25s ease;
       font-size: 0.85rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      border: 1px solid var(--accent);
+      line-height: 1.5;
+      box-shadow: var(--shadow-ambient);
     }
+
     .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
 
-    /* 6. Accordion (Command Center Style) */
-    .accordion-item {
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 4px;
-      margin-bottom: 15px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.05);
-      text-align: left;
+    /* 📂 Sleek Accordion */
+    .accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 28px;
     }
+
+    .accordion-item {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
     .accordion-header {
-      padding: 20px 30px;
+      padding: 22px 28px;
       cursor: pointer;
       font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--color-charcoal);
       display: flex;
       justify-content: space-between;
-      transition: 0.3s;
+      align-items: center;
+      user-select: none;
     }
-    .accordion-header:hover { background: rgba(56, 189, 248, 0.1); color: var(--accent); }
+
+    .accordion-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--accent-orange);
+      transition: transform 0.3s ease;
+    }
+
     .accordion-content {
       max-height: 0;
-      padding: 0 30px;
+      padding: 0 28px;
       overflow: hidden;
-      transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      color: var(--text-sub);
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+      color: var(--color-body);
+      font-size: 0.96rem;
+      line-height: 1.75;
     }
 
-    /* 7. Button (Solid & Sharp) */
-    .cta-button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 18px 50px;
-      background: var(--accent);
-      color: #05070a !important;
-      border-radius: 4px;
+    /* 🛡️ Anti-Greed Red Banner */
+    .anti-greed-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+      border: 1px solid rgba(225, 29, 72, 0.25);
+      box-shadow: var(--shadow-card);
+      text-align: center;
+    }
+
+    .anti-greed-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 18px;
+      border-radius: var(--radius-pill);
+      background: #FFF1F2;
+      color: #E11D48;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    /* 🔗 Navigation Action Cards */
+    .quick-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .quick-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 28px;
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
       text-decoration: none;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      box-shadow: 0 0 20px var(--accent-glow);
-      transition: 0.3s;
-    }
-    .cta-button:hover {
-      transform: translateY(-3px) skewX(-5deg);
-      box-shadow: 0 0 35px var(--accent);
+      color: var(--color-charcoal);
+      font-weight: 600;
+      border: 1px solid var(--border-light);
+      transition: all 0.25s ease;
     }
 
-    footer { text-align: center; padding: 80px 0; color: #475569; font-size: 0.85rem; letter-spacing: 2px; }
+    .quick-card:hover {
+      border-color: var(--accent-orange);
+      color: var(--accent-orange);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+    }
 
-    @media (max-width: 600px) {
-      header { padding: 60px 20px; }
-      section { padding: 35px 20px; margin: 20px; }
-      .hub-nav { display: grid; grid-template-columns: 1fr 1fr; }
+    /* 🦶 Footer */
+    footer {
+      text-align: center;
+      padding: 80px 20px 40px;
+      color: var(--color-subtle);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--border-light);
+      margin-top: 80px;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      color: var(--color-charcoal);
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      letter-spacing: -0.5px;
+    }
+
+    @media (max-width: 900px) {
+      .col-8, .col-4 { grid-column: span 12; }
+      .bento-card { padding: 32px 24px; }
+      .hero-wrapper { padding: 40px 10px 30px; }
+      .quick-links, .metric-grid { grid-template-columns: 1fr; }
     }
   </style>
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-GD0H18D9JE');
   </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "bugtraderyai",
-  "url": "https://bugtraderyai.com/",
-  "description": "EA Intelligence Hub | ระบบจัดการและวิเคราะห์ EA แบบมืออาชีพ"
-}
-</script>
-  
+
+  <!-- Advanced Schema Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://bugtraderyai.com/#website",
+        "url": "https://bugtraderyai.com/",
+        "name": "bugtraderyai",
+        "description": "EA Intelligence Hub | Systematic Risk Architecture",
+        "publisher": {
+          "@type": "Organization",
+          "name": "BugTraderYai Enterprise",
+          "url": "https://bugtraderyai.com/"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://bugtraderyai.com/#webpage",
+        "url": "https://bugtraderyai.com/",
+        "name": "EA ไม่ได้อันตราย | bugtraderyai — Systematic Intelligence",
+        "isPartOf": {
+          "@id": "https://bugtraderyai.com/#website"
+        },
+        "description": "มุมมองเชิงระบบเกี่ยวกับ EA ความเสี่ยง และการใช้งานอย่างรับผิดชอบ โดย bugtraderyai"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
+<div class="ambient-canvas"></div>
 
-<div class="dimension-bg"></div>
+<div class="dock-container">
+  <nav class="glass-dock">
+      <a href="/" class="dock-link active">หน้าแรก</a>
+      <a href="/intelligence-hub.html" class="dock-link" style="color: var(--accent-orange); font-weight: 600;">🔥 500 คำถาม</a>
+      <a href="/porthub.html" class="dock-link">Porthub</a>
+      <a href="/manual.html" class="dock-link">คู่มือการใช้งาน</a>
+      <a href="/partners.html" class="dock-link">Partners</a>
+      <a href="/ea-system-philosophy.html" class="dock-link">ปรัชญา</a>
+      <a href="/systems.html" class="dock-link">Systems</a>
+      <a href="/why-most-ea-users-fail.html" class="dock-link">ทำไมถึงเจ๊ง</a>
+      <a href="/anti-ea-faq.html" class="dock-link">FAQ</a>
+      <a href="/about.html" class="dock-link">รู้จักเรา</a>
+  </nav>
+</div>
 
-<nav class="hub-nav">
-    <a href="/">หน้าแรก</a>
-    <a href="/intelligence-hub.html" style="color: var(--accent); font-weight: 700;">🔥 500 คำถาม</a>
-    <a href="/porthub.html">Porthub</a>
-    <a href="/manual.html">คู่มือการใช้งาน</a>
-    <a href="/partners.html">Partners</a>
-    <a href="/ea-system-philosophy.html">ปรัชญา</a>
-    <a href="/systems.html">Systems</a>
-    <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
-    <a href="/anti-ea-faq.html">FAQ</a>
-    <a href="/about.html">รู้จักเรา</a>
-</nav>
-
-<main>
-  <header>
-    <div class="logo-container">
-        <img src="media/apple-touch-icon.png" width="110" height="110" class="logo-img" alt="bugtraderyai">
-    </div>
-    <h1 data-text="EA ไม่ได้อันตราย">EA ไม่ได้อันตราย</h1><br>
-    <h2 data-text="คนที่ใช้ EA โดยไม่เข้าใจต่างหากที่อันตราย" style="font-size: 1.5rem; margin-top: 10px;">
-      คนที่ใช้ EA โดยไม่เข้าใจต่างหากที่อันตราย
-    </h2>
-    <p style="color: var(--accent); font-weight: 900; letter-spacing: 2px; margin-top: 25px; text-transform: uppercase;">
-      SYSTEMATIC TRADING INTELLIGENCE
-    </p>
-  </header>
-
-  <section style="text-align: center; border: 1px solid var(--accent);">
-    <h2 data-text="📂 EA Intelligence Hub">📂 EA Intelligence Hub</h2>
-    <p>วิเคราะห์ระบบเทรดผ่าน <span class="tooltip">Logic AI<span class="tooltiptext">อัลกอริทึมที่คำนวณจากสถิติและบริบทตลาดจริง ไม่มีการใช้สัญชาตญาณส่วนตัว</span></span> และคำถามเจาะลึกกว่า 500 ข้อ</p>
-    <a href="/intelligence-hub.html" class="cta-button">สำรวจคลังความรู้</a>
-  </section>
-
-  <section>
-    <h2 data-text="⚙️ หัวใจของระบบ">⚙️ หัวใจของระบบ</h2>
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        ทำไมเราไม่โชว์ผลกำไร? <span>+</span>
-      </div>
-      <div class="accordion-content">
-        <p>เพราะกำไรในอดีตไม่ใช่เครื่องยืนยันอนาคต เราให้ความสำคัญกับการทำความเข้าใจ "ความเสี่ยง" (Risk) และ "ตรรกะ" (Logic) เพื่อให้คุณควบคุมพอร์ตได้จริงในทุกสภาวะตลาด</p>
-      </div>
-    </div>
-    
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        Systematic Trading คืออะไร? <span>+</span>
-      </div>
-      <div class="accordion-content">
-        <p>คือการเปลี่ยนแผนการเทรดให้เป็นชุดคำสั่งที่ชัดเจน ตัดอารมณ์ความกลัวและความโลภออกไป แล้วปล่อยให้ระบบทำงานตามสถิติที่ถูกพิสูจน์มาแล้ว</p>
-      </div>
+<main class="main-container">
+  <section class="hero-wrapper">
+    <div class="pill-badge">Systematic Risk Architecture</div>
+    <h1 class="hero-title">EA ไม่ได้อันตราย<span>.</span></h1>
+    <h2 class="hero-subtitle">คนที่ใช้ EA โดยไม่เข้าใจต่างหากที่อันตราย — เปลี่ยนการเทรดแบบเสี่ยงโชค สู่คณิตศาสตร์ความปลอดภัย</h2>
+    <div class="hero-actions">
+      <a href="/intelligence-hub.html" class="btn-capsule btn-primary">สำรวจคลังความรู้ 500 ข้อ &rarr;</a>
+      <a href="https://www.myfxbook.com" target="_blank" class="btn-capsule btn-secondary">ตรวจสอบสถิติพอร์ตจริง 📊</a>
     </div>
   </section>
 
-  <section>
-    <h2 data-text="🔗 ข้อมูลสำคัญ">🔗 ข้อมูลสำคัญ</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-      <a href="/why-most-ea-users-fail.html" style="text-decoration:none; padding: 25px; background: rgba(56,189,248,0.05); border-radius: 4px; color: var(--accent); font-weight: 900; transition: 0.3s; border: 1px solid var(--accent); text-align: center;">➜ ทำไมคนส่วนใหญ่เจ๊ง</a>
-      <a href="/ea-system-overview.html" style="text-decoration:none; padding: 25px; background: rgba(56,189,248,0.05); border-radius: 4px; color: var(--accent); font-weight: 900; transition: 0.3s; border: 1px solid var(--accent); text-align: center;">➜ ภาพรวมระบบ</a>
+  <div class="bento-grid">
+    <div class="bento-card col-8">
+      <span class="card-label">Enterprise Hub</span>
+      <h3 class="card-title">วิเคราะห์ระบบเทรดผ่านตรรกะ AI เชิงสถิติ</h3>
+      <p class="card-desc">
+        ก้าวข้ามการใช้สัญชาตญาณหรือภาพแคปกำไรรายวัน สู่การชำแหละโครงสร้างอัลกอริทึมผ่าน <span class="tooltip">Logic AI<span class="tooltiptext">อัลกอริทึมที่คำนวณจากสถิติและบริบทตลาดจริง ไม่มีการใช้อารมณ์หรือสัญชาตญาณ</span></span> พร้อมฐานข้อมูลสถิติเจาะลึกมิติความเสี่ยงกว่า 500 ข้อ
+      </p>
+      
+      <div class="metric-grid">
+        <div class="metric-box">
+          <div class="metric-val">500<span>+</span></div>
+          <div class="metric-lbl">คำถามวิเคราะห์ความเสี่ยง</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val">5<span>ปี</span></div>
+          <div class="metric-lbl">ข้อมูล Backtest สภาวะวิกฤต</div>
+        </div>
+      </div>
     </div>
-  </section>
+
+    <div class="bento-card col-4" style="background: rgba(255,255,255,0.9);">
+      <span class="card-label">Forensic Proof</span>
+      <h3 class="card-title">สถิติไม่ใช่ภาพแคป</h3>
+      <p class="card-desc">
+        ผลลัพธ์ระยะสั้นไม่สามารถพิสูจน์ความอยู่รอด ข้อมูลทุกอย่างต้องผ่านการ Forward Test และตรวจสอบย้อนหลังได้จริงผ่าน Myfxbook
+      </p>
+      <div style="margin-top: 32px;">
+        <a href="https://www.myfxbook.com" target="_blank" style="color: var(--accent-orange); font-weight: 700; text-decoration: none; font-size: 0.95rem;">
+          เปิดดูประวัติ Myfxbook &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="bento-card col-12">
+      <span class="card-label">System Architecture</span>
+      <h3 class="card-title">หัวใจของระบบ &amp; การคุมความเสียหาย</h3>
+      <p class="card-desc">
+        คณิตศาสตร์ความปลอดภัยที่ถูกออกแบบมาเพื่อรับมือกับเวลาที่ตลาดไร้เหตุผล
+      </p>
+
+      <div class="accordion-list">
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>01. Core Strategy &amp; Logic การทำงาน</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>ผสานกลยุทธ์เชิงสถิติ (Quantitative Statistical Model) เน้นการเก็บรอบตามความน่าจะเป็น ตัดอารมณ์ความกลัวและความโลภออกไป ไม่มีการเบิ้ลล็อตแบบ Martingale ไร้ขอบเขต</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>02. สภาวะที่ระบบเสียเปรียบ &amp; เพดาน Max Drawdown</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>ไม่มีระบบใดชนะตลาดได้ทุกสภาวะ ระบบจะเสียเปรียบเมื่อเจอเทรนด์ทิศทางเดียวรุนแรงไร้การย่อตัว เราจึงกำหนดเพดาน <strong>Hard Cut Max Drawdown</strong> ชัดเจนเพื่อตัดความเสียหายทันที</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>03. ทำไมเราไม่โชว์ผลกำไรสูง ๆ?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <p>เพราะกำไรในอดีตไม่ใช่เครื่องการันตีอนาคต การทำความเข้าใจเรื่อง "ความเสี่ยง" (Risk) และ "ตรรกะ" (Logic) คือวิถีเดียวที่จะรักษาเงินต้นไว้ได้จริงในระยะยาว</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="anti-greed-card">
+        <div class="anti-greed-badge">⚠️ Extreme Transparency</div>
+        <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; color: var(--color-charcoal);">ตัวกรองความจริงใจ (The Anti-Greed Filter)</h3>
+        <p style="color: var(--color-body); font-size: 0.98rem; max-width: 680px; margin: 0 auto; line-height: 1.7;">
+          หากเป้าหมายของคุณคือการหากำไร 100% ภายใน 3 วัน หรือมองหาระบบที่ไม่เคยขาดทุน <strong>โปรดปิดหน้านี้ทิ้งได้เลยครับ</strong> ที่นี่เราคุยเฉพาะ <em>"คณิตศาสตร์ความเสี่ยง"</em> และ <em>"วินัยการรักษาเงินต้นเพื่อผลตอบแทนระยะยาว"</em> เท่านั้น
+        </p>
+      </div>
+    </div>
+
+    <div class="bento-card col-12">
+      <span class="card-label">Next Chapters</span>
+      <h3 class="card-title">บทวิเคราะห์สำคัญถัดไป</h3>
+      <div class="quick-links">
+        <a href="/why-most-ea-users-fail.html" class="quick-card">
+          <span>➜ เจาะลึก: ทำไมคนส่วนใหญ่ถึงใช้ EA แล้วเจ๊ง</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="/ea-system-overview.html" class="quick-card">
+          <span>➜ ภาพรวมระบบ &amp; วิศวกรรมความเสี่ยง</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <footer>
-    <p>© 2026 BUGTRADERYAI - SYSTEMATIC TRADING</p>
-    <div class="shimmer" style="display: inline-block; padding: 6px 25px; border: 1px solid var(--accent); color: var(--accent); font-weight: 900; border-radius: 4px; letter-spacing: 2px;">
-      4D WARP SPEED ACTIVE
-    </div>
+    <div class="footer-brand">BUGTRADERYAI</div>
+    <p>© 2026 BUGTRADERYAI — SYSTEMATIC RISK ARCHITECTURE. ALL RIGHTS RESERVED.</p>
   </footer>
 </main>
 
 <script>
   function toggleAccordion(element) {
     const content = element.nextElementSibling;
+    const icon = element.querySelector('.accordion-icon');
     const isExpanded = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
-    
+
     document.querySelectorAll('.accordion-content').forEach(c => {
       if (c !== content) {
         c.style.maxHeight = '0px';
-        c.style.padding = '0 30px';
-        c.previousElementSibling.querySelector('span').innerText = '+';
+        c.style.padding = '0 28px';
+        const parentIcon = c.previousElementSibling.querySelector('.accordion-icon');
+        if (parentIcon) {
+          parentIcon.innerText = '+';
+          parentIcon.style.transform = 'rotate(0deg)';
+        }
       }
     });
 
     if (!isExpanded) {
-      content.style.maxHeight = content.scrollHeight + 30 + "px";
-      content.style.padding = '20px 30px';
-      element.querySelector('span').innerText = '-';
-      element.style.color = 'var(--accent)';
+      content.style.maxHeight = content.scrollHeight + 30 + 'px';
+      content.style.padding = '12px 28px 24px';
+      icon.innerText = '−';
+      icon.style.transform = 'rotate(180deg)';
     } else {
       content.style.maxHeight = '0px';
-      content.style.padding = '0 30px';
-      element.querySelector('span').innerText = '+';
-      element.style.color = 'inherit';
+      content.style.padding = '0 28px';
+      icon.innerText = '+';
+      icon.style.transform = 'rotate(0deg)';
     }
   }
 </script>
-
 </body>
 </html>

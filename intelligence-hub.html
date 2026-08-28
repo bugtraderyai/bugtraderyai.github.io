@@ -1,185 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <title>EA Intelligence Hub | 500 คำถามกระตุกสติก่อนใช้บอทเทรด | bugtraderyai</title>
-    <meta name="description" content="ศูนย์รวมความรู้และ 500 คำถาม-คำตอบเชิงลึกเกี่ยวกับ EA, การจัดการความเสี่ยง และบริบทตลาด โดย bugtraderyai">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="bugtraderyai">
-    <link rel="canonical" href="https://bugtraderyai.github.io/intelligence-hub.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EA Intelligence Hub | 500 คำถามกระตุกสติก่อนใช้บอทเทรด | bugtraderyai</title>
+<meta name="description" content="ศูนย์รวมความรู้และ 500 คำถาม-คำตอบเชิงลึกเกี่ยวกับ EA, การจัดการความเสี่ยง และบริบทตลาด โดย bugtraderyai">
 
+<!-- Canonical & Social Meta -->
+<link rel="canonical" href="https://bugtraderyai.com/intelligence-hub.html" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="EA Intelligence Hub | 500 คำถามกระตุกสติก่อนใช้บอทเทรด" />
+<meta property="og:description" content="คลังข้อมูลเชิงลึก 500 ข้อครอบคลุมความเสี่ยง Logic ระบบ และจิตวิทยาการเทรดอัตโนมัติ" />
+<meta property="og:url" content="https://bugtraderyai.com/intelligence-hub.html" />
+<meta property="og:site_name" content="bugtraderyai" />
+<meta property="og:image" content="https://bugtraderyai.com/media/apple-touch-icon.png" />
+
+<!-- Favicon & Icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
-<link rel="manifest" href="/media/site.webmanifest">
 
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* บังคับสไตล์เฉพาะหน้า Hub เพื่อให้รองรับ 500 ข้อ */
-        :root {
-            --accent-bright: #7dd3fc;
-            --glitch-red: rgba(255, 0, 193, 0.7);
-        }
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            color: #ffffff;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(0,0,0,0.9);
-        }
-
-        /* Dashboard ค้นหา (Sticky ล็อคด้านบน) */
-        .search-dashboard {
-            position: sticky;
-            top: 70px; /* ต่อจาก Nav หลัก */
-            z-index: 999;
-            background: rgba(1, 2, 4, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 20px;
-            border-bottom: 2px solid var(--accent);
-            margin-bottom: 40px;
-        }
-
-        .filter-input {
-            width: 100%;
-            max-width: 700px;
-            padding: 15px 25px;
-            background: #000;
-            border: 1px solid var(--accent);
-            color: var(--accent-bright);
-            font-size: 1.1rem;
-            border-radius: 4px;
-            outline: none;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
-        }
-
-        /* คอนเทนเนอร์สำหรับ h3 ทั้ง 500 อัน */
-        .qa-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: left;
-            padding: 0 20px 100px;
-            display: grid;
-            gap: 15px;
-            counter-reset: node-counter; /* เริ่มรันเลขข้อ */
-        }
-
-        /* ปรับแต่ง h3 ให้เป็นกล่องข้อมูลมิติที่ 4 */
-        .qa-grid h3 {
-            background: rgba(10, 15, 25, 0.9);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 20px 25px;
-            margin: 0;
-            font-size: 1.1rem;
-            border-radius: 4px;
-            display: flex;
-            align-items: flex-start;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: glitchBox 8s infinite;
-        }
-
-        .qa-grid h3:hover {
-            border-color: var(--accent);
-            transform: translateX(10px) scale(1.02);
-            background: rgba(56, 189, 248, 0.05);
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.1);
-        }
-
-        /* รันเลขข้ออัตโนมัติหน้า h3 */
-        .qa-grid h3::before {
-            counter-increment: node-counter;
-            content: "NODE-" counter(node-counter, decimal-leading-zero);
-            background: var(--accent);
-            color: #000;
-            padding: 2px 8px;
-            font-size: 0.7rem;
-            font-weight: 900;
-            margin-right: 20px;
-            border-radius: 2px;
-            flex-shrink: 0;
-            letter-spacing: 1px;
-        }
-
-        /* หมวดหมู่ (Category Labels) */
-        .category-anchor {
-            background: var(--glitch-red);
-            color: #fff;
-            padding: 8px 20px;
-            font-weight: 900;
-            display: inline-block;
-            margin: 60px 0 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-        }
-
-        .no-match {
-            display: none;
-            padding: 100px;
-            color: var(--glitch-red);
-            font-weight: 900;
-            font-size: 1.5rem;
-        }
-
-        footer { padding: 100px 0; opacity: 0.5; letter-spacing: 5px; }
-    </style>
-
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GD0H18D9JE');
-  </script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "intelligence-hub",
-  "url": "https://bugtraderyai.com/intelligence-hub.html",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "bugtraderyai",
-    "url": "https://bugtraderyai.com/"
-  }
-}
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GD0H18D9JE');
 </script>
 
+<style>
+  /* ===== IVORY GLASS 3.0 (Hi-End World Class) ===== */
+  :root {
+    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884;
+    --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15);
+    --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); 
+    --shadow-ambient: 0 40px 80px -20px rgba(41, 41, 41, 0.08);
+    --shadow-card: 0 10px 30px -10px rgba(41, 41, 41, 0.05);
+    --ease-linear: cubic-bezier(0.16, 1, 0.3, 1);
+    --mono: "Courier New", Courier, monospace;
+    --sans: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  
+  @media (prefers-color-scheme:dark){
+    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+  }
+  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); }
 
+  *{box-sizing:border-box;font-family:var(--sans)}
+  body{margin:0;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background 0.4s ease;}
+  html{scroll-behavior:smooth;scroll-padding-top:120px}
+  
+  .ambient-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 0%, rgba(252,106,39,0.05) 0%, transparent 80%); pointer-events: none; }
+  .dock-container { position: sticky; top: 24px; z-index: 1000; display: flex; justify-content: center; padding: 0 20px; }
+  .glass-dock { display: flex; align-items: center; gap: 4px; padding: 6px 8px; background: color-mix(in srgb, var(--card) 85%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 999px; border: 1px solid var(--line); box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08); max-width: 100%; overflow-x: auto; }
+  .glass-dock::-webkit-scrollbar { display: none; }
+  .nav-brand-logo { display: flex; align-items: center; padding-left: 6px; padding-right: 14px; border-right: 1px solid var(--line); margin-right: 6px; text-decoration: none; }
+  .nav-brand-logo img { height: 32px; width: auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+  .nav-brand-logo:hover img { transform: scale(1.05); }
+  .dock-link { color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 8px 20px; border-radius: 999px; white-space: nowrap; transition: all 0.4s var(--ease-linear); }
+  .dock-link:hover { color: var(--ink); background: var(--line-soft); }
+  .dock-link.active { color: #ffffff; background: var(--ink); font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
+  .wrap{max-width:1100px;margin:40px auto 0;padding:0 28px 96px;}
+  header.top{padding:60px 40px;margin-bottom:30px;border:1px solid var(--line);border-radius:32px;background:var(--card);box-shadow:var(--shadow-card);text-align:center;}
+  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:20px;}
+  h1{font-size:clamp(32px,4.5vw,56px);line-height:1.1;margin:0 0 .2em;font-weight:800;letter-spacing:-1px;color:var(--ink);}
+  .lede{color:var(--ink-2);max-width:68ch;margin:0 auto 24px; font-size: 1.05rem;}
+  
+  .category-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
+  .category-pills a { font-size: 12px; font-weight: 600; padding: 8px 16px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); color: var(--ink-2); text-decoration: none; transition: 0.3s; }
+  .category-pills a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    
+  .search-dashboard { position: sticky; top: 90px; z-index: 900; background: color-mix(in srgb, var(--card) 90%, transparent); backdrop-filter: blur(16px); padding: 16px 24px; border: 1px solid var(--line); border-radius: 20px; margin-bottom: 40px; box-shadow: var(--shadow-card); display: flex; justify-content: center; }
+  .filter-input { width: 100%; max-width: 700px; padding: 14px 24px; background: var(--paper); border: 1px solid var(--line); color: var(--ink); font-size: 1rem; border-radius: 999px; outline: none; transition: 0.3s; }
+  .filter-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+  .section-title { margin: 60px 0 24px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+  .section-title h2 { font-size: 24px; font-weight: 800; color: var(--ink); margin: 0 0 8px; letter-spacing: -0.5px; }
+  .section-title p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+  .qa-grid { display: grid; gap: 16px; }
+  .faq-item { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px; box-shadow: var(--shadow-card); transition: all 0.4s var(--ease-linear); position: relative; overflow: hidden; }
+  .faq-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-ambient); border-color: var(--accent); }
+  
+  .faq-item h3 { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin: 0 0 16px; display: flex; align-items: flex-start; gap: 14px; line-height: 1.5; }
+  .badge { font-family: var(--mono); font-size: 11px; font-weight: 800; background: var(--ink); color: var(--card); padding: 4px 10px; border-radius: 6px; flex: none; letter-spacing: 1px; }
+  .ans-body { color: var(--ink-2); font-size: 0.95rem; padding-left: 48px; border-left: 2px solid var(--line-soft); margin-left: 6px; }
+  .ans-body p { margin: 0 0 10px; }
+  .bug-insight { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 18px; font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-top: 12px; display: inline-block; }
+
+  .no-match { display: none; padding: 60px; text-align: center; color: var(--muted); font-weight: 600; font-size: 1.1rem; }
+  footer.end { margin-top: 80px; border-top: 1px solid var(--line); padding-top: 32px; color: var(--muted); font-size: 13px; text-align: center; font-weight: 500; }
+
+  @media(max-width:768px){
+    header.top{padding:40px 20px;border-radius:20px;}
+    .faq-item{padding:20px;}
+    .ans-body{padding-left:0;border-left:0;margin-left:0;margin-top:12px;}
+  }
+</style>
 </head>
 
-    <div class="dimension-bg"></div>
-
-<nav class="hub-nav">
-    <a href="/">หน้าแรก</a>
-    <a href="/intelligence-hub.html" style="color: var(--accent); font-weight: 900;">🔥 HUB</a>
-    <a href="/ea-system-philosophy.html">ปรัชญา</a>
-    <a href="/why-most-ea-users-fail.html">ทำไมถึงเจ๊ง</a>
-    <a href="/about.html">รู้จักเรา</a>
-</nav>
-    
 <body>
+<div class="ambient-canvas"></div>
 
-<header style="text-align: center;">
+<div class="dock-container">
+  <nav class="glass-dock">
+      <a href="/" class="nav-brand-logo">
+        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo">
+      </a>
+      <a href="/" class="dock-link">หน้าแรก</a>
+      <a href="/intelligence-hub.html" class="dock-link active" style="color: var(--accent); font-weight: 600;">🔥 500 คำถาม</a>
+      <a href="/porthub.html" class="dock-link">Porthub</a>
+      <a href="/manual.html" class="dock-link">คู่มือการใช้งาน</a>
+      <a href="/partners.html" class="dock-link">Partners</a>
+      <a href="/ea-system-philosophy.html" class="dock-link">ปรัชญา</a>
+      <a href="/systems.html" class="dock-link">Systems</a>
+  </nav>
+</div>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">EA Intelligence Hub · สารานุกรม 500 คำถาม</div>
     <h1>EA Intelligence Hub</h1>
-    <p>สารานุกรม 500 คำถามที่คนใช้ EA ต้องตอบตัวเองให้ได้ โดย <strong>bugtraderyai</strong></p>
+    <p class="lede">สารานุกรม 500 คำถามเชิงลึกที่คนใช้ EA และระบบอัตโนมัติ ต้องตอบตัวเองให้ได้ก่อนนำเงินจริงเข้าสู่ตลาด โดย <strong>bugtraderyai</strong></p>
     
-    <nav class="hub-nav">
+    <div class="category-pills">
         <a href="#failure">1. ความล้มเหลว (1-100)</a>
         <a href="#logic">2. Logic ระบบ (101-200)</a>
         <a href="#human">3. ความพร้อมของคน (201-300)</a>
         <a href="#support">4. การเลือก IB (301-400)</a>
         <a href="#future">5. อนาคต AI (401-500)</a>
-    </nav>
-</header>
+    </div>
+  </header>
+
+  <div class="search-dashboard">
+    <input id="hubSearch" class="filter-input" type="search" placeholder="⌕ ค้นหาคำถาม เช่น Martingale, Drawdown, VPS, Slippage..." autocomplete="off">
+  </div>
+
+  <main class="qa-grid">
+    <div id="noMatchMessage" class="no-match">ไม่พบหัวข้อหรือคำถามที่คุณค้นหา ลองใช้คำที่สั้นลง เช่น “พอร์ต” หรือ “ข่าว”</div>
+
+    <!-- ===== เนื้อหา 500 ข้อของคุณอยู่ตรงนี้ (ไม่ต้องลบทิ้ง) ===== -->
 
 <main>
 
@@ -4228,9 +4197,35 @@
 
 </main>
 
-<footer style="text-align: center; padding: 40px; color: #888;">
-    <p>© 2026 bugtraderyai - Systematic Trading Intelligence</p>
-</footer>
+  <footer class="end">
+    © 2026 bugtraderyai · Systematic Trading Intelligence Architecture
+  </footer>
+</div>
+
+<button id="themeBtn" type="button" aria-label="สลับโหมดสว่าง/มืด">Dark Mode</button>
+<script>
+  (function(){
+    var b=document.getElementById("themeBtn"),r=document.documentElement;
+    function dark(){return r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);}
+    function label(){b.textContent=dark()?"Light Mode":"Dark Mode";}
+    b.addEventListener("click",function(){r.setAttribute("data-theme",dark()?"light":"dark");label();});
+    label();
+
+    // Live Search Filter Script for Hub
+    var searchInput=document.getElementById("hubSearch"),items=[].slice.call(document.querySelectorAll(".faq-item")),emptyMsg=document.getElementById("noMatchMessage");
+    if(searchInput){
+      searchInput.addEventListener("input",function(){
+        var q=searchInput.value.trim().toLowerCase(),shown=0;
+        items.forEach(function(item){
+          var match=item.textContent.toLowerCase().indexOf(q)>-1;
+          item.style.display=match?"block":"none";
+          if(match)shown++;
+        });
+        emptyMsg.style.display=shown?"none":"block";
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>

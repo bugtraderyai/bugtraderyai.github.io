@@ -1,213 +1,295 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <title>EA Systems & Manuals | bugtraderyai</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EA Systems & Manuals | bugtraderyai</title>
+<meta name="description" content="คลังระบบ Expert Advisor (EA) พร้อมคู่มือการติดตั้งและการตั้งค่าระบบ (Deployment Protocol)">
+<meta name="author" content="bugtraderyai">
+
+<!-- Canonical & Social Meta -->
+<link rel="canonical" href="https://bugtraderyai.com/systems.html" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="EA Systems & Manuals | bugtraderyai" />
+<meta property="og:description" content="คลังระบบ Expert Advisor (EA) พร้อมคู่มือการติดตั้งและการตั้งค่าระบบ (Deployment Protocol)" />
+<meta property="og:url" content="https://bugtraderyai.com/systems.html" />
+<meta property="og:site_name" content="bugtraderyai" />
+<meta property="og:image" content="https://bugtraderyai.com/media/apple-touch-icon.png" />
+
+<!-- Favicon & Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
+<link rel="manifest" href="/media/site.webmanifest">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GD0H18D9JE');
+</script>
+
+<!-- Advanced Schema Graph -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bugtraderyai.com/#organization",
+      "name": "BugTraderYai Enterprise",
+      "url": "https://bugtraderyai.com/"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://bugtraderyai.com/systems.html#webpage",
+      "url": "https://bugtraderyai.com/systems.html",
+      "name": "EA Systems & Manuals | bugtraderyai",
+      "isPartOf": {
+        "@id": "https://bugtraderyai.com/#website"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://bugtraderyai.com/systems.html#howto",
+      "name": "ขั้นตอนการติดตั้งระบบ EA",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "เตรียมบัญชีเทรดและ VPS",
+          "text": "แนะนำให้ใช้บัญชี Cent สำหรับ EA สายแก้ไม้ และควรเปิดบน VPS (Virtual Private Server) ที่มีความเสถียรสูง 24 ชม."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "การคัดลอกไฟล์ระบบ",
+          "text": "เปิดโปรแกรม MT4/MT5 ไปที่เมนู File > Open Data Folder แล้วนำไฟล์ .ex4/.ex5 ไปวางในโฟลเดอร์ MQL > Experts"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "การตั้งค่า Common Tab",
+          "text": "ในหน้าต่าง Navigator ให้ลาก EA ลงในกราฟ แล้วติ๊กถูกที่ช่อง Allow Live Trading และ Allow DLL imports เสมอ"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "ตรวจสอบสถานะหน้ายิ้ม",
+          "text": "สังเกตมุมขวาบนของกราฟ หากเป็น 'หน้ายิ้ม' แสดงว่าระบบพร้อมทำงาน หากเป็น 'หน้าบึ้ง' ให้ตรวจสอบปุ่ม Auto Trading อีกครั้ง"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  /* ===== IVORY GLASS 3.0 (Hi-End World Class) ===== */
+  :root {
+    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884;
+    --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15);
+    --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); 
+    --warn: #f59e0b; --down: #f43f5e; --up: #10b981;
+    --cyan: #06b6d4; --blue: #3b82f6; --purple: #8b5cf6;
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    --shadow-ambient: 0 40px 80px -20px rgba(41, 41, 41, 0.08);
+    --shadow-card: 0 10px 30px -10px rgba(41, 41, 41, 0.05);
+    --ease-linear: cubic-bezier(0.16, 1, 0.3, 1);
+    --mono: "Courier New", Courier, monospace;
+    --sans: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  
+  @media (prefers-color-scheme:dark){
+    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+  }
+  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); }
 
-    <style>
-        :root {
-            --manual-gold: #fde047;
-            --system-blue: #38bdf8;
-        }
+  *{box-sizing:border-box;font-family:var(--sans)}
+  body{margin:0;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background 0.4s ease;}
+  html{scroll-behavior:smooth;scroll-padding-top:100px}
+  
+  .ambient-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 0%, rgba(252,106,39,0.05) 0%, transparent 80%); pointer-events: none; }
+  
+  /* Navigation */
+  .dock-container { position: sticky; top: 24px; z-index: 1000; display: flex; justify-content: center; padding: 0 20px; margin-bottom: 40px;}
+  .glass-dock { display: flex; align-items: center; gap: 4px; padding: 6px 8px; background: color-mix(in srgb, var(--card) 85%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 999px; border: 1px solid var(--line); box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08); max-width: 100%; overflow-x: auto; }
+  .glass-dock::-webkit-scrollbar { display: none; }
+  .nav-brand-logo { display: flex; align-items: center; padding-left: 6px; padding-right: 14px; border-right: 1px solid var(--line); margin-right: 6px; text-decoration: none; }
+  .nav-brand-logo img { height: 32px; width: auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+  .nav-brand-logo:hover img { transform: scale(1.05); }
+  .dock-link { color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 8px 20px; border-radius: 999px; white-space: nowrap; transition: all 0.4s var(--ease-linear); }
+  .dock-link:hover { color: var(--ink); background: var(--line-soft); }
+  .dock-link.active { color: #ffffff; background: var(--ink); font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
-        body { color: #fff; text-align: center; }
-        main { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+  /* Layout */
+  .wrap{max-width:900px;margin:0 auto;padding:0 28px 96px;}
+  
+  /* Hero Header */
+  header.top{padding:80px 40px;margin-bottom:40px;border:1px solid var(--line);border-radius:32px;background:var(--card);box-shadow:var(--shadow-card);text-align:center;}
+  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:16px;}
+  h1{font-size:clamp(32px,5vw,56px);line-height:1.2;margin:0 0 .1em;font-weight:900;letter-spacing:-1px;color:var(--ink); text-transform: uppercase;}
+  .sub-headline { color: var(--ink-2); font-size: 1.15rem; font-weight: 500; margin-top: 16px; line-height: 1.6; }
+  
+  /* EA Showcase (Bento Grid) */
+  .section-label { font-size: 1.25rem; font-weight: 800; color: var(--ink); margin: 60px 0 24px; display: flex; align-items: center; gap: 12px; letter-spacing: 0.5px;}
+  .section-label::before { content: ""; display: block; width: 6px; height: 24px; background: var(--accent); border-radius: 4px; }
+  
+  .system-display { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 60px;}
+  .ea-card { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 32px 24px; position: relative; transition: 0.4s var(--ease-linear); display: flex; flex-direction: column;}
+  .ea-card:hover { border-color: var(--blue); background: var(--card); box-shadow: var(--shadow-ambient); transform: translateY(-4px);}
+  
+  .ea-status { position: absolute; top: 24px; right: 24px; font-size: 0.75rem; font-weight: 700; font-family: var(--mono); padding: 4px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px;}
+  .status-active { color: var(--up); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);}
+  .status-beta { color: var(--warn); background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3);}
+  
+  .ea-card h3 { font-size: 1.5rem; margin: 0 0 12px; font-weight: 900; color: var(--ink); letter-spacing: -0.5px;}
+  .ea-card p { font-size: 0.95rem; color: var(--ink-2); margin: 0 0 24px; line-height: 1.6;}
+  
+  .spec-list { list-style: none; padding: 0; margin: 0 0 32px; border-top: 1px dashed var(--line);}
+  .spec-list li { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 0.95rem; color: var(--ink-2);}
+  .spec-val { color: var(--ink); font-weight: 700; font-family: var(--mono); font-size: 0.9rem;}
+  
+  .visit-link { margin-top: auto; display: inline-block; padding: 12px 24px; font-size: 0.95rem; font-weight: 800; color: var(--ink); border: 1px solid var(--line); border-radius: 12px; text-align: center; transition: 0.3s var(--ease-linear); text-decoration: none;}
+  .ea-card:hover .visit-link { background: var(--blue); color: var(--card); border-color: var(--blue);}
 
-        /* --- 1. EA Showcase Card --- */
-        .system-display {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
+  /* Step-by-Step Manual */
+  .manual-section { background: var(--card); border: 1px solid var(--line); border-radius: 32px; padding: 48px 40px; box-shadow: var(--shadow-card); position: relative;}
+  
+  .step-block { position: relative; padding-left: 60px; margin-bottom: 40px; }
+  .step-block:last-child { margin-bottom: 0; }
+  .step-num { position: absolute; left: 0; top: -4px; width: 40px; height: 40px; background: var(--accent-soft); border: 1px solid var(--accent); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 800; font-size: 1.1rem;}
+  .step-block h3 { font-size: 1.25rem; margin: 0 0 12px; font-weight: 800; color: var(--ink);}
+  .step-block p { margin: 0; font-size: 1.05rem;}
+  
+  .code-snippet { display: block; background: #1A1A1A; color: #10b981; font-family: var(--mono); font-size: 0.9rem; padding: 16px; border-radius: 12px; margin-top: 16px; border: 1px solid #333; overflow-x: auto;}
+  
+  .warning-tip { background: rgba(244, 63, 94, 0.05); border-left: 4px solid var(--down); color: var(--ink-2); padding: 16px 20px; font-size: 0.95rem; font-weight: 500; margin-top: 16px; border-radius: 0 12px 12px 0;}
+  .warning-tip b { color: var(--down); font-weight: 800; margin-right: 4px;}
 
-        .ea-card {
-            background: rgba(1, 2, 4, 0.95);
-            border: 2px solid var(--system-blue);
-            padding: 30px;
-            text-align: left;
-            position: relative;
-            animation: glitchBox 7s infinite;
-        }
+  footer.end{border-top:1px solid var(--line);padding-top:32px;margin-top: 60px; color:var(--muted);font-size:13px;text-align:center;font-weight:500;}
 
-        .ea-status {
-            position: absolute;
-            top: 15px; right: 15px;
-            font-size: 0.7rem;
-            color: #4ade80;
-            border: 1px solid #4ade80;
-            padding: 2px 8px;
-            text-transform: uppercase;
-        }
-
-        .spec-list {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            color: #94a3b8;
-        }
-
-        .spec-list li {
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding: 8px 0;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .spec-val { color: var(--system-blue); font-weight: 900; }
-
-        /* --- 2. Step-by-Step Manual --- */
-        .manual-section {
-            background: rgba(15, 23, 42, 0.9);
-            border-left: 4px solid var(--manual-gold);
-            padding: 40px;
-            margin: 60px 0;
-            text-align: left;
-        }
-
-        .step-block {
-            margin-bottom: 40px;
-            position: relative;
-            padding-left: 50px;
-        }
-
-        .step-num {
-            position: absolute;
-            left: 0; top: 0;
-            width: 35px; height: 35px;
-            background: var(--manual-gold);
-            color: #000;
-            font-weight: 900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-        }
-
-        .code-snippet {
-            background: #000;
-            padding: 15px;
-            border: 1px solid #334155;
-            color: #4ade80;
-            font-family: monospace;
-            font-size: 0.85rem;
-            margin-top: 10px;
-            display: block;
-        }
-
-        .warning-tip {
-            border: 1px solid #ef4444;
-            color: #ef4444;
-            padding: 15px;
-            font-size: 0.9rem;
-            margin-top: 15px;
-        }
-    </style>
+  @media(max-width:768px){
+    header.top{padding:50px 24px;border-radius:24px;}
+    .system-display { grid-template-columns: 1fr; }
+    .manual-section { padding: 32px 24px; border-radius: 24px;}
+    .step-block { padding-left: 50px; }
+    .step-num { width: 32px; height: 32px; font-size: 0.95rem; }
+  }
+</style>
 </head>
+
 <body>
 
-<div class="dimension-bg"></div>
+<div class="ambient-canvas"></div>
 
-<nav class="hub-nav">
-    <a href="/">HOME</a>
-    <a href="/intelligence-hub.html">HUB</a>
-    <a href="/systems.html" style="color: var(--accent); font-weight: 900;">SYSTEMS</a>
-    <a href="/partners.html">PARTNERS</a>
-</nav>
+<!-- Floating Glass Navigation Dock -->
+<div class="dock-container">
+  <nav class="glass-dock">
+      <a href="/" class="nav-brand-logo">
+        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo">
+      </a>
+      <a href="/" class="dock-link">หน้าแรก</a>
+      <a href="/intelligence-hub.html" class="dock-link">🔥 500 คำถาม</a>
+      <a href="/porthub.html" class="dock-link">Porthub</a>
+      <a href="/systems.html" class="dock-link active" style="color: var(--accent); font-weight: 600;">Systems</a>
+      <a href="/partners.html" class="dock-link">พาร์ทเนอร์</a>
+  </nav>
+</div>
 
-<main>
-    <header style="padding: 80px 20px 40px;">
-        <h1 data-text="SYSTEMS & MANUALS">SYSTEMS & MANUALS</h1>
-        <h2 data-text="คลังระบบและการติดตั้ง" style="display: block; font-size: 1.2rem; color: var(--accent-bright);">คลังระบบและการติดตั้ง</h2>
-    </header>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">SYSTEMS & MANUALS</div>
+    <h1>คลังระบบและการติดตั้ง</h1>
+  </header>
 
-    <div class="ecosystem-label">OPERATIONAL EA MODELS</div>
-    <div class="system-display">
-        
-        <div class="ea-card">
-            <span class="ea-status">Active</span>
-            <h3 style="color: var(--system-blue); margin: 0 0 10px;">BUG_WARRIOR_V1</h3>
-            <p style="font-size: 0.85rem; color: #cbd5e1;">กลยุทธ์ Martingale Hybrid เน้นเก็บ Cash Flow ในสภาวะตลาด Sideway</p>
-            <ul class="spec-list">
-                <li>Pair: <span class="spec-val">XAUUSD, EURUSD</span></li>
-                <li>Timeframe: <span class="spec-val">M5 / M15</span></li>
-                <li>Min. Capital: <span class="spec-val">$1,000 (Cent)</span></li>
-                <li>Risk Level: <span class="spec-val">High Impact</span></li>
-            </ul>
-            <a href="#setup" class="visit-link">ดูคู่มือติดตั้ง ➜</a>
-        </div>
+  <div class="section-label">OPERATIONAL EA MODELS</div>
+  
+  <div class="system-display">
+      <!-- System 1 -->
+      <div class="ea-card">
+          <span class="ea-status status-active">Active</span>
+          <h3>BUG_WARRIOR_V1</h3>
+          <p>กลยุทธ์ Martingale Hybrid เน้นเก็บ Cash Flow ในสภาวะตลาด Sideway</p>
+          <ul class="spec-list">
+              <li>Pair: <span class="spec-val">XAUUSD, EURUSD</span></li>
+              <li>Timeframe: <span class="spec-val">M5 / M15</span></li>
+              <li>Min. Capital: <span class="spec-val">$1,000 (Cent)</span></li>
+              <li>Risk Level: <span class="spec-val">High Impact</span></li>
+          </ul>
+          <a href="#setup" class="visit-link">ดูคู่มือติดตั้ง ↓</a>
+      </div>
 
-        <div class="ea-card">
-            <span class="ea-status">Beta Testing</span>
-            <h3 style="color: var(--system-blue); margin: 0 0 10px;">QUANT_FLOW_PRO</h3>
-            <p style="font-size: 0.85rem; color: #cbd5e1;">Trend Following Logic ใช้ AI กรองสัญญาณความผันผวนของราคา</p>
-            <ul class="spec-list">
-                <li>Pair: <span class="spec-val">Major Pairs</span></li>
-                <li>Timeframe: <span class="spec-val">H1</span></li>
-                <li>Min. Capital: <span class="spec-val">$500 (Standard)</span></li>
-                <li>Risk Level: <span class="spec-val">Medium</span></li>
-            </ul>
-            <a href="#setup" class="visit-link">ดูคู่มือติดตั้ง ➜</a>
-        </div>
+      <!-- System 2 -->
+      <div class="ea-card" style="border-top-color: var(--warn);">
+          <span class="ea-status status-beta">Beta Testing</span>
+          <h3>QUANT_FLOW_PRO</h3>
+          <p>Trend Following Logic ใช้ AI กรองสัญญาณความผันผวนของราคา</p>
+          <ul class="spec-list">
+              <li>Pair: <span class="spec-val">Major Pairs</span></li>
+              <li>Timeframe: <span class="spec-val">H1</span></li>
+              <li>Min. Capital: <span class="spec-val">$500 (Standard)</span></li>
+              <li>Risk Level: <span class="spec-val">Medium</span></li>
+          </ul>
+          <a href="#setup" class="visit-link" style="color: var(--warn); border-color: var(--warn);">ดูคู่มือติดตั้ง ↓</a>
+      </div>
+  </div>
 
-    </div>
+  <div id="setup" class="section-label" style="margin-top: 80px;">DEPLOYMENT PROTOCOL (วิธีติดตั้ง)</div>
+  
+  <div class="manual-section">
+      <!-- Step 1 -->
+      <div class="step-block">
+          <div class="step-num">01</div>
+          <h3>เตรียมบัญชีเทรดและ VPS</h3>
+          <p>แนะนำให้ใช้บัญชี Cent สำหรับ EA สายแก้ไม้ และควรเปิดบน VPS (Virtual Private Server) ที่มีความเสถียรสูง 24 ชม.</p>
+      </div>
 
-    <div id="setup" class="ecosystem-label" style="background: var(--manual-gold);">DEPLOYMENT PROTOCOL (วิธีติดตั้ง)</div>
-    
-    <div class="manual-section">
-        <div class="step-block">
-            <div class="step-num">01</div>
-            <h3>เตรียมบัญชีเทรดและ VPS</h3>
-            <p class="answer-text">แนะนำให้ใช้บัญชี Cent สำหรับ EA สายแก้ไม้ และควรเปิดบน VPS (Virtual Private Server) ที่มีความเสถียรสูง 24 ชม.</p>
-        </div>
+      <!-- Step 2 -->
+      <div class="step-block">
+          <div class="step-num">02</div>
+          <h3>การคัดลอกไฟล์ระบบ</h3>
+          <p>เปิดโปรแกรม MT4/MT5 ไปที่เมนู File > Open Data Folder แล้วนำไฟล์ .ex4/.ex5 ไปวางในโฟลเดอร์ MQL > Experts</p>
+          <code class="code-snippet">Path: MQL4 / Experts / [วางไฟล์ที่นี่]</code>
+      </div>
 
-        <div class="step-block">
-            <div class="step-num">02</div>
-            <h3>การคัดลอกไฟล์ระบบ</h3>
-            <p class="answer-text">เปิดโปรแกรม MT4/MT5 ไปที่เมนู File > Open Data Folder แล้วนำไฟล์ .ex4/.ex5 ไปวางในโฟลเดอร์ MQL > Experts</p>
-            <code class="code-snippet">Path: MQL4 / Experts / [วางไฟล์ที่นี่]</code>
-        </div>
+      <!-- Step 3 -->
+      <div class="step-block">
+          <div class="step-num">03</div>
+          <h3>การตั้งค่า Common Tab</h3>
+          <p>ในหน้าต่าง Navigator ให้ลาก EA ลงในกราฟ แล้วติ๊กถูกที่ช่อง <strong>"Allow Live Trading"</strong> และ <strong>"Allow DLL imports"</strong> เสมอ</p>
+          <div class="warning-tip"><b>⚠️ สำคัญ:</b> ห้ามลืมกดปุ่ม "Auto Trading" ด้านบนโปรแกรมให้เป็นสีเขียว</div>
+      </div>
 
-        <div class="step-block">
-            <div class="step-num">03</div>
-            <h3>การตั้งค่า Common Tab</h3>
-            <p class="answer-text">ในหน้าต่าง Navigator ให้ลาก EA ลงในกราฟ แล้วติ๊กถูกที่ช่อง <strong>"Allow Live Trading"</strong> และ <strong>"Allow DLL imports"</strong> เสมอ</p>
-            <div class="warning-tip">⚠️ ห้ามลืมกดปุ่ม "Auto Trading" ด้านบนโปรแกรมให้เป็นสีเขียว</div>
-        </div>
+      <!-- Step 4 -->
+      <div class="step-block">
+          <div class="step-num">04</div>
+          <h3>ตรวจสอบสถานะหน้ายิ้ม</h3>
+          <p>สังเกตมุมขวาบนของกราฟ หากเป็น "หน้ายิ้ม" แสดงว่าระบบพร้อมทำงาน หากเป็น "หน้าบึ้ง" ให้ตรวจสอบปุ่ม Auto Trading อีกครั้ง</p>
+      </div>
+  </div>
 
-        <div class="step-block">
-            <div class="step-num">04</div>
-            <h3>ตรวจสอบสถานะหน้ายิ้ม</h3>
-            <p class="answer-text">สังเกตมุมขวาบนของกราฟ หากเป็น "หน้ายิ้ม" แสดงว่าระบบพร้อมทำงาน หากเป็น "หน้าบึ้ง" ให้ตรวจสอบปุ่ม Auto Trading อีกครั้ง</p>
-        </div>
-    </div>
+  <footer class="end">
+    <p>© 2026 BUGTRADERYAI · SYSTEM DEPLOYMENT CENTER</p>
+    <p style="font-family: var(--mono); font-size: 11px; margin-top: 10px; color: var(--accent);">[ SYSTEMS READY ]</p>
+  </footer>
+</div>
 
-    <footer>
-        <p>© 2026 BUGTRADERYAI - SYSTEM DEPLOYMENT CENTER</p>
-        <div class="shimmer" style="display: inline-block; padding: 6px 20px; border: 1px solid var(--system-blue); color: var(--system-blue); font-weight: 900;">
-            SYSTEMS READY
-        </div>
-    </footer>
-</main>
-
+<!-- Theme Toggle Button -->
+<button id="themeBtn" type="button" aria-label="Toggle Dark/Light Mode">Dark Mode</button>
 <script>
-    // เพิ่มเอฟเฟกต์ Glitch เมื่อเลื่อนหน้าจอ
-    window.addEventListener('scroll', () => {
-        const cards = document.querySelectorAll('.ea-card');
-        cards.forEach(card => {
-            let rect = card.getBoundingClientRect();
-            if(rect.top < window.innerHeight && rect.bottom > 0) {
-                card.style.transform = `skewX(${(Math.random() - 0.5) * 2}deg)`;
-            }
-        });
-    });
+  (function(){
+    var b=document.getElementById("themeBtn"),r=document.documentElement;
+    function dark(){return r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);}
+    function label(){b.textContent=dark()?"Light Mode":"Dark Mode";}
+    b.addEventListener("click",function(){r.setAttribute("data-theme",dark()?"light":"dark");label();});
+    label();
+  })();
 </script>
 
 </body>

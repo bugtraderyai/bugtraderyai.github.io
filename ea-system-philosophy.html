@@ -23,7 +23,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
 <link rel="manifest" href="/media/site.webmanifest">
 
-<!-- Google Fonts -->
+<!-- Google Fonts (display=swap added for CLS) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -78,13 +78,13 @@
 </script>
 
 <style>
-  /* ===== IVORY GLASS 3.0 (Hi-End World Class) ===== */
+  /* ===== IVORY GLASS 3.0 (Hi-End World Class) Accessibility Fixes ===== */
   :root {
-    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884;
+    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #404040; --muted: #525252;
     --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15);
-    --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); 
-    --warn: #f59e0b; --down: #f43f5e; --up: #10b981;
-    --pink: #ec4899; --cyan: #06b6d4;
+    --accent: #d94a0d; --accent-soft: rgba(217, 74, 13, 0.08); 
+    --warn: #d97706; --down: #e11d48; --up: #059669;
+    --pink: #db2777; --cyan: #0891b2;
     
     --shadow-ambient: 0 40px 80px -20px rgba(41, 41, 41, 0.08);
     --shadow-card: 0 10px 30px -10px rgba(41, 41, 41, 0.05);
@@ -94,10 +94,10 @@
   }
   
   @media (prefers-color-scheme:dark){
-    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); --down: #f43f5e; --up: #10b981; --warn: #f59e0b; --pink: #ec4899; --cyan: #06b6d4;}
   }
-  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
-  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); }
+  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); --down: #f43f5e; --up: #10b981; --warn: #f59e0b; --pink: #ec4899; --cyan: #06b6d4;}
+  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #404040; --muted: #525252; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #d94a0d; --accent-soft: rgba(217, 74, 13, 0.08); --down: #e11d48; --up: #059669; --warn: #d97706; --pink: #db2777; --cyan: #0891b2;}
 
   *{box-sizing:border-box;font-family:var(--sans)}
   body{margin:0;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background 0.4s ease;}
@@ -110,11 +110,11 @@
   .glass-dock { display: flex; align-items: center; gap: 4px; padding: 6px 8px; background: color-mix(in srgb, var(--card) 85%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 999px; border: 1px solid var(--line); box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08); max-width: 100%; overflow-x: auto; }
   .glass-dock::-webkit-scrollbar { display: none; }
   .nav-brand-logo { display: flex; align-items: center; padding-left: 6px; padding-right: 14px; border-right: 1px solid var(--line); margin-right: 6px; text-decoration: none; }
-  .nav-brand-logo img { height: 32px; width: auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+  .nav-brand-logo img { border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
   .nav-brand-logo:hover img { transform: scale(1.05); }
-  .dock-link { color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 8px 20px; border-radius: 999px; white-space: nowrap; transition: all 0.4s var(--ease-linear); text-transform: uppercase;}
+  .dock-link { color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 8px 20px; border-radius: 999px; white-space: nowrap; transition: all 0.4s var(--ease-linear); }
   .dock-link:hover { color: var(--ink); background: var(--line-soft); }
-  .dock-link.active { color: #ffffff; background: var(--ink); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .dock-link.active { color: var(--card); background: var(--ink); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
   /* Layout */
   .wrap{max-width:900px;margin:0 auto;padding:0 28px 96px;}
@@ -129,8 +129,8 @@
   section.part{margin-bottom:40px;background:var(--card);border:1px solid var(--line);border-radius:32px;padding:48px 40px;box-shadow:var(--shadow-card);position:relative;z-index:1;transition:transform 0.5s var(--ease-linear), box-shadow 0.5s var(--ease-linear);}
   section.part:hover{transform:translateY(-4px);box-shadow:var(--shadow-ambient);}
   .part h2{font-size:24px;margin:0 0 16px;font-weight:800;letter-spacing:-0.5px; display:flex; align-items:center; gap: 10px; text-transform: uppercase;}
-  p{margin:0 0 16px;color:var(--ink-2); font-size: 1.1rem; line-height: 1.8; font-weight: 400;}
-  p strong { color: var(--ink); font-weight: 700; }
+  p{margin:0 0 16px;color:var(--ink-2); font-size: 1.1rem; line-height: 1.8; font-weight: 500;}
+  p strong { color: var(--ink); font-weight: 800; }
 
   /* BugTraderYai Insight Box */
   .note{border-left:4px solid var(--accent);background:var(--paper);padding:24px;border-radius:0 16px 16px 0;margin:24px 0 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line); font-weight: 500;}
@@ -147,12 +147,12 @@
   ul.plain li::before { content: "→"; color: var(--accent); font-weight: 800; }
 
   /* Warning Box */
-  .warning-box { background: rgba(244, 63, 94, 0.05); border: 1px solid var(--down); padding: 24px; border-radius: 16px; margin-top: 24px; text-align: center; }
+  .warning-box { background: rgba(225, 29, 72, 0.05); border: 1px solid var(--down); padding: 24px; border-radius: 16px; margin-top: 24px; text-align: center; }
   .warning-box p { color: var(--down); font-weight: 800; margin: 0; font-size: 1.1rem; letter-spacing: 0.5px; text-transform: uppercase;}
 
   /* Link Grid */
   .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
-  .quick-card{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:20px;background:var(--paper);padding:20px;transition:all 0.4s var(--ease-linear);text-align: center; font-weight: 800; font-size: 1.05rem;}
+  .quick-card{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:20px;background:var(--paper);padding:24px 20px;transition:all 0.4s var(--ease-linear);text-align: center; font-weight: 800; font-size: 1.05rem;}
   .quick-card:hover{transform:translateY(-4px);border-color:var(--accent);background: var(--card); color: var(--accent); box-shadow:var(--shadow-ambient);}
 
   footer.end{border-top:1px solid var(--line);padding-top:32px;color:var(--muted);font-size:13px;text-align:center;font-weight:600;}
@@ -169,18 +169,22 @@
 
 <div class="ambient-canvas"></div>
 
-<!-- Floating Glass Navigation Dock -->
+<!-- Floating Glass Navigation Dock (Standardized) -->
 <div class="dock-container">
   <nav class="glass-dock">
-      <a href="/" class="nav-brand-logo">
-        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo">
+      <a href="/" class="nav-brand-logo" aria-label="Home">
+        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo" width="32" height="32">
       </a>
-      <a href="/" class="dock-link">HOME</a>
-      <a href="/intelligence-hub.html" class="dock-link">🔥 500 QUESTIONS</a>
-      <a href="/porthub.html" class="dock-link">PORTHUB</a>
-      <a href="/manual.html" class="dock-link">MANUAL</a>
-      <a href="/ea-system-philosophy.html" class="dock-link active" style="color: var(--accent);">PHILOSOPHY</a>
-      <a href="/about.html" class="dock-link">ABOUT</a>
+      <a href="/" class="dock-link">หน้าแรก</a>
+      <a href="/intelligence-hub.html" class="dock-link" style="color: var(--accent); font-weight: 700;">🔥 500 คำถาม</a>
+      <a href="/porthub.html" class="dock-link">Porthub</a>
+      <a href="/manual.html" class="dock-link">คู่มือการใช้งาน</a>
+      <a href="/partners.html" class="dock-link">Partners</a>
+      <a href="/ea-system-philosophy.html" class="dock-link active">ปรัชญา</a>
+      <a href="/systems.html" class="dock-link">Systems</a>
+      <a href="/why-most-ea-users-fail.html" class="dock-link">ทำไมถึงเจ๊ง</a>
+      <a href="/anti-ea-faq.html" class="dock-link">FAQ</a>
+      <a href="/about.html" class="dock-link">รู้จักเรา</a>
   </nav>
 </div>
 
@@ -231,7 +235,7 @@
 
   <section class="part" style="background: transparent; border: none; box-shadow: none; padding: 0; text-align: center;">
     <h2 style="justify-content: center;">CLARITY OVER CONVICTION</h2>
-    <p>This website is not a sales platform. It exists to clarify, not to convince. Those who seek certainty may find discomfort; those who seek understanding may find alignment.</p>
+    <p style="max-width: 600px; margin: 0 auto 24px;">This website is not a sales platform. It exists to clarify, not to convince. Those who seek certainty may find discomfort; those who seek understanding may find alignment.</p>
     
     <div class="link-grid">
       <a href="/ea-system-overview.html" class="quick-card">SYSTEM OVERVIEW</a>
@@ -243,12 +247,12 @@
 
   <footer class="end">
     <p>© 2026 BUGTRADERYAI · SYSTEMATIC CORE</p>
-    <p style="font-family: var(--mono); font-size: 11px; margin-top: 10px; color: var(--accent);">[ 4D WARP SPEED ACTIVE ]</p>
+    <p style="font-family: var(--mono); font-size: 11px; margin-top: 10px; color: var(--accent);">[ SYSTEM STABLE ]</p>
   </footer>
 </div>
 
 <!-- Theme Toggle Button -->
-<button id="themeBtn" type="button" aria-label="Toggle Dark/Light Mode">Dark Mode</button>
+<button id="themeBtn" type="button" aria-label="Toggle Dark/Light Mode" style="position:fixed;right:24px;bottom:24px;z-index:20;font-family:var(--sans);font-size:12px;font-weight:700;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:10px 20px;cursor:pointer;box-shadow:var(--shadow-ambient);transition:0.3s;">Dark Mode</button>
 <script>
   (function(){
     var b=document.getElementById("themeBtn"),r=document.documentElement;

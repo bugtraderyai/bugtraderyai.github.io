@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
 <link rel="manifest" href="/media/site.webmanifest">
 
-<!-- Google Fonts -->
+<!-- Google Fonts (display=swap added) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -77,12 +77,12 @@
 </script>
 
 <style>
-  /* ===== IVORY GLASS 3.0 (Hi-End World Class) ===== */
+  /* ===== IVORY GLASS 3.0 (Hi-End World Class) Accessibility Fixes ===== */
   :root {
-    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884;
+    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #404040; --muted: #525252;
     --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15);
-    --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); 
-    --warn: #f59e0b; --down: #f43f5e; --up: #10b981;
+    --accent: #d94a0d; --accent-soft: rgba(217, 74, 13, 0.08); 
+    --warn: #d97706; --down: #e11d48; --up: #059669;
     
     --shadow-ambient: 0 40px 80px -20px rgba(41, 41, 41, 0.08);
     --shadow-card: 0 10px 30px -10px rgba(41, 41, 41, 0.05);
@@ -92,10 +92,10 @@
   }
   
   @media (prefers-color-scheme:dark){
-    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); --down: #f43f5e; --up: #10b981; --warn: #f59e0b;}
   }
-  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
-  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); }
+  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); --down: #f43f5e; --up: #10b981; --warn: #f59e0b;}
+  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #404040; --muted: #525252; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #d94a0d; --accent-soft: rgba(217, 74, 13, 0.08); --down: #e11d48; --up: #059669; --warn: #d97706;}
 
   *{box-sizing:border-box;font-family:var(--sans)}
   body{margin:0;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background 0.4s ease;}
@@ -108,35 +108,35 @@
   .glass-dock { display: flex; align-items: center; gap: 4px; padding: 6px 8px; background: color-mix(in srgb, var(--card) 85%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 999px; border: 1px solid var(--line); box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08); max-width: 100%; overflow-x: auto; }
   .glass-dock::-webkit-scrollbar { display: none; }
   .nav-brand-logo { display: flex; align-items: center; padding-left: 6px; padding-right: 14px; border-right: 1px solid var(--line); margin-right: 6px; text-decoration: none; }
-  .nav-brand-logo img { height: 32px; width: auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+  .nav-brand-logo img { border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
   .nav-brand-logo:hover img { transform: scale(1.05); }
   .dock-link { color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 8px 20px; border-radius: 999px; white-space: nowrap; transition: all 0.4s var(--ease-linear); }
   .dock-link:hover { color: var(--ink); background: var(--line-soft); }
-  .dock-link.active { color: #ffffff; background: var(--ink); font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .dock-link.active { color: var(--card); background: var(--ink); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
   /* Layout */
   .wrap{max-width:900px;margin:0 auto;padding:0 28px 96px;}
   
   /* Hero Header */
   header.top{padding:80px 40px;margin-bottom:40px;border:1px solid var(--line);border-radius:32px;background:var(--card);box-shadow:var(--shadow-card);text-align:center;}
-  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:16px;}
-  h1{font-size:clamp(28px,4vw,48px);line-height:1.2;margin:0 0 .2em;font-weight:800;letter-spacing:-1px;color:var(--ink);}
+  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:16px;}
+  h1{font-size:clamp(28px,4vw,48px);line-height:1.2;margin:0 0 .2em;font-weight:900;letter-spacing:-1px;color:var(--ink);}
   
   /* Sections */
   section.part{margin-bottom:40px;background:var(--card);border:1px solid var(--line);border-radius:32px;padding:48px 40px;box-shadow:var(--shadow-card);position:relative;z-index:1;}
   .part h2{font-size:24px;margin:0 0 16px;font-weight:800;letter-spacing:-0.5px; display:flex; align-items:center; gap: 10px;}
   p{margin:0 0 16px;color:var(--ink-2); font-size: 1.05rem; line-height: 1.8;}
-  p strong { color: var(--ink); font-weight: 700; }
+  p strong { color: var(--ink); font-weight: 800; }
 
   /* Note / Insight */
-  .note{border-left:4px solid var(--accent);background:var(--paper);padding:24px;border-radius:0 16px 16px 0;margin:24px 0 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line); font-weight: 500;}
-  .note b{color:var(--ink);font-weight:700;}
+  .note{border-left:4px solid var(--accent);background:var(--paper);padding:24px;border-radius:0 16px 16px 0;margin:24px 0 0;font-size:1.05rem;color:var(--ink-2);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line); font-weight: 500;}
+  .note b{color:var(--ink);font-weight:800; display: block; margin-bottom: 4px;}
 
   /* Bento Grid */
   .bento-card { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 32px 24px; transition: 0.3s; margin-bottom: 40px;}
-  .bento-card h3 { font-size: 18px; margin: 0 0 16px; font-weight: 800; color: var(--ink); }
+  .bento-card h3 { font-size: 1.15rem; margin: 0 0 16px; font-weight: 800; color: var(--ink); }
   ul.plain{margin:0;padding:0;list-style:none;}
-  ul.plain li{margin-bottom:12px; font-size: 1rem; color: var(--ink-2); display: flex; align-items: flex-start; gap: 10px; font-weight: 500;}
+  ul.plain li{margin-bottom:12px; font-size: 1.05rem; color: var(--ink-2); display: flex; align-items: flex-start; gap: 10px; font-weight: 500;}
   ul.plain li::before { content: "→"; color: var(--accent); font-weight: 800; }
 
   /* ===== SCROLL SEQUENCE CSS ===== */
@@ -161,14 +161,14 @@
   }
   .desc-text { display: none; width: 100%; text-align: center; font-weight: 500; font-size: 1.05rem; color: var(--ink-2); line-height: 1.8;}
   .desc-text.active { display: block; animation: slideUpFade 0.4s var(--ease-linear); }
-  .desc-text b { color: var(--ink); font-weight: 700; }
+  .desc-text b { color: var(--ink); font-weight: 800; }
   
   @keyframes slideUpFade { 
       from { opacity: 0; transform: translateY(10px); } 
       to { opacity: 1; transform: translateY(0); } 
   }
 
-  footer.end{border-top:1px solid var(--line);padding-top:32px;color:var(--muted);font-size:13px;text-align:center;font-weight:500;}
+  footer.end{border-top:1px solid var(--line);padding-top:32px;color:var(--muted);font-size:13px;text-align:center;font-weight:600;}
 
   @media(max-width:768px){
     header.top{padding:50px 24px;border-radius:24px;}
@@ -184,17 +184,22 @@
 
 <div class="ambient-canvas"></div>
 
-<!-- Floating Glass Navigation Dock -->
+<!-- Floating Glass Navigation Dock (Standardized Menu) -->
 <div class="dock-container">
   <nav class="glass-dock">
-      <a href="/" class="nav-brand-logo">
-        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo">
+      <a href="/" class="nav-brand-logo" aria-label="Home">
+        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo" width="32" height="32">
       </a>
       <a href="/" class="dock-link">หน้าแรก</a>
-      <a href="/intelligence-hub.html" class="dock-link">🔥 500 คำถาม</a>
+      <a href="/intelligence-hub.html" class="dock-link" style="color: var(--accent); font-weight: 700;">🔥 500 คำถาม</a>
       <a href="/porthub.html" class="dock-link">Porthub</a>
-      <a href="/manual.html" class="dock-link active" style="color: var(--accent); font-weight: 600;">คู่มือการใช้งาน</a>
+      <a href="/live.html" class="dock-link">Live</a>
+      <a href="/manual.html" class="dock-link active">คู่มือการใช้งาน</a>
+      <a href="/partners.html" class="dock-link">Partners</a>
       <a href="/ea-system-philosophy.html" class="dock-link">ปรัชญา</a>
+      <a href="/systems.html" class="dock-link">Systems</a>
+      <a href="/why-most-ea-users-fail.html" class="dock-link">ทำไมถึงเจ๊ง</a>
+      <a href="/anti-ea-faq.html" class="dock-link">FAQ</a>
       <a href="/about.html" class="dock-link">รู้จักเรา</a>
   </nav>
 </div>
@@ -215,43 +220,44 @@
   <div class="scroll-sequence-container" id="sequence-trigger">
     <div class="main-sticky-wrapper">
         <div class="image-frame">
+            <!-- Added specific widths and heights to all images to fix CLS -->
             <img src="media/dashboardeaauto.webp" class="sequence-image active" width="720" height="895" alt="Dashboard EA THAILAND">
-            <img src="media/overview.webp" class="sequence-image" width="720" height="400" alt="Overview สรุปยอด">
-            <img src="media/manualtrade.webp" class="sequence-image" width="720" height="500" alt="Manual Trade Control">
-            <img src="media/startlot.webp" class="sequence-image" width="720" height="500" alt="startlot">
-            <img src="media/closeall.webp" class="sequence-image" width="241" height="296" alt="close all">
-            <img src="media/autotrade.webp" class="sequence-image" width="254" height="542" alt="auto trade">
-            <img src="media/autoall.webp" class="sequence-image" width="253" height="128" alt="auto all">
-            <img src="media/autobuy.webp" class="sequence-image" width="255" height="128" alt="auto buy">
-            <img src="media/autosell.webp" class="sequence-image" width="252" height="130" alt="auto sell">
-            <img src="media/pendingstopout.webp" class="sequence-image" width="251" height="100" alt="pending stop out">
-            <img src="media/zonerecovery.webp" class="sequence-image" width="251" height="98" alt="zone recovery">
-            <img src="media/antimartingale.webp" class="sequence-image" width="249" height="98" alt="anti martingale">
-            <img src="media/martingale.webp" class="sequence-image" width="250" height="99" alt="martingale">
-            <img src="media/grid.webp" class="sequence-image" width="250" height="27" alt="grid">
-            <img src="media/timeframe.webp" class="sequence-image" width="250" height="24" alt="timeframe">
-            <img src="media/multilotbuysell.webp" class="sequence-image" width="252" height="167" alt="multilot buy sell">
-            <img src="media/trailingstop.webp" class="sequence-image" width="248" height="69" alt="trailing stop">
-            <img src="media/targetprofittoday.webp" class="sequence-image" width="253" height="66" alt="target profit today">
-            <img src="media/hedgingsystem.webp" class="sequence-image" width="678" height="69" alt="hedging system">
-            <img src="media/hedgingmanual.webp" class="sequence-image" width="178" height="68" alt="hedging manual">
-            <img src="media/hedgingauto.webp" class="sequence-image" width="243" height="69" alt="hedging auto">
-            <img src="media/hedgingtechnical.webp" class="sequence-image" width="162" height="70" alt="hedging technical">
-            <img src="media/profitcancelloss.webp" class="sequence-image" width="520" height="67" alt="profit cancel loss">
-            <img src="media/grouporderstep.webp" class="sequence-image" width="162" height="66" alt="group order step">
-            <img src="media/rebalance.webp" class="sequence-image" width="163" height="69" alt="rebalance">
-            <img src="media/indicator.webp" class="sequence-image" width="570" height="68" alt="indicator">
-            <img src="media/functions.webp" class="sequence-image" width="678" height="68" alt="functions">
-            <img src="media/modetradenow.webp" class="sequence-image" width="178" height="69" alt="mode trade now">
-            <img src="media/modetradepending.webp" class="sequence-image" width="178" height="69" alt="mode trade pending">                        
-            <img src="media/modemultilot.webp" class="sequence-image" width="130" height="70" alt="mode multi lot">
-            <img src="media/modepluslot.webp" class="sequence-image" width="128" height="67" alt="mode plus lot">
-            <img src="media/tpaverage.webp" class="sequence-image" width="127" height="67" alt="tp average">
-            <img src="media/tpperorder.webp" class="sequence-image" width="128" height="67" alt="tp per order">
-            <img src="media/fixnextindicators.webp" class="sequence-image" width="129" height="70" alt="fix next indicators">
-            <img src="media/fixnextcandle.webp" class="sequence-image" width="129" height="70" alt="fix next candle">
-            <img src="media/spreadfilter.webp" class="sequence-image" width="127" height="70" alt="spread filter">
-            <img src="media/daytime.webp" class="sequence-image" width="675" height="67" alt="day time">
+            <img src="media/overview.webp" class="sequence-image" width="720" height="400" alt="Overview สรุปยอด" loading="lazy">
+            <img src="media/manualtrade.webp" class="sequence-image" width="720" height="500" alt="Manual Trade Control" loading="lazy">
+            <img src="media/startlot.webp" class="sequence-image" width="720" height="500" alt="startlot" loading="lazy">
+            <img src="media/closeall.webp" class="sequence-image" width="241" height="296" alt="close all" loading="lazy">
+            <img src="media/autotrade.webp" class="sequence-image" width="254" height="542" alt="auto trade" loading="lazy">
+            <img src="media/autoall.webp" class="sequence-image" width="253" height="128" alt="auto all" loading="lazy">
+            <img src="media/autobuy.webp" class="sequence-image" width="255" height="128" alt="auto buy" loading="lazy">
+            <img src="media/autosell.webp" class="sequence-image" width="252" height="130" alt="auto sell" loading="lazy">
+            <img src="media/pendingstopout.webp" class="sequence-image" width="251" height="100" alt="pending stop out" loading="lazy">
+            <img src="media/zonerecovery.webp" class="sequence-image" width="251" height="98" alt="zone recovery" loading="lazy">
+            <img src="media/antimartingale.webp" class="sequence-image" width="249" height="98" alt="anti martingale" loading="lazy">
+            <img src="media/martingale.webp" class="sequence-image" width="250" height="99" alt="martingale" loading="lazy">
+            <img src="media/grid.webp" class="sequence-image" width="250" height="27" alt="grid" loading="lazy">
+            <img src="media/timeframe.webp" class="sequence-image" width="250" height="24" alt="timeframe" loading="lazy">
+            <img src="media/multilotbuysell.webp" class="sequence-image" width="252" height="167" alt="multilot buy sell" loading="lazy">
+            <img src="media/trailingstop.webp" class="sequence-image" width="248" height="69" alt="trailing stop" loading="lazy">
+            <img src="media/targetprofittoday.webp" class="sequence-image" width="253" height="66" alt="target profit today" loading="lazy">
+            <img src="media/hedgingsystem.webp" class="sequence-image" width="678" height="69" alt="hedging system" loading="lazy">
+            <img src="media/hedgingmanual.webp" class="sequence-image" width="178" height="68" alt="hedging manual" loading="lazy">
+            <img src="media/hedgingauto.webp" class="sequence-image" width="243" height="69" alt="hedging auto" loading="lazy">
+            <img src="media/hedgingtechnical.webp" class="sequence-image" width="162" height="70" alt="hedging technical" loading="lazy">
+            <img src="media/profitcancelloss.webp" class="sequence-image" width="520" height="67" alt="profit cancel loss" loading="lazy">
+            <img src="media/grouporderstep.webp" class="sequence-image" width="162" height="66" alt="group order step" loading="lazy">
+            <img src="media/rebalance.webp" class="sequence-image" width="163" height="69" alt="rebalance" loading="lazy">
+            <img src="media/indicator.webp" class="sequence-image" width="570" height="68" alt="indicator" loading="lazy">
+            <img src="media/functions.webp" class="sequence-image" width="678" height="68" alt="functions" loading="lazy">
+            <img src="media/modetradenow.webp" class="sequence-image" width="178" height="69" alt="mode trade now" loading="lazy">
+            <img src="media/modetradepending.webp" class="sequence-image" width="178" height="69" alt="mode trade pending" loading="lazy">                        
+            <img src="media/modemultilot.webp" class="sequence-image" width="130" height="70" alt="mode multi lot" loading="lazy">
+            <img src="media/modepluslot.webp" class="sequence-image" width="128" height="67" alt="mode plus lot" loading="lazy">
+            <img src="media/tpaverage.webp" class="sequence-image" width="127" height="67" alt="tp average" loading="lazy">
+            <img src="media/tpperorder.webp" class="sequence-image" width="128" height="67" alt="tp per order" loading="lazy">
+            <img src="media/fixnextindicators.webp" class="sequence-image" width="129" height="70" alt="fix next indicators" loading="lazy">
+            <img src="media/fixnextcandle.webp" class="sequence-image" width="129" height="70" alt="fix next candle" loading="lazy">
+            <img src="media/spreadfilter.webp" class="sequence-image" width="127" height="70" alt="spread filter" loading="lazy">
+            <img src="media/daytime.webp" class="sequence-image" width="675" height="67" alt="day time" loading="lazy">
         </div>
         <div class="description-frame">
             <div class="desc-text active">Dashboard EA THAILAND All</div>
@@ -369,7 +375,7 @@
 </div>
 
 <!-- Theme Toggle Button -->
-<button id="themeBtn" type="button" aria-label="สลับโหมดสว่าง/มืด">Dark Mode</button>
+<button id="themeBtn" type="button" aria-label="Toggle Dark/Light Mode">Dark Mode</button>
 <style>
   #themeBtn{position:fixed;right:24px;bottom:24px;z-index:20;font-family:var(--sans);font-size:12px;font-weight:700;
     background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:999px;

@@ -1,0 +1,10 @@
+# BugTraderYai
+> ศูนย์ข้อมูลเชิงเทคนิคระบบเทรดอัตโนมัติ (Expert Advisor) และการบริหารความเสี่ยงเชิงระบบ โดย BugTraderYai แบรนด์ผู้เชี่ยวชาญนิรนาม
+
+## Main Navigation & Protocols
+- [หน้าแรก](https://bugtraderyai.com/): หน้าหลักของระบบ BugTraderYai
+- [คู่มือการใช้งาน](https://bugtraderyai.com/manual.html): ขั้นตอนและวิธีการติดตั้ง Expert Advisor (Step-by-Step Guide)
+- [ภาพรวมระบบ](https://bugtraderyai.com/ea-system-overview.html): ปรัชญาและความเสี่ยงของการใช้งาน EA
+- [Anti-EA FAQ](https://bugtraderyai.com/anti-ea-faq.html): คำถามคัดกรองความพร้อมก่อนเริ่มใช้บอท
+- [ทำไมถึงเจ๊ง](https://bugtraderyai.com/why-most-ea-users-fail.html): วิเคราะห์ข้อผิดพลาดเชิงระบบและจิตวิทยาของเทรดเดอร์
+- [ระบบ Live Monitor](https://bugtraderyai.com/live.html): ช่องทางติดตามสถานะ Multi-Channel Live Stream

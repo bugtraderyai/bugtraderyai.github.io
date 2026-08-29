@@ -122,11 +122,11 @@
 <style>
   /* ===== IVORY GLASS 3.0 (Hi-End World Class) ===== */
   :root {
-    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884;
+    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #404040; --muted: #525252;
     --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15);
-    --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); 
-    --warn: #f59e0b; --down: #f43f5e; --up: #10b981;
-    --pink: #ec4899; --cyan: #06b6d4; --purple: #8b5cf6;
+    --accent: #d94a0d; --accent-soft: rgba(217, 74, 13, 0.08); 
+    --warn: #d97706; --down: #e11d48; --up: #059669;
+    --pink: #db2777; --cyan: #0891b2; --purple: #7c3aed;
     
     --shadow-ambient: 0 40px 80px -20px rgba(41, 41, 41, 0.08);
     --shadow-card: 0 10px 30px -10px rgba(41, 41, 41, 0.05);
@@ -136,10 +136,10 @@
   }
   
   @media (prefers-color-scheme:dark){
-    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); --down: #f43f5e; --up: #10b981; --warn: #f59e0b; --pink: #ec4899; --cyan: #06b6d4; --purple: #8b5cf6;}
   }
-  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
-  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); }
+  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); --down: #f43f5e; --up: #10b981; --warn: #f59e0b; --pink: #ec4899; --cyan: #06b6d4; --purple: #8b5cf6;}
+  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #404040; --muted: #525252; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #d94a0d; --accent-soft: rgba(217, 74, 13, 0.08); --down: #e11d48; --up: #059669; --warn: #d97706; --pink: #db2777; --cyan: #0891b2; --purple: #7c3aed;}
 
   *{box-sizing:border-box;font-family:var(--sans)}
   body{margin:0;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background 0.4s ease;}
@@ -152,19 +152,19 @@
   .glass-dock { display: flex; align-items: center; gap: 4px; padding: 6px 8px; background: color-mix(in srgb, var(--card) 85%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 999px; border: 1px solid var(--line); box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08); max-width: 100%; overflow-x: auto; }
   .glass-dock::-webkit-scrollbar { display: none; }
   .nav-brand-logo { display: flex; align-items: center; padding-left: 6px; padding-right: 14px; border-right: 1px solid var(--line); margin-right: 6px; text-decoration: none; }
-  .nav-brand-logo img { height: 32px; width: auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+  .nav-brand-logo img { border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
   .nav-brand-logo:hover img { transform: scale(1.05); }
   .dock-link { color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 8px 20px; border-radius: 999px; white-space: nowrap; transition: all 0.4s var(--ease-linear); }
   .dock-link:hover { color: var(--ink); background: var(--line-soft); }
-  .dock-link.active { color: #ffffff; background: var(--ink); font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .dock-link.active { color: var(--card); background: var(--ink); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
   /* Layout */
   .wrap{max-width:900px;margin:0 auto;padding:0 28px 96px;}
   
   /* Hero Header */
   header.top{padding:80px 40px;margin-bottom:40px;border:1px solid var(--line);border-radius:32px;background:var(--card);box-shadow:var(--shadow-card);text-align:center;}
-  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:16px;}
-  h1{font-size:clamp(32px,5vw,56px);line-height:1.2;margin:0 0 .1em;font-weight:800;letter-spacing:-1px;color:var(--ink);}
+  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:16px;}
+  h1{font-size:clamp(32px,5vw,56px);line-height:1.2;margin:0 0 .1em;font-weight:900;letter-spacing:-1px;color:var(--ink);}
   .sub-headline { color: var(--ink-2); font-size: 1.15rem; font-weight: 500; margin-top: 16px; line-height: 1.6; }
   
   /* Sections */
@@ -176,8 +176,8 @@
   .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;}
   .bento-card { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 32px 24px; transition: 0.3s; display: flex; flex-direction: column; justify-content: flex-start;}
   .bento-card:hover { border-color: var(--accent); background: var(--card); box-shadow: var(--shadow-ambient);}
-  .bento-card h3 { font-size: 1.15rem; margin: 0 0 16px; font-weight: 700; color: var(--ink); line-height: 1.4;}
-  .bento-card p { font-size: 1rem; color: var(--ink-2); margin: 0; line-height: 1.7;}
+  .bento-card h3 { font-size: 1.15rem; margin: 0 0 16px; font-weight: 800; color: var(--ink); line-height: 1.4;}
+  .bento-card p { font-size: 1rem; color: var(--ink-2); margin: 0; line-height: 1.7; font-weight: 500;}
 
   /* BugTraderYai Insight Box */
   .note{border-left:4px solid var(--accent);background:var(--card);padding:32px;border-radius:24px;margin:40px 0;font-size:1.1rem;color:var(--ink-2);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line); font-weight: 500; text-align: center; box-shadow: var(--shadow-card);}
@@ -202,18 +202,22 @@
 
 <div class="ambient-canvas"></div>
 
-<!-- Floating Glass Navigation Dock -->
+<!-- Floating Glass Navigation Dock (Standardized Menu) -->
 <div class="dock-container">
   <nav class="glass-dock">
-      <a href="/" class="nav-brand-logo">
-        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo">
+      <a href="/" class="nav-brand-logo" aria-label="Home">
+        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo" width="32" height="32">
       </a>
       <a href="/" class="dock-link">หน้าแรก</a>
-      <a href="/intelligence-hub.html" class="dock-link">🔥 500 คำถาม</a>
+      <a href="/intelligence-hub.html" class="dock-link" style="color: var(--accent); font-weight: 700;">🔥 500 คำถาม</a>
       <a href="/porthub.html" class="dock-link">Porthub</a>
       <a href="/manual.html" class="dock-link">คู่มือการใช้งาน</a>
+      <a href="/partners.html" class="dock-link">Partners</a>
       <a href="/ea-system-philosophy.html" class="dock-link">ปรัชญา</a>
-      <a href="/anti-ea-faq.html" class="dock-link active" style="color: var(--accent);">FAQ</a>
+      <a href="/systems.html" class="dock-link">Systems</a>
+      <a href="/why-most-ea-users-fail.html" class="dock-link">ทำไมถึงเจ๊ง</a>
+      <a href="/anti-ea-faq.html" class="dock-link active">FAQ</a>
+      <a href="/about.html" class="dock-link">รู้จักเรา</a>
   </nav>
 </div>
 
@@ -221,7 +225,7 @@
   <header class="top">
     <div class="eyebrow">PRE-DEPLOYMENT PROTOCOL</div>
     <h1>Anti-EA FAQ</h1>
-    <h2 style="font-size: 1.5rem; color: var(--accent); margin: 0; font-weight: 700;">คำถามก่อนเริ่มใช้บอท</h2>
+    <h2 style="font-size: 1.5rem; color: var(--accent); margin: 0; font-weight: 800;">คำถามก่อนเริ่มใช้บอท</h2>
     <p class="sub-headline">หน้านี้ไม่ได้ถูกเขียนขึ้นมาเพื่อชวนให้คุณใช้ EA แต่เพื่อช่วยให้คุณตัดสินใจว่า<br><strong style="color: var(--ink);">"คุณควรใช้มันหรือไม่"</strong></p>
   </header>
 
@@ -284,7 +288,7 @@
 </div>
 
 <!-- Theme Toggle Button -->
-<button id="themeBtn" type="button" aria-label="สลับโหมดสว่าง/มืด">Dark Mode</button>
+<button id="themeBtn" type="button" aria-label="Toggle Dark/Light Mode" style="position:fixed;right:24px;bottom:24px;z-index:20;font-family:var(--sans);font-size:12px;font-weight:700;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:10px 20px;cursor:pointer;box-shadow:var(--shadow-ambient);transition:0.3s;">Dark Mode</button>
 <script>
   (function(){
     var b=document.getElementById("themeBtn"),r=document.documentElement;

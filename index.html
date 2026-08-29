@@ -22,30 +22,30 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts (display=swap added for CLS fix) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    /* ===== WORLD-CLASS HI-END IVORY GLASS TOKENS ===== */
+    /* ===== WORLD-CLASS HI-END IVORY GLASS TOKENS (ACCESSIBILITY UPDATED) ===== */
     :root {
       --bg-base: #FAF7F2;
       --bg-surface: #FFFFFF;
       --bg-surface-translucent: rgba(255, 255, 255, 0.75);
       --bg-accent-soft: rgba(252, 106, 39, 0.06);
 
-      --color-charcoal: #1F1F1F;
+      --color-charcoal: #1A1A1A; /* เข้มขึ้นเพื่อ Contrast ที่ดีกว่า */
       --color-body: #525252;
-      --color-subtle: #8A8884;
+      --color-subtle: #525252; /* ปรับให้เข้มขึ้นสำหรับ Accessibility */
       
-      --accent-orange: #FC6A27;
-      --accent-orange-hover: #E05514;
-      --accent-glow: rgba(252, 106, 39, 0.25);
+      --accent-orange: #d94a0d; /* ปรับสีส้มให้เข้มขึ้นเพื่อให้อ่านง่ายบนพื้นสว่าง */
+      --accent-orange-hover: #b93d08;
+      --accent-glow: rgba(217, 74, 13, 0.25);
 
-      --border-light: rgba(200, 190, 180, 0.35);
+      --border-light: rgba(200, 190, 180, 0.4);
       --border-glass: rgba(255, 255, 255, 0.8);
-      --border-active: rgba(252, 106, 39, 0.4);
+      --border-active: rgba(217, 74, 13, 0.4);
 
       --radius-pill: 9999px;
       --radius-xl: 32px;
@@ -54,7 +54,7 @@
 
       --shadow-ambient: 0 30px 60px -12px rgba(31, 31, 31, 0.08);
       --shadow-card: 0 10px 30px -5px rgba(31, 31, 31, 0.04), 0 2px 6px -1px rgba(31, 31, 31, 0.02);
-      --shadow-button: 0 12px 28px -6px rgba(252, 106, 39, 0.35);
+      --shadow-button: 0 12px 28px -6px rgba(31, 31, 31, 0.25);
     }
 
     * {
@@ -78,9 +78,9 @@
       top: 0; left: 0; width: 100%; height: 100%;
       z-index: -1;
       background: 
-        radial-gradient(circle at 50% -20%, rgba(252, 106, 39, 0.08) 0%, transparent 70%),
+        radial-gradient(circle at 50% -20%, rgba(217, 74, 13, 0.06) 0%, transparent 70%),
         radial-gradient(circle at 90% 60%, rgba(200, 190, 180, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 10% 80%, rgba(252, 106, 39, 0.04) 0%, transparent 40%);
+        radial-gradient(circle at 10% 80%, rgba(217, 74, 13, 0.04) 0%, transparent 40%);
       pointer-events: none;
     }
 
@@ -98,18 +98,35 @@
       display: flex;
       align-items: center;
       gap: 4px;
-      padding: 8px 10px;
-      background: rgba(255, 255, 255, 0.8);
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border-radius: var(--radius-pill);
-      border: 1px solid var(--border-glass);
-      box-shadow: 0 16px 36px -8px rgba(31, 31, 31, 0.08);
+      border: 1px solid var(--border-light);
+      box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08);
       overflow-x: auto;
-      max-width: 1020px;
+      max-width: 100%;
     }
 
     .glass-dock::-webkit-scrollbar { display: none; }
+
+    /* Logo in Nav */
+    .nav-brand-logo {
+      display: flex;
+      align-items: center;
+      padding-left: 6px;
+      padding-right: 14px;
+      border-right: 1px solid var(--border-light);
+      margin-right: 6px;
+      text-decoration: none;
+    }
+    .nav-brand-logo img {
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .nav-brand-logo:hover img { transform: scale(1.05); }
 
     .dock-link {
       color: var(--color-body);
@@ -124,13 +141,13 @@
 
     .dock-link:hover {
       color: var(--color-charcoal);
-      background: rgba(250, 247, 242, 0.9);
+      background: rgba(200, 190, 180, 0.15);
     }
 
     .dock-link.active {
       color: #ffffff;
       background: var(--color-charcoal);
-      font-weight: 600;
+      font-weight: 700;
       box-shadow: 0 4px 12px rgba(31, 31, 31, 0.15);
     }
 
@@ -147,6 +164,7 @@
       position: relative;
     }
 
+    /* Accessibility Fixed for Labels */
     .pill-badge {
       display: inline-flex;
       align-items: center;
@@ -155,10 +173,10 @@
       background: var(--bg-surface);
       border-radius: var(--radius-pill);
       font-size: 0.8rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--accent-orange);
+      color: var(--color-charcoal);
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow-card);
       margin-bottom: 32px;
@@ -181,7 +199,7 @@
 
     .hero-subtitle {
       font-size: clamp(18px, 2.8vw, 24px);
-      font-weight: 400;
+      font-weight: 500;
       color: var(--color-body);
       max-width: 720px;
       margin: 0 auto 40px;
@@ -206,21 +224,22 @@
       border-radius: var(--radius-pill);
       text-decoration: none;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
     }
 
+    /* Primary Button Accessibility Fix */
     .btn-primary {
-      background: var(--accent-orange);
+      background: var(--color-charcoal);
       color: #ffffff !important;
       box-shadow: var(--shadow-button);
     }
 
     .btn-primary:hover {
-      background: var(--accent-orange-hover);
+      background: #000000;
       transform: translateY(-3px);
-      box-shadow: 0 16px 36px -4px rgba(252, 106, 39, 0.45);
+      box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.45);
     }
 
     .btn-secondary {
@@ -251,18 +270,19 @@
       -webkit-backdrop-filter: blur(16px);
       border-radius: var(--radius-xl);
       padding: 48px 42px;
-      border: 1px solid var(--border-glass);
+      border: 1px solid var(--border-light);
       box-shadow: var(--shadow-card);
       position: relative;
       overflow: hidden;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      color: var(--color-charcoal);
     }
 
     .bento-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(252, 106, 39, 0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(217, 74, 13, 0.3), transparent);
       opacity: 0;
       transition: opacity 0.35s ease;
     }
@@ -279,19 +299,20 @@
     .col-8 { grid-column: span 8; }
     .col-4 { grid-column: span 4; }
 
+    /* Accessibility Fixed for Labels */
     .card-label {
       font-size: 0.78rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--accent-orange);
+      color: var(--color-charcoal);
       margin-bottom: 14px;
       display: block;
     }
 
     .card-title {
       font-size: 1.65rem;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--color-charcoal);
       letter-spacing: -0.5px;
       margin-bottom: 16px;
@@ -332,11 +353,12 @@
       color: var(--accent-orange);
     }
 
+    /* Accessibility Fixed */
     .metric-lbl {
-      font-size: 0.85rem;
-      color: var(--color-subtle);
+      font-size: 0.9rem;
+      color: var(--color-charcoal);
       margin-top: 8px;
-      font-weight: 500;
+      font-weight: 700;
     }
 
     /* 💡 Tooltip */
@@ -344,7 +366,7 @@
       position: relative;
       display: inline-block;
       color: var(--accent-orange);
-      font-weight: 600;
+      font-weight: 700;
       border-bottom: 1.5px dashed var(--accent-orange);
       cursor: help;
     }
@@ -364,8 +386,9 @@
       transform: translateX(-50%);
       opacity: 0;
       transition: all 0.25s ease;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       line-height: 1.5;
+      font-weight: 400;
       box-shadow: var(--shadow-ambient);
     }
 
@@ -390,7 +413,7 @@
     .accordion-header {
       padding: 22px 28px;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1.05rem;
       color: var(--color-charcoal);
       display: flex;
@@ -418,7 +441,7 @@
       overflow: hidden;
       transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
       color: var(--color-body);
-      font-size: 0.96rem;
+      font-size: 1rem;
       line-height: 1.75;
     }
 
@@ -440,8 +463,8 @@
       border-radius: var(--radius-pill);
       background: #FFF1F2;
       color: #E11D48;
-      font-size: 0.8rem;
-      font-weight: 700;
+      font-size: 0.85rem;
+      font-weight: 800;
       margin-bottom: 16px;
     }
 
@@ -462,9 +485,10 @@
       border-radius: var(--radius-lg);
       text-decoration: none;
       color: var(--color-charcoal);
-      font-weight: 600;
+      font-weight: 700;
       border: 1px solid var(--border-light);
       transition: all 0.25s ease;
+      font-size: 1.05rem;
     }
 
     .quick-card:hover {
@@ -479,9 +503,10 @@
       text-align: center;
       padding: 80px 20px 40px;
       color: var(--color-subtle);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       border-top: 1px solid var(--border-light);
       margin-top: 80px;
+      font-weight: 500;
     }
 
     .footer-brand {
@@ -500,7 +525,7 @@
     }
   </style>
 
-  <!-- Google Analytics -->
+  <!-- Google Analytics (Async by default) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0H18D9JE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -545,9 +570,13 @@
 <div class="ambient-canvas"></div>
 
 <div class="dock-container">
+  <!-- เมนูนี้ถูกทำเป็น "มาตรฐานกลาง" สำหรับก๊อปปี้ไปวางทุกหน้า -->
   <nav class="glass-dock">
+      <a href="/" class="nav-brand-logo" aria-label="Home">
+        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo" width="32" height="32">
+      </a>
       <a href="/" class="dock-link active">หน้าแรก</a>
-      <a href="/intelligence-hub.html" class="dock-link" style="color: var(--accent-orange); font-weight: 600;">🔥 500 คำถาม</a>
+      <a href="/intelligence-hub.html" class="dock-link" style="color: var(--accent-orange); font-weight: 700;">🔥 500 คำถาม</a>
       <a href="/porthub.html" class="dock-link">Porthub</a>
       <a href="/manual.html" class="dock-link">คู่มือการใช้งาน</a>
       <a href="/partners.html" class="dock-link">Partners</a>
@@ -597,7 +626,7 @@
         ผลลัพธ์ระยะสั้นไม่สามารถพิสูจน์ความอยู่รอด ข้อมูลทุกอย่างต้องผ่านการ Forward Test และตรวจสอบย้อนหลังได้จริงผ่าน Myfxbook
       </p>
       <div style="margin-top: 32px;">
-        <a href="https://www.myfxbook.com" target="_blank" style="color: var(--accent-orange); font-weight: 700; text-decoration: none; font-size: 0.95rem;">
+        <a href="https://www.myfxbook.com" target="_blank" style="color: var(--accent-orange); font-weight: 800; text-decoration: none; font-size: 0.95rem;">
           เปิดดูประวัติ Myfxbook &rarr;
         </a>
       </div>
@@ -646,8 +675,8 @@
     <div class="col-12">
       <div class="anti-greed-card">
         <div class="anti-greed-badge">⚠️ Extreme Transparency</div>
-        <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; color: var(--color-charcoal);">ตัวกรองความจริงใจ (The Anti-Greed Filter)</h3>
-        <p style="color: var(--color-body); font-size: 0.98rem; max-width: 680px; margin: 0 auto; line-height: 1.7;">
+        <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 12px; color: var(--color-charcoal);">ตัวกรองความจริงใจ (The Anti-Greed Filter)</h3>
+        <p style="color: var(--color-body); font-size: 1rem; max-width: 680px; margin: 0 auto; line-height: 1.7; font-weight: 500;">
           หากเป้าหมายของคุณคือการหากำไร 100% ภายใน 3 วัน หรือมองหาระบบที่ไม่เคยขาดทุน <strong>โปรดปิดหน้านี้ทิ้งได้เลยครับ</strong> ที่นี่เราคุยเฉพาะ <em>"คณิตศาสตร์ความเสี่ยง"</em> และ <em>"วินัยการรักษาเงินต้นเพื่อผลตอบแทนระยะยาว"</em> เท่านั้น
         </p>
       </div>

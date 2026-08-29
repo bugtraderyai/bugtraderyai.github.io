@@ -23,7 +23,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
 <link rel="manifest" href="/media/site.webmanifest">
 
-<!-- Google Fonts -->
+<!-- Google Fonts (display=swap added) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -89,13 +89,13 @@
 </script>
 
 <style>
-  /* ===== IVORY GLASS 3.0 (Hi-End World Class) ===== */
+  /* ===== IVORY GLASS 3.0 (Hi-End World Class) Accessibility Fixes ===== */
   :root {
-    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884;
+    --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #404040; --muted: #525252;
     --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15);
-    --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); 
-    --warn: #f59e0b; --down: #f43f5e; --up: #10b981;
-    --cyan: #06b6d4; --blue: #3b82f6; --purple: #8b5cf6;
+    --accent: #d94a0d; --accent-soft: rgba(217, 74, 13, 0.08); 
+    --warn: #d97706; --down: #e11d48; --up: #059669;
+    --cyan: #0891b2; --blue: #1d4ed8; --purple: #7c3aed;
     
     --shadow-ambient: 0 40px 80px -20px rgba(41, 41, 41, 0.08);
     --shadow-card: 0 10px 30px -10px rgba(41, 41, 41, 0.05);
@@ -105,10 +105,10 @@
   }
   
   @media (prefers-color-scheme:dark){
-    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
+    :root{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); --down: #f43f5e; --up: #10b981; --warn: #f59e0b; --cyan: #06b6d4; --blue: #3b82f6; --purple: #8b5cf6;}
   }
-  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); }
-  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #585757; --muted: #8A8884; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.08); }
+  :root[data-theme="dark"]{ --paper: #1a1a1a; --card: #242424; --ink: #FAF7F2; --ink-2: #C8BEB4; --muted: #8A8884; --line: rgba(255, 255, 255, 0.1); --line-soft: rgba(255, 255, 255, 0.05); --accent: #FC6A27; --accent-soft: rgba(252, 106, 39, 0.15); --down: #f43f5e; --up: #10b981; --warn: #f59e0b; --cyan: #06b6d4; --blue: #3b82f6; --purple: #8b5cf6;}
+  :root[data-theme="light"]{ --paper: #FAF7F2; --card: #FFFFFF; --ink: #1A1A1A; --ink-2: #404040; --muted: #525252; --line: rgba(200, 190, 180, 0.4); --line-soft: rgba(200, 190, 180, 0.15); --accent: #d94a0d; --accent-soft: rgba(217, 74, 13, 0.08); --down: #e11d48; --up: #059669; --warn: #d97706; --cyan: #0891b2; --blue: #1d4ed8; --purple: #7c3aed;}
 
   *{box-sizing:border-box;font-family:var(--sans)}
   body{margin:0;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background 0.4s ease;}
@@ -121,18 +121,18 @@
   .glass-dock { display: flex; align-items: center; gap: 4px; padding: 6px 8px; background: color-mix(in srgb, var(--card) 85%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 999px; border: 1px solid var(--line); box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08); max-width: 100%; overflow-x: auto; }
   .glass-dock::-webkit-scrollbar { display: none; }
   .nav-brand-logo { display: flex; align-items: center; padding-left: 6px; padding-right: 14px; border-right: 1px solid var(--line); margin-right: 6px; text-decoration: none; }
-  .nav-brand-logo img { height: 32px; width: auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+  .nav-brand-logo img { border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s; }
   .nav-brand-logo:hover img { transform: scale(1.05); }
   .dock-link { color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 8px 20px; border-radius: 999px; white-space: nowrap; transition: all 0.4s var(--ease-linear); }
   .dock-link:hover { color: var(--ink); background: var(--line-soft); }
-  .dock-link.active { color: #ffffff; background: var(--ink); font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .dock-link.active { color: var(--card); background: var(--ink); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
   /* Layout */
   .wrap{max-width:900px;margin:0 auto;padding:0 28px 96px;}
   
   /* Hero Header */
   header.top{padding:80px 40px;margin-bottom:40px;border:1px solid var(--line);border-radius:32px;background:var(--card);box-shadow:var(--shadow-card);text-align:center;}
-  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:16px;}
+  .eyebrow{display:inline-block;padding:8px 24px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper);color:var(--accent);border:1px solid var(--line);margin-bottom:16px;}
   h1{font-size:clamp(32px,5vw,56px);line-height:1.2;margin:0 0 .1em;font-weight:900;letter-spacing:-1px;color:var(--ink); text-transform: uppercase;}
   .sub-headline { color: var(--ink-2); font-size: 1.15rem; font-weight: 500; margin-top: 16px; line-height: 1.6; }
   
@@ -144,15 +144,15 @@
   .ea-card { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 32px 24px; position: relative; transition: 0.4s var(--ease-linear); display: flex; flex-direction: column;}
   .ea-card:hover { border-color: var(--blue); background: var(--card); box-shadow: var(--shadow-ambient); transform: translateY(-4px);}
   
-  .ea-status { position: absolute; top: 24px; right: 24px; font-size: 0.75rem; font-weight: 700; font-family: var(--mono); padding: 4px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px;}
+  .ea-status { position: absolute; top: 24px; right: 24px; font-size: 0.75rem; font-weight: 800; font-family: var(--mono); padding: 4px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px;}
   .status-active { color: var(--up); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);}
   .status-beta { color: var(--warn); background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3);}
   
   .ea-card h3 { font-size: 1.5rem; margin: 0 0 12px; font-weight: 900; color: var(--ink); letter-spacing: -0.5px;}
-  .ea-card p { font-size: 0.95rem; color: var(--ink-2); margin: 0 0 24px; line-height: 1.6;}
+  .ea-card p { font-size: 0.95rem; color: var(--ink-2); margin: 0 0 24px; line-height: 1.6; font-weight: 500;}
   
   .spec-list { list-style: none; padding: 0; margin: 0 0 32px; border-top: 1px dashed var(--line);}
-  .spec-list li { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 0.95rem; color: var(--ink-2);}
+  .spec-list li { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 0.95rem; color: var(--ink-2); font-weight: 500;}
   .spec-val { color: var(--ink); font-weight: 700; font-family: var(--mono); font-size: 0.9rem;}
   
   .visit-link { margin-top: auto; display: inline-block; padding: 12px 24px; font-size: 0.95rem; font-weight: 800; color: var(--ink); border: 1px solid var(--line); border-radius: 12px; text-align: center; transition: 0.3s var(--ease-linear); text-decoration: none;}
@@ -165,14 +165,14 @@
   .step-block:last-child { margin-bottom: 0; }
   .step-num { position: absolute; left: 0; top: -4px; width: 40px; height: 40px; background: var(--accent-soft); border: 1px solid var(--accent); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 800; font-size: 1.1rem;}
   .step-block h3 { font-size: 1.25rem; margin: 0 0 12px; font-weight: 800; color: var(--ink);}
-  .step-block p { margin: 0; font-size: 1.05rem;}
+  .step-block p { margin: 0; font-size: 1.05rem; color: var(--ink-2); font-weight: 500;}
   
-  .code-snippet { display: block; background: #1A1A1A; color: #10b981; font-family: var(--mono); font-size: 0.9rem; padding: 16px; border-radius: 12px; margin-top: 16px; border: 1px solid #333; overflow-x: auto;}
+  .code-snippet { display: block; background: #1A1A1A; color: #10b981; font-family: var(--mono); font-size: 0.9rem; padding: 16px; border-radius: 12px; margin-top: 16px; border: 1px solid #333; overflow-x: auto; font-weight: 600;}
   
-  .warning-tip { background: rgba(244, 63, 94, 0.05); border-left: 4px solid var(--down); color: var(--ink-2); padding: 16px 20px; font-size: 0.95rem; font-weight: 500; margin-top: 16px; border-radius: 0 12px 12px 0;}
+  .warning-tip { background: rgba(225, 29, 72, 0.05); border-left: 4px solid var(--down); color: var(--ink-2); padding: 16px 20px; font-size: 0.95rem; font-weight: 500; margin-top: 16px; border-radius: 0 12px 12px 0;}
   .warning-tip b { color: var(--down); font-weight: 800; margin-right: 4px;}
 
-  footer.end{border-top:1px solid var(--line);padding-top:32px;margin-top: 60px; color:var(--muted);font-size:13px;text-align:center;font-weight:500;}
+  footer.end{border-top:1px solid var(--line);padding-top:32px;margin-top: 60px; color:var(--muted);font-size:13px;text-align:center;font-weight:600;}
 
   @media(max-width:768px){
     header.top{padding:50px 24px;border-radius:24px;}
@@ -188,17 +188,23 @@
 
 <div class="ambient-canvas"></div>
 
-<!-- Floating Glass Navigation Dock -->
+<!-- Floating Glass Navigation Dock (Standardized Universal Menu) -->
 <div class="dock-container">
   <nav class="glass-dock">
-      <a href="/" class="nav-brand-logo">
-        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo">
+      <a href="/" class="nav-brand-logo" aria-label="Home">
+        <img src="/media/apple-touch-icon.png" alt="BugTraderYai Logo" width="32" height="32">
       </a>
       <a href="/" class="dock-link">หน้าแรก</a>
-      <a href="/intelligence-hub.html" class="dock-link">🔥 500 คำถาม</a>
+      <a href="/intelligence-hub.html" class="dock-link" style="color: var(--accent); font-weight: 700;">🔥 500 คำถาม</a>
       <a href="/porthub.html" class="dock-link">Porthub</a>
-      <a href="/systems.html" class="dock-link active" style="color: var(--accent); font-weight: 600;">Systems</a>
-      <a href="/partners.html" class="dock-link">พาร์ทเนอร์</a>
+      <a href="/live.html" class="dock-link">Live</a>
+      <a href="/manual.html" class="dock-link">คู่มือการใช้งาน</a>
+      <a href="/partners.html" class="dock-link">Partners</a>
+      <a href="/ea-system-philosophy.html" class="dock-link">ปรัชญา</a>
+      <a href="/systems.html" class="dock-link active">Systems</a>
+      <a href="/why-most-ea-users-fail.html" class="dock-link">ทำไมถึงเจ๊ง</a>
+      <a href="/anti-ea-faq.html" class="dock-link">FAQ</a>
+      <a href="/about.html" class="dock-link">รู้จักเรา</a>
   </nav>
 </div>
 
@@ -281,7 +287,7 @@
 </div>
 
 <!-- Theme Toggle Button -->
-<button id="themeBtn" type="button" aria-label="Toggle Dark/Light Mode">Dark Mode</button>
+<button id="themeBtn" type="button" aria-label="Toggle Dark/Light Mode" style="position:fixed;right:24px;bottom:24px;z-index:20;font-family:var(--sans);font-size:12px;font-weight:800;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:10px 20px;cursor:pointer;box-shadow:var(--shadow-ambient);transition:0.3s;">Dark Mode</button>
 <script>
   (function(){
     var b=document.getElementById("themeBtn"),r=document.documentElement;
